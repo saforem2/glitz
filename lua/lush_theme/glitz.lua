@@ -4,9 +4,24 @@
 local lush = require("lush")
 local hsl = lush.hsl
 local hsluv = lush.hsluv
+
+-- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
+-- support an annotation like the following. Consult your server documentation.
+---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    -- LightspeedOneCharMatch xxx links to LightspeedShortcut
+    -- LightspeedShortcut xxx cterm=bold ctermfg=15 ctermbg=9 gui=bold guifg=#ffffff guibg=#f00077
+    -- LightspeedLabel xxx cterm=bold,underline ctermfg=9 gui=bold,underline guifg=#ff2f87
+    -- LightspeedUnlabeledMatch xxx cterm=bold ctermfg=15 gui=bold guifg=#f3ecec
+    -- LightspeedMaskedChar xxx ctermfg=242 guifg=#b38080
+    -- LightspeedGreyWash xxx ctermfg=248 guifg=#777777
+    -- LightspeedPendingOpArea xxx links to IncSearch
+    -- LightspeedCursor xxx links to Cursor
+    -- LightspeedUniqueChar xxx links to LightspeedUnlabeledMatch
+    -- LightspeedLabelDistant xxx cterm=bold,underline ctermfg=14 gui=bold,underline guifg=#99ddff
+    -- LightSpeedLabel                              { fg="bg", gui="underdotted" }, -- LightSpeedLabel xxx gui=bold guifg=#465457
     SpecialKey                                   { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
