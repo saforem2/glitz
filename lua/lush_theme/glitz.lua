@@ -317,6 +317,7 @@ local theme = lush(function(injected_functions)
     NvimComma                                    { Delimiter }, -- NvimComma      xxx links to Delimiter
     NvimArrow                                    { Delimiter }, -- NvimArrow      xxx links to Delimiter
     sym"@punctuation.special"                    { fg="#3ddbd9", }, -- @punctuation.special xxx guifg=#3ddbd9
+    NvimLightRed                                 { fg="#FF7575" },
     Todo                                         { fg="#ff005b", gui="bold", bg="bg", }, -- Todo           xxx cterm=bold gui=bold guifg=#ff005b guibg=bg
     sym"@comment.todo"                           { Todo }, -- @comment.todo  xxx links to Todo
     sym"@markup.strong"                          { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
@@ -334,8 +335,8 @@ local theme = lush(function(injected_functions)
     GitSignsChange                               { Changed }, -- GitSignsChange xxx links to Changed
     sym"@tag"                                    { fg="#78a9ff", }, -- @tag           xxx guifg=#78a9ff
     sym"@constant.macro"                         { fg="#08bdba", }, -- @constant.macro xxx guifg=#08bdba
-    FloatShadow                                  { blend=80, bg="nvimdarkgrey4", }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
-    FloatShadowThrough                           { blend=100, bg="nvimdarkgrey4", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+    FloatShadow                                  { blend=80, bg="#333333", }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
+    FloatShadowThrough                           { blend=100, bg="#444444#", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
     MatchParen                                   { fg="#f92672", gui="bold", bg="#202020", }, -- MatchParen     xxx cterm=bold,underline gui=bold guifg=#f92672 guibg=#202020
     MatchParenCur                                { MatchParen }, -- MatchParenCur  xxx links to MatchParen
     MatchWord                                    { MatchParen }, -- MatchWord      xxx links to MatchParen
@@ -344,12 +345,12 @@ local theme = lush(function(injected_functions)
     RedrawDebugRecompose                         { bg="#ff5252", }, -- RedrawDebugRecompose xxx guibg=#ff5252
     Error                                        { fg="#f20052", gui="bold", }, -- Error          xxx ctermfg=0 ctermbg=9 gui=bold guifg=#f20052
     NvimInvalid                                  { Error }, -- NvimInvalid    xxx links to Error
-    DiagnosticUnderlineError                     { gui="underline", sp="nvimlightred", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
-    DiagnosticUnderlineWarn                      { gui="underline", sp="nvimlightyellow", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
-    DiagnosticUnderlineInfo                      { gui="underline", sp="nvimlightcyan", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
-    DiagnosticUnderlineHint                      { gui="underline", sp="nvimlightblue", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
-    DiagnosticUnderlineOk                        { gui="underline", sp="nvimlightgreen", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
-    DiagnosticDeprecated                         { gui="strikethrough", sp="nvimlightred", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+    DiagnosticUnderlineError                     { gui="underline", sp="#FF7575", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
+    DiagnosticUnderlineWarn                      { gui="underline", sp="#FFFF00", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
+    DiagnosticUnderlineInfo                      { gui="underline", sp="#08bdba", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
+    DiagnosticUnderlineHint                      { gui="underline", sp="#78a9ff", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
+    DiagnosticUnderlineOk                        { gui="underline", sp="#69DB7C", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+    DiagnosticDeprecated                         { gui="strikethrough", sp="#FF7575", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
     NvimInternalError                            { fg="red", bg="red", }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
     NvimFigureBrace                              { NvimInternalError }, -- NvimFigureBrace xxx links to NvimInternalError
     NvimSingleQuotedUnknownEscape                { NvimInternalError }, -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
