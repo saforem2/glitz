@@ -1,5 +1,4 @@
 # 💅 `glitz` ✨
-===
 
 A Lush Theme for Neovim.
 
