@@ -126,7 +126,7 @@ local theme = lush(function(injected_functions)
     lCursor                                      { fg="bg", bg="fg", }, -- lCursor        xxx guifg=bg guibg=fg
     Substitute                                   { fg="#262626", bg="#3ddbd9", }, -- Substitute     xxx guifg=#262626 guibg=#3ddbd9
     VisualNOS                                    { fg="#007dff", gui="bold", }, -- VisualNOS      xxx gui=bold guifg=#007dff
-    Normal                                       { fg="#bdbdbd", }, -- Normal         xxx guifg=#bdbdbd
+    Normal                                       { fg="#bdbdbd", bg="#1c1c1c" }, -- Normal         xxx guifg=#bdbdbd
     WinSeparator                                 { Normal }, -- WinSeparator   xxx links to Normal
     NvimSpacing                                  { Normal }, -- NvimSpacing    xxx links to Normal
     DapUINormal                                  { Normal }, -- DapUINormal    xxx links to Normal
@@ -207,7 +207,7 @@ local theme = lush(function(injected_functions)
     TelescopeResultsSpecialComment               { SpecialComment }, -- TelescopeResultsSpecialComment xxx links to SpecialComment
     Debug                                        { fg="#bca3a3", gui="bold", }, -- Debug          xxx gui=bold guifg=#bca3a3
     Ignore                                       { fg="#808080", bg="bg", }, -- Ignore         xxx guifg=#808080 guibg=bg
-    DiagnosticError                              { fg="nvimlightred", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
+    DiagnosticError                              { fg="#FA5252", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
     DiagnosticFloatingError                      { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
     DiagnosticVirtualTextError                   { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
     DiagnosticSignError                          { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
@@ -222,11 +222,11 @@ local theme = lush(function(injected_functions)
     DiagnosticVirtualTextInfo                    { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
     DiagnosticSignInfo                           { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
     sym"@comment.note"                           { DiagnosticInfo }, -- @comment.note  xxx links to DiagnosticInfo
-    DiagnosticHint                               { fg="#ffff00", }, -- DiagnosticHint xxx ctermfg=12 guifg=#ffff00
+    DiagnosticHint                               { fg="#36CE5E", }, -- DiagnosticHint xxx ctermfg=12 guifg=#ffff00
     DiagnosticFloatingHint                       { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
     DiagnosticVirtualTextHint                    { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
     DiagnosticSignHint                           { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
-    DiagnosticOk                                 { fg="nvimlightgreen", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+    DiagnosticOk                                 { fg="#69DB7C", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
     DiagnosticFloatingOk                         { DiagnosticOk }, -- DiagnosticFloatingOk xxx links to DiagnosticOk
     DiagnosticVirtualTextOk                      { DiagnosticOk }, -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
     DiagnosticSignOk                             { DiagnosticOk }, -- DiagnosticSignOk xxx links to DiagnosticOk
