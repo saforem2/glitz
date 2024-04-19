@@ -9,19 +9,13 @@ local hsluv = lush.hsluv
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
-  local sym = injected_functions.sym
-  return {
-    -- LightspeedOneCharMatch xxx links to LightspeedShortcut
-    -- LightspeedShortcut xxx cterm=bold ctermfg=15 ctermbg=9 gui=bold guifg=#ffffff guibg=#f00077
-    -- LightspeedLabel xxx cterm=bold,underline ctermfg=9 gui=bold,underline guifg=#ff2f87
-    -- LightspeedUnlabeledMatch xxx cterm=bold ctermfg=15 gui=bold guifg=#f3ecec
-    -- LightspeedMaskedChar xxx ctermfg=242 guifg=#b38080
-    -- LightspeedGreyWash xxx ctermfg=248 guifg=#777777
-    -- LightspeedPendingOpArea xxx links to IncSearch
-    -- LightspeedCursor xxx links to Cursor
-    -- LightspeedUniqueChar xxx links to LightspeedUnlabeledMatch
-    -- LightspeedLabelDistant xxx cterm=bold,underline ctermfg=14 gui=bold,underline guifg=#99ddff
-    -- LightSpeedLabel                              { fg="bg", gui="underdotted" }, -- LightSpeedLabel xxx gui=bold guifg=#465457
+local sym = injected_functions.sym
+return {
+    nvimlightred                                 { fg="#FF7575" },
+    nvimlightgreen                               { fg="#69DB7C" },
+    nvimlightcyan                                { fg="#78a9ff" },
+    nvimlightgrey4                               { fg="#888888" },
+    nvimdarkgrey1                                { fg="#222222" },
     SpecialKey                                   { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
@@ -118,7 +112,7 @@ local theme = lush(function(injected_functions)
     Headline                                     { ColorColumn }, -- Headline       xxx links to ColorColumn
     CodeBlock                                    { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
     MatchBackground                              { ColorColumn }, -- MatchBackground xxx links to ColorColumn
-    QuickFixLine                                 { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
+    QuickFixLine                                 { fg=NvimLightCyan, }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
     AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
     Whitespace                                   { bg="#1f1f1f", }, -- Whitespace     xxx guibg=#1f1f1f
     NormalNC                                     { fg="#f2f2f2", bg="#161616", }, -- NormalNC       xxx guifg=#f2f2f2 guibg=#161616
@@ -317,7 +311,6 @@ local theme = lush(function(injected_functions)
     NvimComma                                    { Delimiter }, -- NvimComma      xxx links to Delimiter
     NvimArrow                                    { Delimiter }, -- NvimArrow      xxx links to Delimiter
     sym"@punctuation.special"                    { fg="#3ddbd9", }, -- @punctuation.special xxx guifg=#3ddbd9
-    NvimLightRed                                 { fg="#FF7575" },
     Todo                                         { fg="#ff005b", gui="bold", bg="bg", }, -- Todo           xxx cterm=bold gui=bold guifg=#ff005b guibg=bg
     sym"@comment.todo"                           { Todo }, -- @comment.todo  xxx links to Todo
     sym"@markup.strong"                          { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
@@ -336,13 +329,13 @@ local theme = lush(function(injected_functions)
     sym"@tag"                                    { fg="#78a9ff", }, -- @tag           xxx guifg=#78a9ff
     sym"@constant.macro"                         { fg="#08bdba", }, -- @constant.macro xxx guifg=#08bdba
     FloatShadow                                  { blend=80, bg="#333333", }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
-    FloatShadowThrough                           { blend=100, bg="#444444#", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+    FloatShadowThrough                           { blend=100, bg="#444444", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
     MatchParen                                   { fg="#f92672", gui="bold", bg="#202020", }, -- MatchParen     xxx cterm=bold,underline gui=bold guifg=#f92672 guibg=#202020
     MatchParenCur                                { MatchParen }, -- MatchParenCur  xxx links to MatchParen
     MatchWord                                    { MatchParen }, -- MatchWord      xxx links to MatchParen
-    RedrawDebugClear                             { bg="#ffff00", }, -- RedrawDebugClear xxx guibg=#ffff00
-    RedrawDebugComposed                          { bg="#63ff5b", }, -- RedrawDebugComposed xxx guibg=#63ff5b
-    RedrawDebugRecompose                         { bg="#ff5252", }, -- RedrawDebugRecompose xxx guibg=#ff5252
+    RedrawDebugClear                             { bg="#ffff00", fg="#222222" }, -- RedrawDebugClear xxx guibg=#ffff00
+    RedrawDebugComposed                          { bg="#63ff5b", fg="#222222" }, -- RedrawDebugComposed xxx guibg=#63ff5b
+    RedrawDebugRecompose                         { bg="#ff5252", fg="#222222 "}, -- RedrawDebugRecompose xxx guibg=#ff5252
     Error                                        { fg="#f20052", gui="bold", }, -- Error          xxx ctermfg=0 ctermbg=9 gui=bold guifg=#f20052
     NvimInvalid                                  { Error }, -- NvimInvalid    xxx links to Error
     DiagnosticUnderlineError                     { gui="underline", sp="#FF7575", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
