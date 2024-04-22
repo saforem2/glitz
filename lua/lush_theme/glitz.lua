@@ -8,6 +8,8 @@ local hsluv = lush.hsluv
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
+---
+---
 local theme = lush(function(injected_functions)
 local sym = injected_functions.sym
 return {
@@ -113,7 +115,6 @@ return {
     CodeBlock                                    { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
     MatchBackground                              { ColorColumn }, -- MatchBackground xxx links to ColorColumn
     QuickFixLine                                 { fg=NvimLightCyan, }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
-    AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
     Whitespace                                   { bg="#1f1f1f", }, -- Whitespace     xxx guibg=#1f1f1f
     NormalNC                                     { fg="#f2f2f2", bg="#161616", }, -- NormalNC       xxx guifg=#f2f2f2 guibg=#161616
     NormalFloat                                  { bg="#222222", }, -- NormalFloat    xxx guibg=#222222
@@ -154,7 +155,6 @@ return {
     TelescopePreviewBlock                        { Constant }, -- TelescopePreviewBlock xxx links to Constant
     TelescopePreviewCharDev                      { Constant }, -- TelescopePreviewCharDev xxx links to Constant
     TelescopePreviewPipe                         { Constant }, -- TelescopePreviewPipe xxx links to Constant
-    AerialConstantIcon                           { Constant }, -- AerialConstantIcon xxx links to Constant
     Number                                       { fg="#ff0080", }, -- Number         xxx guifg=#ff0080
     NvimNumber                                   { Number }, -- NvimNumber     xxx links to Number
     TelescopeResultsNumber                       { Number }, -- TelescopeResultsNumber xxx links to Number
@@ -193,10 +193,6 @@ return {
     LspInfoFiletype                              { Type }, -- LspInfoFiletype xxx links to Type
     TelescopeMultiSelection                      { Type }, -- TelescopeMultiSelection xxx links to Type
     pythonDecorator                              { Type }, -- pythonDecorator xxx links to Type
-    AerialClassIcon                              { Type }, -- AerialClassIcon xxx links to Type
-    AerialEnumIcon                               { Type }, -- AerialEnumIcon xxx links to Type
-    AerialInterfaceIcon                          { Type }, -- AerialInterfaceIcon xxx links to Type
-    AerialStructIcon                             { Type }, -- AerialStructIcon xxx links to Type
     Structure                                    { fg="#70f0f0", }, -- Structure      xxx guifg=#70f0f0
     sym"@module"                                 { Structure }, -- @module        xxx links to Structure
     Typedef                                      { fg="#007dff", }, -- Typedef        xxx guifg=#007dff
@@ -207,7 +203,6 @@ return {
     sym"@markup"                                 { Special }, -- @markup        xxx links to Special
     TelescopePreviewLink                         { Special }, -- TelescopePreviewLink xxx links to Special
     TelescopeMatching                            { Special }, -- TelescopeMatching xxx links to Special
-    AerialConstructorIcon                        { Special }, -- AerialConstructorIcon xxx links to Special
     SpecialChar                                  { fg="#f92672", gui="bold", }, -- SpecialChar    xxx gui=bold guifg=#f92672
     NvimRegister                                 { SpecialChar }, -- NvimRegister   xxx links to SpecialChar
     NvimStringSpecial                            { SpecialChar }, -- NvimStringSpecial xxx links to SpecialChar
@@ -247,8 +242,6 @@ return {
     MarkVirtTextHL                               { Comment }, -- MarkVirtTextHL xxx links to Comment
     WhichKeySeparator                            { Comment }, -- WhichKeySeparator xxx links to Comment
     WhichKeyValue                                { Comment }, -- WhichKeyValue  xxx links to Comment
-    AerialPrivate                                { Comment }, -- AerialPrivate  xxx links to Comment
-    AerialProtected                              { Comment }, -- AerialProtected xxx links to Comment
     UfoFoldedEllipsis                            { Comment }, -- UfoFoldedEllipsis xxx links to Comment
     sym"@variable"                               { fg="#d0d0d0", }, -- @variable      xxx guifg=#d0d0d0
     sym"@lsp.type.variable"                      { sym"@variable" }, -- @lsp.type.variable xxx links to @variable
@@ -272,21 +265,6 @@ return {
     TelescopeResultsIdentifier                   { Identifier }, -- TelescopeResultsIdentifier xxx links to Identifier
     TelescopeMultiIcon                           { Identifier }, -- TelescopeMultiIcon xxx links to Identifier
     MarkSignHL                                   { Identifier }, -- MarkSignHL     xxx links to Identifier
-    AerialArrayIcon                              { Identifier }, -- AerialArrayIcon xxx links to Identifier
-    AerialBooleanIcon                            { Identifier }, -- AerialBooleanIcon xxx links to Identifier
-    AerialEnumMemberIcon                         { Identifier }, -- AerialEnumMemberIcon xxx links to Identifier
-    AerialEventIcon                              { Identifier }, -- AerialEventIcon xxx links to Identifier
-    AerialFieldIcon                              { Identifier }, -- AerialFieldIcon xxx links to Identifier
-    AerialFileIcon                               { Identifier }, -- AerialFileIcon xxx links to Identifier
-    AerialKeyIcon                                { Identifier }, -- AerialKeyIcon  xxx links to Identifier
-    AerialNullIcon                               { Identifier }, -- AerialNullIcon xxx links to Identifier
-    AerialNumberIcon                             { Identifier }, -- AerialNumberIcon xxx links to Identifier
-    AerialObjectIcon                             { Identifier }, -- AerialObjectIcon xxx links to Identifier
-    AerialOperatorIcon                           { Identifier }, -- AerialOperatorIcon xxx links to Identifier
-    AerialPropertyIcon                           { Identifier }, -- AerialPropertyIcon xxx links to Identifier
-    AerialStringIcon                             { Identifier }, -- AerialStringIcon xxx links to Identifier
-    AerialTypeParameterIcon                      { Identifier }, -- AerialTypeParameterIcon xxx links to Identifier
-    AerialVariableIcon                           { Identifier }, -- AerialVariableIcon xxx links to Identifier
     sym"@function"                               { fg="#36ce5e", gui="bold", }, -- @function      xxx cterm=bold gui=bold guifg=#36ce5e
     Function                                     { fg="#63ff51", }, -- Function       xxx ctermfg=14 guifg=#63ff51
     LspInfoList                                  { Function }, -- LspInfoList    xxx links to Function
@@ -294,8 +272,6 @@ return {
     TelescopeResultsField                        { Function }, -- TelescopeResultsField xxx links to Function
     TelescopeResultsClass                        { Function }, -- TelescopeResultsClass xxx links to Function
     WhichKey                                     { Function }, -- WhichKey       xxx links to Function
-    AerialFunctionIcon                           { Function }, -- AerialFunctionIcon xxx links to Function
-    AerialMethodIcon                             { Function }, -- AerialMethodIcon xxx links to Function
     sym"@function.builtin"                       { fg="#ff7eb6", }, -- @function.builtin xxx guifg=#ff7eb6
     Operator                                     { fg="#ff4081", }, -- Operator       xxx guifg=#ff4081
     sym"@operator"                               { Operator }, -- @operator      xxx links to Operator
@@ -1208,135 +1184,137 @@ return {
     pythonTSType                                 { fg="#16db93", }, -- pythonTSType   xxx guifg=#16db93
     pythonTSVariableBuiltin                      { fg="#8b949e", }, -- pythonTSVariableBuiltin xxx guifg=#8b949e
     pythonTSBoolean                              { fg="#ff4081", }, -- pythonTSBoolean xxx guifg=#ff4081
-    lualine_x_visual                             { bg="#ffffff", }, -- lualine_x_visual xxx guibg=#ffffff
-    lualine_x_terminal                           { bg="#ffffff", }, -- lualine_x_terminal xxx guibg=#ffffff
-    lualine_c_insert                             { fg="#ffffff", bg="#ffffff", }, -- lualine_c_insert xxx guifg=#ffffff guibg=#ffffff
-    lualine_c_visual                             { fg="#ffffff", bg="#ffffff", }, -- lualine_c_visual xxx guifg=#ffffff guibg=#ffffff
-    lualine_c_replace                            { fg="#ffffff", bg="#ffffff", }, -- lualine_c_replace xxx guifg=#ffffff guibg=#ffffff
-    lualine_c_command                            { fg="#ffffff", bg="#ffffff", }, -- lualine_c_command xxx guifg=#ffffff guibg=#ffffff
-    lualine_c_terminal                           { fg="#ffffff", bg="#ffffff", }, -- lualine_c_terminal xxx guifg=#ffffff guibg=#ffffff
-    lualine_x_inactive                           { bg="#ffffff", }, -- lualine_x_inactive xxx guibg=#ffffff
-    lualine_x_command                            { bg="#ffffff", }, -- lualine_x_command xxx guibg=#ffffff
-    lualine_x_replace                            { bg="#ffffff", }, -- lualine_x_replace xxx guibg=#ffffff
-    lualine_x_insert                             { bg="#ffffff", }, -- lualine_x_insert xxx guibg=#ffffff
-    lualine_c_16_normal                          { bg="#ffffff", }, -- lualine_c_16_normal xxx guibg=#ffffff
-    lualine_c_16_insert                          { bg="#ffffff", }, -- lualine_c_16_insert xxx guibg=#ffffff
-    lualine_c_16_visual                          { bg="#ffffff", }, -- lualine_c_16_visual xxx guibg=#ffffff
-    lualine_c_16_replace                         { bg="#ffffff", }, -- lualine_c_16_replace xxx guibg=#ffffff
-    lualine_c_16_command                         { bg="#ffffff", }, -- lualine_c_16_command xxx guibg=#ffffff
-    lualine_c_16_terminal                        { bg="#ffffff", }, -- lualine_c_16_terminal xxx guibg=#ffffff
-    lualine_c_16_inactive                        { bg="#ffffff", }, -- lualine_c_16_inactive xxx guibg=#ffffff
-    lualine_c_17_normal                          { bg="#ffffff", }, -- lualine_c_17_normal xxx guibg=#ffffff
-    lualine_c_17_insert                          { bg="#ffffff", }, -- lualine_c_17_insert xxx guibg=#ffffff
-    lualine_c_17_visual                          { bg="#ffffff", }, -- lualine_c_17_visual xxx guibg=#ffffff
-    lualine_c_17_replace                         { bg="#ffffff", }, -- lualine_c_17_replace xxx guibg=#ffffff
-    lualine_c_17_command                         { bg="#ffffff", }, -- lualine_c_17_command xxx guibg=#ffffff
-    lualine_c_17_terminal                        { bg="#ffffff", }, -- lualine_c_17_terminal xxx guibg=#ffffff
-    lualine_c_17_inactive                        { bg="#ffffff", }, -- lualine_c_17_inactive xxx guibg=#ffffff
-    lualine_c_24_normal                          { bg="#ffffff", }, -- lualine_c_24_normal xxx guibg=#ffffff
-    lualine_c_24_insert                          { bg="#ffffff", }, -- lualine_c_24_insert xxx guibg=#ffffff
-    lualine_c_24_visual                          { bg="#ffffff", }, -- lualine_c_24_visual xxx guibg=#ffffff
-    lualine_c_24_replace                         { bg="#ffffff", }, -- lualine_c_24_replace xxx guibg=#ffffff
-    lualine_c_24_command                         { bg="#ffffff", }, -- lualine_c_24_command xxx guibg=#ffffff
-    lualine_c_24_terminal                        { bg="#ffffff", }, -- lualine_c_24_terminal xxx guibg=#ffffff
-    lualine_c_24_inactive                        { bg="#ffffff", }, -- lualine_c_24_inactive xxx guibg=#ffffff
-    lualine_x_25_normal                          { bg="#ffffff", }, -- lualine_x_25_normal xxx guibg=#ffffff
-    lualine_x_25_insert                          { bg="#ffffff", }, -- lualine_x_25_insert xxx guibg=#ffffff
-    lualine_x_25_visual                          { bg="#ffffff", }, -- lualine_x_25_visual xxx guibg=#ffffff
-    lualine_x_25_replace                         { bg="#ffffff", }, -- lualine_x_25_replace xxx guibg=#ffffff
-    lualine_x_25_command                         { bg="#ffffff", }, -- lualine_x_25_command xxx guibg=#ffffff
-    lualine_x_25_terminal                        { bg="#ffffff", }, -- lualine_x_25_terminal xxx guibg=#ffffff
-    lualine_x_25_inactive                        { bg="#ffffff", }, -- lualine_x_25_inactive xxx guibg=#ffffff
-    lualine_x_29_normal                          { bg="#ffffff", }, -- lualine_x_29_normal xxx guibg=#ffffff
-    lualine_x_29_insert                          { bg="#ffffff", }, -- lualine_x_29_insert xxx guibg=#ffffff
-    lualine_x_29_visual                          { bg="#ffffff", }, -- lualine_x_29_visual xxx guibg=#ffffff
-    lualine_x_29_replace                         { bg="#ffffff", }, -- lualine_x_29_replace xxx guibg=#ffffff
-    lualine_x_29_command                         { bg="#ffffff", }, -- lualine_x_29_command xxx guibg=#ffffff
-    lualine_x_29_terminal                        { bg="#ffffff", }, -- lualine_x_29_terminal xxx guibg=#ffffff
-    lualine_x_29_inactive                        { bg="#ffffff", }, -- lualine_x_29_inactive xxx guibg=#ffffff
-    lualine_c_diff_added_normal                  { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_normal xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_insert                  { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_insert xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_visual                  { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_visual xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_replace                 { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_replace xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_command                 { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_command xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_terminal                { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_terminal xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_added_inactive                { fg="#98be65", bg="#ffffff", }, -- lualine_c_diff_added_inactive xxx guifg=#98be65 guibg=#ffffff
-    lualine_c_diff_modified_normal               { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_normal xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_insert               { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_insert xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_visual               { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_visual xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_replace              { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_replace xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_command              { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_command xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_terminal             { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_terminal xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_modified_inactive             { fg="#ffee58", bg="#ffffff", }, -- lualine_c_diff_modified_inactive xxx guifg=#ffee58 guibg=#ffffff
-    lualine_c_diff_removed_normal                { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_normal xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_insert                { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_insert xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_visual                { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_visual xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_replace               { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_replace xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_command               { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_command xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_terminal              { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_terminal xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_diff_removed_inactive              { fg="#ef5350", bg="#ffffff", }, -- lualine_c_diff_removed_inactive xxx guifg=#ef5350 guibg=#ffffff
-    lualine_c_31_normal                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_normal xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_insert                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_insert xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_visual                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_visual xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_replace                         { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_replace xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_command                         { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_command xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_terminal                        { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_terminal xxx guifg=#66bb6a guibg=#ffffff
-    lualine_c_31_inactive                        { fg="#66bb6a", bg="#ffffff", }, -- lualine_c_31_inactive xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_diagnostics_error_normal           { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_normal xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_insert           { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_insert xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_visual           { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_visual xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_replace          { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_replace xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_command          { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_command xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_terminal         { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_terminal xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_error_inactive         { fg="#ff0000", bg="#ffffff", }, -- lualine_x_diagnostics_error_inactive xxx guifg=#ff0000 guibg=#ffffff
-    lualine_x_diagnostics_warn_normal            { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_normal xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_insert            { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_insert xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_visual            { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_visual xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_replace           { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_replace xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_command           { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_command xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_terminal          { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_terminal xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_warn_inactive          { fg="#ffa726", bg="#ffffff", }, -- lualine_x_diagnostics_warn_inactive xxx guifg=#ffa726 guibg=#ffffff
-    lualine_x_diagnostics_info_normal            { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_normal xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_insert            { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_insert xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_visual            { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_visual xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_replace           { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_replace xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_command           { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_command xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_terminal          { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_terminal xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_info_inactive          { fg="#29b6f6", bg="#ffffff", }, -- lualine_x_diagnostics_info_inactive xxx guifg=#29b6f6 guibg=#ffffff
-    lualine_x_diagnostics_hint_normal            { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_normal xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_insert            { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_insert xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_visual            { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_visual xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_replace           { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_replace xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_command           { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_command xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_terminal          { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_terminal xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_diagnostics_hint_inactive          { fg="#ffff00", bg="#ffffff", }, -- lualine_x_diagnostics_hint_inactive xxx guifg=#ffff00 guibg=#ffffff
-    lualine_x_33_normal                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_normal xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_insert                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_insert xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_visual                          { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_visual xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_replace                         { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_replace xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_command                         { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_command xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_terminal                        { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_terminal xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_33_inactive                        { fg="#66bb6a", bg="#ffffff", }, -- lualine_x_33_inactive xxx guifg=#66bb6a guibg=#ffffff
-    lualine_x_34_normal                          { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_normal xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_insert                          { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_insert xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_visual                          { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_visual xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_replace                         { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_replace xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_command                         { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_command xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_terminal                        { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_terminal xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_x_34_inactive                        { fg="#ffffff", gui="bold", bg="#ffffff", }, -- lualine_x_34_inactive xxx gui=bold guifg=#ffffff guibg=#ffffff
-    lualine_a_replace                            { fg="#1e1e1e", gui="bold", bg="#ff008c", }, -- lualine_a_replace xxx gui=bold guifg=#1e1e1e guibg=#ff008c
-    lualine_b_replace                            { fg="#ff008c", bg="#1e1e1e", }, -- lualine_b_replace xxx guifg=#ff008c guibg=#1e1e1e
-    lualine_a_visual                             { fg="#1e1e1e", gui="bold", bg="#4a97ff", }, -- lualine_a_visual xxx gui=bold guifg=#1e1e1e guibg=#4a97ff
-    lualine_b_visual                             { fg="#4a97ff", bg="#1e1e1e", }, -- lualine_b_visual xxx guifg=#4a97ff guibg=#1e1e1e
-    lualine_a_insert                             { fg="#1e1e1e", gui="bold", bg="#ffff00", }, -- lualine_a_insert xxx gui=bold guifg=#1e1e1e guibg=#ffff00
-    lualine_b_insert                             { fg="#ffff00", bg="#1e1e1e", }, -- lualine_b_insert xxx guifg=#ffff00 guibg=#1e1e1e
-    lualine_c_inactive                           { fg="#ffffff", bg="#ffffff", }, -- lualine_c_inactive xxx guifg=#ffffff guibg=#ffffff
-    lualine_a_inactive                           { fg="#969696", gui="bold", bg="#464646", }, -- lualine_a_inactive xxx gui=bold guifg=#969696 guibg=#464646
-    lualine_b_inactive                           { fg="#6e6e6e", bg="#1e1e1e", }, -- lualine_b_inactive xxx guifg=#6e6e6e guibg=#1e1e1e
-    lualine_a_terminal                           { fg="#1e1e1e", gui="bold", bg="#ff468d", }, -- lualine_a_terminal xxx gui=bold guifg=#1e1e1e guibg=#ff468d
-    lualine_b_terminal                           { fg="#ff468d", bg="#1e1e1e", }, -- lualine_b_terminal xxx guifg=#ff468d guibg=#1e1e1e
-    lualine_a_command                            { fg="#1e1e1e", gui="bold", bg="#ff468d", }, -- lualine_a_command xxx gui=bold guifg=#1e1e1e guibg=#ff468d
-    lualine_b_command                            { fg="#ff468d", bg="#1e1e1e", }, -- lualine_b_command xxx guifg=#ff468d guibg=#1e1e1e
+    lualine_c_normal                             { bg="#222222", fg="#cccccc", }, -- lualine_c_normal xxx guifg=#222222 guibg=#222222
+    tabline_c_normal                             { lualine_c_normal }, -- tabline_c_normal xxx links to lualine_c_normal
+    lualine_x_visual                             { bg="#222222", }, -- lualine_x_visual xxx guibg=#222222
+    lualine_x_terminal                           { bg="#222222", }, -- lualine_x_terminal xxx guibg=#222222
+    lualine_c_insert                             { bg="#222222", fg="#cccccc", }, -- lualine_c_insert xxx guifg=#222222 guibg=#222222
+    lualine_c_visual                             { bg="#222222", fg="#cccccc", }, -- lualine_c_visual xxx guifg=#222222 guibg=#222222
+    lualine_c_replace                            { bg="#222222", fg="#cccccc", }, -- lualine_c_replace xxx guifg=#222222 guibg=#222222
+    lualine_c_command                            { bg="#222222", fg="#cccccc", }, -- lualine_c_command xxx guifg=#222222 guibg=#222222
+    lualine_c_terminal                           { bg="#222222", fg="#cccccc", }, -- lualine_c_terminal xxx guifg=#222222 guibg=#222222
+    lualine_x_inactive                           { bg="#222222", }, -- lualine_x_inactive xxx guibg=#222222
+    lualine_x_command                            { bg="#222222", }, -- lualine_x_command xxx guibg=#222222
+    lualine_x_replace                            { bg="#222222", }, -- lualine_x_replace xxx guibg=#222222
+    lualine_x_insert                             { bg="#222222", }, -- lualine_x_insert xxx guibg=#222222
+    lualine_c_16_normal                          { bg="#222222", }, -- lualine_c_16_normal xxx guibg=#222222
+    lualine_c_16_insert                          { bg="#222222", }, -- lualine_c_16_insert xxx guibg=#222222
+    lualine_c_16_visual                          { bg="#222222", }, -- lualine_c_16_visual xxx guibg=#222222
+    lualine_c_16_replace                         { bg="#222222", }, -- lualine_c_16_replace xxx guibg=#222222
+    lualine_c_16_command                         { bg="#222222", }, -- lualine_c_16_command xxx guibg=#222222
+    lualine_c_16_terminal                        { bg="#222222", }, -- lualine_c_16_terminal xxx guibg=#222222
+    lualine_c_16_inactive                        { bg="#222222", }, -- lualine_c_16_inactive xxx guibg=#222222
+    lualine_c_17_normal                          { bg="#222222", }, -- lualine_c_17_normal xxx guibg=#222222
+    lualine_c_17_insert                          { bg="#222222", }, -- lualine_c_17_insert xxx guibg=#222222
+    lualine_c_17_visual                          { bg="#222222", }, -- lualine_c_17_visual xxx guibg=#222222
+    lualine_c_17_replace                         { bg="#222222", }, -- lualine_c_17_replace xxx guibg=#222222
+    lualine_c_17_command                         { bg="#222222", }, -- lualine_c_17_command xxx guibg=#222222
+    lualine_c_17_terminal                        { bg="#222222", }, -- lualine_c_17_terminal xxx guibg=#222222
+    lualine_c_17_inactive                        { bg="#222222", }, -- lualine_c_17_inactive xxx guibg=#222222
+    lualine_c_24_normal                          { bg="#222222", }, -- lualine_c_24_normal xxx guibg=#222222
+    lualine_c_24_insert                          { bg="#222222", }, -- lualine_c_24_insert xxx guibg=#222222
+    lualine_c_24_visual                          { bg="#222222", }, -- lualine_c_24_visual xxx guibg=#222222
+    lualine_c_24_replace                         { bg="#222222", }, -- lualine_c_24_replace xxx guibg=#222222
+    lualine_c_24_command                         { bg="#222222", }, -- lualine_c_24_command xxx guibg=#222222
+    lualine_c_24_terminal                        { bg="#222222", }, -- lualine_c_24_terminal xxx guibg=#222222
+    lualine_c_24_inactive                        { bg="#222222", }, -- lualine_c_24_inactive xxx guibg=#222222
+    lualine_x_25_normal                          { bg="#222222", }, -- lualine_x_25_normal xxx guibg=#222222
+    lualine_x_25_insert                          { bg="#222222", }, -- lualine_x_25_insert xxx guibg=#222222
+    lualine_x_25_visual                          { bg="#222222", }, -- lualine_x_25_visual xxx guibg=#222222
+    lualine_x_25_replace                         { bg="#222222", }, -- lualine_x_25_replace xxx guibg=#222222
+    lualine_x_25_command                         { bg="#222222", }, -- lualine_x_25_command xxx guibg=#222222
+    lualine_x_25_terminal                        { bg="#222222", }, -- lualine_x_25_terminal xxx guibg=#222222
+    lualine_x_25_inactive                        { bg="#222222", }, -- lualine_x_25_inactive xxx guibg=#222222
+    lualine_x_29_normal                          { bg="#222222", }, -- lualine_x_29_normal xxx guibg=#222222
+    lualine_x_29_insert                          { bg="#222222", }, -- lualine_x_29_insert xxx guibg=#222222
+    lualine_x_29_visual                          { bg="#222222", }, -- lualine_x_29_visual xxx guibg=#222222
+    lualine_x_29_replace                         { bg="#222222", }, -- lualine_x_29_replace xxx guibg=#222222
+    lualine_x_29_command                         { bg="#222222", }, -- lualine_x_29_command xxx guibg=#222222
+    lualine_x_29_terminal                        { bg="#222222", }, -- lualine_x_29_terminal xxx guibg=#222222
+    lualine_x_29_inactive                        { bg="#222222", }, -- lualine_x_29_inactive xxx guibg=#222222
+    lualine_c_diff_added_normal                  { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_normal xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_insert                  { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_insert xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_visual                  { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_visual xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_replace                 { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_replace xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_command                 { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_command xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_terminal                { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_terminal xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_added_inactive                { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_inactive xxx guifg=#98be65 guibg=#222222
+    lualine_c_diff_modified_normal               { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_normal xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_insert               { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_insert xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_visual               { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_visual xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_replace              { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_replace xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_command              { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_command xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_terminal             { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_terminal xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_modified_inactive             { bg="#222222", fg="#ffee58", }, -- lualine_c_diff_modified_inactive xxx guifg=#ffee58 guibg=#222222
+    lualine_c_diff_removed_normal                { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_normal xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_insert                { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_insert xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_visual                { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_visual xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_replace               { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_replace xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_command               { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_command xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_terminal              { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_terminal xxx guifg=#ef5350 guibg=#222222
+    lualine_c_diff_removed_inactive              { bg="#222222", fg="#ef5350", }, -- lualine_c_diff_removed_inactive xxx guifg=#ef5350 guibg=#222222
+    lualine_c_31_normal                          { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_normal xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_insert                          { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_insert xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_visual                          { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_visual xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_replace                         { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_replace xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_command                         { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_command xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_terminal                        { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_terminal xxx guifg=#66bb6a guibg=#222222
+    lualine_c_31_inactive                        { bg="#222222", fg="#66bb6a", }, -- lualine_c_31_inactive xxx guifg=#66bb6a guibg=#222222
+    lualine_x_diagnostics_error_normal           { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_normal xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_insert           { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_insert xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_visual           { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_visual xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_replace          { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_replace xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_command          { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_command xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_terminal         { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_terminal xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_error_inactive         { bg="#222222", fg="#ff0000", }, -- lualine_x_diagnostics_error_inactive xxx guifg=#ff0000 guibg=#222222
+    lualine_x_diagnostics_warn_normal            { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_normal xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_insert            { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_insert xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_visual            { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_visual xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_replace           { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_replace xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_command           { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_command xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_terminal          { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_terminal xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_warn_inactive          { bg="#222222", fg="#ffa726", }, -- lualine_x_diagnostics_warn_inactive xxx guifg=#ffa726 guibg=#222222
+    lualine_x_diagnostics_info_normal            { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_normal xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_insert            { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_insert xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_visual            { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_visual xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_replace           { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_replace xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_command           { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_command xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_terminal          { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_terminal xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_info_inactive          { bg="#222222", fg="#29b6f6", }, -- lualine_x_diagnostics_info_inactive xxx guifg=#29b6f6 guibg=#222222
+    lualine_x_diagnostics_hint_normal            { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_normal xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_insert            { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_insert xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_visual            { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_visual xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_replace           { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_replace xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_command           { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_command xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_terminal          { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_terminal xxx guifg=#ffff00 guibg=#222222
+    lualine_x_diagnostics_hint_inactive          { bg="#222222", fg="#ffff00", }, -- lualine_x_diagnostics_hint_inactive xxx guifg=#ffff00 guibg=#222222
+    lualine_x_33_normal                          { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_normal xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_insert                          { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_insert xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_visual                          { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_visual xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_replace                         { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_replace xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_command                         { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_command xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_terminal                        { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_terminal xxx guifg=#66bb6a guibg=#222222
+    lualine_x_33_inactive                        { bg="#222222", fg="#66bb6a", }, -- lualine_x_33_inactive xxx guifg=#66bb6a guibg=#222222
+    lualine_x_34_normal                          { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_normal xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_insert                          { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_insert xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_visual                          { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_visual xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_replace                         { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_replace xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_command                         { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_command xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_terminal                        { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_terminal xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_x_34_inactive                        { gui="bold", bg="#222222", fg="#cccccc", }, -- lualine_x_34_inactive xxx gui=bold guifg=#222222 guibg=#222222
+    lualine_a_replace                            { gui="bold", bg="#ff008c", fg="#1e1e1e", }, -- lualine_a_replace xxx gui=bold guifg=#1e1e1e guibg=#ff008c
+    lualine_b_replace                            { bg="#1e1e1e", fg="#ff008c", }, -- lualine_b_replace xxx guifg=#ff008c guibg=#1e1e1e
+    lualine_a_visual                             { gui="bold", bg="#4a97ff", fg="#1e1e1e", }, -- lualine_a_visual xxx gui=bold guifg=#1e1e1e guibg=#4a97ff
+    lualine_b_visual                             { bg="#1e1e1e", fg="#4a97ff", }, -- lualine_b_visual xxx guifg=#4a97ff guibg=#1e1e1e
+    lualine_a_insert                             { gui="bold", bg="#ffff00", fg="#1e1e1e", }, -- lualine_a_insert xxx gui=bold guifg=#1e1e1e guibg=#ffff00
+    lualine_b_insert                             { bg="#1e1e1e", fg="#ffff00", }, -- lualine_b_insert xxx guifg=#ffff00 guibg=#1e1e1e
+    lualine_c_inactive                           { bg="#222222", fg="#cccccc", }, -- lualine_c_inactive xxx guifg=#222222 guibg=#222222
+    lualine_a_inactive                           { gui="bold", bg="#464646", fg="#969696", }, -- lualine_a_inactive xxx gui=bold guifg=#969696 guibg=#464646
+    lualine_b_inactive                           { bg="#1e1e1e", fg="#6e6e6e", }, -- lualine_b_inactive xxx guifg=#6e6e6e guibg=#1e1e1e
+    lualine_a_terminal                           { gui="bold", bg="#ff468d", fg="#1e1e1e", }, -- lualine_a_terminal xxx gui=bold guifg=#1e1e1e guibg=#ff468d
+    lualine_b_terminal                           { bg="#1e1e1e", fg="#ff468d", }, -- lualine_b_terminal xxx guifg=#ff468d guibg=#1e1e1e
+    lualine_a_command                            { gui="bold", bg="#ff468d", fg="#1e1e1e", }, -- lualine_a_command xxx gui=bold guifg=#1e1e1e guibg=#ff468d
+    lualine_b_command                            { bg="#1e1e1e", fg="#ff468d", }, -- lualine_b_command xxx guifg=#ff468d guibg=#1e1e1e
     rainbowcol1                                  { fg="#00e676", }, -- rainbowcol1    xxx guifg=#00e676
     rainbowcol2                                  { fg="#f92672", }, -- rainbowcol2    xxx guifg=#f92672
     rainbowcol3                                  { fg="#42a5f5", }, -- rainbowcol3    xxx guifg=#42a5f5
@@ -1345,11 +1323,8 @@ return {
     rainbowcol6                                  { fg="#ffee58", }, -- rainbowcol6    xxx guifg=#ffee58
     rainbowcol7                                  { fg="#ffa726", }, -- rainbowcol7    xxx guifg=#ffa726
     rainbowcol8                                  { fg="#ef5350", }, -- rainbowcol8    xxx guifg=#ef5350
-    markdownTSTitle                              { fg="#ff4081", gui="bold", bg="#1c1c1c", }, -- markdownTSTitle xxx gui=bold guifg=#ff4081 guibg=#1c1c1c
-    markdownTSLiteral                            { fg="#b2ff59", bg="#202020", }, -- markdownTSLiteral xxx guifg=#b2ff59 guibg=#202020
-    BufferLineBackground                         { bg="#1d1d1d", }, -- BufferLineBackground xxx guibg=#1d1d1d
-    BufferLineCloseButton                        { bg="#1d1d1d", }, -- BufferLineCloseButton xxx guibg=#1d1d1d
-    BufferLineSeparator                          { bg="#1d1d1d", }, -- BufferLineSeparator xxx guibg=#1d1d1d
+    markdownTSTitle                              { fg="#b2ff59", bg="#202020", }, -- markdownTSLiteral xxx guifg=#b2ff59 guibg=#202020
+    BufferLineBackground                         { bg="#1d1d1d", }, -- BufferLineSeparator xxx guibg=#1d1d1d
     BufferLineFill                               { bg="#1d1d1d", }, -- BufferLineFill xxx guibg=#1d1d1d
     IndentBlanklineContextChar                   { fg="#ffff00", gui="nocombine", }, -- IndentBlanklineContextChar xxx cterm=nocombine gui=nocombine guifg=#ffff00
     IndentBlanklineContextStart                  { gui="underline", sp="#ffff00", }, -- IndentBlanklineContextStart xxx cterm=underline gui=underline guisp=#ffff00
@@ -1515,43 +1490,6 @@ return {
     Stlf20052_NONE_bolditalic_                   { fg="#f20052", gui="bold,italic", }, -- Stlf20052_NONE_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#f20052
     StlNONE_202020__                             { bg="#202020", }, -- StlNONE_202020__ xxx guibg=#202020
     Stl_202020__                                 { bg="#202020", }, -- Stl_202020__   xxx guibg=#202020
-    AerialNormal                                 { fg="#bdbdbd", }, -- AerialNormal   xxx guifg=#bdbdbd
-    AerialArray                                  { AerialNormal }, -- AerialArray    xxx links to AerialNormal
-    AerialBoolean                                { AerialNormal }, -- AerialBoolean  xxx links to AerialNormal
-    AerialClass                                  { AerialNormal }, -- AerialClass    xxx links to AerialNormal
-    AerialConstant                               { AerialNormal }, -- AerialConstant xxx links to AerialNormal
-    AerialConstructor                            { AerialNormal }, -- AerialConstructor xxx links to AerialNormal
-    AerialEnum                                   { AerialNormal }, -- AerialEnum     xxx links to AerialNormal
-    AerialEnumMember                             { AerialNormal }, -- AerialEnumMember xxx links to AerialNormal
-    AerialEvent                                  { AerialNormal }, -- AerialEvent    xxx links to AerialNormal
-    AerialField                                  { AerialNormal }, -- AerialField    xxx links to AerialNormal
-    AerialFile                                   { AerialNormal }, -- AerialFile     xxx links to AerialNormal
-    AerialFunction                               { AerialNormal }, -- AerialFunction xxx links to AerialNormal
-    AerialInterface                              { AerialNormal }, -- AerialInterface xxx links to AerialNormal
-    AerialKey                                    { AerialNormal }, -- AerialKey      xxx links to AerialNormal
-    AerialMethod                                 { AerialNormal }, -- AerialMethod   xxx links to AerialNormal
-    AerialModule                                 { AerialNormal }, -- AerialModule   xxx links to AerialNormal
-    AerialNamespace                              { AerialNormal }, -- AerialNamespace xxx links to AerialNormal
-    AerialNull                                   { AerialNormal }, -- AerialNull     xxx links to AerialNormal
-    AerialNumber                                 { AerialNormal }, -- AerialNumber   xxx links to AerialNormal
-    AerialObject                                 { AerialNormal }, -- AerialObject   xxx links to AerialNormal
-    AerialOperator                               { AerialNormal }, -- AerialOperator xxx links to AerialNormal
-    AerialPackage                                { AerialNormal }, -- AerialPackage  xxx links to AerialNormal
-    AerialProperty                               { AerialNormal }, -- AerialProperty xxx links to AerialNormal
-    AerialString                                 { AerialNormal }, -- AerialString   xxx links to AerialNormal
-    AerialStruct                                 { AerialNormal }, -- AerialStruct   xxx links to AerialNormal
-    AerialTypeParameter                          { AerialNormal }, -- AerialTypeParameter xxx links to AerialNormal
-    AerialVariable                               { AerialNormal }, -- AerialVariable xxx links to AerialNormal
-    AerialGuide                                  { fg="#494949", }, -- AerialGuide    xxx guifg=#494949
-    AerialGuide1                                 { AerialGuide }, -- AerialGuide1   xxx links to AerialGuide
-    AerialGuide2                                 { AerialGuide }, -- AerialGuide2   xxx links to AerialGuide
-    AerialGuide3                                 { AerialGuide }, -- AerialGuide3   xxx links to AerialGuide
-    AerialGuide4                                 { AerialGuide }, -- AerialGuide4   xxx links to AerialGuide
-    AerialGuide5                                 { AerialGuide }, -- AerialGuide5   xxx links to AerialGuide
-    AerialGuide6                                 { AerialGuide }, -- AerialGuide6   xxx links to AerialGuide
-    AerialGuide7                                 { AerialGuide }, -- AerialGuide7   xxx links to AerialGuide
-    AerialGuide8                                 { AerialGuide }, -- AerialGuide8   xxx links to AerialGuide
-    AerialGuide9                                 { AerialGuide }, -- AerialGuide9   xxx links to AerialGuide
     Stl222222_61afef__                           { fg="#222222", bg="#61afef", }, -- Stl222222_61afef__ xxx guifg=#222222 guibg=#61afef
     Stl61afef_222222__                           { fg="#61afef", bg="#222222", }, -- Stl61afef_222222__ xxx guifg=#61afef guibg=#222222
     Stl51a0cf_222222__                           { fg="#51a0cf", bg="#222222", }, -- Stl51a0cf_222222__ xxx guifg=#51a0cf guibg=#222222
@@ -1673,3 +1611,67 @@ return {
   }
 end)
 return theme
+
+    -- AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
+    -- AerialConstantIcon                           { Constant }, -- AerialConstantIcon xxx links to Constant
+    -- AerialClassIcon                              { Type }, -- AerialClassIcon xxx links to Type
+    -- AerialEnumIcon                               { Type }, -- AerialEnumIcon xxx links to Type
+    -- AerialInterfaceIcon                          { Type }, -- AerialInterfaceIcon xxx links to Type
+    -- AerialStructIcon                             { Type }, -- AerialStructIcon xxx links to Type
+    -- AerialConstructorIcon                        { Special }, -- AerialConstructorIcon xxx links to Special
+    -- AerialPrivate                                { Comment }, -- AerialPrivate  xxx links to Comment
+    -- AerialProtected                              { Comment }, -- AerialProtected xxx links to Comment
+    -- AerialArrayIcon                              { Identifier }, -- AerialArrayIcon xxx links to Identifier
+    -- AerialBooleanIcon                            { Identifier }, -- AerialBooleanIcon xxx links to Identifier
+    -- AerialEnumMemberIcon                         { Identifier }, -- AerialEnumMemberIcon xxx links to Identifier
+    -- AerialEventIcon                              { Identifier }, -- AerialEventIcon xxx links to Identifier
+    -- AerialFieldIcon                              { Identifier }, -- AerialFieldIcon xxx links to Identifier
+    -- AerialFileIcon                               { Identifier }, -- AerialFileIcon xxx links to Identifier
+    -- AerialKeyIcon                                { Identifier }, -- AerialKeyIcon  xxx links to Identifier
+    -- AerialNullIcon                               { Identifier }, -- AerialNullIcon xxx links to Identifier
+    -- AerialNumberIcon                             { Identifier }, -- AerialNumberIcon xxx links to Identifier
+    -- AerialObjectIcon                             { Identifier }, -- AerialObjectIcon xxx links to Identifier
+    -- AerialOperatorIcon                           { Identifier }, -- AerialOperatorIcon xxx links to Identifier
+    -- AerialPropertyIcon                           { Identifier }, -- AerialPropertyIcon xxx links to Identifier
+    -- AerialStringIcon                             { Identifier }, -- AerialStringIcon xxx links to Identifier
+    -- AerialTypeParameterIcon                      { Identifier }, -- AerialTypeParameterIcon xxx links to Identifier
+    -- AerialVariableIcon                           { Identifier }, -- AerialVariableIcon xxx links to Identifier
+    -- AerialFunctionIcon                           { Function }, -- AerialFunctionIcon xxx links to Function
+    -- AerialMethodIcon                             { Function }, -- AerialMethodIcon xxx links to Function
+    -- AerialNormal                                 { fg="#bdbdbd", }, -- AerialNormal   xxx guifg=#bdbdbd
+    -- AerialArray                                  { AerialNormal }, -- AerialArray    xxx links to AerialNormal
+    -- AerialBoolean                                { AerialNormal }, -- AerialBoolean  xxx links to AerialNormal
+    -- AerialClass                                  { AerialNormal }, -- AerialClass    xxx links to AerialNormal
+    -- AerialConstant                               { AerialNormal }, -- AerialConstant xxx links to AerialNormal
+    -- AerialConstructor                            { AerialNormal }, -- AerialConstructor xxx links to AerialNormal
+    -- AerialEnum                                   { AerialNormal }, -- AerialEnum     xxx links to AerialNormal
+    -- AerialEnumMember                             { AerialNormal }, -- AerialEnumMember xxx links to AerialNormal
+    -- AerialEvent                                  { AerialNormal }, -- AerialEvent    xxx links to AerialNormal
+    -- AerialField                                  { AerialNormal }, -- AerialField    xxx links to AerialNormal
+    -- AerialFile                                   { AerialNormal }, -- AerialFile     xxx links to AerialNormal
+    -- AerialFunction                               { AerialNormal }, -- AerialFunction xxx links to AerialNormal
+    -- AerialInterface                              { AerialNormal }, -- AerialInterface xxx links to AerialNormal
+    -- AerialKey                                    { AerialNormal }, -- AerialKey      xxx links to AerialNormal
+    -- AerialMethod                                 { AerialNormal }, -- AerialMethod   xxx links to AerialNormal
+    -- AerialModule                                 { AerialNormal }, -- AerialModule   xxx links to AerialNormal
+    -- AerialNamespace                              { AerialNormal }, -- AerialNamespace xxx links to AerialNormal
+    -- AerialNull                                   { AerialNormal }, -- AerialNull     xxx links to AerialNormal
+    -- AerialNumber                                 { AerialNormal }, -- AerialNumber   xxx links to AerialNormal
+    -- AerialObject                                 { AerialNormal }, -- AerialObject   xxx links to AerialNormal
+    -- AerialOperator                               { AerialNormal }, -- AerialOperator xxx links to AerialNormal
+    -- AerialPackage                                { AerialNormal }, -- AerialPackage  xxx links to AerialNormal
+    -- AerialProperty                               { AerialNormal }, -- AerialProperty xxx links to AerialNormal
+    -- AerialString                                 { AerialNormal }, -- AerialString   xxx links to AerialNormal
+    -- AerialStruct                                 { AerialNormal }, -- AerialStruct   xxx links to AerialNormal
+    -- AerialTypeParameter                          { AerialNormal }, -- AerialTypeParameter xxx links to AerialNormal
+    -- AerialVariable                               { AerialNormal }, -- AerialVariable xxx links to AerialNormal
+    -- AerialGuide                                  { fg="#494949", }, -- AerialGuide    xxx guifg=#494949
+    -- AerialGuide1                                 { AerialGuide }, -- AerialGuide1   xxx links to AerialGuide
+    -- AerialGuide2                                 { AerialGuide }, -- AerialGuide2   xxx links to AerialGuide
+    -- AerialGuide3                                 { AerialGuide }, -- AerialGuide3   xxx links to AerialGuide
+    -- AerialGuide4                                 { AerialGuide }, -- AerialGuide4   xxx links to AerialGuide
+    -- AerialGuide5                                 { AerialGuide }, -- AerialGuide5   xxx links to AerialGuide
+    -- AerialGuide6                                 { AerialGuide }, -- AerialGuide6   xxx links to AerialGuide
+    -- AerialGuide7                                 { AerialGuide }, -- AerialGuide7   xxx links to AerialGuide
+    -- AerialGuide8                                 { AerialGuide }, -- AerialGuide8   xxx links to AerialGuide
+    -- AerialGuide9                                 { AerialGuide }, -- AerialGuide9   xxx links to AerialGuide
