@@ -7,6 +7,8 @@ local hsluv = lush.hsluv
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    sym"@markup.heading.1"                       { bg="#6C0202", fg="#FB967D", }, -- @markup.heading.1 xxx guibg=#6C0202 guifg=#FB967D
+    sym"@markup.heading.2"                       { bg="#023008", fg="#6DD283", }, -- @markup.heading.2 xxx guibg=#023008 guifg=#6DD283
     SpecialKey                                   { gui="bold", fg="#465457", }, -- SpecialKey     xxx gui=bold guifg=#465457
     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
