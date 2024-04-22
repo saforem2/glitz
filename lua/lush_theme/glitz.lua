@@ -126,7 +126,7 @@ local theme = lush(function(injected_functions)
     lCursor                                      { bg="fg", fg="bg", }, -- lCursor        xxx guifg=bg guibg=fg
     Substitute                                   { bg="#3ddbd9", fg="#262626", }, -- Substitute     xxx guifg=#262626 guibg=#3ddbd9
     VisualNOS                                    { gui="bold", fg="#007dff", }, -- VisualNOS      xxx gui=bold guifg=#007dff
-    Normal                                       { fg="#bdbdbd", }, -- Normal         xxx guifg=#bdbdbd
+    Normal                                       { fg="#bdbdbd", bg="#1c1c1c", }, -- Normal         xxx guifg=#bdbdbd
     WinSeparator                                 { Normal }, -- WinSeparator   xxx links to Normal
     NvimSpacing                                  { Normal }, -- NvimSpacing    xxx links to Normal
     DapUINormal                                  { Normal }, -- DapUINormal    xxx links to Normal
