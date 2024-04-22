@@ -127,8 +127,8 @@ return {
     FloatBorder                                  { fg="#131313", bg="#161616", }, -- FloatBorder    xxx guifg=#131313 guibg=#161616
     TreesitterContextSeparator                   { FloatBorder }, -- TreesitterContextSeparator xxx links to FloatBorder
     CccFloatBorder                               { FloatBorder }, -- CccFloatBorder xxx links to FloatBorder
-    WinBar                                       { gui="bold", }, -- WinBar         xxx cterm=bold gui=bold
-    WinBarNC                                     { fg="nvimlightgrey4", bg="nvimdarkgrey1", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+    -- WinBar                                       { gui="bold", }, -- WinBar         xxx cterm=bold gui=bold
+    -- WinBarNC                                     { fg="nvimlightgrey4", bg="nvimdarkgrey1", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
     RedrawDebugNormal                            { gui="reverse", }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
     Underlined                                   { gui="underline", }, -- Underlined     xxx cterm=underline gui=underline
     sym"@string.special.url"                     { Underlined }, -- @string.special.url xxx links to Underlined
