@@ -221,7 +221,7 @@ return {
     DiagnosticVirtualTextWarn                    { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
     DiagnosticSignWarn                           { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
     sym"@comment.warning"                        { DiagnosticWarn }, -- @comment.warning xxx links to DiagnosticWarn
-    DiagnosticInfo                               { fg="nvimlightcyan", }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
+    DiagnosticInfo                               { fg=nvimlightcyan, }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
     DiagnosticFloatingInfo                       { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
     DiagnosticVirtualTextInfo                    { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
     DiagnosticSignInfo                           { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
@@ -293,13 +293,13 @@ return {
     sym"@markup.italic"                          { gui="italic", }, -- @markup.italic xxx cterm=italic gui=italic
     sym"@markup.strikethrough"                   { gui="strikethrough", }, -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
     sym"@markup.underline"                       { gui="underline", }, -- @markup.underline xxx cterm=underline gui=underline
-    Added                                        { fg="nvimlightgreen", }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
+    Added                                        { fg=nvimlightgreen, }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
     sym"@diff.plus"                              { Added }, -- @diff.plus     xxx links to Added
     GitSignsAdd                                  { Added }, -- GitSignsAdd    xxx links to Added
-    Removed                                      { fg="nvimlightred", }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
+    Removed                                      { fg=nvimlightred, }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
     sym"@diff.minus"                             { Removed }, -- @diff.minus    xxx links to Removed
     GitSignsDelete                               { Removed }, -- GitSignsDelete xxx links to Removed
-    Changed                                      { fg="nvimlightcyan", }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
+    Changed                                      { fg=nvimlightcyan, }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
     sym"@diff.delta"                             { Changed }, -- @diff.delta    xxx links to Changed
     GitSignsChange                               { Changed }, -- GitSignsChange xxx links to Changed
     sym"@tag"                                    { fg="#78a9ff", }, -- @tag           xxx guifg=#78a9ff
