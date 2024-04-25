@@ -400,7 +400,7 @@ local theme = lush(function(injected_functions)
     CmpItemMenuDefault                           { fg="#d0d0d0", }, -- CmpItemMenuDefault xxx guifg=#d0d0d0
     CmpItemMenu                                  { CmpItemMenuDefault }, -- CmpItemMenu    xxx links to CmpItemMenuDefault
     ZenBg                                        { bg="#1a1a1a", fg="#1a1a1a", }, -- ZenBg          xxx guifg=#1a1a1a guibg=#1a1a1a
-    NotifyBackground                             { bg="#222222", fg="#939393", }, -- NotifyBackground xxx guifg=#939393 guibg=#222222
+    -- NotifyBackground                             { bg="#222222", fg="#939393", }, -- NotifyBackground xxx guifg=#939393 guibg=#222222
     NotifyERRORBorder                            { fg="#ff5252", }, -- NotifyERRORBorder xxx guifg=#ff5252
     NotifyWARNBorder                             { fg="#ffb53d", }, -- NotifyWARNBorder xxx guifg=#ffb53d
     NotifyINFOBorder                             { fg="#a9ff68", }, -- NotifyINFOBorder xxx guifg=#a9ff68
