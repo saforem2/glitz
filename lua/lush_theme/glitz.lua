@@ -4,6 +4,16 @@
 local lush = require("lush")
 local hsl = lush.hsl
 local hsluv = lush.hsluv
+
+local nvimlightred = hsl(360, 100, 73) -- hsl(0, 100, 50)
+local nvimlightblue = hsl(194, 100, 51) -- hsl(240, 100, 50)
+local nvimlightcyan = hsl(179, 69, 60)  -- hsl(180, 100, 50)
+local nvimlightyellow = hsl(44, 100, 77) -- #FFDF88
+local nvimlightgreen = hsl(139, 87, 80)
+local nvimdarkgrey1 = hsl(0, 0, 22)
+local nvimlightgrey4 = hsl(0, 0, 32)
+-- local nvimdarkgrey15 = hsl(0, 0, 50)
+
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
@@ -105,7 +115,7 @@ local theme = lush(function(injected_functions)
     Headline                                     { ColorColumn }, -- Headline       xxx links to ColorColumn
     CodeBlock                                    { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
     MatchBackground                              { ColorColumn }, -- MatchBackground xxx links to ColorColumn
-    QuickFixLine                                 { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
+    QuickFixLine                                 { fg=nvimlightcyan, }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
     AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
     Whitespace                                   { bg="#1f1f1f", }, -- Whitespace     xxx guibg=#1f1f1f
     NormalNC                                     { bg="#161616", fg="#f2f2f2", }, -- NormalNC       xxx guifg=#f2f2f2 guibg=#161616
@@ -120,7 +130,7 @@ local theme = lush(function(injected_functions)
     CccFloatBorder                               { FloatBorder }, -- CccFloatBorder xxx links to FloatBorder
     TreesitterContextSeparator                   { FloatBorder }, -- TreesitterContextSeparator xxx links to FloatBorder
     WinBar                                       { gui="bold", }, -- WinBar         xxx cterm=bold gui=bold
-    WinBarNC                                     { bg="nvimdarkgrey1", fg="nvimlightgrey4", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+    WinBarNC                                     { bg=nvimdarkgrey1, fg=nvimlightgrey4, }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
     RedrawDebugNormal                            { gui="reverse", }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
     Underlined                                   { gui="underline", }, -- Underlined     xxx cterm=underline gui=underline
     sym"@string.special.url"                     { Underlined }, -- @string.special.url xxx links to Underlined
@@ -209,7 +219,6 @@ local theme = lush(function(injected_functions)
     TelescopeResultsSpecialComment               { SpecialComment }, -- TelescopeResultsSpecialComment xxx links to SpecialComment
     Debug                                        { gui="bold", fg="#bca3a3", }, -- Debug          xxx gui=bold guifg=#bca3a3
     Ignore                                       { bg="bg", fg="#808080", }, -- Ignore         xxx guifg=#808080 guibg=bg
-    DiagnosticError                              { fg="nvimlightred", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
     DiagnosticFloatingError                      { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
     DiagnosticVirtualTextError                   { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
     DiagnosticSignError                          { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
@@ -219,7 +228,6 @@ local theme = lush(function(injected_functions)
     DiagnosticVirtualTextWarn                    { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
     DiagnosticSignWarn                           { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
     sym"@comment.warning"                        { DiagnosticWarn }, -- @comment.warning xxx links to DiagnosticWarn
-    DiagnosticInfo                               { fg="nvimlightcyan", }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
     DiagnosticFloatingInfo                       { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
     DiagnosticVirtualTextInfo                    { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
     DiagnosticSignInfo                           { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
@@ -228,7 +236,6 @@ local theme = lush(function(injected_functions)
     DiagnosticFloatingHint                       { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
     DiagnosticVirtualTextHint                    { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
     DiagnosticSignHint                           { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
-    DiagnosticOk                                 { fg="nvimlightgreen", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
     DiagnosticFloatingOk                         { DiagnosticOk }, -- DiagnosticFloatingOk xxx links to DiagnosticOk
     DiagnosticVirtualTextOk                      { DiagnosticOk }, -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
     DiagnosticSignOk                             { DiagnosticOk }, -- DiagnosticSignOk xxx links to DiagnosticOk
@@ -313,7 +320,7 @@ local theme = lush(function(injected_functions)
     Added                                        { fg="nvimlightgreen", }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
     sym"@diff.plus"                              { Added }, -- @diff.plus     xxx links to Added
     GitSignsAdd                                  { Added }, -- GitSignsAdd    xxx links to Added
-    Removed                                      { fg="nvimlightred", }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
+    Removed                                      { fg=nvimlightred, }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
     sym"@diff.minus"                             { Removed }, -- @diff.minus    xxx links to Removed
     GitSignsDelete                               { Removed }, -- GitSignsDelete xxx links to Removed
     Changed                                      { fg="nvimlightcyan", }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
@@ -331,12 +338,15 @@ local theme = lush(function(injected_functions)
     RedrawDebugRecompose                         { bg="#ff5252", }, -- RedrawDebugRecompose xxx guibg=#ff5252
     Error                                        { gui="bold", fg="#f20052", }, -- Error          xxx ctermfg=0 ctermbg=9 gui=bold guifg=#f20052
     NvimInvalid                                  { Error }, -- NvimInvalid    xxx links to Error
-    DiagnosticUnderlineError                     { gui="underline", sp="nvimlightred", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
-    DiagnosticUnderlineWarn                      { gui="underline", sp="nvimlightyellow", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
-    DiagnosticUnderlineInfo                      { gui="underline", sp="nvimlightcyan", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
-    DiagnosticUnderlineHint                      { gui="underline", sp="nvimlightblue", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
-    DiagnosticUnderlineOk                        { gui="underline", sp="nvimlightgreen", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
-    DiagnosticDeprecated                         { gui="strikethrough", sp="nvimlightred", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+    DiagnosticError                              { fg=nvimlightred, }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
+    DiagnosticInfo                               { fg=nvimlightcyan, }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
+    DiagnosticOk                                 { fg=nvimlightgreen, }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+    DiagnosticUnderlineError                     { gui="underline", sp=nvimlightred, }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
+    DiagnosticUnderlineWarn                      { gui="underline", sp=nvimlightyellow, }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
+    DiagnosticUnderlineInfo                      { gui="underline", sp=nvimlightcyan, }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
+    DiagnosticUnderlineHint                      { gui="underline", sp=nvimlightblue, }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
+    DiagnosticUnderlineOk                        { gui="underline", sp=nvimlightgreen, }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+    DiagnosticDeprecated                         { gui="strikethrough", sp=nvimlightred, }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
     NvimInternalError                            { bg="red", fg="red", }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
     NvimFigureBrace                              { NvimInternalError }, -- NvimFigureBrace xxx links to NvimInternalError
     NvimSingleQuotedUnknownEscape                { NvimInternalError }, -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
