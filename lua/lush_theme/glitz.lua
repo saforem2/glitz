@@ -58,9 +58,7 @@ local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
 
-    -- mkdCode fg=#A9E34C bg=#222D0F
     Normal                                       { fg="#bdbdbd", bg="#1c1c1c" }, -- Normal         xxx fg=#bdbdbd
-    -- mkdCode                                      { fg="#A9E34C", bg="#222D0F" }, -- mkdCode
     SpecialKey                                   { fg="cyan", }, -- SpecialKey     xxx ctermfg=81 fg=Cyan
     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
@@ -1312,10 +1310,11 @@ local theme = lush(function(injected_functions)
     mkdRule                                      { bg="#222222" }, -- mkdRule        xxx links to Identifier
     mkdBlockquote                                { Comment }, -- mkdBlockquote  xxx links to Comment
     mkdFootnote                                  { Comment }, -- mkdFootnote    xxx links to Comment
-    mkdCode                                      { bg="#222222", fg="#ffa94d", }, -- mkdCode        xxx fg=#ffa94d bg=#222222
+    mkdCode                                      { fg="#A9E34C", bg="#222D0F" }, -- mkdCode
   }
 end)
 -- local spec = lush.merge({oxocarbon, theme})
+-- mkdCode                                      { bg="#222222", fg="#ffa94d", }, -- mkdCode        xxx fg=#ffa94d bg=#222222
 return theme
 
 
