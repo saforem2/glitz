@@ -45,6 +45,20 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+local nvimdarkred = hsl(347, 100, 56) -- hsl(0, 100, 50)
+local nvimlightred = hsl(360, 100, 73) -- hsl(0, 100, 50)
+local nvimlightblue = hsl(194, 100, 51) -- hsl(240, 100, 50)
+local nvimlightcyan = hsl(179, 69, 60)  -- hsl(180, 100, 50)
+local nvimlightyellow = hsl(44, 100, 77) -- #FFDF88
+local nvimlightgreen = hsl(139, 87, 80)
+local nvimdarkgrey1 = hsl(0, 0, 22)
+local nvimlightgrey4 = hsl(0, 0, 32)
+local nvimlightgrey2 = hsl(0, 0, 50)
+local nvimlightgrey1 = hsl(0, 0, 60)
+local nvimdarkgrey15 = hsl(0, 0, 50)
+-- -- NotifyBackground                             { bg="#222222", fg="#939393", }, -- NotifyBackground xxx guifg=#939393 guibg=#222222
+
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -286,12 +300,16 @@ local theme = lush(function(injected_functions)
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
-    SpecialKey                                   { fg="nvimdarkgrey4", }, -- SpecialKey     xxx guifg=NvimDarkGrey4
+    Normal                                       { fg="#bdbdbd", bg="#1c1c1c" }, -- Normal         xxx guifg=#bdbdbd
+    sym"@markup.heading.1"                       { guifg="#00CEFF", guibg="#002933", gui="bold" },
+    sym"@markup.heading.2"                       { guifg="#6DD283", guibg="#023008", gui="bold" },
+    sym"@markup.heading.3"                       { guifg="#fb967d", guibg="#6c0202", gui="bold" },
+    SpecialKey                                   { fg=nvimdarkgrey4, }, -- SpecialKey     xxx guifg=NvimDarkGrey4
     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
     GitSignsDeleteInline                         { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
     GitSignsChangeInline                         { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
-    NonText                                      { fg="nvimdarkgrey4", }, -- NonText        xxx guifg=NvimDarkGrey4
+    NonText                                      { fg=nvimdarkgrey4, }, -- NonText        xxx guifg=NvimDarkGrey4
     EndOfBuffer                                  { NonText }, -- EndOfBuffer    xxx links to NonText
     LspInlayHint                                 { NonText }, -- LspInlayHint   xxx links to NonText
     TelescopePreviewHyphen                       { NonText }, -- TelescopePreviewHyphen xxx links to NonText
@@ -353,11 +371,11 @@ local theme = lush(function(injected_functions)
     DiffText                                     { bg="#2f3f5c", }, -- DiffText       xxx guibg=#2f3f5c
     SignColumn                                   { fg="#262626", }, -- SignColumn     xxx guifg=#262626
     CursorLineSign                               { SignColumn }, -- CursorLineSign xxx links to SignColumn
-    Conceal                                      { fg="nvimdarkgrey4", }, -- Conceal        xxx guifg=NvimDarkGrey4
-    SpellBad                                     { sp="nvimlightred", gui="undercurl", }, -- SpellBad       xxx cterm=undercurl gui=undercurl guisp=NvimLightRed
-    SpellCap                                     { sp="nvimlightyellow", gui="undercurl", }, -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=NvimLightYellow
-    SpellRare                                    { sp="nvimlightcyan", gui="undercurl", }, -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=NvimLightCyan
-    SpellLocal                                   { sp="nvimlightgreen", gui="undercurl", }, -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=NvimLightGreen
+    Conceal                                      { fg=nvimdarkgrey4, }, -- Conceal        xxx guifg=NvimDarkGrey4
+    SpellBad                                     { sp=nvimlightred, gui="undercurl", }, -- SpellBad       xxx cterm=undercurl gui=undercurl guisp=NvimLightRed
+    SpellCap                                     { sp=nvimlightyellow, gui="undercurl", }, -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=NvimLightYellow
+    SpellRare                                    { sp=nvimlightcyan, gui="undercurl", }, -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=NvimLightCyan
+    SpellLocal                                   { sp=nvimlightgreen, gui="undercurl", }, -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=NvimLightGreen
     Pmenu                                        { bg="#222222", fg="#d0d0d0", }, -- Pmenu          xxx guifg=#d0d0d0 guibg=#222222
     PmenuKind                                    { Pmenu }, -- PmenuKind      xxx links to Pmenu
     PmenuExtra                                   { Pmenu }, -- PmenuExtra     xxx links to Pmenu
@@ -379,7 +397,7 @@ local theme = lush(function(injected_functions)
     Headline                                     { ColorColumn }, -- Headline       xxx links to ColorColumn
     CodeBlock                                    { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
     MatchBackground                              { ColorColumn }, -- MatchBackground xxx links to ColorColumn
-    QuickFixLine                                 { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
+    QuickFixLine                                 { fg=nvimlightcyan, }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
     AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
     Whitespace                                   { bg="#1f1f1f", }, -- Whitespace     xxx guibg=#1f1f1f
     NormalNC                                     { bg="#161616", fg="#f2f2f2", }, -- NormalNC       xxx guifg=#f2f2f2 guibg=#161616
@@ -394,13 +412,12 @@ local theme = lush(function(injected_functions)
     TreesitterContextSeparator                   { FloatBorder }, -- TreesitterContextSeparator xxx links to FloatBorder
     CccFloatBorder                               { FloatBorder }, -- CccFloatBorder xxx links to FloatBorder
     WinBar                                       { gui="bold", }, -- WinBar         xxx cterm=bold gui=bold
-    WinBarNC                                     { bg="nvimdarkgrey1", fg="nvimlightgrey4", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+    WinBarNC                                     { bg=nvimdarkgrey1, fg=nvimlightgrey4, }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
     RedrawDebugNormal                            { gui="reverse", }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
     Underlined                                   { gui="underline", }, -- Underlined     xxx cterm=underline gui=underline
     sym"@string.special.url"                     { Underlined }, -- @string.special.url xxx links to Underlined
     lCursor                                      { bg="fg", fg="bg", }, -- lCursor        xxx guifg=bg guibg=fg
     Substitute                                   { bg="#3ddbd9", fg="#262626", }, -- Substitute     xxx guifg=#262626 guibg=#3ddbd9
-    Normal                                       { fg="#bdbdbd", bg="#1c1c1c" }, -- Normal         xxx guifg=#bdbdbd
     WinSeparator                                 { Normal }, -- WinSeparator   xxx links to Normal
     Ignore                                       { Normal }, -- Ignore         xxx links to Normal
     NvimSpacing                                  { Normal }, -- NvimSpacing    xxx links to Normal
@@ -410,7 +427,7 @@ local theme = lush(function(injected_functions)
     DapUIFrameName                               { Normal }, -- DapUIFrameName xxx links to Normal
     TelescopeNormal                              { Normal }, -- TelescopeNormal xxx links to Normal
     CodeiumAnnotation                            { Normal }, -- CodeiumAnnotation xxx links to Normal
-    Constant                                     { fg="nvimlightgrey2", }, -- Constant       xxx guifg=NvimLightGrey2
+    Constant                                     { fg=nvimlightgrey2, }, -- Constant       xxx guifg=NvimLightGrey2
     Character                                    { Constant }, -- Character      xxx links to Constant
     Number                                       { Constant }, -- Number         xxx links to Constant
     Boolean                                      { Constant }, -- Boolean        xxx links to Constant
@@ -422,7 +439,7 @@ local theme = lush(function(injected_functions)
     TelescopePreviewCharDev                      { Constant }, -- TelescopePreviewCharDev xxx links to Constant
     TelescopePreviewPipe                         { Constant }, -- TelescopePreviewPipe xxx links to Constant
     AerialConstantIcon                           { Constant }, -- AerialConstantIcon xxx links to Constant
-    Statement                                    { fg="nvimlightgrey2", gui="bold", }, -- Statement      xxx cterm=bold gui=bold guifg=NvimLightGrey2
+    Statement                                    { fg=nvimlightgrey2, gui="bold", }, -- Statement      xxx cterm=bold gui=bold guifg=NvimLightGrey2
     Conditional                                  { Statement }, -- Conditional    xxx links to Statement
     Repeat                                       { Statement }, -- Repeat         xxx links to Statement
     Label                                        { Statement }, -- Label          xxx links to Statement
@@ -431,12 +448,12 @@ local theme = lush(function(injected_functions)
     TelescopePreviewSocket                       { Statement }, -- TelescopePreviewSocket xxx links to Statement
     Keyword                                      { fg="#ff79ff", }, -- Keyword        xxx guifg=#ff79ff
     TelescopePreviewSticky                       { Keyword }, -- TelescopePreviewSticky xxx links to Keyword
-    PreProc                                      { fg="nvimlightgrey2", }, -- PreProc        xxx guifg=NvimLightGrey2
+    PreProc                                      { fg=nvimlightgrey2, }, -- PreProc        xxx guifg=NvimLightGrey2
     Include                                      { PreProc }, -- Include        xxx links to PreProc
     Define                                       { PreProc }, -- Define         xxx links to PreProc
     Macro                                        { PreProc }, -- Macro          xxx links to PreProc
     PreCondit                                    { PreProc }, -- PreCondit      xxx links to PreProc
-    Type                                         { fg="nvimlightgrey2", }, -- Type           xxx guifg=NvimLightGrey2
+    Type                                         { fg=nvimlightgrey2, }, -- Type           xxx guifg=NvimLightGrey2
     StorageClass                                 { Type }, -- StorageClass   xxx links to Type
     Structure                                    { Type }, -- Structure      xxx links to Type
     Typedef                                      { Type }, -- Typedef        xxx links to Type
@@ -450,7 +467,7 @@ local theme = lush(function(injected_functions)
     AerialEnumIcon                               { Type }, -- AerialEnumIcon xxx links to Type
     AerialInterfaceIcon                          { Type }, -- AerialInterfaceIcon xxx links to Type
     AerialStructIcon                             { Type }, -- AerialStructIcon xxx links to Type
-    Special                                      { fg="nvimlightcyan", }, -- Special        xxx ctermfg=14 guifg=NvimLightCyan
+    Special                                      { fg=nvimlightcyan, }, -- Special        xxx ctermfg=14 guifg=NvimLightCyan
     Tag                                          { Special }, -- Tag            xxx links to Special
     SpecialChar                                  { Special }, -- SpecialChar    xxx links to Special
     SpecialComment                               { Special }, -- SpecialComment xxx links to Special
@@ -460,7 +477,7 @@ local theme = lush(function(injected_functions)
     TelescopeMatching                            { Special }, -- TelescopeMatching xxx links to Special
     TelescopePreviewLink                         { Special }, -- TelescopePreviewLink xxx links to Special
     AerialConstructorIcon                        { Special }, -- AerialConstructorIcon xxx links to Special
-    DiagnosticError                              { fg="nvimlightred", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
+    DiagnosticError                              { fg=nvimlightred, }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
     DiagnosticFloatingError                      { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
     DiagnosticVirtualTextError                   { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
     DiagnosticSignError                          { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
@@ -468,16 +485,16 @@ local theme = lush(function(injected_functions)
     DiagnosticFloatingWarn                       { DiagnosticWarn }, -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
     DiagnosticVirtualTextWarn                    { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
     DiagnosticSignWarn                           { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
-    DiagnosticInfo                               { fg="nvimlightcyan", }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
+    DiagnosticInfo                               { fg=nvimlightcyan, }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
     DiagnosticFloatingInfo                       { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
     DiagnosticVirtualTextInfo                    { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
     DiagnosticSignInfo                           { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
     sym"@comment.note"                           { DiagnosticInfo }, -- @comment.note  xxx links to DiagnosticInfo
-    DiagnosticHint                               { fg="nvimlightblue", }, -- DiagnosticHint xxx ctermfg=12 guifg=NvimLightBlue
+    DiagnosticHint                               { fg=nvimlightblue, }, -- DiagnosticHint xxx ctermfg=12 guifg=NvimLightBlue
     DiagnosticFloatingHint                       { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
     DiagnosticVirtualTextHint                    { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
     DiagnosticSignHint                           { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
-    DiagnosticOk                                 { fg="nvimlightgreen", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+    DiagnosticOk                                 { fg=nvimlightgreen, }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
     DiagnosticFloatingOk                         { DiagnosticOk }, -- DiagnosticFloatingOk xxx links to DiagnosticOk
     DiagnosticVirtualTextOk                      { DiagnosticOk }, -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
     DiagnosticSignOk                             { DiagnosticOk }, -- DiagnosticSignOk xxx links to DiagnosticOk
@@ -497,7 +514,7 @@ local theme = lush(function(injected_functions)
     sym"@constant"                               { fg="#be95ff", }, -- @constant      xxx guifg=#be95ff
     sym"@constant.builtin"                       { fg="#08bdba", }, -- @constant.builtin xxx guifg=#08bdba
     sym"@label"                                  { fg="#82cfff", }, -- @label         xxx guifg=#82cfff
-    String                                       { fg="nvimlightgreen", }, -- String         xxx ctermfg=10 guifg=NvimLightGreen
+    String                                       { fg=nvimlightgreen, }, -- String         xxx ctermfg=10 guifg=NvimLightGreen
     sym"@string"                                 { String }, -- @string        xxx links to String
     NvimString                                   { String }, -- NvimString     xxx links to String
     TelescopePreviewSize                         { String }, -- TelescopePreviewSize xxx links to String
@@ -505,7 +522,7 @@ local theme = lush(function(injected_functions)
     sym"@string.escape"                          { fg="#82cfff", }, -- @string.escape xxx guifg=#82cfff
     sym"@type.builtin"                           { fg="#26c99e", }, -- @type.builtin  xxx guifg=#26c99e
     sym"@property"                               { fg="#ee5396", }, -- @property      xxx guifg=#ee5396
-    Identifier                                   { fg="nvimlightblue", }, -- Identifier     xxx ctermfg=12 guifg=NvimLightBlue
+    Identifier                                   { fg=nvimlightblue, }, -- Identifier     xxx ctermfg=12 guifg=NvimLightBlue
     NvimIdentifier                               { Identifier }, -- NvimIdentifier xxx links to Identifier
     TelescopeResultsIdentifier                   { Identifier }, -- TelescopeResultsIdentifier xxx links to Identifier
     TelescopeMultiIcon                           { Identifier }, -- TelescopeMultiIcon xxx links to Identifier
@@ -527,7 +544,7 @@ local theme = lush(function(injected_functions)
     AerialTypeParameterIcon                      { Identifier }, -- AerialTypeParameterIcon xxx links to Identifier
     AerialVariableIcon                           { Identifier }, -- AerialVariableIcon xxx links to Identifier
     sym"@function"                               { fg="#36ce5e", gui="bold", }, -- @function      xxx cterm=bold gui=bold guifg=#36ce5e
-    Function                                     { fg="nvimlightcyan", }, -- Function       xxx ctermfg=14 guifg=NvimLightCyan
+    Function                                     { fg=nvimlightcyan, }, -- Function       xxx ctermfg=14 guifg=NvimLightCyan
     LspInfoList                                  { Function }, -- LspInfoList    xxx links to Function
     TelescopeResultsFunction                     { Function }, -- TelescopeResultsFunction xxx links to Function
     TelescopeResultsField                        { Function }, -- TelescopeResultsField xxx links to Function
@@ -537,51 +554,51 @@ local theme = lush(function(injected_functions)
     AerialMethodIcon                             { Function }, -- AerialMethodIcon xxx links to Function
     sym"@function.builtin"                       { fg="#ff7eb6", }, -- @function.builtin xxx guifg=#ff7eb6
     semshiBuiltin                                { sym"@function.builtin" }, -- semshiBuiltin  xxx links to @function.builtin
-    Operator                                     { fg="nvimlightgrey2", }, -- Operator       xxx guifg=NvimLightGrey2
+    Operator                                     { fg=nvimlightgrey2, }, -- Operator       xxx guifg=NvimLightGrey2
     sym"@operator"                               { Operator }, -- @operator      xxx links to Operator
     NvimAssignment                               { Operator }, -- NvimAssignment xxx links to Operator
     NvimOperator                                 { Operator }, -- NvimOperator   xxx links to Operator
     TelescopeResultsOperator                     { Operator }, -- TelescopeResultsOperator xxx links to Operator
     sym"@keyword"                                { fg="#78a9ff", }, -- @keyword       xxx guifg=#78a9ff
-    Delimiter                                    { fg="nvimlightgrey2", }, -- Delimiter      xxx guifg=NvimLightGrey2
+    Delimiter                                    { fg=nvimlightgrey2, }, -- Delimiter      xxx guifg=NvimLightGrey2
     sym"@punctuation"                            { Delimiter }, -- @punctuation   xxx links to Delimiter
     NvimParenthesis                              { Delimiter }, -- NvimParenthesis xxx links to Delimiter
     NvimColon                                    { Delimiter }, -- NvimColon      xxx links to Delimiter
     NvimComma                                    { Delimiter }, -- NvimComma      xxx links to Delimiter
     NvimArrow                                    { Delimiter }, -- NvimArrow      xxx links to Delimiter
     sym"@punctuation.special"                    { fg="#3ddbd9", }, -- @punctuation.special xxx guifg=#3ddbd9
-    Todo                                         { fg="nvimlightgrey2", gui="bold", }, -- Todo           xxx cterm=bold gui=bold guifg=NvimLightGrey2
+    Todo                                         { fg=nvimlightgrey2, gui="bold", }, -- Todo           xxx cterm=bold gui=bold guifg=NvimLightGrey2
     sym"@markup.strong"                          { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
     sym"@markup.italic"                          { gui="italic", }, -- @markup.italic xxx cterm=italic gui=italic
     sym"@markup.strikethrough"                   { gui="strikethrough", }, -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
     sym"@markup.underline"                       { gui="underline", }, -- @markup.underline xxx cterm=underline gui=underline
-    Added                                        { fg="nvimlightgreen", }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
+    Added                                        { fg=nvimlightgreen, }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
     sym"@diff.plus"                              { Added }, -- @diff.plus     xxx links to Added
     GitSignsAdd                                  { Added }, -- GitSignsAdd    xxx links to Added
-    Removed                                      { fg="nvimlightred", }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
+    Removed                                      { fg=nvimlightred, }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
     sym"@diff.minus"                             { Removed }, -- @diff.minus    xxx links to Removed
     GitSignsDelete                               { Removed }, -- GitSignsDelete xxx links to Removed
-    Changed                                      { fg="nvimlightcyan", }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
+    Changed                                      { fg=nvimlightcyan, }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
     sym"@diff.delta"                             { Changed }, -- @diff.delta    xxx links to Changed
     GitSignsChange                               { Changed }, -- GitSignsChange xxx links to Changed
     sym"@tag"                                    { fg="#78a9ff", }, -- @tag           xxx guifg=#78a9ff
     sym"@constant.macro"                         { fg="#08bdba", }, -- @constant.macro xxx guifg=#08bdba
-    FloatShadow                                  { blend=80, bg="nvimdarkgrey4", }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
-    FloatShadowThrough                           { blend=100, bg="nvimdarkgrey4", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
-    MatchParen                                   { bg="nvimdarkgrey4", gui="bold", }, -- MatchParen     xxx cterm=bold,underline gui=bold guibg=NvimDarkGrey4
+    FloatShadow                                  { blend=80, bg=nvimdarkgrey4, }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
+    FloatShadowThrough                           { blend=100, bg=nvimdarkgrey4, }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+    MatchParen                                   { bg=nvimdarkgrey4, gui="bold", }, -- MatchParen     xxx cterm=bold,underline gui=bold guibg=NvimDarkGrey4
     MatchParenCur                                { MatchParen }, -- MatchParenCur  xxx links to MatchParen
     MatchWord                                    { MatchParen }, -- MatchWord      xxx links to MatchParen
     RedrawDebugClear                             { bg="#ffff00", }, -- RedrawDebugClear xxx guibg=#ffff00
     RedrawDebugComposed                          { bg="#63ff5b", }, -- RedrawDebugComposed xxx guibg=#63ff5b
     RedrawDebugRecompose                         { bg="#ff5252", }, -- RedrawDebugRecompose xxx guibg=#ff5252
-    Error                                        { bg="nvimdarkred", fg="nvimlightgrey1", }, -- Error          xxx ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed
+    Error                                        { bg=nvimdarkred, fg=nvimlightgrey1, }, -- Error          xxx ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed
     NvimInvalid                                  { Error }, -- NvimInvalid    xxx links to Error
-    DiagnosticUnderlineError                     { sp="nvimlightred", gui="underline", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
-    DiagnosticUnderlineWarn                      { sp="nvimlightyellow", gui="underline", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
-    DiagnosticUnderlineInfo                      { sp="nvimlightcyan", gui="underline", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
-    DiagnosticUnderlineHint                      { sp="nvimlightblue", gui="underline", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
-    DiagnosticUnderlineOk                        { sp="nvimlightgreen", gui="underline", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
-    DiagnosticDeprecated                         { sp="nvimlightred", gui="strikethrough", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+    DiagnosticUnderlineError                     { sp=nvimlightred, gui="underline", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
+    DiagnosticUnderlineWarn                      { sp=nvimlightyellow, gui="underline", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
+    DiagnosticUnderlineInfo                      { sp=nvimlightcyan, gui="underline", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
+    DiagnosticUnderlineHint                      { sp=nvimlightblue, gui="underline", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
+    DiagnosticUnderlineOk                        { sp=nvimlightgreen, gui="underline", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+    DiagnosticDeprecated                         { sp=nvimlightred, gui="strikethrough", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
     NvimInternalError                            { bg="#FA99CD", fg="#FB6896", }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
     NvimFigureBrace                              { NvimInternalError }, -- NvimFigureBrace xxx links to NvimInternalError
     NvimSingleQuotedUnknownEscape                { NvimInternalError }, -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
@@ -622,9 +639,9 @@ local theme = lush(function(injected_functions)
     DapUIStepIntoNC                              { bg="#07080d", fg="#00f1f5", }, -- DapUIStepIntoNC xxx guifg=#00f1f5 guibg=#07080d
     DapUIStepBackNC                              { bg="#07080d", fg="#00f1f5", }, -- DapUIStepBackNC xxx guifg=#00f1f5 guibg=#07080d
     DapUIStepOutNC                               { bg="#07080d", fg="#00f1f5", }, -- DapUIStepOutNC xxx guifg=#00f1f5 guibg=#07080d
-    CmpItemAbbrDeprecatedDefault                 { fg="nvimlightgrey4", }, -- CmpItemAbbrDeprecatedDefault xxx guifg=NvimLightGrey4
+    CmpItemAbbrDeprecatedDefault                 { fg=nvimlightgrey4, }, -- CmpItemAbbrDeprecatedDefault xxx guifg=NvimLightGrey4
     CmpItemAbbrDeprecated                        { CmpItemAbbrDeprecatedDefault }, -- CmpItemAbbrDeprecated xxx links to CmpItemAbbrDeprecatedDefault
-    CmpItemKindDefault                           { fg="nvimlightcyan", }, -- CmpItemKindDefault xxx guifg=NvimLightCyan
+    CmpItemKindDefault                           { fg=nvimlightcyan, }, -- CmpItemKindDefault xxx guifg=NvimLightCyan
     CmpItemKind                                  { CmpItemKindDefault }, -- CmpItemKind    xxx links to CmpItemKindDefault
     semshiLocal                                  { fg="#ff875f", }, -- semshiLocal    xxx ctermfg=209 guifg=#ff875f
     semshiGlobal                                 { gui="italic", }, -- semshiGlobal   xxx gui=italic
@@ -1448,12 +1465,12 @@ return theme
 -- local theme = lush(function(injected_functions)
 --   local sym = injected_functions.sym
 --   return {
---     SpecialKey                                   { fg="nvimdarkgrey4", }, -- SpecialKey     xxx guifg=NvimDarkGrey4
+--     SpecialKey                                   { fg=nvimdarkgrey4, }, -- SpecialKey     xxx guifg=NvimDarkGrey4
 --     TermCursor                                   { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
 --     GitSignsAddInline                            { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
 --     GitSignsDeleteInline                         { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
 --     GitSignsChangeInline                         { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
---     NonText                                      { fg="nvimdarkgrey4", }, -- NonText        xxx guifg=NvimDarkGrey4
+--     NonText                                      { fg=nvimdarkgrey4, }, -- NonText        xxx guifg=NvimDarkGrey4
 --     EndOfBuffer                                  { NonText }, -- EndOfBuffer    xxx links to NonText
 --     LspInlayHint                                 { NonText }, -- LspInlayHint   xxx links to NonText
 --     TelescopePreviewHyphen                       { NonText }, -- TelescopePreviewHyphen xxx links to NonText
@@ -1515,11 +1532,11 @@ return theme
 --     DiffText                                     { bg="#2f3f5c", }, -- DiffText       xxx guibg=#2f3f5c
 --     SignColumn                                   { fg="#262626", }, -- SignColumn     xxx guifg=#262626
 --     CursorLineSign                               { SignColumn }, -- CursorLineSign xxx links to SignColumn
---     Conceal                                      { fg="nvimdarkgrey4", }, -- Conceal        xxx guifg=NvimDarkGrey4
---     SpellBad                                     { sp="nvimlightred", gui="undercurl", }, -- SpellBad       xxx cterm=undercurl gui=undercurl guisp=NvimLightRed
---     SpellCap                                     { sp="nvimlightyellow", gui="undercurl", }, -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=NvimLightYellow
---     SpellRare                                    { sp="nvimlightcyan", gui="undercurl", }, -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=NvimLightCyan
---     SpellLocal                                   { sp="nvimlightgreen", gui="undercurl", }, -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=NvimLightGreen
+--     Conceal                                      { fg=nvimdarkgrey4, }, -- Conceal        xxx guifg=NvimDarkGrey4
+--     SpellBad                                     { sp=nvimlightred, gui="undercurl", }, -- SpellBad       xxx cterm=undercurl gui=undercurl guisp=NvimLightRed
+--     SpellCap                                     { sp=nvimlightyellow, gui="undercurl", }, -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=NvimLightYellow
+--     SpellRare                                    { sp=nvimlightcyan, gui="undercurl", }, -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=NvimLightCyan
+--     SpellLocal                                   { sp=nvimlightgreen, gui="undercurl", }, -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=NvimLightGreen
 --     Pmenu                                        { bg="#222222", fg="#d0d0d0", }, -- Pmenu          xxx guifg=#d0d0d0 guibg=#222222
 --     PmenuKind                                    { Pmenu }, -- PmenuKind      xxx links to Pmenu
 --     PmenuExtra                                   { Pmenu }, -- PmenuExtra     xxx links to Pmenu
@@ -1541,7 +1558,7 @@ return theme
 --     Headline                                     { ColorColumn }, -- Headline       xxx links to ColorColumn
 --     CodeBlock                                    { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
 --     MatchBackground                              { ColorColumn }, -- MatchBackground xxx links to ColorColumn
---     QuickFixLine                                 { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
+--     QuickFixLine                                 { fg=nvimlightcyan, }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
 --     AerialLine                                   { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
 --     Whitespace                                   { bg="#1f1f1f", }, -- Whitespace     xxx guibg=#1f1f1f
 --     NormalNC                                     { bg="#161616", fg="#f2f2f2", }, -- NormalNC       xxx guifg=#f2f2f2 guibg=#161616
@@ -1556,7 +1573,7 @@ return theme
 --     TreesitterContextSeparator                   { FloatBorder }, -- TreesitterContextSeparator xxx links to FloatBorder
 --     CccFloatBorder                               { FloatBorder }, -- CccFloatBorder xxx links to FloatBorder
 --     WinBar                                       { gui="bold", }, -- WinBar         xxx cterm=bold gui=bold
---     WinBarNC                                     { bg="nvimdarkgrey1", fg="nvimlightgrey4", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+--     WinBarNC                                     { bg=nvimdarkgrey1, fg=nvimlightgrey4, }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
 --     RedrawDebugNormal                            { gui="reverse", }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
 --     Underlined                                   { gui="underline", }, -- Underlined     xxx cterm=underline gui=underline
 --     sym"@string.special.url"                     { Underlined }, -- @string.special.url xxx links to Underlined
@@ -1572,7 +1589,7 @@ return theme
 --     DapUIFrameName                               { Normal }, -- DapUIFrameName xxx links to Normal
 --     TelescopeNormal                              { Normal }, -- TelescopeNormal xxx links to Normal
 --     CodeiumAnnotation                            { Normal }, -- CodeiumAnnotation xxx links to Normal
---     Constant                                     { fg="nvimlightgrey2", }, -- Constant       xxx guifg=NvimLightGrey2
+--     Constant                                     { fg=nvimlightgrey2, }, -- Constant       xxx guifg=NvimLightGrey2
 --     Character                                    { Constant }, -- Character      xxx links to Constant
 --     Number                                       { Constant }, -- Number         xxx links to Constant
 --     Boolean                                      { Constant }, -- Boolean        xxx links to Constant
@@ -1584,7 +1601,7 @@ return theme
 --     TelescopePreviewCharDev                      { Constant }, -- TelescopePreviewCharDev xxx links to Constant
 --     TelescopePreviewPipe                         { Constant }, -- TelescopePreviewPipe xxx links to Constant
 --     AerialConstantIcon                           { Constant }, -- AerialConstantIcon xxx links to Constant
---     Statement                                    { fg="nvimlightgrey2", gui="bold", }, -- Statement      xxx cterm=bold gui=bold guifg=NvimLightGrey2
+--     Statement                                    { fg=nvimlightgrey2, gui="bold", }, -- Statement      xxx cterm=bold gui=bold guifg=NvimLightGrey2
 --     Conditional                                  { Statement }, -- Conditional    xxx links to Statement
 --     Repeat                                       { Statement }, -- Repeat         xxx links to Statement
 --     Label                                        { Statement }, -- Label          xxx links to Statement
@@ -1593,12 +1610,12 @@ return theme
 --     TelescopePreviewSocket                       { Statement }, -- TelescopePreviewSocket xxx links to Statement
 --     Keyword                                      { fg="#ff79ff", }, -- Keyword        xxx guifg=#ff79ff
 --     TelescopePreviewSticky                       { Keyword }, -- TelescopePreviewSticky xxx links to Keyword
---     PreProc                                      { fg="nvimlightgrey2", }, -- PreProc        xxx guifg=NvimLightGrey2
+--     PreProc                                      { fg=nvimlightgrey2, }, -- PreProc        xxx guifg=NvimLightGrey2
 --     Include                                      { PreProc }, -- Include        xxx links to PreProc
 --     Define                                       { PreProc }, -- Define         xxx links to PreProc
 --     Macro                                        { PreProc }, -- Macro          xxx links to PreProc
 --     PreCondit                                    { PreProc }, -- PreCondit      xxx links to PreProc
---     Type                                         { fg="nvimlightgrey2", }, -- Type           xxx guifg=NvimLightGrey2
+--     Type                                         { fg=nvimlightgrey2, }, -- Type           xxx guifg=NvimLightGrey2
 --     StorageClass                                 { Type }, -- StorageClass   xxx links to Type
 --     Structure                                    { Type }, -- Structure      xxx links to Type
 --     Typedef                                      { Type }, -- Typedef        xxx links to Type
@@ -1612,7 +1629,7 @@ return theme
 --     AerialEnumIcon                               { Type }, -- AerialEnumIcon xxx links to Type
 --     AerialInterfaceIcon                          { Type }, -- AerialInterfaceIcon xxx links to Type
 --     AerialStructIcon                             { Type }, -- AerialStructIcon xxx links to Type
---     Special                                      { fg="nvimlightcyan", }, -- Special        xxx ctermfg=14 guifg=NvimLightCyan
+--     Special                                      { fg=nvimlightcyan, }, -- Special        xxx ctermfg=14 guifg=NvimLightCyan
 --     Tag                                          { Special }, -- Tag            xxx links to Special
 --     SpecialChar                                  { Special }, -- SpecialChar    xxx links to Special
 --     SpecialComment                               { Special }, -- SpecialComment xxx links to Special
@@ -1622,7 +1639,7 @@ return theme
 --     TelescopeMatching                            { Special }, -- TelescopeMatching xxx links to Special
 --     TelescopePreviewLink                         { Special }, -- TelescopePreviewLink xxx links to Special
 --     AerialConstructorIcon                        { Special }, -- AerialConstructorIcon xxx links to Special
---     DiagnosticError                              { fg="nvimlightred", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
+--     DiagnosticError                              { fg=nvimlightred, }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
 --     DiagnosticFloatingError                      { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
 --     DiagnosticVirtualTextError                   { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
 --     DiagnosticSignError                          { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
@@ -1630,16 +1647,16 @@ return theme
 --     DiagnosticFloatingWarn                       { DiagnosticWarn }, -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
 --     DiagnosticVirtualTextWarn                    { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
 --     DiagnosticSignWarn                           { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
---     DiagnosticInfo                               { fg="nvimlightcyan", }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
+--     DiagnosticInfo                               { fg=nvimlightcyan, }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
 --     DiagnosticFloatingInfo                       { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
 --     DiagnosticVirtualTextInfo                    { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
 --     DiagnosticSignInfo                           { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
 --     sym"@comment.note"                           { DiagnosticInfo }, -- @comment.note  xxx links to DiagnosticInfo
---     DiagnosticHint                               { fg="nvimlightblue", }, -- DiagnosticHint xxx ctermfg=12 guifg=NvimLightBlue
+--     DiagnosticHint                               { fg=nvimlightblue, }, -- DiagnosticHint xxx ctermfg=12 guifg=NvimLightBlue
 --     DiagnosticFloatingHint                       { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
 --     DiagnosticVirtualTextHint                    { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
 --     DiagnosticSignHint                           { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
---     DiagnosticOk                                 { fg="nvimlightgreen", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+--     DiagnosticOk                                 { fg=nvimlightgreen, }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
 --     DiagnosticFloatingOk                         { DiagnosticOk }, -- DiagnosticFloatingOk xxx links to DiagnosticOk
 --     DiagnosticVirtualTextOk                      { DiagnosticOk }, -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
 --     DiagnosticSignOk                             { DiagnosticOk }, -- DiagnosticSignOk xxx links to DiagnosticOk
@@ -1659,7 +1676,7 @@ return theme
 --     sym"@constant"                               { fg="#be95ff", }, -- @constant      xxx guifg=#be95ff
 --     sym"@constant.builtin"                       { fg="#08bdba", }, -- @constant.builtin xxx guifg=#08bdba
 --     sym"@label"                                  { fg="#82cfff", }, -- @label         xxx guifg=#82cfff
---     String                                       { fg="nvimlightgreen", }, -- String         xxx ctermfg=10 guifg=NvimLightGreen
+--     String                                       { fg=nvimlightgreen, }, -- String         xxx ctermfg=10 guifg=NvimLightGreen
 --     sym"@string"                                 { String }, -- @string        xxx links to String
 --     NvimString                                   { String }, -- NvimString     xxx links to String
 --     TelescopePreviewSize                         { String }, -- TelescopePreviewSize xxx links to String
@@ -1667,7 +1684,7 @@ return theme
 --     sym"@string.escape"                          { fg="#82cfff", }, -- @string.escape xxx guifg=#82cfff
 --     sym"@type.builtin"                           { fg="#26c99e", }, -- @type.builtin  xxx guifg=#26c99e
 --     sym"@property"                               { fg="#ee5396", }, -- @property      xxx guifg=#ee5396
---     Identifier                                   { fg="nvimlightblue", }, -- Identifier     xxx ctermfg=12 guifg=NvimLightBlue
+--     Identifier                                   { fg=nvimlightblue, }, -- Identifier     xxx ctermfg=12 guifg=NvimLightBlue
 --     NvimIdentifier                               { Identifier }, -- NvimIdentifier xxx links to Identifier
 --     TelescopeResultsIdentifier                   { Identifier }, -- TelescopeResultsIdentifier xxx links to Identifier
 --     TelescopeMultiIcon                           { Identifier }, -- TelescopeMultiIcon xxx links to Identifier
@@ -1689,7 +1706,7 @@ return theme
 --     AerialTypeParameterIcon                      { Identifier }, -- AerialTypeParameterIcon xxx links to Identifier
 --     AerialVariableIcon                           { Identifier }, -- AerialVariableIcon xxx links to Identifier
 --     sym"@function"                               { fg="#36ce5e", gui="bold", }, -- @function      xxx cterm=bold gui=bold guifg=#36ce5e
---     Function                                     { fg="nvimlightcyan", }, -- Function       xxx ctermfg=14 guifg=NvimLightCyan
+--     Function                                     { fg=nvimlightcyan, }, -- Function       xxx ctermfg=14 guifg=NvimLightCyan
 --     LspInfoList                                  { Function }, -- LspInfoList    xxx links to Function
 --     TelescopeResultsFunction                     { Function }, -- TelescopeResultsFunction xxx links to Function
 --     TelescopeResultsField                        { Function }, -- TelescopeResultsField xxx links to Function
@@ -1699,51 +1716,51 @@ return theme
 --     AerialMethodIcon                             { Function }, -- AerialMethodIcon xxx links to Function
 --     sym"@function.builtin"                       { fg="#ff7eb6", }, -- @function.builtin xxx guifg=#ff7eb6
 --     semshiBuiltin                                { sym"@function.builtin" }, -- semshiBuiltin  xxx links to @function.builtin
---     Operator                                     { fg="nvimlightgrey2", }, -- Operator       xxx guifg=NvimLightGrey2
+--     Operator                                     { fg=nvimlightgrey2, }, -- Operator       xxx guifg=NvimLightGrey2
 --     sym"@operator"                               { Operator }, -- @operator      xxx links to Operator
 --     NvimAssignment                               { Operator }, -- NvimAssignment xxx links to Operator
 --     NvimOperator                                 { Operator }, -- NvimOperator   xxx links to Operator
 --     TelescopeResultsOperator                     { Operator }, -- TelescopeResultsOperator xxx links to Operator
 --     sym"@keyword"                                { fg="#78a9ff", }, -- @keyword       xxx guifg=#78a9ff
---     Delimiter                                    { fg="nvimlightgrey2", }, -- Delimiter      xxx guifg=NvimLightGrey2
+--     Delimiter                                    { fg=nvimlightgrey2, }, -- Delimiter      xxx guifg=NvimLightGrey2
 --     sym"@punctuation"                            { Delimiter }, -- @punctuation   xxx links to Delimiter
 --     NvimParenthesis                              { Delimiter }, -- NvimParenthesis xxx links to Delimiter
 --     NvimColon                                    { Delimiter }, -- NvimColon      xxx links to Delimiter
 --     NvimComma                                    { Delimiter }, -- NvimComma      xxx links to Delimiter
 --     NvimArrow                                    { Delimiter }, -- NvimArrow      xxx links to Delimiter
 --     sym"@punctuation.special"                    { fg="#3ddbd9", }, -- @punctuation.special xxx guifg=#3ddbd9
---     Todo                                         { fg="nvimlightgrey2", gui="bold", }, -- Todo           xxx cterm=bold gui=bold guifg=NvimLightGrey2
+--     Todo                                         { fg=nvimlightgrey2, gui="bold", }, -- Todo           xxx cterm=bold gui=bold guifg=NvimLightGrey2
 --     sym"@markup.strong"                          { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
 --     sym"@markup.italic"                          { gui="italic", }, -- @markup.italic xxx cterm=italic gui=italic
 --     sym"@markup.strikethrough"                   { gui="strikethrough", }, -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
 --     sym"@markup.underline"                       { gui="underline", }, -- @markup.underline xxx cterm=underline gui=underline
---     Added                                        { fg="nvimlightgreen", }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
+--     Added                                        { fg=nvimlightgreen, }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
 --     sym"@diff.plus"                              { Added }, -- @diff.plus     xxx links to Added
 --     GitSignsAdd                                  { Added }, -- GitSignsAdd    xxx links to Added
---     Removed                                      { fg="nvimlightred", }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
+--     Removed                                      { fg=nvimlightred, }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
 --     sym"@diff.minus"                             { Removed }, -- @diff.minus    xxx links to Removed
 --     GitSignsDelete                               { Removed }, -- GitSignsDelete xxx links to Removed
---     Changed                                      { fg="nvimlightcyan", }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
+--     Changed                                      { fg=nvimlightcyan, }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
 --     sym"@diff.delta"                             { Changed }, -- @diff.delta    xxx links to Changed
 --     GitSignsChange                               { Changed }, -- GitSignsChange xxx links to Changed
 --     sym"@tag"                                    { fg="#78a9ff", }, -- @tag           xxx guifg=#78a9ff
 --     sym"@constant.macro"                         { fg="#08bdba", }, -- @constant.macro xxx guifg=#08bdba
---     FloatShadow                                  { blend=80, bg="nvimdarkgrey4", }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
---     FloatShadowThrough                           { blend=100, bg="nvimdarkgrey4", }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
---     MatchParen                                   { bg="nvimdarkgrey4", gui="bold", }, -- MatchParen     xxx cterm=bold,underline gui=bold guibg=NvimDarkGrey4
+--     FloatShadow                                  { blend=80, bg=nvimdarkgrey4, }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
+--     FloatShadowThrough                           { blend=100, bg=nvimdarkgrey4, }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+--     MatchParen                                   { bg=nvimdarkgrey4, gui="bold", }, -- MatchParen     xxx cterm=bold,underline gui=bold guibg=NvimDarkGrey4
 --     MatchParenCur                                { MatchParen }, -- MatchParenCur  xxx links to MatchParen
 --     MatchWord                                    { MatchParen }, -- MatchWord      xxx links to MatchParen
 --     RedrawDebugClear                             { bg="#ffff00", }, -- RedrawDebugClear xxx guibg=#ffff00
 --     RedrawDebugComposed                          { bg="#63ff5b", }, -- RedrawDebugComposed xxx guibg=#63ff5b
 --     RedrawDebugRecompose                         { bg="#ff5252", }, -- RedrawDebugRecompose xxx guibg=#ff5252
---     Error                                        { bg="nvimdarkred", fg="nvimlightgrey1", }, -- Error          xxx ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed
+--     Error                                        { bg=nvimdarkred, fg=nvimlightgrey1, }, -- Error          xxx ctermfg=0 ctermbg=9 guifg=NvimLightGrey1 guibg=NvimDarkRed
 --     NvimInvalid                                  { Error }, -- NvimInvalid    xxx links to Error
---     DiagnosticUnderlineError                     { sp="nvimlightred", gui="underline", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
---     DiagnosticUnderlineWarn                      { sp="nvimlightyellow", gui="underline", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
---     DiagnosticUnderlineInfo                      { sp="nvimlightcyan", gui="underline", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
---     DiagnosticUnderlineHint                      { sp="nvimlightblue", gui="underline", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
---     DiagnosticUnderlineOk                        { sp="nvimlightgreen", gui="underline", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
---     DiagnosticDeprecated                         { sp="nvimlightred", gui="strikethrough", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+--     DiagnosticUnderlineError                     { sp=nvimlightred, gui="underline", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
+--     DiagnosticUnderlineWarn                      { sp=nvimlightyellow, gui="underline", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
+--     DiagnosticUnderlineInfo                      { sp=nvimlightcyan, gui="underline", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
+--     DiagnosticUnderlineHint                      { sp=nvimlightblue, gui="underline", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
+--     DiagnosticUnderlineOk                        { sp=nvimlightgreen, gui="underline", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+--     DiagnosticDeprecated                         { sp=nvimlightred, gui="strikethrough", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
 --     NvimInternalError                            { bg="red", fg="red", }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
 --     NvimFigureBrace                              { NvimInternalError }, -- NvimFigureBrace xxx links to NvimInternalError
 --     NvimSingleQuotedUnknownEscape                { NvimInternalError }, -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
@@ -1784,9 +1801,9 @@ return theme
 --     DapUIStepIntoNC                              { bg="#07080d", fg="#00f1f5", }, -- DapUIStepIntoNC xxx guifg=#00f1f5 guibg=#07080d
 --     DapUIStepBackNC                              { bg="#07080d", fg="#00f1f5", }, -- DapUIStepBackNC xxx guifg=#00f1f5 guibg=#07080d
 --     DapUIStepOutNC                               { bg="#07080d", fg="#00f1f5", }, -- DapUIStepOutNC xxx guifg=#00f1f5 guibg=#07080d
---     CmpItemAbbrDeprecatedDefault                 { fg="nvimlightgrey4", }, -- CmpItemAbbrDeprecatedDefault xxx guifg=NvimLightGrey4
+--     CmpItemAbbrDeprecatedDefault                 { fg=nvimlightgrey4, }, -- CmpItemAbbrDeprecatedDefault xxx guifg=NvimLightGrey4
 --     CmpItemAbbrDeprecated                        { CmpItemAbbrDeprecatedDefault }, -- CmpItemAbbrDeprecated xxx links to CmpItemAbbrDeprecatedDefault
---     CmpItemKindDefault                           { fg="nvimlightcyan", }, -- CmpItemKindDefault xxx guifg=NvimLightCyan
+--     CmpItemKindDefault                           { fg=nvimlightcyan, }, -- CmpItemKindDefault xxx guifg=NvimLightCyan
 --     CmpItemKind                                  { CmpItemKindDefault }, -- CmpItemKind    xxx links to CmpItemKindDefault
 --     semshiLocal                                  { fg="#ff875f", }, -- semshiLocal    xxx ctermfg=209 guifg=#ff875f
 --     semshiGlobal                                 { gui="italic", }, -- semshiGlobal   xxx gui=italic
