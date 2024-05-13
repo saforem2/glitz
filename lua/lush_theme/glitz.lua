@@ -325,7 +325,7 @@ local theme = lush(function(injected_functions)
     sym"@type.builtin"                     { Special }, -- @type.builtin  xxx links to Special
     sym"@constructor"                      { Special }, -- @constructor   xxx links to Special
     sym"@punctuation.special"              { Special }, -- @punctuation.special xxx links to Special
-    sym"@markup"                           { Special }, -- @markup        xxx links to Special
+    sym"@markup"                           { mkdCode }, -- @markup        xxx links to Special
     javaScript                             { Special }, -- javaScript     xxx links to Special
     htmlCssDefinition                      { Special }, -- htmlCssDefinition xxx links to Special
     htmlSpecialChar                        { Special }, -- htmlSpecialChar xxx links to Special
