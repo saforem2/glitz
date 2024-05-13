@@ -447,7 +447,7 @@ local theme = lush(function(injected_functions)
     String                                 { bg="#2A330C", fg="#d3ff3b" }, -- String         xxx links to Constant
     sym"@string"                           { String }, -- @string        xxx links to String
     NvimString                             { String }, -- NvimString     xxx links to String
-    mkdCode                                { fg="#A9E34C" bg="#262626" }, -- mkdCode        xxx links to String
+    mkdCode                                { fg="#A9E34C", bg="#262626" }, -- mkdCode        xxx links to String
     TelescopePreviewSize                   { String }, -- TelescopePreviewSize xxx links to String
     TelescopePreviewExecute                { String }, -- TelescopePreviewExecute xxx links to String
     xmlString                              { String }, -- xmlString      xxx links to String
