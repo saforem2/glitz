@@ -13,6 +13,7 @@ local theme = lush(function(injected_functions)
   return {
     Normal                                 { bg="#1c1c1c", fg="#cccccc", }, -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
     SpecialKey                             { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
+    mkdCode                                { fg="#A9E34C", bg="#262626" }, -- mkdCode        xxx links to String
     TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsChangeInline                   { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
     GitSignsDeleteInline                   { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
@@ -447,7 +448,6 @@ local theme = lush(function(injected_functions)
     String                                 { bg="#2A330C", fg="#d3ff3b" }, -- String         xxx links to Constant
     sym"@string"                           { String }, -- @string        xxx links to String
     NvimString                             { String }, -- NvimString     xxx links to String
-    mkdCode                                { fg="#A9E34C", bg="#262626" }, -- mkdCode        xxx links to String
     TelescopePreviewSize                   { String }, -- TelescopePreviewSize xxx links to String
     TelescopePreviewExecute                { String }, -- TelescopePreviewExecute xxx links to String
     xmlString                              { String }, -- xmlString      xxx links to String
@@ -466,8 +466,8 @@ local theme = lush(function(injected_functions)
     cssURL                                 { String }, -- cssURL         xxx links to String
     VimtexTocLabelsTab                     { String }, -- VimtexTocLabelsTab xxx links to String
     texPartArgTitle                        { String }, -- texPartArgTitle xxx links to String
-    pandocNoFormatted                      { String }, -- pandocNoFormatted xxx links to String
-    pandocCodeBlockInsideIndent            { String }, -- pandocCodeBlockInsideIndent xxx links to String
+    pandocNoFormatted                      { mkdCode }, -- pandocNoFormatted xxx links to String
+    pandocCodeBlockInsideIndent            { mkdCode }, -- pandocCodeBlockInsideIndent xxx links to String
     pandocCodePre                          { String }, -- pandocCodePre  xxx links to String
     yamlTagHandle                          { String }, -- yamlTagHandle  xxx links to String
     yamlTagPrefix                          { String }, -- yamlTagPrefix  xxx links to String
