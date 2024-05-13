@@ -7,6 +7,7 @@ local hsluv = lush.hsluv
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    Normal                                 { bg="#1c1c1c", fg="#cccccc", }, -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
     SpecialKey                             { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
     TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsChangeInline                   { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
@@ -98,13 +99,13 @@ local theme = lush(function(injected_functions)
     CursorLine                             { bg="#202020", }, -- CursorLine     xxx guibg=#202020
     UfoCursorFoldedLine                    { CursorLine }, -- UfoCursorFoldedLine xxx links to CursorLine
     LspReferenceText                       { CursorLine }, -- LspReferenceText xxx links to CursorLine
-    ColorColumn                            { bg="#202020", }, -- ColorColumn    xxx cterm=reverse guibg=#202020
+    ColorColumn                            { bg="#262626", }, -- ColorColumn    xxx cterm=reverse guibg=#262626
     CodeBlock                              { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
     MatchBackground                        { ColorColumn }, -- MatchBackground xxx links to ColorColumn
     Headline1                                    { fg="#00CEFF", bg="#002933", gui="bold" },
     Headline2                                    { fg="#6DD283", bg="#023008", gui="bold" },
     Headline3                                    { fg="#fb967d", bg="#6c0202", gui="bold" },
-    ColorColumn                                  { bg="#262626", }, -- ColorColumn    xxx bg=#262626
+    -- ColorColumn                                  { bg="#262626", }, -- ColorColumn    xxx bg=#262626
     Headline                                     { ColorColumn }, -- Headline       xxx links to ColorColumn
     Headline                               { ColorColumn }, -- Headline       xxx links to ColorColumn
     QuickFixLine                           { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
@@ -126,7 +127,6 @@ local theme = lush(function(injected_functions)
     pandocAutomaticLink                    { Underlined }, -- pandocAutomaticLink xxx links to Underlined
     lCursor                                { bg="fg", fg="bg", }, -- lCursor        xxx guifg=bg guibg=fg
     VisualNOS                              { fg="#007dff", gui="bold", }, -- VisualNOS      xxx gui=bold guifg=#007dff
-    Normal                                 { bg="#1c1c1c", fg="#ffffff", }, -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
     WinSeparator                           { Normal }, -- WinSeparator   xxx links to Normal
     NvimSpacing                            { Normal }, -- NvimSpacing    xxx links to Normal
     cssMediaComma                          { Normal }, -- cssMediaComma  xxx links to Normal
@@ -1649,24 +1649,24 @@ local theme = lush(function(injected_functions)
     Stl1c1c1c_202020__                     { bg="#202020", fg="#1c1c1c", }, -- Stl1c1c1c_202020__ xxx guifg=#1c1c1c guibg=#202020
     Stl_202020__                           { bg="#202020", }, -- Stl_202020__   xxx guibg=#202020
     Stl9b9ea4_07080d__                     { bg="#07080d", fg="#9b9ea4", }, -- Stl9b9ea4_07080d__ xxx guifg=#9b9ea4 guibg=#07080d
-    Stl2c2e33_c4c6cd__                     { bg="#c4c6cd", fg="#2c2e33", }, -- Stl2c2e33_c4c6cd__ xxx guifg=#2c2e33 guibg=#c4c6cd
-    Stlc4c6cd_c4c6cd__                     { bg="#c4c6cd", fg="#c4c6cd", }, -- Stlc4c6cd_c4c6cd__ xxx guifg=#c4c6cd guibg=#c4c6cd
-    Stlff4081_c4c6cd_bold_                 { bg="#c4c6cd", fg="#ff4081", gui="bold", }, -- Stlff4081_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ff4081 guibg=#c4c6cd
-    Stl007dff_c4c6cd__                     { bg="#c4c6cd", fg="#007dff", }, -- Stl007dff_c4c6cd__ xxx guifg=#007dff guibg=#c4c6cd
+    Stl2c2e33_c4c6cd__                     { bg="#222222", fg="#2c2e33", }, -- Stl2c2e33_c4c6cd__ xxx guifg=#2c2e33 guibg=#222222
+    Stlc4c6cd_c4c6cd__                     { bg="#222222", fg="#222222", }, -- Stlc4c6cd_c4c6cd__ xxx guifg=#222222 guibg=#222222
+    Stlff4081_c4c6cd_bold_                 { bg="#222222", fg="#ff4081", gui="bold", }, -- Stlff4081_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ff4081 guibg=#222222
+    Stl007dff_c4c6cd__                     { bg="#222222", fg="#007dff", }, -- Stl007dff_c4c6cd__ xxx guifg=#007dff guibg=#222222
     Stl9b9ea4_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#9b9ea4", gui="bold,italic", }, -- Stl9b9ea4_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#9b9ea4 guibg=#1c1c1c
     Stlf20052_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#f20052", gui="bold,italic", }, -- Stlf20052_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#f20052 guibg=#1c1c1c
-    Stlc4c6cd_61afef__                     { bg="#61afef", fg="#c4c6cd", }, -- Stlc4c6cd_61afef__ xxx guifg=#c4c6cd guibg=#61afef
-    Stl61afef_c4c6cd__                     { bg="#c4c6cd", fg="#61afef", }, -- Stl61afef_c4c6cd__ xxx guifg=#61afef guibg=#c4c6cd
-    Stlf92672_c4c6cd_bold_                 { bg="#c4c6cd", fg="#f92672", gui="bold", }, -- Stlf92672_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#f92672 guibg=#c4c6cd
-    Stlb3f6c0_c4c6cd_bold_                 { bg="#c4c6cd", fg="#b3f6c0", gui="bold", }, -- Stlb3f6c0_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#b3f6c0 guibg=#c4c6cd
-    Stl8cf8f7_c4c6cd_bold_                 { bg="#c4c6cd", fg="#8cf8f7", gui="bold", }, -- Stl8cf8f7_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#8cf8f7 guibg=#c4c6cd
-    Stlffc0b9_c4c6cd_bold_                 { bg="#c4c6cd", fg="#ffc0b9", gui="bold", }, -- Stlffc0b9_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ffc0b9 guibg=#c4c6cd
-    Stlffc0b9_c4c6cd__                     { bg="#c4c6cd", fg="#ffc0b9", }, -- Stlffc0b9_c4c6cd__ xxx guifg=#ffc0b9 guibg=#c4c6cd
-    Stlfce094_c4c6cd__                     { bg="#c4c6cd", fg="#fce094", }, -- Stlfce094_c4c6cd__ xxx guifg=#fce094 guibg=#c4c6cd
-    Stl8cf8f7_c4c6cd__                     { bg="#c4c6cd", fg="#8cf8f7", }, -- Stl8cf8f7_c4c6cd__ xxx guifg=#8cf8f7 guibg=#c4c6cd
-    Stlffff00_c4c6cd__                     { bg="#c4c6cd", fg="#ffff00", }, -- Stlffff00_c4c6cd__ xxx guifg=#ffff00 guibg=#c4c6cd
-    Stlc4c6cd_ebae34__                     { bg="#ebae34", fg="#c4c6cd", }, -- Stlc4c6cd_ebae34__ xxx guifg=#c4c6cd guibg=#ebae34
-    Stlebae34_c4c6cd__                     { bg="#c4c6cd", fg="#ebae34", }, -- Stlebae34_c4c6cd__ xxx guifg=#ebae34 guibg=#c4c6cd
+    Stlc4c6cd_61afef__                     { bg="#61afef", fg="#222222", }, -- Stlc4c6cd_61afef__ xxx guifg=#222222 guibg=#61afef
+    Stl61afef_c4c6cd__                     { bg="#222222", fg="#61afef", }, -- Stl61afef_c4c6cd__ xxx guifg=#61afef guibg=#222222
+    Stlf92672_c4c6cd_bold_                 { bg="#222222", fg="#f92672", gui="bold", }, -- Stlf92672_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#f92672 guibg=#222222
+    Stlb3f6c0_c4c6cd_bold_                 { bg="#222222", fg="#b3f6c0", gui="bold", }, -- Stlb3f6c0_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#b3f6c0 guibg=#222222
+    Stl8cf8f7_c4c6cd_bold_                 { bg="#222222", fg="#8cf8f7", gui="bold", }, -- Stl8cf8f7_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#8cf8f7 guibg=#222222
+    Stlffc0b9_c4c6cd_bold_                 { bg="#222222", fg="#ffc0b9", gui="bold", }, -- Stlffc0b9_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ffc0b9 guibg=#222222
+    Stlffc0b9_c4c6cd__                     { bg="#222222", fg="#ffc0b9", }, -- Stlffc0b9_c4c6cd__ xxx guifg=#ffc0b9 guibg=#222222
+    Stlfce094_c4c6cd__                     { bg="#222222", fg="#fce094", }, -- Stlfce094_c4c6cd__ xxx guifg=#fce094 guibg=#222222
+    Stl8cf8f7_c4c6cd__                     { bg="#222222", fg="#8cf8f7", }, -- Stl8cf8f7_c4c6cd__ xxx guifg=#8cf8f7 guibg=#222222
+    Stlffff00_c4c6cd__                     { bg="#222222", fg="#ffff00", }, -- Stlffff00_c4c6cd__ xxx guifg=#ffff00 guibg=#222222
+    Stlc4c6cd_ebae34__                     { bg="#ebae34", fg="#222222", }, -- Stlc4c6cd_ebae34__ xxx guifg=#222222 guibg=#ebae34
+    Stlebae34_c4c6cd__                     { bg="#222222", fg="#ebae34", }, -- Stlebae34_c4c6cd__ xxx guifg=#ebae34 guibg=#222222
   }
 end)
 return theme
