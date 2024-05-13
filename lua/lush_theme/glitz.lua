@@ -1648,27 +1648,27 @@ local theme = lush(function(injected_functions)
     BufferLineErrorDiagnostic              { bg="#1d1d1d", fg="#303030", sp="#bf0000", }, -- BufferLineErrorDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf0000
     BufferLineIndicatorVisible             { bg="#191919", fg="#191919", }, -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
     BufferLineNumbers                      { bg="#1d1d1d", fg="#404040", }, -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
+    Stl1c1c1c_202020__                     { bg="#202020", fg="#1c1c1c", }, -- Stl1c1c1c_202020__ xxx guifg=#1c1c1c guibg=#202020
+    Stl_202020__                           { bg="#202020", }, -- Stl_202020__   xxx guibg=#202020
+    Stl9b9ea4_07080d__                     { bg="#07080d", fg="#9b9ea4", }, -- Stl9b9ea4_07080d__ xxx guifg=#9b9ea4 guibg=#07080d
+    Stl2c2e33_c4c6cd__                     { bg="#222222", fg="#2c2e33", }, -- Stl2c2e33_c4c6cd__ xxx guifg=#2c2e33 guibg=#222222
+    Stlc4c6cd_c4c6cd__                     { bg="#222222", fg="#222222", }, -- Stlc4c6cd_c4c6cd__ xxx guifg=#222222 guibg=#222222
+    Stlff4081_c4c6cd_bold_                 { bg="#222222", fg="#ff4081", gui="bold", }, -- Stlff4081_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ff4081 guibg=#222222
+    Stl007dff_c4c6cd__                     { bg="#222222", fg="#007dff", }, -- Stl007dff_c4c6cd__ xxx guifg=#007dff guibg=#222222
+    Stl9b9ea4_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#9b9ea4", gui="bold,italic", }, -- Stl9b9ea4_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#9b9ea4 guibg=#1c1c1c
+    Stlf20052_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#f20052", gui="bold,italic", }, -- Stlf20052_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#f20052 guibg=#1c1c1c
+    Stlc4c6cd_61afef__                     { bg="#61afef", fg="#222222", }, -- Stlc4c6cd_61afef__ xxx guifg=#222222 guibg=#61afef
+    Stl61afef_c4c6cd__                     { bg="#222222", fg="#61afef", }, -- Stl61afef_c4c6cd__ xxx guifg=#61afef guibg=#222222
+    Stlf92672_c4c6cd_bold_                 { bg="#222222", fg="#f92672", gui="bold", }, -- Stlf92672_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#f92672 guibg=#222222
+    Stlb3f6c0_c4c6cd_bold_                 { bg="#222222", fg="#b3f6c0", gui="bold", }, -- Stlb3f6c0_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#b3f6c0 guibg=#222222
+    Stl8cf8f7_c4c6cd_bold_                 { bg="#222222", fg="#8cf8f7", gui="bold", }, -- Stl8cf8f7_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#8cf8f7 guibg=#222222
+    Stlffc0b9_c4c6cd_bold_                 { bg="#222222", fg="#ffc0b9", gui="bold", }, -- Stlffc0b9_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ffc0b9 guibg=#222222
+    Stlffc0b9_c4c6cd__                     { bg="#222222", fg="#ffc0b9", }, -- Stlffc0b9_c4c6cd__ xxx guifg=#ffc0b9 guibg=#222222
+    Stlfce094_c4c6cd__                     { bg="#222222", fg="#fce094", }, -- Stlfce094_c4c6cd__ xxx guifg=#fce094 guibg=#222222
+    Stl8cf8f7_c4c6cd__                     { bg="#222222", fg="#8cf8f7", }, -- Stl8cf8f7_c4c6cd__ xxx guifg=#8cf8f7 guibg=#222222
+    Stlffff00_c4c6cd__                     { bg="#222222", fg="#ffff00", }, -- Stlffff00_c4c6cd__ xxx guifg=#ffff00 guibg=#222222
+    Stlc4c6cd_ebae34__                     { bg="#ebae34", fg="#222222", }, -- Stlc4c6cd_ebae34__ xxx guifg=#222222 guibg=#ebae34
+    Stlebae34_c4c6cd__                     { bg="#222222", fg="#ebae34", }, -- Stlebae34_c4c6cd__ xxx guifg=#ebae34 guibg=#222222
   }
 end)
 return theme
-    -- Stl1c1c1c_202020__                     { bg="#202020", fg="#1c1c1c", }, -- Stl1c1c1c_202020__ xxx guifg=#1c1c1c guibg=#202020
-    -- Stl_202020__                           { bg="#202020", }, -- Stl_202020__   xxx guibg=#202020
-    -- Stl9b9ea4_07080d__                     { bg="#07080d", fg="#9b9ea4", }, -- Stl9b9ea4_07080d__ xxx guifg=#9b9ea4 guibg=#07080d
-    -- Stl2c2e33_c4c6cd__                     { bg="#222222", fg="#2c2e33", }, -- Stl2c2e33_c4c6cd__ xxx guifg=#2c2e33 guibg=#222222
-    -- Stlc4c6cd_c4c6cd__                     { bg="#222222", fg="#222222", }, -- Stlc4c6cd_c4c6cd__ xxx guifg=#222222 guibg=#222222
-    -- Stlff4081_c4c6cd_bold_                 { bg="#222222", fg="#ff4081", gui="bold", }, -- Stlff4081_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ff4081 guibg=#222222
-    -- Stl007dff_c4c6cd__                     { bg="#222222", fg="#007dff", }, -- Stl007dff_c4c6cd__ xxx guifg=#007dff guibg=#222222
-    -- Stl9b9ea4_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#9b9ea4", gui="bold,italic", }, -- Stl9b9ea4_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#9b9ea4 guibg=#1c1c1c
-    -- Stlf20052_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#f20052", gui="bold,italic", }, -- Stlf20052_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#f20052 guibg=#1c1c1c
-    -- Stlc4c6cd_61afef__                     { bg="#61afef", fg="#222222", }, -- Stlc4c6cd_61afef__ xxx guifg=#222222 guibg=#61afef
-    -- Stl61afef_c4c6cd__                     { bg="#222222", fg="#61afef", }, -- Stl61afef_c4c6cd__ xxx guifg=#61afef guibg=#222222
-    -- Stlf92672_c4c6cd_bold_                 { bg="#222222", fg="#f92672", gui="bold", }, -- Stlf92672_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#f92672 guibg=#222222
-    -- Stlb3f6c0_c4c6cd_bold_                 { bg="#222222", fg="#b3f6c0", gui="bold", }, -- Stlb3f6c0_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#b3f6c0 guibg=#222222
-    -- Stl8cf8f7_c4c6cd_bold_                 { bg="#222222", fg="#8cf8f7", gui="bold", }, -- Stl8cf8f7_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#8cf8f7 guibg=#222222
-    -- Stlffc0b9_c4c6cd_bold_                 { bg="#222222", fg="#ffc0b9", gui="bold", }, -- Stlffc0b9_c4c6cd_bold_ xxx cterm=bold gui=bold guifg=#ffc0b9 guibg=#222222
-    -- Stlffc0b9_c4c6cd__                     { bg="#222222", fg="#ffc0b9", }, -- Stlffc0b9_c4c6cd__ xxx guifg=#ffc0b9 guibg=#222222
-    -- Stlfce094_c4c6cd__                     { bg="#222222", fg="#fce094", }, -- Stlfce094_c4c6cd__ xxx guifg=#fce094 guibg=#222222
-    -- Stl8cf8f7_c4c6cd__                     { bg="#222222", fg="#8cf8f7", }, -- Stl8cf8f7_c4c6cd__ xxx guifg=#8cf8f7 guibg=#222222
-    -- Stlffff00_c4c6cd__                     { bg="#222222", fg="#ffff00", }, -- Stlffff00_c4c6cd__ xxx guifg=#ffff00 guibg=#222222
-    -- Stlc4c6cd_ebae34__                     { bg="#ebae34", fg="#222222", }, -- Stlc4c6cd_ebae34__ xxx guifg=#222222 guibg=#ebae34
-    -- Stlebae34_c4c6cd__                     { bg="#222222", fg="#ebae34", }, -- Stlebae34_c4c6cd__ xxx guifg=#ebae34 guibg=#222222
