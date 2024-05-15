@@ -15,6 +15,8 @@ local theme = lush(function(injected_functions)
     SpecialKey                             { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
     mkdCode                                { fg="#A9E34C", bg="#262626" }, -- mkdCode        xxx links to String
     TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
+    SignColumn                             { fg="cyan", bg="none", }, -- SignColumn     xxx ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
+    CursorLineSign                         { SignColumn }, -- CursorLineSign xxx links to SignColumn
     GitSignsChangeInline                   { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
     GitSignsDeleteInline                   { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
     GitSignsAddInline                      { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
