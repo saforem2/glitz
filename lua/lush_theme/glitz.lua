@@ -1683,6 +1683,7 @@ return {
   BufferLineErrorDiagnostic              { bg="#1d1d1d", fg="#303030", sp="#bf0000", }, -- BufferLineErrorDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf0000
   BufferLineIndicatorVisible             { bg="#191919", fg="#191919", }, -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
   BufferLineNumbers                      { bg="#1d1d1d", fg="#404040", }, -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
+  Stl2c2e33_222222__                     { fg="#838383", },
 }
 end)
 return theme
