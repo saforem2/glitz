@@ -13,10 +13,7 @@ local theme = lush(function(injected_functions)
   return {
     Normal                                 { bg="#1c1c1c", fg="#cccccc", }, -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
     SpecialKey                             { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
-    mkdCode                                { fg="#A9E34C", bg="#262626" }, -- mkdCode        xxx links to String
     TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
-    SignColumn                             { fg="cyan", bg="none", }, -- SignColumn     xxx ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
-    CursorLineSign                         { SignColumn }, -- CursorLineSign xxx links to SignColumn
     GitSignsChangeInline                   { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
     GitSignsDeleteInline                   { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
     GitSignsAddInline                      { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
@@ -327,7 +324,7 @@ local theme = lush(function(injected_functions)
     sym"@type.builtin"                     { Special }, -- @type.builtin  xxx links to Special
     sym"@constructor"                      { Special }, -- @constructor   xxx links to Special
     sym"@punctuation.special"              { Special }, -- @punctuation.special xxx links to Special
-    sym"@markup"                           { mkdCode }, -- @markup        xxx links to Special
+    sym"@markup"                           { Special }, -- @markup        xxx links to Special
     javaScript                             { Special }, -- javaScript     xxx links to Special
     htmlCssDefinition                      { Special }, -- htmlCssDefinition xxx links to Special
     htmlSpecialChar                        { Special }, -- htmlSpecialChar xxx links to Special
@@ -447,9 +444,10 @@ local theme = lush(function(injected_functions)
     rOBlockNoTitle                         { Comment }, -- rOBlockNoTitle xxx links to Comment
     sym"@variable"                         { fg="#b7bfcd", }, -- @variable      xxx guifg=#b7bfcd
     sym"@variable.builtin"                 { fg="#f39cf4", gui="bold", }, -- @variable.builtin xxx gui=bold guifg=#f39cf4
-    String                                 { fg="#d3ff3b" }, -- String         xxx links to Constant
+    String                                 { bg="#2A330C", fg="#d3ff3b" }, -- String         xxx links to Constant
     sym"@string"                           { String }, -- @string        xxx links to String
     NvimString                             { String }, -- NvimString     xxx links to String
+    mkdCode                                { String }, -- mkdCode        xxx links to String
     TelescopePreviewSize                   { String }, -- TelescopePreviewSize xxx links to String
     TelescopePreviewExecute                { String }, -- TelescopePreviewExecute xxx links to String
     xmlString                              { String }, -- xmlString      xxx links to String
@@ -468,8 +466,8 @@ local theme = lush(function(injected_functions)
     cssURL                                 { String }, -- cssURL         xxx links to String
     VimtexTocLabelsTab                     { String }, -- VimtexTocLabelsTab xxx links to String
     texPartArgTitle                        { String }, -- texPartArgTitle xxx links to String
-    pandocNoFormatted                      { mkdCode }, -- pandocNoFormatted xxx links to String
-    pandocCodeBlockInsideIndent            { mkdCode }, -- pandocCodeBlockInsideIndent xxx links to String
+    pandocNoFormatted                      { String }, -- pandocNoFormatted xxx links to String
+    pandocCodeBlockInsideIndent            { String }, -- pandocCodeBlockInsideIndent xxx links to String
     pandocCodePre                          { String }, -- pandocCodePre  xxx links to String
     yamlTagHandle                          { String }, -- yamlTagHandle  xxx links to String
     yamlTagPrefix                          { String }, -- yamlTagPrefix  xxx links to String
@@ -1453,52 +1451,52 @@ local theme = lush(function(injected_functions)
     pythonTSType                           { fg="#16db93", }, -- pythonTSType   xxx guifg=#16db93
     pythonTSVariableBuiltin                { fg="#8b949e", }, -- pythonTSVariableBuiltin xxx guifg=#8b949e
     pythonTSBoolean                        { fg="#ff4081", }, -- pythonTSBoolean xxx guifg=#ff4081
-    lualine_x_visual                       { bg="#222222", }, -- lualine_x_visual xxx guibg=#222222
-    lualine_x_terminal                     { bg="#222222", }, -- lualine_x_terminal xxx guibg=#222222
+    lualine_x_visual                       { bg="#222222", fg="#cccccc" }, -- lualine_x_visual xxx guibg=#222222
+    lualine_x_terminal                     { bg="#222222", fg="#cccccc" }, -- lualine_x_terminal xxx guibg=#222222
     lualine_c_insert                       { bg="#222222", fg="#ffffff", }, -- lualine_c_insert xxx guifg=#ffffff guibg=#222222
     lualine_c_visual                       { bg="#222222", fg="#ffffff", }, -- lualine_c_visual xxx guifg=#ffffff guibg=#222222
     lualine_c_replace                      { bg="#222222", fg="#ffffff", }, -- lualine_c_replace xxx guifg=#ffffff guibg=#222222
     lualine_c_command                      { bg="#222222", fg="#ffffff", }, -- lualine_c_command xxx guifg=#ffffff guibg=#222222
     lualine_c_terminal                     { bg="#222222", fg="#ffffff", }, -- lualine_c_terminal xxx guifg=#ffffff guibg=#222222
-    lualine_x_inactive                     { bg="#222222", }, -- lualine_x_inactive xxx guibg=#222222
-    lualine_x_command                      { bg="#222222", }, -- lualine_x_command xxx guibg=#222222
-    lualine_x_replace                      { bg="#222222", }, -- lualine_x_replace xxx guibg=#222222
-    lualine_x_insert                       { bg="#222222", }, -- lualine_x_insert xxx guibg=#222222
-    lualine_c_16_normal                    { bg="#222222", }, -- lualine_c_16_normal xxx guibg=#222222
-    lualine_c_16_insert                    { bg="#222222", }, -- lualine_c_16_insert xxx guibg=#222222
-    lualine_c_16_visual                    { bg="#222222", }, -- lualine_c_16_visual xxx guibg=#222222
-    lualine_c_16_replace                   { bg="#222222", }, -- lualine_c_16_replace xxx guibg=#222222
-    lualine_c_16_command                   { bg="#222222", }, -- lualine_c_16_command xxx guibg=#222222
-    lualine_c_16_terminal                  { bg="#222222", }, -- lualine_c_16_terminal xxx guibg=#222222
-    lualine_c_16_inactive                  { bg="#222222", }, -- lualine_c_16_inactive xxx guibg=#222222
-    lualine_c_17_normal                    { bg="#222222", }, -- lualine_c_17_normal xxx guibg=#222222
-    lualine_c_17_insert                    { bg="#222222", }, -- lualine_c_17_insert xxx guibg=#222222
-    lualine_c_17_visual                    { bg="#222222", }, -- lualine_c_17_visual xxx guibg=#222222
-    lualine_c_17_replace                   { bg="#222222", }, -- lualine_c_17_replace xxx guibg=#222222
-    lualine_c_17_command                   { bg="#222222", }, -- lualine_c_17_command xxx guibg=#222222
-    lualine_c_17_terminal                  { bg="#222222", }, -- lualine_c_17_terminal xxx guibg=#222222
-    lualine_c_17_inactive                  { bg="#222222", }, -- lualine_c_17_inactive xxx guibg=#222222
-    lualine_c_24_normal                    { bg="#222222", }, -- lualine_c_24_normal xxx guibg=#222222
-    lualine_c_24_insert                    { bg="#222222", }, -- lualine_c_24_insert xxx guibg=#222222
-    lualine_c_24_visual                    { bg="#222222", }, -- lualine_c_24_visual xxx guibg=#222222
-    lualine_c_24_replace                   { bg="#222222", }, -- lualine_c_24_replace xxx guibg=#222222
-    lualine_c_24_command                   { bg="#222222", }, -- lualine_c_24_command xxx guibg=#222222
-    lualine_c_24_terminal                  { bg="#222222", }, -- lualine_c_24_terminal xxx guibg=#222222
-    lualine_c_24_inactive                  { bg="#222222", }, -- lualine_c_24_inactive xxx guibg=#222222
-    lualine_x_25_normal                    { bg="#222222", }, -- lualine_x_25_normal xxx guibg=#222222
-    lualine_x_25_insert                    { bg="#222222", }, -- lualine_x_25_insert xxx guibg=#222222
-    lualine_x_25_visual                    { bg="#222222", }, -- lualine_x_25_visual xxx guibg=#222222
-    lualine_x_25_replace                   { bg="#222222", }, -- lualine_x_25_replace xxx guibg=#222222
-    lualine_x_25_command                   { bg="#222222", }, -- lualine_x_25_command xxx guibg=#222222
-    lualine_x_25_terminal                  { bg="#222222", }, -- lualine_x_25_terminal xxx guibg=#222222
-    lualine_x_25_inactive                  { bg="#222222", }, -- lualine_x_25_inactive xxx guibg=#222222
-    lualine_x_29_normal                    { bg="#222222", }, -- lualine_x_29_normal xxx guibg=#222222
-    lualine_x_29_insert                    { bg="#222222", }, -- lualine_x_29_insert xxx guibg=#222222
-    lualine_x_29_visual                    { bg="#222222", }, -- lualine_x_29_visual xxx guibg=#222222
-    lualine_x_29_replace                   { bg="#222222", }, -- lualine_x_29_replace xxx guibg=#222222
-    lualine_x_29_command                   { bg="#222222", }, -- lualine_x_29_command xxx guibg=#222222
-    lualine_x_29_terminal                  { bg="#222222", }, -- lualine_x_29_terminal xxx guibg=#222222
-    lualine_x_29_inactive                  { bg="#222222", }, -- lualine_x_29_inactive xxx guibg=#222222
+    lualine_x_inactive                     { bg="#222222", fg="#cccccc", }, -- lualine_x_inactive xxx guibg=#222222
+    lualine_x_command                      { bg="#222222", fg="#cccccc", }, -- lualine_x_command xxx guibg=#222222
+    lualine_x_replace                      { bg="#222222", fg="#cccccc", }, -- lualine_x_replace xxx guibg=#222222
+    lualine_x_insert                       { bg="#222222", fg="#cccccc", }, -- lualine_x_insert xxx guibg=#222222
+    lualine_c_16_normal                    { bg="#222222", fg="#cccccc", }, -- lualine_c_16_normal xxx guibg=#222222
+    lualine_c_16_insert                    { bg="#222222", fg="#cccccc", }, -- lualine_c_16_insert xxx guibg=#222222
+    lualine_c_16_visual                    { bg="#222222", fg="#cccccc", }, -- lualine_c_16_visual xxx guibg=#222222
+    lualine_c_16_replace                   { bg="#222222", fg="#cccccc", }, -- lualine_c_16_replace xxx guibg=#222222
+    lualine_c_16_command                   { bg="#222222", fg="#cccccc", }, -- lualine_c_16_command xxx guibg=#222222
+    lualine_c_16_terminal                  { bg="#222222", fg="#cccccc", }, -- lualine_c_16_terminal xxx guibg=#222222
+    lualine_c_16_inactive                  { bg="#222222", fg="#cccccc", }, -- lualine_c_16_inactive xxx guibg=#222222
+    lualine_c_17_normal                    { bg="#222222", fg="#cccccc", }, -- lualine_c_17_normal xxx guibg=#222222
+    lualine_c_17_insert                    { bg="#222222", fg="#cccccc", }, -- lualine_c_17_insert xxx guibg=#222222
+    lualine_c_17_visual                    { bg="#222222", fg="#cccccc", }, -- lualine_c_17_visual xxx guibg=#222222
+    lualine_c_17_replace                   { bg="#222222", fg="#cccccc", }, -- lualine_c_17_replace xxx guibg=#222222
+    lualine_c_17_command                   { bg="#222222", fg="#cccccc", }, -- lualine_c_17_command xxx guibg=#222222
+    lualine_c_17_terminal                  { bg="#222222", fg="#cccccc", }, -- lualine_c_17_terminal xxx guibg=#222222
+    lualine_c_17_inactive                  { bg="#222222", fg="#cccccc", }, -- lualine_c_17_inactive xxx guibg=#222222
+    lualine_c_24_normal                    { bg="#222222", fg="#cccccc", }, -- lualine_c_24_normal xxx guibg=#222222
+    lualine_c_24_insert                    { bg="#222222", fg="#cccccc", }, -- lualine_c_24_insert xxx guibg=#222222
+    lualine_c_24_visual                    { bg="#222222", fg="#cccccc", }, -- lualine_c_24_visual xxx guibg=#222222
+    lualine_c_24_replace                   { bg="#222222", fg="#cccccc", }, -- lualine_c_24_replace xxx guibg=#222222
+    lualine_c_24_command                   { bg="#222222", fg="#cccccc", }, -- lualine_c_24_command xxx guibg=#222222
+    lualine_c_24_terminal                  { bg="#222222", fg="#cccccc", }, -- lualine_c_24_terminal xxx guibg=#222222
+    lualine_c_24_inactive                  { bg="#222222", fg="#cccccc", }, -- lualine_c_24_inactive xxx guibg=#222222
+    lualine_x_25_normal                    { bg="#222222", fg="#cccccc", }, -- lualine_x_25_normal xxx guibg=#222222
+    lualine_x_25_insert                    { bg="#222222", fg="#cccccc", }, -- lualine_x_25_insert xxx guibg=#222222
+    lualine_x_25_visual                    { bg="#222222", fg="#cccccc", }, -- lualine_x_25_visual xxx guibg=#222222
+    lualine_x_25_replace                   { bg="#222222", fg="#cccccc", }, -- lualine_x_25_replace xxx guibg=#222222
+    lualine_x_25_command                   { bg="#222222", fg="#cccccc", }, -- lualine_x_25_command xxx guibg=#222222
+    lualine_x_25_terminal                  { bg="#222222", fg="#cccccc", }, -- lualine_x_25_terminal xxx guibg=#222222
+    lualine_x_25_inactive                  { bg="#222222", fg="#cccccc", }, -- lualine_x_25_inactive xxx guibg=#222222
+    lualine_x_29_normal                    { bg="#222222", fg="#cccccc", }, -- lualine_x_29_normal xxx guibg=#222222
+    lualine_x_29_insert                    { bg="#222222", fg="#cccccc", }, -- lualine_x_29_insert xxx guibg=#222222
+    lualine_x_29_visual                    { bg="#222222", fg="#cccccc", }, -- lualine_x_29_visual xxx guibg=#222222
+    lualine_x_29_replace                   { bg="#222222", fg="#cccccc", }, -- lualine_x_29_replace xxx guibg=#222222
+    lualine_x_29_command                   { bg="#222222", fg="#cccccc", }, -- lualine_x_29_command xxx guibg=#222222
+    lualine_x_29_terminal                  { bg="#222222", fg="#cccccc", }, -- lualine_x_29_terminal xxx guibg=#222222
+    lualine_x_29_inactive                  { bg="#222222", fg="#cccccc", }, -- lualine_x_29_inactive xxx guibg=#222222
     lualine_c_diff_added_normal            { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_normal xxx guifg=#98be65 guibg=#222222
     lualine_c_diff_added_insert            { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_insert xxx guifg=#98be65 guibg=#222222
     lualine_c_diff_added_visual            { bg="#222222", fg="#98be65", }, -- lualine_c_diff_added_visual xxx guifg=#98be65 guibg=#222222
@@ -1654,7 +1652,7 @@ local theme = lush(function(injected_functions)
     Stl_202020__                           { bg="#202020", }, -- Stl_202020__   xxx guibg=#202020
     Stl9b9ea4_07080d__                     { bg="#07080d", fg="#9b9ea4", }, -- Stl9b9ea4_07080d__ xxx guifg=#9b9ea4 guibg=#07080d
     Stl2c2e33_222222__                     { bg="#222222", fg="#2c2e33", }, -- Stl2c2e33_222222__ xxx guifg=#2c2e33 guibg=#222222
-    Stl222222_222222__                     { bg="#222222", fg="#222222", }, -- Stl222222_222222__ xxx guifg=#222222 guibg=#222222
+    Stl222222_222222__                     { bg="#222222", fg="#838383", }, -- Stl222222_222222__ xxx guifg=#222222 guibg=#222222
     Stlff4081_222222_bold_                 { bg="#222222", fg="#ff4081", gui="bold", }, -- Stlff4081_222222_bold_ xxx cterm=bold gui=bold guifg=#ff4081 guibg=#222222
     Stl007dff_222222__                     { bg="#222222", fg="#007dff", }, -- Stl007dff_222222__ xxx guifg=#007dff guibg=#222222
     Stl9b9ea4_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#9b9ea4", gui="bold,italic", }, -- Stl9b9ea4_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#9b9ea4 guibg=#1c1c1c
