@@ -7,6 +7,7 @@ local hsluv = lush.hsluv
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
+    Normal                                 { fg="#cccccc", bg="#1c1c1c", }, -- Normal         xxx guifg=#cccccc guibg=#1c1c1c
     SpecialKey                             { gui="bold", fg="#465457", }, -- SpecialKey     xxx cterm=bold gui=bold guifg=#465457
     TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
     GitSignsAddInline                      { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
@@ -140,7 +141,6 @@ local theme = lush(function(injected_functions)
     texTitleArg                            { Underlined }, -- texTitleArg    xxx links to Underlined
     lCursor                                { fg="bg", bg="fg", }, -- lCursor        xxx guifg=bg guibg=fg
     VisualNOS                              { gui="bold", fg="#007dff", }, -- VisualNOS      xxx cterm=bold gui=bold guifg=#007dff
-    Normal                                 { fg="#cccccc", bg="#1c1c1c", }, -- Normal         xxx guifg=#cccccc guibg=#1c1c1c
     WinSeparator                           { Normal }, -- WinSeparator   xxx links to Normal
     NvimSpacing                            { Normal }, -- NvimSpacing    xxx links to Normal
     rNameWSpace                            { Normal }, -- rNameWSpace    xxx links to Normal
@@ -1080,7 +1080,6 @@ local theme = lush(function(injected_functions)
     BufferVisibleSign                      { gui="bold", fg="#505050", bg="#252525", }, -- BufferVisibleSign xxx cterm=bold gui=bold guifg=#505050 guibg=#252525
     DevIconKotlin                          { fg="#7f52ff", }, -- DevIconKotlin  xxx guifg=#7f52ff
     Warning                                { fg="#ffaf00", }, -- Warning        xxx guifg=#ffaf00
-    Stl2c2e33_222222__                     { fg="#2c2e33", bg="#222222", }, -- Stl2c2e33_222222__ xxx guifg=#2c2e33 guibg=#222222
     BufferLineNumbers                      { fg="#404040", bg="#1d1d1d", }, -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
     BufferLineIndicatorVisible             { fg="#191919", bg="#191919", }, -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
     BufferLineErrorDiagnostic              { sp="#bf0000", fg="#303030", bg="#1d1d1d", }, -- BufferLineErrorDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf0000
@@ -1713,6 +1712,7 @@ local theme = lush(function(injected_functions)
     Stlffff00_222222__                     { fg="#ffff00", bg="#222222", }, -- Stlffff00_222222__ xxx guifg=#ffff00 guibg=#222222
     Stl222222_ebae34__                     { fg="#222222", bg="#ebae34", }, -- Stl222222_ebae34__ xxx guifg=#222222 guibg=#ebae34
     Stlebae34_222222__                     { fg="#ebae34", bg="#222222", }, -- Stlebae34_222222__ xxx guifg=#ebae34 guibg=#222222
+    Stl2c2e33_222222__                     { fg="#838383", },
   }
 end)
 return theme
