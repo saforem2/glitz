@@ -610,7 +610,7 @@ return {
   rOBlockNoTitle                         { Comment }, -- rOBlockNoTitle xxx links to Comment
   sym"@variable"                         { fg="#b7bfcd", }, -- @variable      xxx guifg=#b7bfcd
   sym"@variable.builtin"                 { fg="#f39cf4", gui="bold", }, -- @variable.builtin xxx gui=bold guifg=#f39cf4
-  String                                 { fg="#d3ff3b", gui="italic" }, -- String         xxx links to Constant
+  String                                 { fg="#d3ff3b" }, -- String         xxx links to Constant
   sym"@string"                           { String }, -- @string        xxx links to String
   NvimString                             { String }, -- NvimString     xxx links to String
   mkdCode                                { String }, -- mkdCode        xxx links to String
@@ -765,6 +765,10 @@ return {
   rCommentTodo                           { Todo }, -- rCommentTodo   xxx links to Todo
   rTodoKeyw                              { Todo }, -- rTodoKeyw      xxx links to Todo
   pythonTodo                             { Todo }, -- pythonTodo     xxx links to Todo
+  sym"@markup.heading1"                  { fg="#00CCFF", bg="#002933", gui="bold" },
+  sym"@markup.heading2"                  { fg="#D3FF3B", bg="#2A330C" },
+  sym"@markup.heading3"                  { fg="#B388FF", bg="#241B33" },
+  sym"@markup.heading4"                  { fg="#FF69BF", bg="#331526" },
   sym"@markup.strong"                    { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
   sym"@markup.italic"                    { gui="italic", }, -- @markup.italic xxx cterm=italic gui=italic
   sym"@markup.strikethrough"             { gui="strikethrough", }, -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
