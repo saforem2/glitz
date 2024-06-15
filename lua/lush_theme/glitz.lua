@@ -610,7 +610,7 @@ return {
   rOBlockNoTitle                         { Comment }, -- rOBlockNoTitle xxx links to Comment
   sym"@variable"                         { fg="#b7bfcd", }, -- @variable      xxx guifg=#b7bfcd
   sym"@variable.builtin"                 { fg="#f39cf4", gui="bold", }, -- @variable.builtin xxx gui=bold guifg=#f39cf4
-  String                                 { bg="#2A330C", fg="#d3ff3b" }, -- String         xxx links to Constant
+  String                                 { fg="#d3ff3b", gui="italic" }, -- String         xxx links to Constant
   sym"@string"                           { String }, -- @string        xxx links to String
   NvimString                             { String }, -- NvimString     xxx links to String
   mkdCode                                { String }, -- mkdCode        xxx links to String
