@@ -1688,6 +1688,1075 @@ local theme = lush(function(injected_functions)
 		BufferLineIndicatorVisible({ bg = "#191919", fg = "#191919" }), -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
 		BufferLineNumbers({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
 		Stl2c2e33_222222__({ fg = "#838383" }),
+		SpecialKey({ fg = "#7b8496" }), -- SpecialKey     xxx guifg=#7b8496
+		EndOfBuffer({ fg = "#1c1c1c" }), -- EndOfBuffer    xxx guifg=#1c1c1c
+		TermCursor({ gui = "reverse" }), -- TermCursor     xxx cterm=reverse gui=reverse
+		NonText({ fg = "#464a52" }), -- NonText        xxx guifg=#464a52
+		NoiceFormatLevelOff({ NonText }), -- NoiceFormatLevelOff xxx links to NonText
+		NoiceFormatLevelTrace({ NonText }), -- NoiceFormatLevelTrace xxx links to NonText
+		NoiceFormatLevelDebug({ NonText }), -- NoiceFormatLevelDebug xxx links to NonText
+		NoiceFormatKind({ NonText }), -- NoiceFormatKind xxx links to NonText
+		NoiceFormatEvent({ NonText }), -- NoiceFormatEvent xxx links to NonText
+		Directory({ fg = "#5ea1ff" }), -- Directory      xxx guifg=#5ea1ff
+		MiniPickIconDirectory({ Directory }), -- MiniPickIconDirectory xxx links to Directory
+		FzfLuaDirIcon({ Directory }), -- FzfLuaDirIcon  xxx links to Directory
+		ErrorMsg({ fg = "#ff6e5e" }), -- ErrorMsg       xxx guifg=#ff6e5e
+		NvimInvalidSpacing({ ErrorMsg }), -- NvimInvalidSpacing xxx links to ErrorMsg
+		MiniDepsTitleError({ ErrorMsg }), -- MiniDepsTitleError xxx links to ErrorMsg
+		IncSearch({ bg = "#5ef1ff", fg = "#1e2124" }), -- IncSearch      xxx guifg=#1e2124 guibg=#5ef1ff
+		MiniSurround({ IncSearch }), -- MiniSurround   xxx links to IncSearch
+		MiniPickPreviewRegion({ IncSearch }), -- MiniPickPreviewRegion xxx links to IncSearch
+		MiniOperatorsExchangeFrom({ IncSearch }), -- MiniOperatorsExchangeFrom xxx links to IncSearch
+		FzfLuaSearch({ IncSearch }), -- FzfLuaSearch   xxx links to IncSearch
+		Search({ bg = "#ffffff", fg = "#1e2124" }), -- Search         xxx guifg=#1e2124 guibg=#ffffff
+		MiniTablineTabpagesection({ Search }), -- MiniTablineTabpagesection xxx links to Search
+		YankyPut({ Search }), -- YankyPut       xxx links to Search
+		YankyYanked({ Search }), -- YankyYanked    xxx links to Search
+		CurSearch({ bg = "#5ef1ff", fg = "#1e2124" }), -- CurSearch      xxx guifg=#1e2124 guibg=#5ef1ff
+		MoreMsg({ fg = "#5ea1ff" }), -- MoreMsg        xxx guifg=#5ea1ff
+		MiniStarterQuery({ MoreMsg }), -- MiniStarterQuery xxx links to MoreMsg
+		ModeMsg({ fg = "#ffffff" }), -- ModeMsg        xxx guifg=#ffffff
+		LineNr({ fg = "#4f535a" }), -- LineNr         xxx guifg=#4f535a
+		LineNrAbove({ LineNr }), -- LineNrAbove    xxx links to LineNr
+		LineNrBelow({ LineNr }), -- LineNrBelow    xxx links to LineNr
+		GitSignsCurrentLineBlame({ LineNr }), -- GitSignsCurrentLineBlame xxx links to LineNr
+		TroublePos({ LineNr }), -- TroublePos     xxx links to LineNr
+		TroubleIndent({ LineNr }), -- TroubleIndent  xxx links to LineNr
+		CursorLineNr({ fg = "#7b8496" }), -- CursorLineNr   xxx guifg=#7b8496
+		TroubleIndentFoldClosed({ CursorLineNr }), -- TroubleIndentFoldClosed xxx links to CursorLineNr
+		MarkSignNumHL({ CursorLineNr }), -- MarkSignNumHL  xxx links to CursorLineNr
+		FzfLuaCursorLineNr({ CursorLineNr }), -- FzfLuaCursorLineNr xxx links to CursorLineNr
+		Question({ fg = "#f1ff5e" }), -- Question       xxx guifg=#f1ff5e
+		StatusLine({ bg = "#1c1c1c", fg = "#ffffff" }), -- StatusLine     xxx guifg=#ffffff guibg=#1c1c1c
+		MsgSeparator({ StatusLine }), -- MsgSeparator   xxx links to StatusLine
+		MiniStatuslineDevinfo({ StatusLine }), -- MiniStatuslineDevinfo xxx links to StatusLine
+		StatusLineNC({ bg = "#1c1c1c", fg = "#7b8496" }), -- StatusLineNC   xxx guifg=#7b8496 guibg=#1c1c1c
+		MiniStatuslineInactive({ StatusLineNC }), -- MiniStatuslineInactive xxx links to StatusLineNC
+		MiniStatuslineFilename({ StatusLineNC }), -- MiniStatuslineFilename xxx links to StatusLineNC
+		WinSeparator({ bg = "#1c1c1c", fg = "#3c4048" }), -- WinSeparator   xxx guifg=#3c4048 guibg=#1c1c1c
+		VertSplit({ bg = "#1c1c1c", fg = "#3c4048" }), -- VertSplit      xxx guifg=#3c4048 guibg=#1c1c1c
+		Title({ fg = "#ffffff" }), -- Title          xxx guifg=#ffffff
+		sym("@markup.heading")({ Title }), -- @markup.heading xxx links to Title
+		MiniDepsTitle({ Title }), -- MiniDepsTitle  xxx links to Title
+		LspInfoTitle({ Title }), -- LspInfoTitle   xxx links to Title
+		NoiceFormatTitle({ Title }), -- NoiceFormatTitle xxx links to Title
+		NoiceCmdlinePrompt({ Title }), -- NoiceCmdlinePrompt xxx links to Title
+		Visual({ bg = "#3c4048" }), -- Visual         xxx guibg=#3c4048
+		SnippetTabstop({ Visual }), -- SnippetTabstop xxx links to Visual
+		TroublePreview({ Visual }), -- TroublePreview xxx links to Visual
+		NoiceFormatConfirmDefault({ Visual }), -- NoiceFormatConfirmDefault xxx links to Visual
+		WarningMsg({ fg = "#ffbd5e" }), -- WarningMsg     xxx guifg=#ffbd5e
+		sym("@text.danger")({ WarningMsg }), -- @text.danger   xxx links to WarningMsg
+		MiniStarterItemPrefix({ WarningMsg }), -- MiniStarterItemPrefix xxx links to WarningMsg
+		WildMenu({ bg = "#5ea1ff", fg = "#1c1c1c" }), -- WildMenu       xxx guifg=#1c1c1c guibg=#5ea1ff
+		Folded({ bg = "#1c1c1c", fg = "#7b8496" }), -- Folded         xxx guifg=#7b8496 guibg=#1c1c1c
+		FoldColumn({ bg = "#1c1c1c", fg = "#7b8496" }), -- FoldColumn     xxx guifg=#7b8496 guibg=#1c1c1c
+		CursorLineFold({ FoldColumn }), -- CursorLineFold xxx links to FoldColumn
+		DiffAdd({ bg = "#29492c" }), -- DiffAdd        xxx guibg=#29492c
+		GitSignsAddLn({ DiffAdd }), -- GitSignsAddLn  xxx links to DiffAdd
+		GitSignsAddPreview({ DiffAdd }), -- GitSignsAddPreview xxx links to DiffAdd
+		DiffChange({ bg = "#293649" }), -- DiffChange     xxx guibg=#293649
+		GitSignsChangeLn({ DiffChange }), -- GitSignsChangeLn xxx links to DiffChange
+		DiffDelete({ bg = "#492c29" }), -- DiffDelete     xxx guibg=#492c29
+		GitSignsDeleteLn({ DiffDelete }), -- GitSignsDeleteLn xxx links to DiffDelete
+		GitSignsDeletePreview({ DiffDelete }), -- GitSignsDeletePreview xxx links to DiffDelete
+		GitSignsDeleteVirtLn({ DiffDelete }), -- GitSignsDeleteVirtLn xxx links to DiffDelete
+		DiffText({ bg = "#493c29" }), -- DiffText       xxx guibg=#493c29
+		SignColumn({ bg = "#1c1c1c", fg = "#7b8496" }), -- SignColumn     xxx guifg=#7b8496 guibg=#1c1c1c
+		CursorLineSign({ SignColumn }), -- CursorLineSign xxx links to SignColumn
+		RenderMarkdownSign({ SignColumn }), -- RenderMarkdownSign xxx links to SignColumn
+		Conceal({ fg = "#7b8496" }), -- Conceal        xxx guifg=#7b8496
+		RenderMarkdownTableFill({ Conceal }), -- RenderMarkdownTableFill xxx links to Conceal
+		SpellBad({ gui = "undercurl", sp = "#ff6e5e" }), -- SpellBad       xxx cterm=undercurl gui=undercurl guisp=#ff6e5e
+		SpellCap({ gui = "undercurl", sp = "#f1ff5e" }), -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=#f1ff5e
+		SpellRare({ gui = "undercurl", sp = "#bd5eff" }), -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=#bd5eff
+		MiniJump({ SpellRare }), -- MiniJump       xxx links to SpellRare
+		SpellLocal({ gui = "undercurl", sp = "#5ea1ff" }), -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=#5ea1ff
+		Pmenu({ bg = "#1c1c1c", fg = "#ffffff" }), -- Pmenu          xxx guifg=#ffffff guibg=#1c1c1c
+		PmenuKind({ Pmenu }), -- PmenuKind      xxx links to Pmenu
+		PmenuExtra({ Pmenu }), -- PmenuExtra     xxx links to Pmenu
+		NoicePopupmenu({ Pmenu }), -- NoicePopupmenu xxx links to Pmenu
+		PmenuSel({ bg = "#3c4048", fg = "#ffffff" }), -- PmenuSel       xxx guifg=#ffffff guibg=#3c4048
+		PmenuKindSel({ PmenuSel }), -- PmenuKindSel   xxx links to PmenuSel
+		PmenuExtraSel({ PmenuSel }), -- PmenuExtraSel  xxx links to PmenuSel
+		NoicePopupmenuSelected({ PmenuSel }), -- NoicePopupmenuSelected xxx links to PmenuSel
+		PmenuSbar({ bg = "#3c4048", fg = "#1c1c1c" }), -- PmenuSbar      xxx guifg=#1c1c1c guibg=#3c4048
+		NoiceScrollbar({ PmenuSbar }), -- NoiceScrollbar xxx links to PmenuSbar
+		FzfLuaScrollFloatEmpty({ PmenuSbar }), -- FzfLuaScrollFloatEmpty xxx links to PmenuSbar
+		PmenuThumb({ bg = "#3c4048", fg = "#1c1c1c" }), -- PmenuThumb     xxx guifg=#1c1c1c guibg=#3c4048
+		NoiceScrollbarThumb({ PmenuThumb }), -- NoiceScrollbarThumb xxx links to PmenuThumb
+		FzfLuaScrollFloatFull({ PmenuThumb }), -- FzfLuaScrollFloatFull xxx links to PmenuThumb
+		TabLine({ bg = "#1c1c1c", fg = "#7b8496" }), -- TabLine        xxx guifg=#7b8496 guibg=#1c1c1c
+		TabLineSel({ bg = "#3c4048", fg = "#ffffff" }), -- TabLineSel     xxx guifg=#ffffff guibg=#3c4048
+		TabLineFill({ bg = "#3c4048", fg = "#7b8496" }), -- TabLineFill    xxx guifg=#7b8496 guibg=#3c4048
+		MiniTablineFill({ TabLineFill }), -- MiniTablineFill xxx links to TabLineFill
+		CursorColumn({ bg = "#3c4048" }), -- CursorColumn   xxx guibg=#3c4048
+		CursorLine({ bg = "#3c4048" }), -- CursorLine     xxx guibg=#3c4048
+		MiniPickPreviewLine({ CursorLine }), -- MiniPickPreviewLine xxx links to CursorLine
+		MiniPickMatchCurrent({ CursorLine }), -- MiniPickMatchCurrent xxx links to CursorLine
+		MiniFilesCursorLine({ CursorLine }), -- MiniFilesCursorLine xxx links to CursorLine
+		NoiceFormatConfirm({ CursorLine }), -- NoiceFormatConfirm xxx links to CursorLine
+		FzfLuaCursorLine({ CursorLine }), -- FzfLuaCursorLine xxx links to CursorLine
+		ColorColumn({ bg = "#3c4048" }), -- ColorColumn    xxx guibg=#3c4048
+		MatchBackground({ ColorColumn }), -- MatchBackground xxx links to ColorColumn
+		QuickFixLine({ bg = "#3c4048" }), -- QuickFixLine   xxx guibg=#3c4048
+		Whitespace({ fg = "#7b8496" }), -- Whitespace     xxx guifg=#7b8496
+		NormalNC({ bg = "#1c1c1c", fg = "#ffffff" }), -- NormalNC       xxx guifg=#ffffff guibg=#1c1c1c
+		NormalFloat({ bg = "#1c1c1c", fg = "#ffffff" }), -- NormalFloat    xxx guifg=#ffffff guibg=#1c1c1c
+		MiniPickNormal({ NormalFloat }), -- MiniPickNormal xxx links to NormalFloat
+		MiniNotifyNormal({ NormalFloat }), -- MiniNotifyNormal xxx links to NormalFloat
+		MiniMapNormal({ NormalFloat }), -- MiniMapNormal  xxx links to NormalFloat
+		MiniFilesNormal({ NormalFloat }), -- MiniFilesNormal xxx links to NormalFloat
+		MiniClueDescSingle({ NormalFloat }), -- MiniClueDescSingle xxx links to NormalFloat
+		MiniAnimateNormalFloat({ NormalFloat }), -- MiniAnimateNormalFloat xxx links to NormalFloat
+		GitpadFloat({ NormalFloat }), -- GitpadFloat    xxx links to NormalFloat
+		WhichKeyNormal({ NormalFloat }), -- WhichKeyNormal xxx links to NormalFloat
+		TroubleNormalNC({ NormalFloat }), -- TroubleNormalNC xxx links to NormalFloat
+		TroubleNormal({ NormalFloat }), -- TroubleNormal  xxx links to NormalFloat
+		NoiceSplit({ NormalFloat }), -- NoiceSplit     xxx links to NormalFloat
+		NoicePopup({ NormalFloat }), -- NoicePopup     xxx links to NormalFloat
+		MsgArea({ fg = "#ffffff" }), -- MsgArea        xxx guifg=#ffffff
+		NoiceCmdline({ MsgArea }), -- NoiceCmdline   xxx links to MsgArea
+		NoiceMini({ MsgArea }), -- NoiceMini      xxx links to MsgArea
+		FloatBorder({ bg = "#1c1c1c", fg = "#3c4048" }), -- FloatBorder    xxx guifg=#3c4048 guibg=#1c1c1c
+		MiniPickBorder({ FloatBorder }), -- MiniPickBorder xxx links to FloatBorder
+		MiniNotifyBorder({ FloatBorder }), -- MiniNotifyBorder xxx links to FloatBorder
+		MiniClueBorder({ FloatBorder }), -- MiniClueBorder xxx links to FloatBorder
+		GitpadFloatBorder({ FloatBorder }), -- GitpadFloatBorder xxx links to FloatBorder
+		TreesitterContextSeparator({ FloatBorder }), -- TreesitterContextSeparator xxx links to FloatBorder
+		WhichKeyBorder({ FloatBorder }), -- WhichKeyBorder xxx links to FloatBorder
+		NoiceSplitBorder({ FloatBorder }), -- NoiceSplitBorder xxx links to FloatBorder
+		NoicePopupmenuBorder({ FloatBorder }), -- NoicePopupmenuBorder xxx links to FloatBorder
+		NoicePopupBorder({ FloatBorder }), -- NoicePopupBorder xxx links to FloatBorder
+		WinBar({ bg = "#1c1c1c", fg = "#7b8496" }), -- WinBar         xxx guifg=#7b8496 guibg=#1c1c1c
+		WinBarNC({ bg = "#1c1c1c", fg = "#7b8496" }), -- WinBarNC       xxx guifg=#7b8496 guibg=#1c1c1c
+		Cursor({ bg = "#ffffff", fg = "#1c1c1c" }), -- Cursor         xxx guifg=#1c1c1c guibg=#ffffff
+		NoiceCursor({ Cursor }), -- NoiceCursor    xxx links to Cursor
+		FzfLuaCursor({ Cursor }), -- FzfLuaCursor   xxx links to Cursor
+		FloatTitle({ bg = "#1c1c1c", fg = "#5ef1ff" }), -- FloatTitle     xxx guifg=#5ef1ff guibg=#1c1c1c
+		FloatFooter({ FloatTitle }), -- FloatFooter    xxx links to FloatTitle
+		MiniNotifyTitle({ FloatTitle }), -- MiniNotifyTitle xxx links to FloatTitle
+		MiniPickBorderText({ FloatTitle }), -- MiniPickBorderText xxx links to FloatTitle
+		MiniClueTitle({ FloatTitle }), -- MiniClueTitle  xxx links to FloatTitle
+		WhichKeyTitle({ FloatTitle }), -- WhichKeyTitle  xxx links to FloatTitle
+		RedrawDebugNormal({ gui = "reverse" }), -- RedrawDebugNormal xxx cterm=reverse gui=reverse
+		Underlined({ gui = "underline" }), -- Underlined     xxx cterm=underline gui=underline
+		sym("@string.special.url")({ Underlined }), -- @string.special.url xxx links to Underlined
+		sym("@markup.link")({ Underlined }), -- @markup.link   xxx links to Underlined
+		sym("@text.uri")({ Underlined }), -- @text.uri      xxx links to Underlined
+		lCursor({ bg = "fg", fg = "bg" }), -- lCursor        xxx guifg=bg guibg=fg
+		CursorIM({ bg = "#ffffff", fg = "#1c1c1c" }), -- CursorIM       xxx guifg=#1c1c1c guibg=#ffffff
+		Substitute({ bg = "#3c4048", fg = "#ff6e5e" }), -- Substitute     xxx guifg=#ff6e5e guibg=#3c4048
+		VisualNOS({ bg = "#3c4048" }), -- VisualNOS      xxx guibg=#3c4048
+		Normal({ bg = "#1c1c1c", fg = "#ffffff" }), -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
+		Ignore({ Normal }), -- Ignore         xxx links to Normal
+		NvimSpacing({ Normal }), -- NvimSpacing    xxx links to Normal
+		MiniStarterItem({ Normal }), -- MiniStarterItem xxx links to Normal
+		GrugFarHelpWinActionText({ Normal }), -- GrugFarHelpWinActionText xxx links to Normal
+		TroubleIconFile({ Normal }), -- TroubleIconFile xxx links to Normal
+		CodeiumAnnotation({ Normal }), -- CodeiumAnnotation xxx links to Normal
+		WhichKeyIconGrey({ Normal }), -- WhichKeyIconGrey xxx links to Normal
+		TroubleText({ Normal }), -- TroubleText    xxx links to Normal
+		NoiceConfirm({ Normal }), -- NoiceConfirm   xxx links to Normal
+		NoiceCmdlinePopup({ Normal }), -- NoiceCmdlinePopup xxx links to Normal
+		NotifyTRACEBody({ Normal }), -- NotifyTRACEBody xxx links to Normal
+		Character({ fg = "#5eff6c" }), -- Character      xxx guifg=#5eff6c
+		sym("@character")({ Character }), -- @character     xxx links to Character
+		Constant({ fg = "#ff5ea0" }), -- Constant       xxx guifg=#ff5ea0
+		sym("@constant")({ Constant }), -- @constant      xxx links to Constant
+		sym("@text.reference")({ Constant }), -- @text.reference xxx links to Constant
+		TroubleIconConstant({ Constant }), -- TroubleIconConstant xxx links to Constant
+		luaConstant({ Constant }), -- luaConstant    xxx links to Constant
+		WhichKeyIconPurple({ Constant }), -- WhichKeyIconPurple xxx links to Constant
+		Number({ fg = "#ffbd5e" }), -- Number         xxx guifg=#ffbd5e
+		Float({ Number }), -- Float          xxx links to Number
+		sym("@number")({ Number }), -- @number        xxx links to Number
+		NvimNumber({ Number }), -- NvimNumber     xxx links to Number
+		luaNumber({ Number }), -- luaNumber      xxx links to Number
+		Boolean({ fg = "#5ef1ff" }), -- Boolean        xxx guifg=#5ef1ff
+		sym("@boolean")({ Boolean }), -- @boolean       xxx links to Boolean
+		TroubleIconField({ Boolean }), -- TroubleIconField xxx links to Boolean
+		MiniDepsTitleSame({ Boolean }), -- MiniDepsTitleSame xxx links to Boolean
+		TroubleIconBoolean({ Boolean }), -- TroubleIconBoolean xxx links to Boolean
+		Statement({ fg = "#ff5ef1" }), -- Statement      xxx guifg=#ff5ef1
+		Conditional({ Statement }), -- Conditional    xxx links to Statement
+		Repeat({ Statement }), -- Repeat         xxx links to Statement
+		Exception({ Statement }), -- Exception      xxx links to Statement
+		luaStatement({ Statement }), -- luaStatement   xxx links to Statement
+		Label({ fg = "#ffbd5e" }), -- Label          xxx guifg=#ffbd5e
+		sym("@label")({ Label }), -- @label         xxx links to Label
+		sym("@tag")({ Label }), -- @tag           xxx links to Label
+		sym("@markup.link.label")({ Label }), -- @markup.link.label xxx links to Label
+		luaLabel({ Label }), -- luaLabel       xxx links to Label
+		Keyword({ fg = "#ffbd5e" }), -- Keyword        xxx guifg=#ffbd5e
+		sym("@keyword")({ Keyword }), -- @keyword       xxx links to Keyword
+		sym("@keyword.function")({ Keyword }), -- @keyword.function xxx links to Keyword
+		PreProc({ fg = "#5ef1ff" }), -- PreProc        xxx guifg=#5ef1ff
+		Include({ PreProc }), -- Include        xxx links to PreProc
+		Define({ PreProc }), -- Define         xxx links to PreProc
+		Macro({ PreProc }), -- Macro          xxx links to PreProc
+		PreCondit({ PreProc }), -- PreCondit      xxx links to PreProc
+		sym("@attribute")({ PreProc }), -- @attribute     xxx links to PreProc
+		sym("@preproc")({ PreProc }), -- @preproc       xxx links to PreProc
+		sym("@annotation")({ PreProc }), -- @annotation    xxx links to PreProc
+		Type({ fg = "#bd5eff" }), -- Type           xxx guifg=#bd5eff
+		StorageClass({ Type }), -- StorageClass   xxx links to Type
+		Structure({ Type }), -- Structure      xxx links to Type
+		Typedef({ Type }), -- Typedef        xxx links to Type
+		sym("@type")({ Type }), -- @type          xxx links to Type
+		NvimNumberPrefix({ Type }), -- NvimNumberPrefix xxx links to Type
+		NvimOptionSigil({ Type }), -- NvimOptionSigil xxx links to Type
+		sym("@text.environment.name")({ Type }), -- @text.environment.name xxx links to Type
+		LspInfoFiletype({ Type }), -- LspInfoFiletype xxx links to Type
+		Special({ fg = "#ff5ea0" }), -- Special        xxx guifg=#ff5ea0
+		Tag({ Special }), -- Tag            xxx links to Special
+		SpecialChar({ Special }), -- SpecialChar    xxx links to Special
+		SpecialComment({ Special }), -- SpecialComment xxx links to Special
+		sym("@variable.builtin")({ Special }), -- @variable.builtin xxx links to Special
+		sym("@variable.parameter.builtin")({ Special }), -- @variable.parameter.builtin xxx links to Special
+		sym("@constant.builtin")({ Special }), -- @constant.builtin xxx links to Special
+		sym("@module.builtin")({ Special }), -- @module.builtin xxx links to Special
+		sym("@attribute.builtin")({ Special }), -- @attribute.builtin xxx links to Special
+		sym("@function.builtin")({ Special }), -- @function.builtin xxx links to Special
+		sym("@constructor")({ Special }), -- @constructor   xxx links to Special
+		sym("@markup")({ Special }), -- @markup        xxx links to Special
+		sym("@tag.builtin")({ Special }), -- @tag.builtin   xxx links to Special
+		sym("@text.math")({ Special }), -- @text.math     xxx links to Special
+		MiniMapSymbolCount({ Special }), -- MiniMapSymbolCount xxx links to Special
+		TroubleIconEvent({ Special }), -- TroubleIconEvent xxx links to Special
+		NoiceCompletionItemKindDefault({ Special }), -- NoiceCompletionItemKindDefault xxx links to Special
+		NoiceFormatDate({ Special }), -- NoiceFormatDate xxx links to Special
+		NoicePopupmenuMatch({ Special }), -- NoicePopupmenuMatch xxx links to Special
+		NotifyLogTitle({ Special }), -- NotifyLogTitle xxx links to Special
+		Debug({ fg = "#ffbd5e" }), -- Debug          xxx guifg=#ffbd5e
+		sym("@debug")({ Debug }), -- @debug         xxx links to Debug
+		LspCodeLens({ fg = "#7b8496" }), -- LspCodeLens    xxx guifg=#7b8496
+		LspCodeLensSeparator({ LspCodeLens }), -- LspCodeLensSeparator xxx links to LspCodeLens
+		LspInlayHint({ fg = "#7b8496" }), -- LspInlayHint   xxx guifg=#7b8496
+		LspReferenceRead({ bg = "#3c4048" }), -- LspReferenceRead xxx guibg=#3c4048
+		LspReferenceText({ bg = "#3c4048" }), -- LspReferenceText xxx guibg=#3c4048
+		LspReferenceWrite({ bg = "#3c4048" }), -- LspReferenceWrite xxx guibg=#3c4048
+		LspSignatureActiveParameter({ fg = "#ffbd5e" }), -- LspSignatureActiveParameter xxx guifg=#ffbd5e
+		DiagnosticError({ fg = "#ff6e5e" }), -- DiagnosticError xxx guifg=#ff6e5e
+		DiagnosticFloatingError({ DiagnosticError }), -- DiagnosticFloatingError xxx links to DiagnosticError
+		DiagnosticVirtualTextError({ DiagnosticError }), -- DiagnosticVirtualTextError xxx links to DiagnosticError
+		DiagnosticSignError({ DiagnosticError }), -- DiagnosticSignError xxx links to DiagnosticError
+		sym("@comment.error")({ DiagnosticError }), -- @comment.error xxx links to DiagnosticError
+		WhichKeyIconRed({ DiagnosticError }), -- WhichKeyIconRed xxx links to DiagnosticError
+		DiagnosticWarn({ fg = "#f1ff5e" }), -- DiagnosticWarn xxx guifg=#f1ff5e
+		DiagnosticFloatingWarn({ DiagnosticWarn }), -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
+		DiagnosticSignWarn({ DiagnosticWarn }), -- DiagnosticSignWarn xxx links to DiagnosticWarn
+		sym("@comment.warning")({ DiagnosticWarn }), -- @comment.warning xxx links to DiagnosticWarn
+		MiniDepsMsgBreaking({ DiagnosticWarn }), -- MiniDepsMsgBreaking xxx links to DiagnosticWarn
+		WhichKeyIconOrange({ DiagnosticWarn }), -- WhichKeyIconOrange xxx links to DiagnosticWarn
+		WhichKeyIconYellow({ DiagnosticWarn }), -- WhichKeyIconYellow xxx links to DiagnosticWarn
+		DiagnosticInfo({ fg = "#5ea1ff" }), -- DiagnosticInfo xxx guifg=#5ea1ff
+		DiagnosticFloatingInfo({ DiagnosticInfo }), -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
+		DiagnosticSignInfo({ DiagnosticInfo }), -- DiagnosticSignInfo xxx links to DiagnosticInfo
+		sym("@comment.note")({ DiagnosticInfo }), -- @comment.note  xxx links to DiagnosticInfo
+		MiniDepsInfo({ DiagnosticInfo }), -- MiniDepsInfo   xxx links to DiagnosticInfo
+		WhichKeyIconBlue({ DiagnosticInfo }), -- WhichKeyIconBlue xxx links to DiagnosticInfo
+		DiagnosticHint({ fg = "#5ef1ff" }), -- DiagnosticHint xxx guifg=#5ef1ff
+		DiagnosticFloatingHint({ DiagnosticHint }), -- DiagnosticFloatingHint xxx links to DiagnosticHint
+		DiagnosticSignHint({ DiagnosticHint }), -- DiagnosticSignHint xxx links to DiagnosticHint
+		MiniDepsHint({ DiagnosticHint }), -- MiniDepsHint   xxx links to DiagnosticHint
+		WhichKeyIconCyan({ DiagnosticHint }), -- WhichKeyIconCyan xxx links to DiagnosticHint
+		DiagnosticOk({ fg = "nvimlightgreen" }), -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+		DiagnosticFloatingOk({ DiagnosticOk }), -- DiagnosticFloatingOk xxx links to DiagnosticOk
+		DiagnosticVirtualTextOk({ DiagnosticOk }), -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
+		DiagnosticSignOk({ DiagnosticOk }), -- DiagnosticSignOk xxx links to DiagnosticOk
+		WhichKeyIconGreen({ DiagnosticOk }), -- WhichKeyIconGreen xxx links to DiagnosticOk
+		DiagnosticVirtualTextWarn({ fg = "#f1ff5e" }), -- DiagnosticVirtualTextWarn xxx guifg=#f1ff5e
+		NoiceFormatLevelWarn({ DiagnosticVirtualTextWarn }), -- NoiceFormatLevelWarn xxx links to DiagnosticVirtualTextWarn
+		DiagnosticVirtualTextInfo({ fg = "#5ea1ff" }), -- DiagnosticVirtualTextInfo xxx guifg=#5ea1ff
+		NoiceFormatLevelInfo({ DiagnosticVirtualTextInfo }), -- NoiceFormatLevelInfo xxx links to DiagnosticVirtualTextInfo
+		NoiceVirtualText({ DiagnosticVirtualTextInfo }), -- NoiceVirtualText xxx links to DiagnosticVirtualTextInfo
+		DiagnosticVirtualTextHint({ fg = "#5ef1ff" }), -- DiagnosticVirtualTextHint xxx guifg=#5ef1ff
+		DiagnosticUnnecessary({ fg = "#7b8496" }), -- DiagnosticUnnecessary xxx guifg=#7b8496
+		semshiParameterUnused({ DiagnosticUnnecessary }), -- semshiParameterUnused xxx links to DiagnosticUnnecessary
+		Comment({ fg = "#555555", gui = "italic" }), -- Comment        xxx cterm=italic gui=italic guifg=#555555
+		sym("@comment")({ Comment }), -- @comment       xxx links to Comment
+		MiniStarterInactive({ Comment }), -- MiniStarterInactive xxx links to Comment
+		MiniStarterFooter({ Comment }), -- MiniStarterFooter xxx links to Comment
+		GrugFarResultsHeader({ Comment }), -- GrugFarResultsHeader xxx links to Comment
+		GrugFarHelpWinActionDescription({ Comment }), -- GrugFarHelpWinActionDescription xxx links to Comment
+		GrugFarHelpHeader({ Comment }), -- GrugFarHelpHeader xxx links to Comment
+		MarkviewBlockQuoteDefault({ Comment }), -- MarkviewBlockQuoteDefault xxx links to Comment
+		MiniDepsPlaceholder({ Comment }), -- MiniDepsPlaceholder xxx links to Comment
+		TroubleSource({ Comment }), -- TroubleSource  xxx links to Comment
+		RenderMarkdownQuote({ Comment }), -- RenderMarkdownQuote xxx links to Comment
+		sym("@markup.quote")({ Comment }), -- @markup.quote  xxx links to Comment
+		LspInfoTip({ Comment }), -- LspInfoTip     xxx links to Comment
+		MarkVirtTextHL({ Comment }), -- MarkVirtTextHL xxx links to Comment
+		luaComment({ Comment }), -- luaComment     xxx links to Comment
+		WhichKeySeparator({ Comment }), -- WhichKeySeparator xxx links to Comment
+		TroubleDiagnosticsItemSource({ Comment }), -- TroubleDiagnosticsItemSource xxx links to Comment
+		TroubleDiagnosticsCode({ Comment }), -- TroubleDiagnosticsCode xxx links to Comment
+		NotifyLogTime({ Comment }), -- NotifyLogTime  xxx links to Comment
+		FzfLuaDirPart({ Comment }), -- FzfLuaDirPart  xxx links to Comment
+		sym("@variable")({ fg = "#cccccc" }), -- @variable      xxx guifg=#cccccc
+		sym("@lsp.type.variable")({ sym("@variable") }), -- @lsp.type.variable xxx links to @variable
+		TroubleIconVariable({ sym("@variable") }), -- TroubleIconVariable xxx links to @variable
+		String({ fg = "#5eff6c" }), -- String         xxx guifg=#5eff6c
+		sym("@string")({ String }), -- @string        xxx links to String
+		NvimString({ String }), -- NvimString     xxx links to String
+		sym("@text.literal")({ String }), -- @text.literal  xxx links to String
+		sym("@string.regex")({ String }), -- @string.regex  xxx links to String
+		MiniDepsTitleUpdate({ String }), -- MiniDepsTitleUpdate xxx links to String
+		luaString2({ String }), -- luaString2     xxx links to String
+		luaString({ String }), -- luaString      xxx links to String
+		sym("@type.builtin")({ fg = "#d45edd" }), -- @type.builtin  xxx guifg=#d45edd
+		Identifier({ fg = "#ffffff" }), -- Identifier     xxx guifg=#ffffff
+		sym("@property")({ Identifier }), -- @property      xxx links to Identifier
+		NvimIdentifier({ Identifier }), -- NvimIdentifier xxx links to Identifier
+		sym("@parameter")({ Identifier }), -- @parameter     xxx links to Identifier
+		sym("@field")({ Identifier }), -- @field         xxx links to Identifier
+		sym("@symbol")({ Identifier }), -- @symbol        xxx links to Identifier
+		MarkSignHL({ Identifier }), -- MarkSignHL     xxx links to Identifier
+		luaFunc({ Identifier }), -- luaFunc        xxx links to Identifier
+		Function({ fg = "#5ea1ff" }), -- Function       xxx guifg=#5ea1ff
+		sym("@function")({ Function }), -- @function      xxx links to Function
+		sym("@method")({ Function }), -- @method        xxx links to Function
+		LspInfoList({ Function }), -- LspInfoList    xxx links to Function
+		luaMetaMethod({ Function }), -- luaMetaMethod  xxx links to Function
+		luaFunction({ Function }), -- luaFunction    xxx links to Function
+		WhichKeyIconAzure({ Function }), -- WhichKeyIconAzure xxx links to Function
+		Operator({ fg = "#bd5eff" }), -- Operator       xxx guifg=#bd5eff
+		sym("@operator")({ Operator }), -- @operator      xxx links to Operator
+		NvimAssignment({ Operator }), -- NvimAssignment xxx links to Operator
+		NvimOperator({ Operator }), -- NvimOperator   xxx links to Operator
+		luaOperator({ Operator }), -- luaOperator    xxx links to Operator
+		Delimiter({ fg = "#ffffff" }), -- Delimiter      xxx guifg=#ffffff
+		sym("@punctuation")({ Delimiter }), -- @punctuation   xxx links to Delimiter
+		sym("@punctuation.special")({ Delimiter }), -- @punctuation.special xxx links to Delimiter
+		NvimParenthesis({ Delimiter }), -- NvimParenthesis xxx links to Delimiter
+		NvimColon({ Delimiter }), -- NvimColon      xxx links to Delimiter
+		NvimComma({ Delimiter }), -- NvimComma      xxx links to Delimiter
+		NvimArrow({ Delimiter }), -- NvimArrow      xxx links to Delimiter
+		sym("@punctuation.delimiter")({ Delimiter }), -- @punctuation.delimiter xxx links to Delimiter
+		sym("@punctuation.bracket")({ Delimiter }), -- @punctuation.bracket xxx links to Delimiter
+		MiniStarterItemBullet({ Delimiter }), -- MiniStarterItemBullet xxx links to Delimiter
+		sym("@tag.delimiter")({ Delimiter }), -- @tag.delimiter xxx links to Delimiter
+		Todo({ fg = "#bd5eff", gui = "bold" }), -- Todo           xxx cterm=bold gui=bold guifg=#bd5eff
+		sym("@comment.todo")({ Todo }), -- @comment.todo  xxx links to Todo
+		sym("@text.warning")({ Todo }), -- @text.warning  xxx links to Todo
+		sym("@text.todo")({ Todo }), -- @text.todo     xxx links to Todo
+		luaTodo({ Todo }), -- luaTodo        xxx links to Todo
+		sym("@markup.strong")({ fg = "#ff5ea0", gui = "bold" }), -- @markup.strong xxx cterm=bold gui=bold guifg=#ff5ea0
+		sym("@markup.italic")({ fg = "#5ea1ff", gui = "italic" }), -- @markup.italic xxx cterm=italic gui=italic guifg=#5ea1ff
+		sym("@markup.strikethrough")({ gui = "strikethrough" }), -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
+		sym("@markup.underline")({ gui = "underline" }), -- @markup.underline xxx cterm=underline gui=underline
+		Added({ fg = "#5eff6c" }), -- Added          xxx guifg=#5eff6c
+		sym("@diff.plus")({ Added }), -- @diff.plus     xxx links to Added
+		Removed({ fg = "#ff6e5e" }), -- Removed        xxx guifg=#ff6e5e
+		sym("@diff.minus")({ Removed }), -- @diff.minus    xxx links to Removed
+		Changed({ fg = "nvimlightcyan" }), -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
+		sym("@diff.delta")({ Changed }), -- @diff.delta    xxx links to Changed
+		DiagnosticDeprecated({ gui = "strikethrough", sp = "nvimlightred" }), -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+		sym("@lsp.mod.deprecated")({ DiagnosticDeprecated }), -- @lsp.mod.deprecated xxx links to DiagnosticDeprecated
+		FloatShadow({ bg = "nvimdarkgrey4", blend = 80 }), -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
+		FloatShadowThrough({ bg = "nvimdarkgrey4", blend = 100 }), -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+		MatchParen({ bg = "#3c4048", fg = "#ff5ea0" }), -- MatchParen     xxx guifg=#ff5ea0 guibg=#3c4048
+		MatchParenCur({ MatchParen }), -- MatchParenCur  xxx links to MatchParen
+		MatchWord({ MatchParen }), -- MatchWord      xxx links to MatchParen
+		RedrawDebugClear({ bg = "nvimdarkyellow" }), -- RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
+		RedrawDebugComposed({ bg = "nvimdarkgreen" }), -- RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
+		RedrawDebugRecompose({ bg = "nvimdarkred" }), -- RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
+		Error({ fg = "#ff6e5e" }), -- Error          xxx guifg=#ff6e5e
+		NvimInvalid({ Error }), -- NvimInvalid    xxx links to Error
+		luaParenError({ Error }), -- luaParenError  xxx links to Error
+		luaError({ Error }), -- luaError       xxx links to Error
+		DiagnosticUnderlineError({ gui = "undercurl", sp = "#ff6e5e" }), -- DiagnosticUnderlineError xxx cterm=undercurl gui=undercurl guisp=#ff6e5e
+		DiagnosticUnderlineWarn({ gui = "undercurl", sp = "#f1ff5e" }), -- DiagnosticUnderlineWarn xxx cterm=undercurl gui=undercurl guisp=#f1ff5e
+		DiagnosticUnderlineInfo({ gui = "undercurl", sp = "#5ea1ff" }), -- DiagnosticUnderlineInfo xxx cterm=undercurl gui=undercurl guisp=#5ea1ff
+		DiagnosticUnderlineHint({ gui = "undercurl", sp = "#5ef1ff" }), -- DiagnosticUnderlineHint xxx cterm=undercurl gui=undercurl guisp=#5ef1ff
+		DiagnosticUnderlineOk({ gui = "underline", sp = "nvimlightgreen" }), -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+		NvimInternalError({ bg = "red", fg = "red" }), -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
+		NvimFigureBrace({ NvimInternalError }), -- NvimFigureBrace xxx links to NvimInternalError
+		NvimSingleQuotedUnknownEscape({ NvimInternalError }), -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
+		NvimInvalidSingleQuotedUnknownEscape({ NvimInternalError }), -- NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
+		SignColumnSB({ bg = "#1c1c1c", fg = "#7b8496" }), -- SignColumnSB   xxx guifg=#7b8496 guibg=#1c1c1c
+		GitSignsDeleteInline({ bg = "#322422" }), -- GitSignsDeleteInline xxx guibg=#322422
+		GitSignsDeleteLnInline({ GitSignsDeleteInline }), -- GitSignsDeleteLnInline xxx links to GitSignsDeleteInline
+		GitSignsChangeInline({ bg = "#222932" }), -- GitSignsChangeInline xxx guibg=#222932
+		GitSignsChangeLnInline({ GitSignsChangeInline }), -- GitSignsChangeLnInline xxx links to GitSignsChangeInline
+		GitSignsAddInline({ bg = "#223224" }), -- GitSignsAddInline xxx guibg=#223224
+		GitSignsAddLnInline({ GitSignsAddInline }), -- GitSignsAddLnInline xxx links to GitSignsAddInline
+		GitSignsDelete({ fg = "#ff6e5e" }), -- GitSignsDelete xxx guifg=#ff6e5e
+		GitSignsTopdelete({ GitSignsDelete }), -- GitSignsTopdelete xxx links to GitSignsDelete
+		GitSignsDeleteNr({ GitSignsDelete }), -- GitSignsDeleteNr xxx links to GitSignsDelete
+		GitSignsDeleteCul({ GitSignsDelete }), -- GitSignsDeleteCul xxx links to GitSignsDelete
+		GitSignsChange({ fg = "#ffbd5e" }), -- GitSignsChange xxx guifg=#ffbd5e
+		GitSignsChangedelete({ GitSignsChange }), -- GitSignsChangedelete xxx links to GitSignsChange
+		GitSignsChangeNr({ GitSignsChange }), -- GitSignsChangeNr xxx links to GitSignsChange
+		GitSignsChangeCul({ GitSignsChange }), -- GitSignsChangeCul xxx links to GitSignsChange
+		GitSignsAdd({ fg = "#5eff6c" }), -- GitSignsAdd    xxx guifg=#5eff6c
+		GitSignsUntracked({ GitSignsAdd }), -- GitSignsUntracked xxx links to GitSignsAdd
+		GitSignsAddNr({ GitSignsAdd }), -- GitSignsAddNr  xxx links to GitSignsAdd
+		GitSignsAddCul({ GitSignsAdd }), -- GitSignsAddCul xxx links to GitSignsAdd
+		MiniIconsYellow({ fg = "#f1ff5e" }), -- MiniIconsYellow xxx guifg=#f1ff5e
+		MiniIconsAzure({ fg = "#cefaff" }), -- MiniIconsAzure xxx guifg=#cefaff
+		MiniIconsGrey({ fg = "#ffffff" }), -- MiniIconsGrey  xxx guifg=#ffffff
+		AlphaShortcut({ fg = "#ffbd5e" }), -- AlphaShortcut  xxx guifg=#ffbd5e
+		AlphaButtons({ fg = "#5ea1ff" }), -- AlphaButtons   xxx guifg=#5ea1ff
+		Bold({ fg = "#7b8496", gui = "bold,italic" }), -- Bold           xxx cterm=bold,italic gui=bold,italic guifg=#7b8496
+		ICursor({ bg = "#ffffff", fg = "#1c1c1c" }), -- ICursor        xxx guifg=#1c1c1c guibg=#ffffff
+		sym("@text.underline")({ gui = "underline" }), -- @text.underline xxx cterm=underline gui=underline
+		markdownH5({ fg = "#ff5ef1", gui = "bold" }), -- markdownH5     xxx cterm=bold gui=bold guifg=#ff5ef1
+		sym("@text.title.5")({ markdownH5 }), -- @text.title.5  xxx links to markdownH5
+		sym("@markup.heading.5")({ markdownH5 }), -- @markup.heading.5 xxx links to markdownH5
+		markdownH4({ fg = "#bd5eff", gui = "bold" }), -- markdownH4     xxx cterm=bold gui=bold guifg=#bd5eff
+		sym("@text.title.4")({ markdownH4 }), -- @text.title.4  xxx links to markdownH4
+		sym("@markup.heading.4")({ markdownH4 }), -- @markup.heading.4 xxx links to markdownH4
+		markdownH3({ fg = "#5ea1ff", gui = "bold" }), -- markdownH3     xxx cterm=bold gui=bold guifg=#5ea1ff
+		sym("@text.title.3")({ markdownH3 }), -- @text.title.3  xxx links to markdownH3
+		sym("@markup.heading.3")({ markdownH3 }), -- @markup.heading.3 xxx links to markdownH3
+		markdownH2({ fg = "#5ef1ff", gui = "bold" }), -- markdownH2     xxx cterm=bold gui=bold guifg=#5ef1ff
+		sym("@text.title.2")({ markdownH2 }), -- @text.title.2  xxx links to markdownH2
+		sym("@markup.heading.2")({ markdownH2 }), -- @markup.heading.2 xxx links to markdownH2
+		markdownH1({ fg = "#ffbd5e", gui = "bold" }), -- markdownH1     xxx cterm=bold gui=bold guifg=#ffbd5e
+		sym("@text.title")({ markdownH1 }), -- @text.title    xxx links to markdownH1
+		sym("@markup.heading.1")({ markdownH1 }), -- @markup.heading.1 xxx links to markdownH1
+		sym("@text.strong")({ gui = "bold" }), -- @text.strong   xxx cterm=bold gui=bold
+		sym("@text.strike")({ gui = "strikethrough" }), -- @text.strike   xxx cterm=strikethrough gui=strikethrough
+		sym("@text.emphasis")({ gui = "italic" }), -- @text.emphasis xxx cterm=italic gui=italic
+		HeirlineTerminal({ bg = "#5ef1ff" }), -- HeirlineTerminal xxx guibg=#5ef1ff
+		HeirlineInsert({ bg = "#5eff6c" }), -- HeirlineInsert xxx guibg=#5eff6c
+		HeirlineCommand({ bg = "#f1ff5e" }), -- HeirlineCommand xxx guibg=#f1ff5e
+		HeirlineReplace({ bg = "#ff6e5e" }), -- HeirlineReplace xxx guibg=#ff6e5e
+		HeirlineVisual({ bg = "#ff5ef1" }), -- HeirlineVisual xxx guibg=#ff5ef1
+		HeirlineInactive({ bg = "#7b8496" }), -- HeirlineInactive xxx guibg=#7b8496
+		MiniTrailspace({ bg = "#ff6e5e" }), -- MiniTrailspace xxx guibg=#ff6e5e
+		MiniTestPass({ fg = "#5eff6c", gui = "bold" }), -- MiniTestPass   xxx cterm=bold gui=bold guifg=#5eff6c
+		MiniTestFail({ fg = "#ff6e5e", gui = "bold" }), -- MiniTestFail   xxx cterm=bold gui=bold guifg=#ff6e5e
+		MiniTestEmphasis({ gui = "bold" }), -- MiniTestEmphasis xxx cterm=bold gui=bold
+		MiniTablineVisible({ bg = "#3c4048", fg = "#ffffff" }), -- MiniTablineVisible xxx guifg=#ffffff guibg=#3c4048
+		MiniTablineModifiedVisible({ bg = "#ffffff", fg = "#3c4048" }), -- MiniTablineModifiedVisible xxx guifg=#3c4048 guibg=#ffffff
+		MiniTablineModifiedHidden({ bg = "#7b8496", fg = "#1c1c1c" }), -- MiniTablineModifiedHidden xxx guifg=#1c1c1c guibg=#7b8496
+		MiniTablineModifiedCurrent({ bg = "#ffffff", fg = "#3c4048", gui = "bold" }), -- MiniTablineModifiedCurrent xxx cterm=bold gui=bold guifg=#3c4048 guibg=#ffffff
+		MiniTablineHidden({ bg = "#1c1c1c", fg = "#7b8496" }), -- MiniTablineHidden xxx guifg=#7b8496 guibg=#1c1c1c
+		MiniTablineCurrent({ bg = "#3c4048", fg = "#ffffff", gui = "bold" }), -- MiniTablineCurrent xxx cterm=bold gui=bold guifg=#ffffff guibg=#3c4048
+		MiniStatuslineModeVisual({ bg = "#ff5ef1", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeVisual xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#ff5ef1
+		MiniStatuslineModeReplace({ bg = "#ff6e5e", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeReplace xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#ff6e5e
+		MiniStatuslineModeOther({ bg = "#5ef1ff", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeOther xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5ef1ff
+		MiniStatuslineModeNormal({ bg = "#5ea1ff", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeNormal xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5ea1ff
+		MiniStatuslineModeInsert({ bg = "#5eff6c", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeInsert xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5eff6c
+		MiniStatuslineModeCommand({ bg = "#f1ff5e", fg = "#1c1c1c", gui = "bold" }), -- MiniStatuslineModeCommand xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#f1ff5e
+		MiniStarterSection({ fg = "#5ea1ff" }), -- MiniStarterSection xxx guifg=#5ea1ff
+		MiniStarterHeader({ fg = "#5ef1ff" }), -- MiniStarterHeader xxx guifg=#5ef1ff
+		MiniStarterCurrent({ gui = "nocombine" }), -- MiniStarterCurrent xxx cterm=nocombine gui=nocombine
+		MiniPickMatchRanges({ fg = "#ffbd5e" }), -- MiniPickMatchRanges xxx guifg=#ffbd5e
+		MiniPickMatchMarked({ bg = "#3c4048" }), -- MiniPickMatchMarked xxx guibg=#3c4048
+		GrappleNormal({ bg = "#1e2124" }), -- GrappleNormal  xxx guibg=#1e2124
+		GrappleBorder({ bg = "#1e2124", fg = "#1e2124" }), -- GrappleBorder  xxx guifg=#1e2124 guibg=#1e2124
+		GrappleFooter({ fg = "#7b8496" }), -- GrappleFooter  xxx guifg=#7b8496
+		GrappleTitle({ bg = "#5ef1ff", fg = "#1e2124" }), -- GrappleTitle   xxx guifg=#1e2124 guibg=#5ef1ff
+		CmpItemKindDefault({ fg = "#ff5ea0" }), -- CmpItemKindDefault xxx guifg=#ff5ea0
+		CmpItemKind({ CmpItemKindDefault }), -- CmpItemKind    xxx links to CmpItemKindDefault
+		CmpItemMenu({ bg = "#1c1c1c", fg = "#7b8496" }), -- CmpItemMenu    xxx guifg=#7b8496 guibg=#1c1c1c
+		CmpItemKindUnit({ bg = "#1c1c1c", fg = "#ffffff" }), -- CmpItemKindUnit xxx guifg=#ffffff guibg=#1c1c1c
+		CmpItemKindProperty({ bg = "#1c1c1c", fg = "#ffffff" }), -- CmpItemKindProperty xxx guifg=#ffffff guibg=#1c1c1c
+		CmpItemKindKeyword({ bg = "#1c1c1c", fg = "#ffffff" }), -- CmpItemKindKeyword xxx guifg=#ffffff guibg=#1c1c1c
+		CmpItemKindMethod({ bg = "#1c1c1c", fg = "#ff5ea0" }), -- CmpItemKindMethod xxx guifg=#ff5ea0 guibg=#1c1c1c
+		CmpItemKindFunction({ bg = "#1c1c1c", fg = "#ff5ea0" }), -- CmpItemKindFunction xxx guifg=#ff5ea0 guibg=#1c1c1c
+		CmpItemKindText({ bg = "#1c1c1c", fg = "#5ef1ff" }), -- CmpItemKindText xxx guifg=#5ef1ff guibg=#1c1c1c
+		CmpItemKindInterface({ bg = "#1c1c1c", fg = "#5ef1ff" }), -- CmpItemKindInterface xxx guifg=#5ef1ff guibg=#1c1c1c
+		CmpItemKindVariable({ bg = "#1c1c1c", fg = "#5ef1ff" }), -- CmpItemKindVariable xxx guifg=#5ef1ff guibg=#1c1c1c
+		CmpItemAbbrMatchFuzzy({ bg = "#1c1c1c", fg = "#bd5eff" }), -- CmpItemAbbrMatchFuzzy xxx guifg=#bd5eff guibg=#1c1c1c
+		CmpItemAbbr({ bg = "#1c1c1c", fg = "#ffffff" }), -- CmpItemAbbr    xxx guifg=#ffffff guibg=#1c1c1c
+		CmpDocumentation({ bg = "#1c1c1c", fg = "#7b8496" }), -- CmpDocumentation xxx guifg=#7b8496 guibg=#1c1c1c
+		GrugFarResultsLineNo({ fg = "#ff5ea0", gui = "bold" }), -- GrugFarResultsLineNo xxx cterm=bold gui=bold guifg=#ff5ea0
+		GrugFarResultsLineColumn({ GrugFarResultsLineNo }), -- GrugFarResultsLineColumn xxx links to GrugFarResultsLineNo
+		GrugFarResultsPath({ fg = "#5ea1ff", gui = "bold,underline" }), -- GrugFarResultsPath xxx cterm=bold,underline gui=bold,underline guifg=#5ea1ff
+		GrugFarResultsRgCmdHeader({ GrugFarResultsPath }), -- GrugFarResultsRgCmdHeader xxx links to GrugFarResultsPath
+		GrugFarResultsChangeIndicator({ fg = "#5ef1ff" }), -- GrugFarResultsChangeIndicator xxx guifg=#5ef1ff
+		GrugFarResultsMatch({ bg = "#253b3e", fg = "#5ef1ff", gui = "bold" }), -- GrugFarResultsMatch xxx cterm=bold gui=bold guifg=#5ef1ff guibg=#253b3e
+		GrugFarResultsActionMessage({ bg = "#5eff6c", fg = "#1c1c1c", gui = "bold" }), -- GrugFarResultsActionMessage xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5eff6c
+		GrugFarResultsStats({ fg = "#f1ff5e" }), -- GrugFarResultsStats xxx guifg=#f1ff5e
+		GrugFarInputPlaceholder({ fg = "#4f535a", gui = "italic" }), -- GrugFarInputPlaceholder xxx cterm=italic gui=italic guifg=#4f535a
+		GrugFarInputLabel({ fg = "#ffbd5e", gui = "bold" }), -- GrugFarInputLabel xxx cterm=bold gui=bold guifg=#ffbd5e
+		GrugFarHelpWinActionKey({ fg = "#5ef1ff", gui = "bold" }), -- GrugFarHelpWinActionKey xxx cterm=bold gui=bold guifg=#5ef1ff
+		GrugFarHelpWinActionPrefix({ fg = "#bd5eff" }), -- GrugFarHelpWinActionPrefix xxx guifg=#bd5eff
+		GrugFarHelpWinHeader({ fg = "#5ea1ff", gui = "bold" }), -- GrugFarHelpWinHeader xxx cterm=bold gui=bold guifg=#5ea1ff
+		GrugFarHelpHeaderKey({ fg = "#5ef1ff", gui = "bold" }), -- GrugFarHelpHeaderKey xxx cterm=bold gui=bold guifg=#5ef1ff
+		NoiceLspProgressTitle({ fg = "#5ef1ff" }), -- NoiceLspProgressTitle xxx guifg=#5ef1ff
+		NoiceLspProgressSpinner({ fg = "#ffbd5e" }), -- NoiceLspProgressSpinner xxx guifg=#ffbd5e
+		NoiceLspProgressClient({ fg = "#5ea1ff" }), -- NoiceLspProgressClient xxx guifg=#5ea1ff
+		NoiceFormatProgressTodo({ bg = "#3c4048", fg = "#7b8496" }), -- NoiceFormatProgressTodo xxx guifg=#7b8496 guibg=#3c4048
+		NoiceFormatProgressDone({ bg = "#5ef1ff", fg = "#1e2124" }), -- NoiceFormatProgressDone xxx guifg=#1e2124 guibg=#5ef1ff
+		CmpGhostText({ bg = "#1c1c1c", fg = "#7b8496" }), -- CmpGhostText   xxx guifg=#7b8496 guibg=#1c1c1c
+		NeogitDiffContextHighlight({ bg = "#3c4048" }), -- NeogitDiffContextHighlight xxx guibg=#3c4048
+		NeogitDiffHeaderHighlight({ bg = "#3c4048", fg = "#ffbd5e", gui = "bold,italic" }), -- NeogitDiffHeaderHighlight xxx cterm=bold,italic gui=bold,italic guifg=#ffbd5e guibg=#3c4048
+		NeogitDiffContext({ bg = "#1c1c1c" }), -- NeogitDiffContext xxx guibg=#1c1c1c
+		NeogitDiffHeader({ bg = "#ffffff", fg = "#1e2124" }), -- NeogitDiffHeader xxx guifg=#1e2124 guibg=#ffffff
+		NeogitHunkHeaderHighlight({ bg = "#ff5ea0", fg = "#1e2124", gui = "bold" }), -- NeogitHunkHeaderHighlight xxx cterm=bold gui=bold guifg=#1e2124 guibg=#ff5ea0
+		NeogitHunkHeader({ bg = "#5ef1ff", fg = "#1e2124", gui = "bold" }), -- NeogitHunkHeader xxx cterm=bold gui=bold guifg=#1e2124 guibg=#5ef1ff
+		NeogitCommitViewHeader({ bg = "#ff5ea0", fg = "#1e2124" }), -- NeogitCommitViewHeader xxx guifg=#1e2124 guibg=#ff5ea0
+		NeogitSectionHeader({ fg = "#ffbd5e", gui = "bold" }), -- NeogitSectionHeader xxx cterm=bold gui=bold guifg=#ffbd5e
+		NeogitChangeModified({ fg = "#5ea1ff", gui = "bold,italic" }), -- NeogitChangeModified xxx cterm=bold,italic gui=bold,italic guifg=#5ea1ff
+		NeogitChangeDeleted({ fg = "#ff6e5e", gui = "bold,italic" }), -- NeogitChangeDeleted xxx cterm=bold,italic gui=bold,italic guifg=#ff6e5e
+		NeogitWinSeparator({ bg = "#1c1c1c", fg = "#3c4048" }), -- NeogitWinSeparator xxx guifg=#3c4048 guibg=#1c1c1c
+		NeogitBranchHead({ fg = "#ff5ea0", gui = "bold" }), -- NeogitBranchHead xxx cterm=bold gui=bold guifg=#ff5ea0
+		NeogitBranch({ fg = "#ff5ea0", gui = "bold" }), -- NeogitBranch   xxx cterm=bold gui=bold guifg=#ff5ea0
+		NeogitRemote({ fg = "#5ef1ff" }), -- NeogitRemote   xxx guifg=#5ef1ff
+		NeogitFold({ fg = "#ffffff" }), -- NeogitFold     xxx guifg=#ffffff
+		NeogitPopupSectionTitle({ fg = "#ff5ea0", gui = "bold" }), -- NeogitPopupSectionTitle xxx cterm=bold gui=bold guifg=#ff5ea0
+		NeogitPopupBranchName({ fg = "#5ef1ff", gui = "bold" }), -- NeogitPopupBranchName xxx cterm=bold gui=bold guifg=#5ef1ff
+		NeogitPopupActionKey({ fg = "#ffbd5e" }), -- NeogitPopupActionKey xxx guifg=#ffbd5e
+		NeogitPopupOptionKey({ fg = "#ffbd5e" }), -- NeogitPopupOptionKey xxx guifg=#ffbd5e
+		NeogitPopupSwitchKey({ fg = "#ffbd5e" }), -- NeogitPopupSwitchKey xxx guifg=#ffbd5e
+		NeogitNormal({ bg = "#1c1c1c" }), -- NeogitNormal   xxx guibg=#1c1c1c
+		NotifyBackground({ bg = "#1c1c1c" }), -- NotifyBackground xxx guibg=#1c1c1c
+		NotifyWARNTitle({ fg = "#f1ff5e" }), -- NotifyWARNTitle xxx guifg=#f1ff5e
+		NotifyWARNIcon({ fg = "#ffbd5e" }), -- NotifyWARNIcon xxx guifg=#ffbd5e
+		NotifyWARNBorder({ fg = "#3c4048" }), -- NotifyWARNBorder xxx guifg=#3c4048
+		NotifyWARNBody({ fg = "#ffffff" }), -- NotifyWARNBody xxx guifg=#ffffff
+		NotifyTRACETitle({ fg = "#ff5ef1" }), -- NotifyTRACETitle xxx guifg=#ff5ef1
+		NotifyTRACEIcon({ fg = "#bd5eff" }), -- NotifyTRACEIcon xxx guifg=#bd5eff
+		NotifyTRACEBorder({ fg = "#3c4048" }), -- NotifyTRACEBorder xxx guifg=#3c4048
+		NotifyINFOTitle({ fg = "#5ef1ff" }), -- NotifyINFOTitle xxx guifg=#5ef1ff
+		NotifyINFOIcon({ fg = "#5eff6c" }), -- NotifyINFOIcon xxx guifg=#5eff6c
+		NotifyINFOBorder({ fg = "#3c4048" }), -- NotifyINFOBorder xxx guifg=#3c4048
+		NotifyINFOBody({ fg = "#ffffff" }), -- NotifyINFOBody xxx guifg=#ffffff
+		NotifyERRORTitle({ fg = "#ff5ea0" }), -- NotifyERRORTitle xxx guifg=#ff5ea0
+		NotifyERRORIcon({ fg = "#ff6e5e" }), -- NotifyERRORIcon xxx guifg=#ff6e5e
+		NotifyERRORBorder({ fg = "#3c4048" }), -- NotifyERRORBorder xxx guifg=#3c4048
+		NotifyERRORBody({ fg = "#ffffff" }), -- NotifyERRORBody xxx guifg=#ffffff
+		NotifyDEBUGTitle({ fg = "#7b8496" }), -- NotifyDEBUGTitle xxx guifg=#7b8496
+		NotifyDEBUGIcon({ fg = "#7b8496" }), -- NotifyDEBUGIcon xxx guifg=#7b8496
+		NotifyDEBUGBorder({ fg = "#3c4048" }), -- NotifyDEBUGBorder xxx guifg=#3c4048
+		NotifyDEBUGBody({ fg = "#ffffff" }), -- NotifyDEBUGBody xxx guifg=#ffffff
+		KubectlGray({ fg = "#7b8496" }), -- KubectlGray    xxx guifg=#7b8496
+		KubectlNote({ fg = "#5ef1ff" }), -- KubectlNote    xxx guifg=#5ef1ff
+		KubectlExperimental({ fg = "#ff5ea0" }), -- KubectlExperimental xxx guifg=#ff5ea0
+		KubectlDeprecated({ fg = "#ff5ef1" }), -- KubectlDeprecated xxx guifg=#ff5ef1
+		KubectlPending({ fg = "#bd5eff" }), -- KubectlPending xxx guifg=#bd5eff
+		KubectlSuccess({ fg = "#5ef1ff" }), -- KubectlSuccess xxx guifg=#5ef1ff
+		KubectlDebug({ fg = "#f1ff5e" }), -- KubectlDebug   xxx guifg=#f1ff5e
+		KubectlInfo({ fg = "#5ef1ff" }), -- KubectlInfo    xxx guifg=#5ef1ff
+		KubectlError({ fg = "#ff6e5e" }), -- KubectlError   xxx guifg=#ff6e5e
+		KubectlWarning({ fg = "#f1ff5e" }), -- KubectlWarning xxx guifg=#f1ff5e
+		KubectlHeader({ fg = "#5ea1ff", gui = "bold" }), -- KubectlHeader  xxx cterm=bold gui=bold guifg=#5ea1ff
+		IblScope({ fg = "#3c4048" }), -- IblScope       xxx guifg=#3c4048
+		IblIndent({ fg = "#272a2e" }), -- IblIndent      xxx guifg=#272a2e
+		MiniMapSymbolView({ fg = "#5ea1ff" }), -- MiniMapSymbolView xxx guifg=#5ea1ff
+		MiniMapSymbolLine({ fg = "#5ef1ff" }), -- MiniMapSymbolLine xxx guifg=#5ef1ff
+		MiniJump2dSpotUnique({ fg = "#f1ff5e", gui = "bold,nocombine" }), -- MiniJump2dSpotUnique xxx cterm=bold,nocombine gui=bold,nocombine guifg=#f1ff5e
+		MiniJump2dSpotAhead({ bg = "#1c1c1c", fg = "#5ef1ff", gui = "nocombine" }), -- MiniJump2dSpotAhead xxx cterm=nocombine gui=nocombine guifg=#5ef1ff guibg=#1c1c1c
+		MiniJump2dSpot({ fg = "#ffbd5e", gui = "bold,nocombine" }), -- MiniJump2dSpot xxx cterm=bold,nocombine gui=bold,nocombine guifg=#ffbd5e
+		MiniJump2dDim({ fg = "#7b8496" }), -- MiniJump2dDim  xxx guifg=#7b8496
+		MiniIndentscopeSymbolOff({ fg = "#f1ff5e" }), -- MiniIndentscopeSymbolOff xxx guifg=#f1ff5e
+		MiniIndentscopeSymbol({ fg = "#7b8496" }), -- MiniIndentscopeSymbol xxx guifg=#7b8496
+		MiniIconsRed({ fg = "#ff6e5e" }), -- MiniIconsRed   xxx guifg=#ff6e5e
+		MiniIconsPurple({ fg = "#bd5eff" }), -- MiniIconsPurple xxx guifg=#bd5eff
+		HopNextKey2({ bg = "#223132", fg = "#4ab1ba", gui = "bold" }), -- HopNextKey2    xxx cterm=bold gui=bold guifg=#4ab1ba guibg=#223132
+		MiniIconsGreen({ fg = "#5eff6c" }), -- MiniIconsGreen xxx guifg=#5eff6c
+		HopNextKey({ bg = "#3e253b", fg = "#ff5ef1", gui = "bold" }), -- HopNextKey     xxx cterm=bold gui=bold guifg=#ff5ef1 guibg=#3e253b
+		MiniIconsBlue({ fg = "#5ea1ff" }), -- MiniIconsBlue  xxx guifg=#5ea1ff
+		MiniHipatternsTodo({ bg = "#5ef1ff", fg = "#1c1c1c", gui = "bold" }), -- MiniHipatternsTodo xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5ef1ff
+		MiniHipatternsNote({ bg = "#5ea1ff", fg = "#1c1c1c", gui = "bold" }), -- MiniHipatternsNote xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#5ea1ff
+		MiniHipatternsHack({ bg = "#f1ff5e", fg = "#1c1c1c", gui = "bold" }), -- MiniHipatternsHack xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#f1ff5e
+		MiniHipatternsFixme({ bg = "#ff6e5e", fg = "#1c1c1c", gui = "bold" }), -- MiniHipatternsFixme xxx cterm=bold gui=bold guifg=#1c1c1c guibg=#ff6e5e
+		MiniFilesTitleFocused({ fg = "#5ef1ff" }), -- MiniFilesTitleFocused xxx guifg=#5ef1ff
+		MiniFilesTitle({ fg = "#46757e" }), -- MiniFilesTitle xxx guifg=#46757e
+		MiniFilesFile({ fg = "#ffffff" }), -- MiniFilesFile  xxx guifg=#ffffff
+		MiniFilesDirectory({ fg = "#5ea1ff" }), -- MiniFilesDirectory xxx guifg=#5ea1ff
+		MiniFilesBorderModified({ fg = "#ff5ea0" }), -- MiniFilesBorderModified xxx guifg=#ff5ea0
+		MiniFilesBorder({ fg = "#3c4048" }), -- MiniFilesBorder xxx guifg=#3c4048
+		MiniDiffSignDelete({ fg = "#ff6e5e" }), -- MiniDiffSignDelete xxx guifg=#ff6e5e
+		MiniDiffSignChange({ fg = "#ffbd5e" }), -- MiniDiffSignChange xxx guifg=#ffbd5e
+		MiniDiffSignAdd({ fg = "#5eff6c" }), -- MiniDiffSignAdd xxx guifg=#5eff6c
+		MiniDiffOverDelete({ bg = "#492c29" }), -- MiniDiffOverDelete xxx guibg=#492c29
+		MiniDiffOverContext({ bg = "#493c29" }), -- MiniDiffOverContext xxx guibg=#493c29
+		MiniDiffOverChange({ bg = "#293649" }), -- MiniDiffOverChange xxx guibg=#293649
+		MiniDiffOverAdd({ bg = "#29492c" }), -- MiniDiffOverAdd xxx guibg=#29492c
+		HelpviewMentionlink({ fg = "#5ef1ff", gui = "underline" }), -- HelpviewMentionlink xxx cterm=underline gui=underline guifg=#5ef1ff
+		HelpviewTaglink({ fg = "#5ea1ff" }), -- HelpviewTaglink xxx guifg=#5ea1ff
+		HelpviewCodeLanguage({ bg = "#1e2124", fg = "#7b8496", gui = "italic" }), -- HelpviewCodeLanguage xxx cterm=italic gui=italic guifg=#7b8496 guibg=#1e2124
+		HelpviewCode({ bg = "#1e2124" }), -- HelpviewCode   xxx guibg=#1e2124
+		HelpviewInlineCode({ HelpviewCode }), -- HelpviewInlineCode xxx links to HelpviewCode
+		HelpviewHeading4({ bg = "#492946", fg = "#ff5ef1", gui = "bold" }), -- HelpviewHeading4 xxx cterm=bold gui=bold guifg=#ff5ef1 guibg=#492946
+		MiniDepsChangeRemoved({ fg = "#ff6e5e" }), -- MiniDepsChangeRemoved xxx guifg=#ff6e5e
+		MiniDepsChangeAdded({ fg = "#5eff6c" }), -- MiniDepsChangeAdded xxx guifg=#5eff6c
+		MiniCursorwordCurrent({ gui = "underline" }), -- MiniCursorwordCurrent xxx cterm=underline gui=underline
+		MiniCursorword({ gui = "underline" }), -- MiniCursorword xxx cterm=underline gui=underline
+		MiniCompletionActiveParameter({ gui = "underline" }), -- MiniCompletionActiveParameter xxx cterm=underline gui=underline
+		HelpviewGradient1({ fg = "#252628" }), -- HelpviewGradient1 xxx guifg=#252628
+		HelpviewGradient2({ fg = "#2f3034" }), -- HelpviewGradient2 xxx guifg=#2f3034
+		HelpviewGradient4({ fg = "#42454c" }), -- HelpviewGradient4 xxx guifg=#42454c
+		MiniClueNextKey({ fg = "#5eff6c" }), -- MiniClueNextKey xxx guifg=#5eff6c
+		HelpviewGradient7({ fg = "#5e6471" }), -- HelpviewGradient7 xxx guifg=#5e6471
+		HelpviewGradient10({ fg = "#7b8496" }), -- HelpviewGradient10 xxx guifg=#7b8496
+		LeapBackdrop({ fg = "#3c4048" }), -- LeapBackdrop   xxx guifg=#3c4048
+		LeapLabelSecondary({ bg = "#1c1c1c", fg = "#5eff6c" }), -- LeapLabelSecondary xxx guifg=#5eff6c guibg=#1c1c1c
+		LeapLabelPrimary({ bg = "#1c1c1c", fg = "#5ea1ff", gui = "bold" }), -- LeapLabelPrimary xxx cterm=bold gui=bold guifg=#5ea1ff guibg=#1c1c1c
+		LeapMatch({ bg = "#ff5ef1", fg = "#ffffff" }), -- LeapMatch      xxx guifg=#ffffff guibg=#ff5ef1
+		TelescopeResultsNormal({ bg = "#1e2124" }), -- TelescopeResultsNormal xxx guibg=#1e2124
+		TelescopeResultsBorder({ bg = "#1e2124", fg = "#1e2124" }), -- TelescopeResultsBorder xxx guifg=#1e2124 guibg=#1e2124
+		TelescopePreviewNormal({ bg = "#1e2124" }), -- TelescopePreviewNormal xxx guibg=#1e2124
+		TelescopePreviewBorder({ bg = "#1e2124", fg = "#1e2124" }), -- TelescopePreviewBorder xxx guifg=#1e2124 guibg=#1e2124
+		TelescopeNormal({ bg = "#1e2124" }), -- TelescopeNormal xxx guibg=#1e2124
+		TelescopeMatching({ fg = "#5ef1ff" }), -- TelescopeMatching xxx guifg=#5ef1ff
+		TelescopePromptCounter({ fg = "#ff5ea0" }), -- TelescopePromptCounter xxx guifg=#ff5ea0
+		TelescopeSelection({ bg = "#3c4048" }), -- TelescopeSelection xxx guibg=#3c4048
+		TelescopePreviewTitle({ bg = "#5eff6c", fg = "#1e2124", gui = "bold" }), -- TelescopePreviewTitle xxx cterm=bold gui=bold guifg=#1e2124 guibg=#5eff6c
+		TelescopePromptPrefix({ fg = "#ff5ea0" }), -- TelescopePromptPrefix xxx guifg=#ff5ea0
+		TelescopeResultsTitle({ bg = "#5ef1ff", fg = "#1e2124" }), -- TelescopeResultsTitle xxx guifg=#1e2124 guibg=#5ef1ff
+		TelescopePromptTitle({ bg = "#ff6e5e", fg = "#1e2124", gui = "bold" }), -- TelescopePromptTitle xxx cterm=bold gui=bold guifg=#1e2124 guibg=#ff6e5e
+		TelescopeBorder({ bg = "#1e2124", fg = "#1e2124" }), -- TelescopeBorder xxx guifg=#1e2124 guibg=#1e2124
+		DashboardShortCutIcon({ fg = "#ff5ea0" }), -- DashboardShortCutIcon xxx guifg=#ff5ea0
+		DashboardFiles({ fg = "#5ef1ff" }), -- DashboardFiles xxx guifg=#5ef1ff
+		DashboardMruIcon({ fg = "#ffbd5e" }), -- DashboardMruIcon xxx guifg=#ffbd5e
+		DashboardMruTitle({ fg = "#5ea1ff" }), -- DashboardMruTitle xxx guifg=#5ea1ff
+		DashboardProjectIcon({ fg = "#ffbd5e" }), -- DashboardProjectIcon xxx guifg=#ffbd5e
+		DashboardProjectTitleIcon({ fg = "#ffbd5e" }), -- DashboardProjectTitleIcon xxx guifg=#ffbd5e
+		DashboardProjectTitle({ fg = "#5ea1ff" }), -- DashboardProjectTitle xxx guifg=#5ea1ff
+		DashboardIcon({ fg = "#5ea1ff" }), -- DashboardIcon  xxx guifg=#5ea1ff
+		DashboardKey({ fg = "#5eff6c" }), -- DashboardKey   xxx guifg=#5eff6c
+		DashboardDesc({ fg = "#ffbd5e" }), -- DashboardDesc  xxx guifg=#ffbd5e
+		RenderMarkdownTableHead({ fg = "#7b8496" }), -- RenderMarkdownTableHead xxx guifg=#7b8496
+		RenderMarkdownTodo({ fg = "#ffbd5e" }), -- RenderMarkdownTodo xxx guifg=#ffbd5e
+		sym("@markup.link.label.markdown_inline")({ fg = "#5ef1ff" }), -- @markup.link.label.markdown_inline xxx guifg=#5ef1ff
+		RenderMarkdownLink({ sym("@markup.link.label.markdown_inline") }), -- RenderMarkdownLink xxx links to @markup.link.label.markdown_inline
+		RenderMarkdownDash({ fg = "#7b8496" }), -- RenderMarkdownDash xxx guifg=#7b8496
+		RenderMarkdownH1Bg({ bg = "#3e3425" }), -- RenderMarkdownH1Bg xxx guibg=#3e3425
+		TroubleIconDirectory({ fg = "#5ea1ff" }), -- TroubleIconDirectory xxx guifg=#5ea1ff
+		RenderMarkdownH5({ fg = "#ff5ef1", gui = "bold" }), -- RenderMarkdownH5 xxx cterm=bold gui=bold guifg=#ff5ef1
+		RenderMarkdownH4({ fg = "#bd5eff", gui = "bold" }), -- RenderMarkdownH4 xxx cterm=bold gui=bold guifg=#bd5eff
+		RenderMarkdownH3({ fg = "#5ea1ff", gui = "bold" }), -- RenderMarkdownH3 xxx cterm=bold gui=bold guifg=#5ea1ff
+		RenderMarkdownH2({ fg = "#5ef1ff", gui = "bold" }), -- RenderMarkdownH2 xxx cterm=bold gui=bold guifg=#5ef1ff
+		TroubleDirectory({ fg = "#7b8496", gui = "bold" }), -- TroubleDirectory xxx cterm=bold gui=bold guifg=#7b8496
+		TroubleCount({ bg = "#3c4048", gui = "bold" }), -- TroubleCount   xxx cterm=bold gui=bold guibg=#3c4048
+		TroubleFsCount({ TroubleCount }), -- TroubleFsCount xxx links to TroubleCount
+		TroubleDiagnosticsCount({ TroubleCount }), -- TroubleDiagnosticsCount xxx links to TroubleCount
+		TroubleFzfCount({ TroubleCount }), -- TroubleFzfCount xxx links to TroubleCount
+		TroubleLspCount({ TroubleCount }), -- TroubleLspCount xxx links to TroubleCount
+		TroubleQfCount({ TroubleCount }), -- TroubleQfCount xxx links to TroubleCount
+		TroubleTelescopeCount({ TroubleCount }), -- TroubleTelescopeCount xxx links to TroubleCount
+		TroubleTodoCount({ TroubleCount }), -- TroubleTodoCount xxx links to TroubleCount
+		TroubleCode({ fg = "#ff5ef1" }), -- TroubleCode    xxx guifg=#ff5ef1
+		TreeSitterContextLineNumber({ fg = "#9d9fa3" }), -- TreeSitterContextLineNumber xxx guifg=#9d9fa3
+		TreeSitterContext({ bg = "#243539" }), -- TreeSitterContext xxx guibg=#243539
+		MarkviewTableAlignRight({ fg = "#bd5eff" }), -- MarkviewTableAlignRight xxx guifg=#bd5eff
+		MarkviewTableAlignCenter({ fg = "#5ea1ff" }), -- MarkviewTableAlignCenter xxx guifg=#5ea1ff
+		MarkviewTableAlignLeft({ fg = "#5eff6c" }), -- MarkviewTableAlignLeft xxx guifg=#5eff6c
+		MarkviewTableBorder({ fg = "#3c4048" }), -- MarkviewTableBorder xxx guifg=#3c4048
+		MarkviewInlineCode({ bg = "#24272b", fg = "#ff5ea0" }), -- MarkviewInlineCode xxx guifg=#ff5ea0 guibg=#24272b
+		MarkviewCode({ bg = "#24272b" }), -- MarkviewCode   xxx guibg=#24272b
+		MarkviewBlockQuoteSpecial({ fg = "#5ef1ff" }), -- MarkviewBlockQuoteSpecial xxx guifg=#5ef1ff
+		MarkviewBlockQuoteNote({ fg = "#5ea1ff" }), -- MarkviewBlockQuoteNote xxx guifg=#5ea1ff
+		MarkviewBlockQuoteError({ fg = "#ff6e5e" }), -- MarkviewBlockQuoteError xxx guifg=#ff6e5e
+		MarkviewBlockQuoteWarn({ fg = "#f1ff5e" }), -- MarkviewBlockQuoteWarn xxx guifg=#f1ff5e
+		MarkviewBlockQuoteOk({ fg = "#5eff6c" }), -- MarkviewBlockQuoteOk xxx guifg=#5eff6c
+		MarkviewHeading6Sign({ fg = "#5eff6c" }), -- MarkviewHeading6Sign xxx guifg=#5eff6c
+		MarkviewHeading5Sign({ fg = "#ff5ef1" }), -- MarkviewHeading5Sign xxx guifg=#ff5ef1
+		MarkviewHeading4Sign({ fg = "#bd5eff" }), -- MarkviewHeading4Sign xxx guifg=#bd5eff
+		MarkviewHeading3Sign({ fg = "#5ea1ff" }), -- MarkviewHeading3Sign xxx guifg=#5ea1ff
+		MarkviewHeading2Sign({ fg = "#5ef1ff" }), -- MarkviewHeading2Sign xxx guifg=#5ef1ff
+		RainbowDelimiterCyan({ fg = "#5ef1ff" }), -- RainbowDelimiterCyan xxx guifg=#5ef1ff
+		RainbowDelimiterViolet({ fg = "#bd5eff" }), -- RainbowDelimiterViolet xxx guifg=#bd5eff
+		MarkviewHeading5({ bg = "#492946", fg = "#ff5ef1", gui = "bold" }), -- MarkviewHeading5 xxx cterm=bold gui=bold guifg=#ff5ef1 guibg=#492946
+		RainbowDelimiterGreen({ fg = "#5eff6c" }), -- RainbowDelimiterGreen xxx guifg=#5eff6c
+		RainbowDelimiterYellow({ fg = "#f1ff5e" }), -- RainbowDelimiterYellow xxx guifg=#f1ff5e
+		MarkviewHeading2({ bg = "#294649", fg = "#5ef1ff", gui = "bold" }), -- MarkviewHeading2 xxx cterm=bold gui=bold guifg=#5ef1ff guibg=#294649
+		MarkviewHeading1({ bg = "#493c29", fg = "#ffbd5e", gui = "bold" }), -- MarkviewHeading1 xxx cterm=bold gui=bold guifg=#ffbd5e guibg=#493c29
+		MarkviewGradient1({ fg = "#252628" }), -- MarkviewGradient1 xxx guifg=#252628
+		MarkviewGradient2({ fg = "#2f3034" }), -- MarkviewGradient2 xxx guifg=#2f3034
+		MarkviewGradient3({ fg = "#383b40" }), -- MarkviewGradient3 xxx guifg=#383b40
+		MarkviewGradient4({ fg = "#42454c" }), -- MarkviewGradient4 xxx guifg=#42454c
+		MarkviewGradient5({ fg = "#4b5059" }), -- MarkviewGradient5 xxx guifg=#4b5059
+		MarkviewGradient6({ fg = "#555a65" }), -- MarkviewGradient6 xxx guifg=#555a65
+		MarkviewGradient7({ fg = "#5e6471" }), -- MarkviewGradient7 xxx guifg=#5e6471
+		WhichKeyValue({ fg = "#5ea1ff" }), -- WhichKeyValue  xxx guifg=#5ea1ff
+		WhichKeyFloat({ bg = "#1c1c1c" }), -- WhichKeyFloat  xxx guibg=#1c1c1c
+		MarkviewGradient9({ fg = "#717989" }), -- MarkviewGradient9 xxx guifg=#717989
+		WhichKeyDesc({ fg = "#ff5ea0" }), -- WhichKeyDesc   xxx guifg=#ff5ea0
+		WhichKeyGroup({ fg = "#5ea1ff" }), -- WhichKeyGroup  xxx guifg=#5ea1ff
+		WhichKey({ fg = "#5ef1ff" }), -- WhichKey       xxx guifg=#5ef1ff
+		sym("@variable.member")({ fg = "#fa99cd" }), -- @variable.member xxx guifg=#fa99cd
+		sym("@Identifier")({ fg = "#65d8ee", gui = "bold" }), -- @Identifier    xxx cterm=bold gui=bold guifg=#65d8ee
+		sym("@keyword.conditional")({ fg = "#ff3bd3" }), -- @keyword.conditional xxx guifg=#ff3bd3
+		AlphaHeaderLabel({ fg = "#ffbd5e" }), -- AlphaHeaderLabel xxx guifg=#ffbd5e
+		HopPreview({ bg = "#3c4048", fg = "#ffffff" }), -- HopPreview     xxx guifg=#ffffff guibg=#3c4048
+		HelpviewGradient8({ fg = "#686f7d" }), -- HelpviewGradient8 xxx guifg=#686f7d
+		HelpviewGradient9({ fg = "#717989" }), -- HelpviewGradient9 xxx guifg=#717989
+		FzfLuaFzfGutter({ bg = "#1e2124" }), -- FzfLuaFzfGutter xxx guibg=#1e2124
+		htmlH1({ fg = "#ffbd5e", gui = "bold" }), -- htmlH1         xxx cterm=bold gui=bold guifg=#ffbd5e
+		htmlH2({ fg = "#ffbd5e", gui = "bold" }), -- htmlH2         xxx cterm=bold gui=bold guifg=#ffbd5e
+		RenderMarkdownError({ fg = "#ff6e5e" }), -- RenderMarkdownError xxx guifg=#ff6e5e
+		RenderMarkdownWarn({ fg = "#ffbd5e" }), -- RenderMarkdownWarn xxx guifg=#ffbd5e
+		RenderMarkdownHint({ fg = "#5ef1ff" }), -- RenderMarkdownHint xxx guifg=#5ef1ff
+		RenderMarkdownInfo({ fg = "#5ea1ff" }), -- RenderMarkdownInfo xxx guifg=#5ea1ff
+		RenderMarkdownSuccess({ fg = "#5eff6c" }), -- RenderMarkdownSuccess xxx guifg=#5eff6c
+		mkdCodeDelimiter({ fg = "#7b8496" }), -- mkdCodeDelimiter xxx guifg=#7b8496
+		mkdCodeStart({ fg = "#5ea1ff" }), -- mkdCodeStart   xxx guifg=#5ea1ff
+		mkdCodeEnd({ fg = "#5ea1ff" }), -- mkdCodeEnd     xxx guifg=#5ea1ff
+		markdownHeadingDelimiter({ fg = "#7b8496" }), -- markdownHeadingDelimiter xxx guifg=#7b8496
+		markdownCode({ fg = "#5ef1ff" }), -- markdownCode   xxx guifg=#5ef1ff
+		markdownCodeBlock({ fg = "#5ef1ff" }), -- markdownCodeBlock xxx guifg=#5ef1ff
+		LazyReasonRuntime({ fg = "#ff6e5e" }), -- LazyReasonRuntime xxx guifg=#ff6e5e
+		LazyReasonStart({ fg = "#5ea1ff" }), -- LazyReasonStart xxx guifg=#5ea1ff
+		LazySpecial({ fg = "#5ef1ff" }), -- LazySpecial    xxx guifg=#5ef1ff
+		RenderMarkdownBullet({ fg = "#7b8496" }), -- RenderMarkdownBullet xxx guifg=#7b8496
+		RenderMarkdownH3Bg({ bg = "#252f3e" }), -- RenderMarkdownH3Bg xxx guibg=#252f3e
+		MiniIconsCyan({ fg = "#5ef1ff" }), -- MiniIconsCyan  xxx guifg=#5ef1ff
+		HopNextKey1({ bg = "#253b3e", fg = "#5ef1ff", gui = "bold" }), -- HopNextKey1    xxx cterm=bold gui=bold guifg=#5ef1ff guibg=#253b3e
+		FzfLuaPreviewNormal({ bg = "#1e2124" }), -- FzfLuaPreviewNormal xxx guibg=#1e2124
+		AlphaFooter({ fg = "#5ef1ff" }), -- AlphaFooter    xxx guifg=#5ef1ff
+		AlphaHeader({ fg = "#bd5eff" }), -- AlphaHeader    xxx guifg=#bd5eff
+		FzfLuaFzfQuery({ fg = "#5ea1ff" }), -- FzfLuaFzfQuery xxx guifg=#5ea1ff
+		FzfLuaFzfMatch({ fg = "#5ef1ff" }), -- FzfLuaFzfMatch xxx guifg=#5ef1ff
+		RainbowDelimiterRed({ fg = "#ff6e5e" }), -- RainbowDelimiterRed xxx guifg=#ff6e5e
+		RainbowDelimiterOrange({ fg = "#ffbd5e" }), -- RainbowDelimiterOrange xxx guifg=#ffbd5e
+		MarkviewHeading3({ bg = "#293649", fg = "#5ea1ff", gui = "bold" }), -- MarkviewHeading3 xxx cterm=bold gui=bold guifg=#5ea1ff guibg=#293649
+		MarkviewHeading4({ bg = "#3c2949", fg = "#bd5eff", gui = "bold" }), -- MarkviewHeading4 xxx cterm=bold gui=bold guifg=#bd5eff guibg=#3c2949
+		HeirlineNormal({ bg = "#5ea1ff" }), -- HeirlineNormal xxx guibg=#5ea1ff
+		MarkviewHeading1Sign({ fg = "#ffbd5e" }), -- MarkviewHeading1Sign xxx guifg=#ffbd5e
+		FzfLuaNormal({ bg = "#1e2124" }), -- FzfLuaNormal   xxx guibg=#1e2124
+		FzfLuaHelpNormal({ FzfLuaNormal }), -- FzfLuaHelpNormal xxx links to FzfLuaNormal
+		FzfLuaFzfNormal({ FzfLuaNormal }), -- FzfLuaFzfNormal xxx links to FzfLuaNormal
+		HelpviewGradient3({ fg = "#383b40" }), -- HelpviewGradient3 xxx guifg=#383b40
+		MiniAnimateCursor({ gui = "reverse,nocombine" }), -- MiniAnimateCursor xxx cterm=reverse,nocombine gui=reverse,nocombine
+		HelpviewHeading3({ bg = "#3c2949", fg = "#bd5eff", gui = "bold" }), -- HelpviewHeading3 xxx cterm=bold gui=bold guifg=#bd5eff guibg=#3c2949
+		HelpviewTitle({ bg = "#493c29", fg = "#ffbd5e", gui = "bold" }), -- HelpviewTitle  xxx cterm=bold gui=bold guifg=#ffbd5e guibg=#493c29
+		HelpviewHeading2({ bg = "#293649", fg = "#5ea1ff", gui = "bold" }), -- HelpviewHeading2 xxx cterm=bold gui=bold guifg=#5ea1ff guibg=#293649
+		HelpviewOptionlink({ fg = "#be98f6" }), -- HelpviewOptionlink xxx guifg=#be98f6
+		FzfLuaFzfPrompt({ fg = "#ffffff" }), -- FzfLuaFzfPrompt xxx guifg=#ffffff
+		FzfLuaFzfHeader({ fg = "#bd5eff" }), -- FzfLuaFzfHeader xxx guifg=#bd5eff
+		FzfLuaBorder({ bg = "#1e2124", fg = "#1e2124" }), -- FzfLuaBorder   xxx guifg=#1e2124 guibg=#1e2124
+		FzfLuaHelpBorder({ FzfLuaBorder }), -- FzfLuaHelpBorder xxx links to FzfLuaBorder
+		FzfLuaPreviewBorder({ FzfLuaBorder }), -- FzfLuaPreviewBorder xxx links to FzfLuaBorder
+		FzfLuaScrollBorderEmpty({ FzfLuaBorder }), -- FzfLuaScrollBorderEmpty xxx links to FzfLuaBorder
+		FzfLuaScrollBorderFull({ FzfLuaBorder }), -- FzfLuaScrollBorderFull xxx links to FzfLuaBorder
+		FzfLuaFzfBorder({ FzfLuaBorder }), -- FzfLuaFzfBorder xxx links to FzfLuaBorder
+		MarkviewGradient10({ fg = "#7b8496" }), -- MarkviewGradient10 xxx guifg=#7b8496
+		WhichKeySeperator({ fg = "#1c1c1c" }), -- WhichKeySeperator xxx guifg=#1c1c1c
+		CmpItemAbbrMatch({ bg = "#1c1c1c", fg = "#bd5eff" }), -- CmpItemAbbrMatch xxx guifg=#bd5eff guibg=#1c1c1c
+		CmpItemAbbrDeprecated({ bg = "#1c1c1c", fg = "#7b8496", gui = "strikethrough" }), -- CmpItemAbbrDeprecated xxx cterm=strikethrough gui=strikethrough guifg=#7b8496 guibg=#1c1c1c
+		CmpDocumentationBorder({ bg = "#1c1c1c", fg = "#7b8496" }), -- CmpDocumentationBorder xxx guifg=#7b8496 guibg=#1c1c1c
+		RainbowDelimiterBlue({ fg = "#5ea1ff" }), -- RainbowDelimiterBlue xxx guifg=#5ea1ff
+		MarkviewGradient8({ fg = "#686f7d" }), -- MarkviewGradient8 xxx guifg=#686f7d
+		RenderMarkdownCode({ bg = "#1e2124" }), -- RenderMarkdownCode xxx guibg=#1e2124
+		RenderMarkdownCodeInline({ RenderMarkdownCode }), -- RenderMarkdownCodeInline xxx links to RenderMarkdownCode
+		FzfLuaFzfPointer({ fg = "#ff5ea0" }), -- FzfLuaFzfPointer xxx guifg=#ff5ea0
+		FzfLuaFzfMarker({ FzfLuaFzfPointer }), -- FzfLuaFzfMarker xxx links to FzfLuaFzfPointer
+		FzfLuaFzfSpinner({ FzfLuaFzfPointer }), -- FzfLuaFzfSpinner xxx links to FzfLuaFzfPointer
+		RenderMarkdownTableRow({ fg = "#5e6471" }), -- RenderMarkdownTableRow xxx guifg=#5e6471
+		FzfLuaTitle({ bg = "#5ea1ff", fg = "#1e2124" }), -- FzfLuaTitle    xxx guifg=#1e2124 guibg=#5ea1ff
+		FzfLuaPreviewTitle({ FzfLuaTitle }), -- FzfLuaPreviewTitle xxx links to FzfLuaTitle
+		FzfLuaFzfInfo({ fg = "#5ef1ff" }), -- FzfLuaFzfInfo  xxx guifg=#5ef1ff
+		HelpviewGradient6({ fg = "#555a65" }), -- HelpviewGradient6 xxx guifg=#555a65
+		HopUnmatched({ fg = "#3c4048" }), -- HopUnmatched   xxx guifg=#3c4048
+		MiniIconsOrange({ fg = "#ffbd5e" }), -- MiniIconsOrange xxx guifg=#ffbd5e
+		LazyReasonRequire({ fg = "#ffbd5e" }), -- LazyReasonRequire xxx guifg=#ffbd5e
+		LazyReasonPlugin({ fg = "#5eff6c" }), -- LazyReasonPlugin xxx guifg=#5eff6c
+		LazyReasonKeys({ fg = "#5ef1ff" }), -- LazyReasonKeys xxx guifg=#5ef1ff
+		HelpviewHeading1({ bg = "#294649", fg = "#5ef1ff", gui = "bold" }), -- HelpviewHeading1 xxx cterm=bold gui=bold guifg=#5ef1ff guibg=#294649
+		GitpadFloatTitle({ fg = "#5ef1ff", gui = "bold" }), -- GitpadFloatTitle xxx cterm=bold gui=bold guifg=#5ef1ff
+		DashboardFooter({ fg = "#5ef1ff" }), -- DashboardFooter xxx guifg=#5ef1ff
+		RenderMarkdownH6Bg({ bg = "#253e28" }), -- RenderMarkdownH6Bg xxx guibg=#253e28
+		TroubleIconArray({ fg = "#ff5ea0" }), -- TroubleIconArray xxx guifg=#ff5ea0
+		TroubleFilename({ fg = "#5ef1ff" }), -- TroubleFilename xxx guifg=#5ef1ff
+		TroubleBasename({ TroubleFilename }), -- TroubleBasename xxx links to TroubleFilename
+		TroubleFsFilename({ TroubleFilename }), -- TroubleFsFilename xxx links to TroubleFilename
+		TroubleFsBasename({ TroubleFilename }), -- TroubleFsBasename xxx links to TroubleFilename
+		TroubleDiagnosticsFilename({ TroubleFilename }), -- TroubleDiagnosticsFilename xxx links to TroubleFilename
+		TroubleDiagnosticsBasename({ TroubleFilename }), -- TroubleDiagnosticsBasename xxx links to TroubleFilename
+		TroubleFzfFilename({ TroubleFilename }), -- TroubleFzfFilename xxx links to TroubleFilename
+		TroubleFzfBasename({ TroubleFilename }), -- TroubleFzfBasename xxx links to TroubleFilename
+		TroubleLspFilename({ TroubleFilename }), -- TroubleLspFilename xxx links to TroubleFilename
+		TroubleLspBasename({ TroubleFilename }), -- TroubleLspBasename xxx links to TroubleFilename
+		TroubleQfFilename({ TroubleFilename }), -- TroubleQfFilename xxx links to TroubleFilename
+		TroubleQfBasename({ TroubleFilename }), -- TroubleQfBasename xxx links to TroubleFilename
+		TroubleTelescopeFilename({ TroubleFilename }), -- TroubleTelescopeFilename xxx links to TroubleFilename
+		TroubleTelescopeBasename({ TroubleFilename }), -- TroubleTelescopeBasename xxx links to TroubleFilename
+		TroubleTodoFilename({ TroubleFilename }), -- TroubleTodoFilename xxx links to TroubleFilename
+		TroubleTodoBasename({ TroubleFilename }), -- TroubleTodoBasename xxx links to TroubleFilename
+		RenderMarkdownH1({ fg = "#ffbd5e", gui = "bold" }), -- RenderMarkdownH1 xxx cterm=bold gui=bold guifg=#ffbd5e
+		RenderMarkdownH4Bg({ bg = "#34253e" }), -- RenderMarkdownH4Bg xxx guibg=#34253e
+		DashboardShortCut({ fg = "#ffbd5e" }), -- DashboardShortCut xxx guifg=#ffbd5e
+		HelpviewGradient5({ fg = "#4b5059" }), -- HelpviewGradient5 xxx guifg=#4b5059
+		RenderMarkdownH6({ fg = "#5eff6c", gui = "bold" }), -- RenderMarkdownH6 xxx cterm=bold gui=bold guifg=#5eff6c
+		RenderMarkdownH2Bg({ bg = "#253b3e" }), -- RenderMarkdownH2Bg xxx guibg=#253b3e
+		RenderMarkdownH5Bg({ bg = "#3e253b" }), -- RenderMarkdownH5Bg xxx guibg=#3e253b
+		MarkviewHeading6({ bg = "#29492c", fg = "#5eff6c", gui = "bold" }), -- MarkviewHeading6 xxx cterm=bold gui=bold guifg=#5eff6c guibg=#29492c
+		sym("@markup.list.unchecked")({ fg = "#ff5ef1", gui = "bold" }), -- @markup.list.unchecked xxx cterm=bold gui=bold guifg=#ff5ef1
+		RenderMarkdownUnchecked({ sym("@markup.list.unchecked") }), -- RenderMarkdownUnchecked xxx links to @markup.list.unchecked
+		sym("@markup.list.checked")({ fg = "#5eff6c", gui = "bold" }), -- @markup.list.checked xxx cterm=bold gui=bold guifg=#5eff6c
+		RenderMarkdownChecked({ sym("@markup.list.checked") }), -- RenderMarkdownChecked xxx links to @markup.list.checked
+		sym("@markup.link.url")({ fg = "#5ea1ff", gui = "underline" }), -- @markup.link.url xxx cterm=underline gui=underline guifg=#5ea1ff
+		sym("@markup.link.markdown_inline")({ fg = "#5ea1ff" }), -- @markup.link.markdown_inline xxx guifg=#5ea1ff
+		markdownH6({ fg = "#5eff6c", gui = "bold" }), -- markdownH6     xxx cterm=bold gui=bold guifg=#5eff6c
+		sym("@markup.heading.6")({ markdownH6 }), -- @markup.heading.6 xxx links to markdownH6
+		sym("@keyword.type")({ fg = "#ffbd5e", gui = "italic" }), -- @keyword.type  xxx cterm=italic gui=italic guifg=#ffbd5e
+		DashboardHeader({ fg = "#bd5eff" }), -- DashboardHeader xxx guifg=#bd5eff
+		LspInfoBorder({ fg = "#1c1c1c" }), -- LspInfoBorder  xxx guifg=#1c1c1c
+		DiagnosiiucVirtualTextError({ fg = "#ff6e5e" }), -- DiagnosiiucVirtualTextError xxx guifg=#ff6e5e
+		markdownLinkText({ fg = "#5ea1ff", gui = "underline" }), -- markdownLinkText xxx cterm=underline gui=underline guifg=#5ea1ff
+		LazyReasonEvent({ fg = "#ff5ef1" }), -- LazyReasonEvent xxx guifg=#ff5ef1
+		LazyReasonCmd({ fg = "#f1ff5e" }), -- LazyReasonCmd  xxx guifg=#f1ff5e
+		LazyProgressTodo({ fg = "#7b8496", gui = "bold" }), -- LazyProgressTodo xxx cterm=bold gui=bold guifg=#7b8496
+		LazyProgressDone({ fg = "#ff5ef1", gui = "bold" }), -- LazyProgressDone xxx cterm=bold gui=bold guifg=#ff5ef1
+		LazyButtonActive({ bg = "#3c4048", fg = "#ffffff", gui = "bold" }), -- LazyButtonActive xxx cterm=bold gui=bold guifg=#ffffff guibg=#3c4048
+		LazyButton({ bg = "#3c4048", fg = "#ffffff" }), -- LazyButton     xxx guifg=#ffffff guibg=#3c4048
+		LazyH2({ fg = "#ffffff", gui = "bold" }), -- LazyH2         xxx cterm=bold gui=bold guifg=#ffffff
+		LazyH1({ fg = "#5ea1ff", gui = "bold" }), -- LazyH1         xxx cterm=bold gui=bold guifg=#5ea1ff
+		qfFileName({ fg = "#5ea1ff" }), -- qfFileName     xxx guifg=#5ea1ff
+		qfLineNr({ fg = "#7b8496" }), -- qfLineNr       xxx guifg=#7b8496
+		Italic({ gui = "italic" }), -- Italic         xxx cterm=italic gui=italic
+		semshiGlobal({ gui = "italic" }), -- semshiGlobal   xxx gui=italic
+		semshiImported({ gui = "bold" }), -- semshiImported xxx gui=bold
+		semshiLocal({ fg = "#ff875f" }), -- semshiLocal    xxx ctermfg=209 guifg=#ff875f
+		semshiFree({ fg = "#ffafd7" }), -- semshiFree     xxx ctermfg=218 guifg=#ffafd7
+		semshiSelected({ bg = "#d7005f", fg = "#ffffff" }), -- semshiSelected xxx ctermfg=231 ctermbg=161 guifg=#ffffff guibg=#d7005f
+		semshiErrorSign({ bg = "#d70000", fg = "#ffffff" }), -- semshiErrorSign xxx ctermfg=231 ctermbg=160 guifg=#ffffff guibg=#d70000
+		semshiErrorChar({ bg = "#d70000", fg = "#ffffff" }), -- semshiErrorChar xxx ctermfg=231 ctermbg=160 guifg=#ffffff guibg=#d70000
+		CmpItemAbbrDefault({ fg = "#ffffff" }), -- CmpItemAbbrDefault xxx guifg=#ffffff
+		CmpItemAbbrDeprecatedDefault({ fg = "#555555" }), -- CmpItemAbbrDeprecatedDefault xxx guifg=#555555
+		CmpItemAbbrMatchDefault({ fg = "#ffffff" }), -- CmpItemAbbrMatchDefault xxx guifg=#ffffff
+		CmpItemAbbrMatchFuzzyDefault({ fg = "#ffffff" }), -- CmpItemAbbrMatchFuzzyDefault xxx guifg=#ffffff
+		CmpItemMenuDefault({ fg = "#ffffff" }), -- CmpItemMenuDefault xxx guifg=#ffffff
+		IlluminatedWordText({ gui = "underline" }), -- IlluminatedWordText xxx gui=underline
+		IlluminatedWordRead({ gui = "underline" }), -- IlluminatedWordRead xxx gui=underline
+		IlluminatedWordWrite({ gui = "underline" }), -- IlluminatedWordWrite xxx gui=underline
+		GitSignsStagedAdd({ fg = "#2f7f36" }), -- GitSignsStagedAdd xxx guifg=#2f7f36
+		GitSignsStagedChange({ fg = "#7f5e2f" }), -- GitSignsStagedChange xxx guifg=#7f5e2f
+		GitSignsStagedDelete({ fg = "#7f372f" }), -- GitSignsStagedDelete xxx guifg=#7f372f
+		GitSignsStagedChangedelete({ fg = "#7f5e2f" }), -- GitSignsStagedChangedelete xxx guifg=#7f5e2f
+		GitSignsStagedTopdelete({ fg = "#7f372f" }), -- GitSignsStagedTopdelete xxx guifg=#7f372f
+		GitSignsStagedAddNr({ fg = "#2f7f36" }), -- GitSignsStagedAddNr xxx guifg=#2f7f36
+		GitSignsStagedChangeNr({ fg = "#7f5e2f" }), -- GitSignsStagedChangeNr xxx guifg=#7f5e2f
+		GitSignsStagedDeleteNr({ fg = "#7f372f" }), -- GitSignsStagedDeleteNr xxx guifg=#7f372f
+		GitSignsStagedChangedeleteNr({ fg = "#7f5e2f" }), -- GitSignsStagedChangedeleteNr xxx guifg=#7f5e2f
+		GitSignsStagedTopdeleteNr({ fg = "#7f372f" }), -- GitSignsStagedTopdeleteNr xxx guifg=#7f372f
+		GitSignsStagedAddLn({ bg = "#29492c" }), -- GitSignsStagedAddLn xxx guibg=#29492c
+		GitSignsStagedChangeLn({ bg = "#293649" }), -- GitSignsStagedChangeLn xxx guibg=#293649
+		GitSignsStagedDeleteLn({ bg = "#492c29" }), -- GitSignsStagedDeleteLn xxx guibg=#492c29
+		GitSignsStagedChangedeleteLn({ bg = "#293649" }), -- GitSignsStagedChangedeleteLn xxx guibg=#293649
+		GitSignsStagedAddCul({ fg = "#2f7f36" }), -- GitSignsStagedAddCul xxx guifg=#2f7f36
+		GitSignsStagedChangeCul({ fg = "#7f5e2f" }), -- GitSignsStagedChangeCul xxx guifg=#7f5e2f
+		GitSignsStagedDeleteCul({ fg = "#7f372f" }), -- GitSignsStagedDeleteCul xxx guifg=#7f372f
+		GitSignsStagedChangedeleteCul({ fg = "#7f5e2f" }), -- GitSignsStagedChangedeleteCul xxx guifg=#7f5e2f
+		GitSignsStagedTopdeleteCul({ fg = "#7f372f" }), -- GitSignsStagedTopdeleteCul xxx guifg=#7f372f
+		IblWhitespace({ fg = "#7b8496" }), -- IblWhitespace  xxx guifg=#7b8496
+		sym("@ibl.indent.char.1")({ fg = "#272a2e", gui = "nocombine" }), -- @ibl.indent.char.1 xxx cterm=nocombine gui=nocombine guifg=#272a2e
+		sym("@ibl.whitespace.char.1")({ fg = "#7b8496", gui = "nocombine" }), -- @ibl.whitespace.char.1 xxx cterm=nocombine gui=nocombine guifg=#7b8496
+		sym("@ibl.scope.char.1")({ fg = "#3c4048", gui = "nocombine" }), -- @ibl.scope.char.1 xxx cterm=nocombine gui=nocombine guifg=#3c4048
+		sym("@ibl.scope.underline.1")({ gui = "underline", sp = "#3c4048" }), -- @ibl.scope.underline.1 xxx cterm=underline gui=underline guisp=#3c4048
+		CodeiumSuggestion({ fg = "#808080" }), -- CodeiumSuggestion xxx ctermfg=244 guifg=#808080
+		TodoBgPERF({ bg = "#ffffff", fg = "#1c1c1c", gui = "bold" }), -- TodoBgPERF     xxx gui=bold guifg=#1c1c1c guibg=#ffffff
+		TodoFgPERF({ fg = "#ffffff" }), -- TodoFgPERF     xxx guifg=#ffffff
+		TodoSignPERF({ bg = "#1c1c1c", fg = "#ffffff" }), -- TodoSignPERF   xxx guifg=#ffffff guibg=#1c1c1c
+		TodoBgWARN({ bg = "#f1ff5e", fg = "#1c1c1c", gui = "bold" }), -- TodoBgWARN     xxx gui=bold guifg=#1c1c1c guibg=#f1ff5e
+		TodoFgWARN({ fg = "#f1ff5e" }), -- TodoFgWARN     xxx guifg=#f1ff5e
+		TodoSignWARN({ bg = "#1c1c1c", fg = "#f1ff5e" }), -- TodoSignWARN   xxx guifg=#f1ff5e guibg=#1c1c1c
+		TodoBgTODO({ bg = "#5ea1ff", fg = "#1c1c1c", gui = "bold" }), -- TodoBgTODO     xxx gui=bold guifg=#1c1c1c guibg=#5ea1ff
+		TodoFgTODO({ fg = "#5ea1ff" }), -- TodoFgTODO     xxx guifg=#5ea1ff
+		TodoSignTODO({ bg = "#1c1c1c", fg = "#5ea1ff" }), -- TodoSignTODO   xxx guifg=#5ea1ff guibg=#1c1c1c
+		TodoBgFIX({ bg = "#ff6e5e", fg = "#1c1c1c", gui = "bold" }), -- TodoBgFIX      xxx gui=bold guifg=#1c1c1c guibg=#ff6e5e
+		TodoFgFIX({ fg = "#ff6e5e" }), -- TodoFgFIX      xxx guifg=#ff6e5e
+		TodoSignFIX({ bg = "#1c1c1c", fg = "#ff6e5e" }), -- TodoSignFIX    xxx guifg=#ff6e5e guibg=#1c1c1c
+		TodoBgTEST({ bg = "#ffffff", fg = "#1c1c1c", gui = "bold" }), -- TodoBgTEST     xxx gui=bold guifg=#1c1c1c guibg=#ffffff
+		TodoFgTEST({ fg = "#ffffff" }), -- TodoFgTEST     xxx guifg=#ffffff
+		TodoSignTEST({ bg = "#1c1c1c", fg = "#ffffff" }), -- TodoSignTEST   xxx guifg=#ffffff guibg=#1c1c1c
+		TodoBgHACK({ bg = "#f1ff5e", fg = "#1c1c1c", gui = "bold" }), -- TodoBgHACK     xxx gui=bold guifg=#1c1c1c guibg=#f1ff5e
+		TodoFgHACK({ fg = "#f1ff5e" }), -- TodoFgHACK     xxx guifg=#f1ff5e
+		TodoSignHACK({ bg = "#1c1c1c", fg = "#f1ff5e" }), -- TodoSignHACK   xxx guifg=#f1ff5e guibg=#1c1c1c
+		TodoBgNOTE({ bg = "#5ef1ff", fg = "#1c1c1c", gui = "bold" }), -- TodoBgNOTE     xxx gui=bold guifg=#1c1c1c guibg=#5ef1ff
+		TodoFgNOTE({ fg = "#5ef1ff" }), -- TodoFgNOTE     xxx guifg=#5ef1ff
+		TodoSignNOTE({ bg = "#1c1c1c", fg = "#5ef1ff" }), -- TodoSignNOTE   xxx guifg=#5ef1ff guibg=#1c1c1c
+		BufferLineDiagnosticVisible({ bg = "#191919", fg = "#3f3f3f" }), -- BufferLineDiagnosticVisible xxx guifg=#3f3f3f guibg=#191919
+		BufferLineNumbersVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineNumbersVisible xxx guifg=#555555 guibg=#191919
+		BufferLineNumbersSelected({ bg = "#1c1c1c", fg = "#ffffff", gui = "bold,italic" }), -- BufferLineNumbersSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
+		BufferLineNumbers({ bg = "#151515", fg = "#555555" }), -- BufferLineNumbers xxx guifg=#555555 guibg=#151515
+		BufferLineBufferSelected({ bg = "#1c1c1c", fg = "#ffffff", gui = "bold,italic" }), -- BufferLineBufferSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
+		BufferLineBufferVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineBufferVisible xxx guifg=#555555 guibg=#191919
+		BufferLineCloseButtonSelected({ bg = "#1c1c1c", fg = "#ffffff" }), -- BufferLineCloseButtonSelected xxx guifg=#ffffff guibg=#1c1c1c
+		BufferLineCloseButtonVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineCloseButtonVisible xxx guifg=#555555 guibg=#191919
+		BufferLineCloseButton({ bg = "#151515", fg = "#555555" }), -- BufferLineCloseButton xxx guifg=#555555 guibg=#151515
+		BufferLineTabClose({ bg = "#151515", fg = "#555555" }), -- BufferLineTabClose xxx guifg=#555555 guibg=#151515
+		BufferLineTabSelected({ bg = "#1c1c1c", fg = "#3c4048" }), -- BufferLineTabSelected xxx guifg=#3c4048 guibg=#1c1c1c
+		BufferLineGroupLabel({ bg = "#555555", fg = "#0f0f0f" }), -- BufferLineGroupLabel xxx guifg=#0f0f0f guibg=#555555
+		BufferLineGroupSeparator({ bg = "#0f0f0f", fg = "#555555" }), -- BufferLineGroupSeparator xxx guifg=#555555 guibg=#0f0f0f
+		BufferLineTruncMarker({ bg = "#0f0f0f", fg = "#555555" }), -- BufferLineTruncMarker xxx guifg=#555555 guibg=#0f0f0f
+		BufferLinePick({ bg = "#151515", fg = "#ff6e5e", gui = "bold,italic" }), -- BufferLinePick xxx cterm=bold,italic gui=bold,italic guifg=#ff6e5e guibg=#151515
+		BufferLineInfo({ bg = "#151515", fg = "#555555", sp = "#5ea1ff" }), -- BufferLineInfo xxx guifg=#555555 guibg=#151515 guisp=#5ea1ff
+		BufferLineInfoVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineInfoVisible xxx guifg=#555555 guibg=#191919
+		BufferLinePickSelected({ bg = "#1c1c1c", fg = "#ff6e5e", gui = "bold,italic" }), -- BufferLinePickSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff6e5e guibg=#1c1c1c
+		BufferLineTab({ bg = "#151515", fg = "#555555" }), -- BufferLineTab  xxx guifg=#555555 guibg=#151515
+		BufferLineBuffer({ bg = "#151515", fg = "#555555" }), -- BufferLineBuffer xxx guifg=#555555 guibg=#151515
+		BufferLineFill({ bg = "#0f0f0f", fg = "#555555" }), -- BufferLineFill xxx guifg=#555555 guibg=#0f0f0f
+		BufferLineDiagnostic({ bg = "#151515", fg = "#3f3f3f" }), -- BufferLineDiagnostic xxx guifg=#3f3f3f guibg=#151515
+		BufferLineBackground({ bg = "#151515", fg = "#555555" }), -- BufferLineBackground xxx guifg=#555555 guibg=#151515
+		BufferLineError({ bg = "#151515", fg = "#555555", sp = "#ff6e5e" }), -- BufferLineError xxx guifg=#555555 guibg=#151515 guisp=#ff6e5e
+		BufferLineWarningSelected({ bg = "#1c1c1c", fg = "#f1ff5e", gui = "bold,italic", sp = "#f1ff5e" }), -- BufferLineWarningSelected xxx cterm=bold,italic gui=bold,italic guifg=#f1ff5e guibg=#1c1c1c guisp=#f1ff5e
+		BufferLineHint({ bg = "#151515", fg = "#555555", sp = "#5ef1ff" }), -- BufferLineHint xxx guifg=#555555 guibg=#151515 guisp=#5ef1ff
+		BufferLineOffsetSeparator({ bg = "#0f0f0f", fg = "#3c4048" }), -- BufferLineOffsetSeparator xxx guifg=#3c4048 guibg=#0f0f0f
+		BufferLinePickVisible({ bg = "#191919", fg = "#ff6e5e", gui = "bold,italic" }), -- BufferLinePickVisible xxx cterm=bold,italic gui=bold,italic guifg=#ff6e5e guibg=#191919
+		BufferLineWarning({ bg = "#151515", fg = "#555555", sp = "#f1ff5e" }), -- BufferLineWarning xxx guifg=#555555 guibg=#151515 guisp=#f1ff5e
+		BufferLineIndicatorVisible({ bg = "#191919", fg = "#191919" }), -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
+		BufferLineIndicatorSelected({ bg = "#1c1c1c", fg = "#3c4048" }), -- BufferLineIndicatorSelected xxx guifg=#3c4048 guibg=#1c1c1c
+		BufferLineTabSeparatorSelected({ bg = "#1c1c1c", fg = "#0f0f0f" }), -- BufferLineTabSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
+		BufferLineTabSeparator({ bg = "#151515", fg = "#0f0f0f" }), -- BufferLineTabSeparator xxx guifg=#0f0f0f guibg=#151515
+		BufferLineSeparatorVisible({ bg = "#191919", fg = "#0f0f0f" }), -- BufferLineSeparatorVisible xxx guifg=#0f0f0f guibg=#191919
+		BufferLineSeparatorSelected({ bg = "#1c1c1c", fg = "#0f0f0f" }), -- BufferLineSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
+		BufferLineDuplicate({ bg = "#151515", fg = "#505050", gui = "italic" }), -- BufferLineDuplicate xxx cterm=italic gui=italic guifg=#505050 guibg=#151515
+		BufferLineDuplicateVisible({ bg = "#191919", fg = "#505050", gui = "italic" }), -- BufferLineDuplicateVisible xxx cterm=italic gui=italic guifg=#505050 guibg=#191919
+		BufferLineDuplicateSelected({ bg = "#1c1c1c", fg = "#505050", gui = "italic" }), -- BufferLineDuplicateSelected xxx cterm=italic gui=italic guifg=#505050 guibg=#1c1c1c
+		BufferLineModifiedSelected({ bg = "#1c1c1c", fg = "#5eff6c" }), -- BufferLineModifiedSelected xxx guifg=#5eff6c guibg=#1c1c1c
+		BufferLineModifiedVisible({ bg = "#191919", fg = "#5eff6c" }), -- BufferLineModifiedVisible xxx guifg=#5eff6c guibg=#191919
+		BufferLineErrorDiagnosticSelected({ bg = "#1c1c1c", fg = "#bf5246", gui = "bold,italic", sp = "#bf5246" }), -- BufferLineErrorDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bf5246 guibg=#1c1c1c guisp=#bf5246
+		BufferLineErrorDiagnosticVisible({ bg = "#191919", fg = "#3f3f3f" }), -- BufferLineErrorDiagnosticVisible xxx guifg=#3f3f3f guibg=#191919
+		BufferLineErrorDiagnostic({ bg = "#151515", fg = "#3f3f3f", sp = "#bf5246" }), -- BufferLineErrorDiagnostic xxx guifg=#3f3f3f guibg=#151515 guisp=#bf5246
+		BufferLineErrorSelected({ bg = "#1c1c1c", fg = "#ff6e5e", gui = "bold,italic", sp = "#ff6e5e" }), -- BufferLineErrorSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff6e5e guibg=#1c1c1c guisp=#ff6e5e
+		BufferLineErrorVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineErrorVisible xxx guifg=#555555 guibg=#191919
+		BufferLineWarningDiagnosticSelected({ bg = "#1c1c1c", fg = "#b4bf46", gui = "bold,italic", sp = "#b4bf46" }), -- BufferLineWarningDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#b4bf46 guibg=#1c1c1c guisp=#b4bf46
+		BufferLineWarningDiagnosticVisible({ bg = "#191919", fg = "#3f3f3f" }), -- BufferLineWarningDiagnosticVisible xxx guifg=#3f3f3f guibg=#191919
+		BufferLineWarningDiagnostic({ bg = "#151515", fg = "#3f3f3f", sp = "#b4bf46" }), -- BufferLineWarningDiagnostic xxx guifg=#3f3f3f guibg=#151515 guisp=#b4bf46
+		BufferLineModified({ bg = "#151515", fg = "#5eff6c" }), -- BufferLineModified xxx guifg=#5eff6c guibg=#151515
+		BufferLineWarningVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineWarningVisible xxx guifg=#555555 guibg=#191919
+		BufferLineInfoDiagnosticSelected({ bg = "#1c1c1c", fg = "#4678bf", gui = "bold,italic", sp = "#4678bf" }), -- BufferLineInfoDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#4678bf guibg=#1c1c1c guisp=#4678bf
+		BufferLineInfoDiagnosticVisible({ bg = "#191919", fg = "#3f3f3f" }), -- BufferLineInfoDiagnosticVisible xxx guifg=#3f3f3f guibg=#191919
+		BufferLineInfoDiagnostic({ bg = "#151515", fg = "#3f3f3f", sp = "#4678bf" }), -- BufferLineInfoDiagnostic xxx guifg=#3f3f3f guibg=#151515 guisp=#4678bf
+		BufferLineInfoSelected({ bg = "#1c1c1c", fg = "#5ea1ff", gui = "bold,italic", sp = "#5ea1ff" }), -- BufferLineInfoSelected xxx cterm=bold,italic gui=bold,italic guifg=#5ea1ff guibg=#1c1c1c guisp=#5ea1ff
+		BufferLineSeparator({ bg = "#151515", fg = "#0f0f0f" }), -- BufferLineSeparator xxx guifg=#0f0f0f guibg=#151515
+		BufferLineHintDiagnosticSelected({ bg = "#1c1c1c", fg = "#46b4bf", gui = "bold,italic", sp = "#46b4bf" }), -- BufferLineHintDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#46b4bf guibg=#1c1c1c guisp=#46b4bf
+		BufferLineHintDiagnosticVisible({ bg = "#191919", fg = "#3f3f3f" }), -- BufferLineHintDiagnosticVisible xxx guifg=#3f3f3f guibg=#191919
+		BufferLineHintDiagnostic({ bg = "#151515", fg = "#3f3f3f", sp = "#46b4bf" }), -- BufferLineHintDiagnostic xxx guifg=#3f3f3f guibg=#151515 guisp=#46b4bf
+		BufferLineHintSelected({ bg = "#1c1c1c", fg = "#5ef1ff", gui = "bold,italic", sp = "#5ef1ff" }), -- BufferLineHintSelected xxx cterm=bold,italic gui=bold,italic guifg=#5ef1ff guibg=#1c1c1c guisp=#5ef1ff
+		BufferLineHintVisible({ bg = "#191919", fg = "#555555" }), -- BufferLineHintVisible xxx guifg=#555555 guibg=#191919
+		BufferLineDiagnosticSelected({ bg = "#1c1c1c", fg = "#bfbfbf", gui = "bold,italic" }), -- BufferLineDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bfbfbf guibg=#1c1c1c
+		lualine_z_visual({ bg = "#16181a", fg = "#7b8496" }), -- lualine_z_visual xxx guifg=#7b8496 guibg=#16181a
+		lualine_a_visual({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_a_visual xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_z_insert({ bg = "#16181a", fg = "#7b8496" }), -- lualine_z_insert xxx guifg=#7b8496 guibg=#16181a
+		lualine_a_insert({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_a_insert xxx guifg=#5eff6c guibg=#16181a
+		lualine_z_terminal({ bg = "#16181a", fg = "#7b8496" }), -- lualine_z_terminal xxx guifg=#7b8496 guibg=#16181a
+		lualine_a_terminal({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_a_terminal xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_normal({ bg = "#16181a", fg = "#ffffff" }), -- lualine_x_normal xxx guifg=#ffffff guibg=#16181a
+		lualine_a_normal({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_a_normal xxx guifg=#5ea1ff guibg=#16181a
+		lualine_b_normal({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_b_normal xxx guifg=#5ef1ff guibg=#16181a
+		lualine_z_normal({ bg = "#16181a", fg = "#7b8496" }), -- lualine_z_normal xxx guifg=#7b8496 guibg=#16181a
+		lualine_y_normal({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_y_normal xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_c_normal({ bg = "#16181a", fg = "#ffffff" }), -- lualine_c_normal xxx guifg=#ffffff guibg=#16181a
+		lualine_x_5_normal({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_normal xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_insert({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_insert xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_visual({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_visual xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_replace({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_replace xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_command({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_command xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_terminal({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_terminal xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_5_inactive({ bg = "#16181a", fg = "#ff5ef1" }), -- lualine_x_5_inactive xxx guifg=#ff5ef1 guibg=#16181a
+		lualine_x_6_normal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_normal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_insert({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_insert xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_visual({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_visual xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_replace({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_replace xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_command({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_command xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_terminal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_terminal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_6_inactive({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_6_inactive xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_7_normal({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_normal xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_insert({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_insert xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_visual({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_visual xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_replace({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_replace xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_command({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_command xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_terminal({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_terminal xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_7_inactive({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_7_inactive xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_8_normal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_normal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_insert({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_insert xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_visual({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_visual xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_replace({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_replace xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_command({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_command xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_terminal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_terminal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_8_inactive({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_x_8_inactive xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_x_diff_added_normal({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_normal xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_insert({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_insert xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_visual({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_visual xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_replace({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_replace xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_command({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_command xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_terminal({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_terminal xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_added_inactive({ bg = "#16181a", fg = "#5eff6c" }), -- lualine_x_diff_added_inactive xxx guifg=#5eff6c guibg=#16181a
+		lualine_x_diff_modified_normal({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_normal xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_insert({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_insert xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_visual({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_visual xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_replace({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_replace xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_command({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_command xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_terminal({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_terminal xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_modified_inactive({ bg = "#16181a", fg = "#ffbd5e" }), -- lualine_x_diff_modified_inactive xxx guifg=#ffbd5e guibg=#16181a
+		lualine_x_diff_removed_normal({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_normal xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_insert({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_insert xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_visual({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_visual xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_replace({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_replace xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_command({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_command xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_terminal({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_terminal xxx guifg=#ff6e5e guibg=#16181a
+		lualine_x_diff_removed_inactive({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_x_diff_removed_inactive xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_10_normal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_normal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_insert({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_insert xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_visual({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_visual xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_replace({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_replace xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_command({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_command xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_terminal({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_terminal xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_10_inactive({ bg = "#16181a", fg = "#ff5ea0" }), -- lualine_c_10_inactive xxx guifg=#ff5ea0 guibg=#16181a
+		lualine_c_diagnostics_error_normal({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_normal xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_insert({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_insert xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_visual({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_visual xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_replace({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_replace xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_command({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_command xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_terminal({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_terminal xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_error_inactive({ bg = "#16181a", fg = "#ff6e5e" }), -- lualine_c_diagnostics_error_inactive xxx guifg=#ff6e5e guibg=#16181a
+		lualine_c_diagnostics_warn_normal({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_normal xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_insert({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_insert xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_visual({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_visual xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_replace({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_replace xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_command({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_command xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_terminal({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_terminal xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_warn_inactive({ bg = "#16181a", fg = "#f1ff5e" }), -- lualine_c_diagnostics_warn_inactive xxx guifg=#f1ff5e guibg=#16181a
+		lualine_c_diagnostics_info_normal({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_normal xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_insert({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_insert xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_visual({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_visual xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_replace({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_replace xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_command({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_command xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_terminal({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_terminal xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_info_inactive({ bg = "#16181a", fg = "#5ea1ff" }), -- lualine_c_diagnostics_info_inactive xxx guifg=#5ea1ff guibg=#16181a
+		lualine_c_diagnostics_hint_normal({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_normal xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_insert({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_insert xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_visual({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_visual xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_replace({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_replace xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_command({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_command xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_terminal({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_terminal xxx guifg=#5ef1ff guibg=#16181a
+		lualine_c_diagnostics_hint_inactive({ bg = "#16181a", fg = "#5ef1ff" }), -- lualine_c_diagnostics_hint_inactive xxx guifg=#5ef1ff guibg=#16181a
+		NoiceHiddenCursor({ blend = 100, gui = "nocombine" }), -- NoiceHiddenCursor xxx cterm=nocombine gui=nocombine blend=100
+		lualine_c_filetype_MiniIconsAzure_normal({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_normal xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_insert({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_insert xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_visual({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_visual xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_replace({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_replace xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_command({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_command xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_terminal({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_terminal xxx guifg=#cefaff guibg=#16181a
+		lualine_c_filetype_MiniIconsAzure_inactive({ bg = "#16181a", fg = "#cefaff" }), -- lualine_c_filetype_MiniIconsAzure_inactive xxx guifg=#cefaff guibg=#16181a
+		lualine_c_13_LV_Bold_normal({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_normal xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_insert({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_insert xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_visual({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_visual xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_replace({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_replace xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_command({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_command xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_terminal({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_terminal xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		lualine_c_13_LV_Bold_inactive({ bg = "#16181a", fg = "#7b8496", gui = "bold,italic" }), -- lualine_c_13_LV_Bold_inactive xxx gui=bold,italic guifg=#7b8496 guibg=#16181a
+		colorizer_mf_0000ff({ fg = "#0000ff" }), -- colorizer_mf_0000ff xxx guifg=#0000ff
+		rainbowcol1({ fg = "#cc241d" }), -- rainbowcol1    xxx ctermfg=9 guifg=#cc241d
+		rainbowcol2({ fg = "#a89984" }), -- rainbowcol2    xxx ctermfg=10 guifg=#a89984
+		rainbowcol3({ fg = "#b16286" }), -- rainbowcol3    xxx ctermfg=11 guifg=#b16286
+		rainbowcol4({ fg = "#d79921" }), -- rainbowcol4    xxx ctermfg=12 guifg=#d79921
+		rainbowcol5({ fg = "#689d6a" }), -- rainbowcol5    xxx ctermfg=13 guifg=#689d6a
+		rainbowcol6({ fg = "#d65d0e" }), -- rainbowcol6    xxx ctermfg=14 guifg=#d65d0e
+		rainbowcol7({ fg = "#458588" }), -- rainbowcol7    xxx ctermfg=15 guifg=#458588
+		FzfLuaBackdrop({ bg = "black" }), -- FzfLuaBackdrop xxx guibg=Black
+		FzfLuaHeaderBind({ fg = "blanchedalmond" }), -- FzfLuaHeaderBind xxx guifg=BlanchedAlmond
+		FzfLuaHeaderText({ fg = "brown1" }), -- FzfLuaHeaderText xxx guifg=Brown1
+		FzfLuaPathColNr({ fg = "cadetblue1" }), -- FzfLuaPathColNr xxx guifg=CadetBlue1
+		FzfLuaPathLineNr({ fg = "lightgreen" }), -- FzfLuaPathLineNr xxx guifg=LightGreen
+		FzfLuaLiveSym({ fg = "brown1" }), -- FzfLuaLiveSym  xxx guifg=Brown1
+		FzfLuaBufName({ fg = "lightmagenta" }), -- FzfLuaBufName  xxx guifg=LightMagenta
+		FzfLuaBufNr({ fg = "blanchedalmond" }), -- FzfLuaBufNr    xxx guifg=BlanchedAlmond
+		FzfLuaBufFlagCur({ fg = "brown1" }), -- FzfLuaBufFlagCur xxx guifg=Brown1
+		FzfLuaBufFlagAlt({ fg = "cadetblue1" }), -- FzfLuaBufFlagAlt xxx guifg=CadetBlue1
+		FzfLuaTabTitle({ fg = "lightskyblue1", gui = "bold" }), -- FzfLuaTabTitle xxx cterm=bold gui=bold guifg=LightSkyBlue1
+		FzfLuaTabMarker({ fg = "blanchedalmond", gui = "bold" }), -- FzfLuaTabMarker xxx cterm=bold gui=bold guifg=BlanchedAlmond
 	}
 end)
 return theme
