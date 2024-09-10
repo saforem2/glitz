@@ -175,1519 +175,1519 @@ local hsl = lush.hsl
 local hsluv = lush.hsluv
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
-local sym = injected_functions.sym
-return {
-  Normal                                 { bg="#1c1c1c", fg="#cccccc", }, -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
-  SpecialKey                             { fg="#465457", gui="bold", }, -- SpecialKey     xxx gui=bold guifg=#465457
-  TermCursor                             { gui="reverse", }, -- TermCursor     xxx cterm=reverse gui=reverse
-  GitSignsChangeInline                   { TermCursor }, -- GitSignsChangeInline xxx links to TermCursor
-  GitSignsDeleteInline                   { TermCursor }, -- GitSignsDeleteInline xxx links to TermCursor
-  GitSignsAddInline                      { TermCursor }, -- GitSignsAddInline xxx links to TermCursor
-  NonText                                { fg="#465457", }, -- NonText        xxx guifg=#465457
-  EndOfBuffer                            { NonText }, -- EndOfBuffer    xxx links to NonText
-  Whitespace                             { NonText }, -- Whitespace     xxx links to NonText
-  LspInlayHint                           { NonText }, -- LspInlayHint   xxx links to NonText
-  GitSignsCurrentLineBlame               { NonText }, -- GitSignsCurrentLineBlame xxx links to NonText
-  TelescopePromptCounter                 { NonText }, -- TelescopePromptCounter xxx links to NonText
-  Directory                              { fg="#b2b2b2", }, -- Directory      xxx ctermfg=14 guifg=#b2b2b2
-  StartupTimeTime                        { Directory }, -- StartupTimeTime xxx links to Directory
-  pandocTitleBlockTitle                  { Directory }, -- pandocTitleBlockTitle xxx links to Directory
-  ErrorMsg                               { fg="nvimlightred", }, -- ErrorMsg       xxx ctermfg=9 guifg=NvimLightRed
-  NvimInvalidSpacing                     { ErrorMsg }, -- NvimInvalidSpacing xxx links to ErrorMsg
-  IncSearch                              { bg="#fed7e5", fg="#f92672", gui="bold", }, -- IncSearch      xxx gui=bold guifg=#f92672 guibg=#fed7e5
-  Search                                 { bg="#ff2600", fg="#ffffff", gui="bold", }, -- Search         xxx ctermfg=0 ctermbg=11 gui=bold guifg=#ffffff guibg=#ff2600
-  Substitute                             { Search }, -- Substitute     xxx links to Search
-  LspSignatureActiveParameter            { Search }, -- LspSignatureActiveParameter xxx links to Search
-  CurSearch                              { bg="nvimlightyellow", fg="nvimdarkgrey1", }, -- CurSearch      xxx ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow
-  MoreMsg                                { fg="#e6db74", }, -- MoreMsg        xxx ctermfg=14 guifg=#e6db74
-  ModeMsg                                { fg="#e6db74", }, -- ModeMsg        xxx ctermfg=10 guifg=#e6db74
-  StartupTimeHeader                      { ModeMsg }, -- StartupTimeHeader xxx links to ModeMsg
-  LineNr                                 { fg="#303030", }, -- LineNr         xxx guifg=#303030
-  LineNrAbove                            { LineNr }, -- LineNrAbove    xxx links to LineNr
-  LineNrBelow                            { LineNr }, -- LineNrBelow    xxx links to LineNr
-  Quote                                  { LineNr }, -- Quote          xxx links to LineNr
-  Dash                                   { LineNr }, -- Dash           xxx links to LineNr
-  DoubleDash                             { LineNr }, -- DoubleDash     xxx links to LineNr
-  CursorLineNr                           { fg="#00ccff", gui="bold", }, -- CursorLineNr   xxx cterm=bold gui=bold guifg=#00ccff
-  MarkSignNumHL                          { CursorLineNr }, -- MarkSignNumHL  xxx links to CursorLineNr
-  Question                               { fg="#66d9ef", }, -- Question       xxx ctermfg=14 guifg=#66d9ef
-  StatusLine                             { bg="#222222", fg="#666666", }, -- StatusLine     xxx cterm=reverse guifg=NvimDarkGrey3 guibg=NvimLightGrey3
-  MsgSeparator                           { StatusLine }, -- MsgSeparator   xxx links to StatusLine
-  StatusLineNC                           { bg="nvimdarkgrey3", fg="nvimlightgrey3", }, -- StatusLineNC   xxx cterm=bold guifg=NvimLightGrey3 guibg=NvimDarkGrey3
-  VertSplit                              { fg="#303030", gui="bold", }, -- VertSplit      xxx gui=bold guifg=#303030
-  Title                                  { fg="#00cfff", gui="bold", }, -- Title          xxx cterm=bold gui=bold guifg=#00cfff
-  FloatTitle                             { Title }, -- FloatTitle     xxx links to Title
-  htmlTitle                              { Title }, -- htmlTitle      xxx links to Title
-  htmlH1                                 { Title }, -- htmlH1         xxx links to Title
-  StartupTimeStartupValue                { Title }, -- StartupTimeStartupValue xxx links to Title
-  LspInfoTitle                           { Title }, -- LspInfoTitle   xxx links to Title
-  pandocAtxHeader                        { Title }, -- pandocAtxHeader xxx links to Title
-  pandocSetexHeader                      { Title }, -- pandocSetexHeader xxx links to Title
-  rOTitleBlock                           { Title }, -- rOTitleBlock   xxx links to Title
-  rOTitle                                { Title }, -- rOTitle        xxx links to Title
-  Visual                                 { bg="#303030", fg="#007dff", gui="bold", }, -- Visual         xxx ctermfg=0 ctermbg=15 gui=bold guifg=#007dff guibg=#303030
-  SnippetTabstop                         { Visual }, -- SnippetTabstop xxx links to Visual
-  UfoPreviewCursorLine                   { Visual }, -- UfoPreviewCursorLine xxx links to Visual
-  TSPlaygroundFocus                      { Visual }, -- TSPlaygroundFocus xxx links to Visual
-  mkdLineBreak                           { Visual }, -- mkdLineBreak   xxx links to Visual
-  WarningMsg                             { bg="#ffff00", fg="#303030", gui="bold", }, -- WarningMsg     xxx ctermfg=11 gui=bold guifg=#303030 guibg=#ffff00
-  WildMenu                               { bg="#000000", fg="#66d9ef", }, -- WildMenu       xxx guifg=#66d9ef guibg=#000000
-  Folded                                 { bg="#1e1e1e", fg="#465457", gui="bold,italic", }, -- Folded         xxx gui=bold,italic guifg=#465457 guibg=#1e1e1e
-  FoldColumn                             { bg="#1e1e1e", fg="#465457", gui="bold,italic", }, -- FoldColumn     xxx gui=bold,italic guifg=#465457 guibg=#1e1e1e
-  CursorLineFold                         { FoldColumn }, -- CursorLineFold xxx links to FoldColumn
-  DiffAdd                                { fg="#b2ff59", }, -- DiffAdd        xxx ctermfg=0 ctermbg=10 guifg=#b2ff59
-  GitSignsAddPreview                     { DiffAdd }, -- GitSignsAddPreview xxx links to DiffAdd
-  GitSignsAddLn                          { DiffAdd }, -- GitSignsAddLn  xxx links to DiffAdd
-  DiffChange                             { fg="#e040fb", }, -- DiffChange     xxx guifg=#e040fb
-  GitSignsChangeLn                       { DiffChange }, -- GitSignsChangeLn xxx links to DiffChange
-  DiffDelete                             { fg="#ff2600", gui="bold", }, -- DiffDelete     xxx cterm=bold ctermfg=9 gui=bold guifg=#ff2600
-  GitSignsDeleteVirtLn                   { DiffDelete }, -- GitSignsDeleteVirtLn xxx links to DiffDelete
-  GitSignsDeletePreview                  { DiffDelete }, -- GitSignsDeletePreview xxx links to DiffDelete
-  DiffText                               { bg="nvimdarkcyan", fg="nvimlightgrey1", }, -- DiffText       xxx ctermfg=0 ctermbg=14 guifg=NvimLightGrey1 guibg=NvimDarkCyan
-  Conceal                                { fg="#cfcfc2", }, -- Conceal        xxx guifg=#cfcfc2
-  SpellBad                               { bg="#f8f8f0", fg="#171717", gui="bold,undercurl", sp="#ff0000", }, -- SpellBad       xxx cterm=undercurl gui=bold,undercurl guifg=#171717 guibg=#f8f8f0 guisp=#ff0000
-  SpellCap                               { sp="#7070f0", gui="undercurl", }, -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=#7070f0
-  SpellRare                              { sp="#ffffff", gui="undercurl", }, -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=#ffffff
-  SpellLocal                             { sp="#70f0f0", gui="undercurl", }, -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=#70f0f0
-  Pmenu                                  { bg="#303030", fg="#efefef", }, -- Pmenu          xxx cterm=reverse guifg=#efefef guibg=#303030
-  PmenuKind                              { Pmenu }, -- PmenuKind      xxx links to Pmenu
-  PmenuExtra                             { Pmenu }, -- PmenuExtra     xxx links to Pmenu
-  PmenuSel                               { bg="#404040", blend=0, fg="#00ccff", gui="bold", }, -- PmenuSel       xxx cterm=underline,reverse gui=bold guifg=#00ccff guibg=#404040 blend=0
-  PmenuKindSel                           { PmenuSel }, -- PmenuKindSel   xxx links to PmenuSel
-  PmenuExtraSel                          { PmenuSel }, -- PmenuExtraSel  xxx links to PmenuSel
-  TablineActive                          { PmenuSel }, -- TablineActive  xxx links to PmenuSel
-  PmenuSbar                              { bg="#303030", fg="#b2ff59", }, -- PmenuSbar      xxx guifg=#b2ff59 guibg=#303030
-  UfoPreviewSbar                         { PmenuSbar }, -- UfoPreviewSbar xxx links to PmenuSbar
-  PmenuThumb                             { bg="#303030", fg="#66d9ef", }, -- PmenuThumb     xxx guifg=#66d9ef guibg=#303030
-  UfoPreviewThumb                        { PmenuThumb }, -- UfoPreviewThumb xxx links to PmenuThumb
-  TabLine                                { bg="#202020", fg="#303030", }, -- TabLine        xxx guifg=#303030 guibg=#202020
-  TablineHidden                          { TabLine }, -- TablineHidden  xxx links to TabLine
-  TabLineSel                             { gui="bold", }, -- TabLineSel     xxx cterm=bold gui=bold
-  TablineCurrent                         { TabLineSel }, -- TablineCurrent xxx links to TabLineSel
-  TabLineFill                            { bg="#202020", fg="#252525", }, -- TabLineFill    xxx guifg=#252525 guibg=#202020
-  CursorColumn                           { bg="#202020", }, -- CursorColumn   xxx guibg=#202020
-  CursorLine                             { bg="#202020", }, -- CursorLine     xxx guibg=#202020
-  UfoCursorFoldedLine                    { CursorLine }, -- UfoCursorFoldedLine xxx links to CursorLine
-  LspReferenceText                       { CursorLine }, -- LspReferenceText xxx links to CursorLine
-  ColorColumn                            { bg="#262626", }, -- ColorColumn    xxx cterm=reverse guibg=#262626
-  CodeBlock                              { ColorColumn }, -- CodeBlock      xxx links to ColorColumn
-  MatchBackground                        { ColorColumn }, -- MatchBackground xxx links to ColorColumn
-  Headline1                                    { fg="#00CEFF", bg="#002933", gui="bold" },
-  Headline2                                    { fg="#6DD283", bg="#023008", gui="bold" },
-  Headline3                                    { fg="#fb967d", bg="#6c0202", gui="bold" },
-  Headline                               { ColorColumn }, -- Headline       xxx links to ColorColumn
-  QuickFixLine                           { fg="nvimlightcyan", }, -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
-  AerialLine                             { QuickFixLine }, -- AerialLine     xxx links to QuickFixLine
-  NormalFloat                            { bg="nvimdarkgrey1", }, -- NormalFloat    xxx guibg=NvimDarkGrey1
-  FloatBorder                            { NormalFloat }, -- FloatBorder    xxx links to NormalFloat
-  DapUIFloatNormal                       { NormalFloat }, -- DapUIFloatNormal xxx links to NormalFloat
-  WinBar                                 { bg="nvimdarkgrey1", fg="nvimlightgrey4", gui="bold", }, -- WinBar         xxx cterm=bold gui=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
-  WinBarNC                               { bg="nvimdarkgrey1", fg="nvimlightgrey4", }, -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
-  Cursor                                 { bg="fg", fg="bg", }, -- Cursor         xxx guifg=bg guibg=fg
-  CursorIM                               { Cursor }, -- CursorIM       xxx links to Cursor
-  RedrawDebugNormal                      { gui="reverse", }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
-  Underlined                             { gui="underline", }, -- Underlined     xxx cterm=underline gui=underline
-  sym"@string.special.url"               { Underlined }, -- @string.special.url xxx links to Underlined
-  texTitleArg                            { Underlined }, -- texTitleArg    xxx links to Underlined
-  htmlLink                               { Underlined }, -- htmlLink       xxx links to Underlined
-  pandocReferenceURL                     { Underlined }, -- pandocReferenceURL xxx links to Underlined
-  pandocReferenceDefinitionAddress       { Underlined }, -- pandocReferenceDefinitionAddress xxx links to Underlined
-  pandocAutomaticLink                    { Underlined }, -- pandocAutomaticLink xxx links to Underlined
-  lCursor                                { bg="fg", fg="bg", }, -- lCursor        xxx guifg=bg guibg=fg
-  VisualNOS                              { fg="#007dff", gui="bold", }, -- VisualNOS      xxx gui=bold guifg=#007dff
-  WinSeparator                           { Normal }, -- WinSeparator   xxx links to Normal
-  NvimSpacing                            { Normal }, -- NvimSpacing    xxx links to Normal
-  cssMediaComma                          { Normal }, -- cssMediaComma  xxx links to Normal
-  dtdTag                                 { Normal }, -- dtdTag         xxx links to Normal
-  DapUIFrameName                         { Normal }, -- DapUIFrameName xxx links to Normal
-  DapUIValue                             { Normal }, -- DapUIValue     xxx links to Normal
-  DapUIVariable                          { Normal }, -- DapUIVariable  xxx links to Normal
-  DapUINormal                            { Normal }, -- DapUINormal    xxx links to Normal
-  CodeiumAnnotation                      { Normal }, -- CodeiumAnnotation xxx links to Normal
-  NotifyBackground                       { Normal }, -- NotifyBackground xxx links to Normal
-  NotifyTRACEBody                        { Normal }, -- NotifyTRACEBody xxx links to Normal
-  NotifyDEBUGBody                        { Normal }, -- NotifyDEBUGBody xxx links to Normal
-  NotifyINFOBody                         { Normal }, -- NotifyINFOBody xxx links to Normal
-  NotifyWARNBody                         { Normal }, -- NotifyWARNBody xxx links to Normal
-  NotifyERRORBody                        { Normal }, -- NotifyERRORBody xxx links to Normal
-  StartupTimeStartupKey                  { Normal }, -- StartupTimeStartupKey xxx links to Normal
-  StartupTimePlot                        { Normal }, -- StartupTimePlot xxx links to Normal
-  TelescopeNormal                        { Normal }, -- TelescopeNormal xxx links to Normal
-  rLstElmt                               { Normal }, -- rLstElmt       xxx links to Normal
-  rNameWSpace                            { Normal }, -- rNameWSpace    xxx links to Normal
-  Character                              { fg="#ffff00", }, -- Character      xxx guifg=#ffff00
-  sym"@character"                        { Character }, -- @character     xxx links to Character
-  javaScriptCharacter                    { Character }, -- javaScriptCharacter xxx links to Character
-  Constant                               { fg="#ae81ff", gui="bold", }, -- Constant       xxx gui=bold guifg=#ae81ff
-  sym"@constant"                         { Constant }, -- @constant      xxx links to Constant
-  yamlConstant                           { Constant }, -- yamlConstant   xxx links to Constant
-  cssUnicodeRange                        { Constant }, -- cssUnicodeRange xxx links to Constant
-  cssPseudoClassLang                     { Constant }, -- cssPseudoClassLang xxx links to Constant
-  cssAttr                                { Constant }, -- cssAttr        xxx links to Constant
-  cssKeyFrameProp                        { Constant }, -- cssKeyFrameProp xxx links to Constant
-  cssFunction                            { Constant }, -- cssFunction    xxx links to Constant
-  cssColor                               { Constant }, -- cssColor       xxx links to Constant
-  vbDefine                               { Constant }, -- vbDefine       xxx links to Constant
-  vbConst                                { Constant }, -- vbConst        xxx links to Constant
-  dtdConstant                            { Constant }, -- dtdConstant    xxx links to Constant
-  rConstant                              { Constant }, -- rConstant      xxx links to Constant
-  pythonSingleton                        { Constant }, -- pythonSingleton xxx links to Constant
-  Number                                 { fg="#ff0080", }, -- Number         xxx guifg=#ff0080
-  NvimNumber                             { Number }, -- NvimNumber     xxx links to Number
-  TelescopeResultsNumber                 { Number }, -- TelescopeResultsNumber xxx links to Number
-  javaScriptNumber                       { Number }, -- javaScriptNumber xxx links to Number
-  vbNumber                               { Number }, -- vbNumber       xxx links to Number
-  cssUnitDecorators                      { Number }, -- cssUnitDecorators xxx links to Number
-  cssValueInteger                        { Number }, -- cssValueInteger xxx links to Number
-  cssValueNumber                         { Number }, -- cssValueNumber xxx links to Number
-  cssValueLength                         { Number }, -- cssValueLength xxx links to Number
-  cssValueAngle                          { Number }, -- cssValueAngle  xxx links to Number
-  cssValueTime                           { Number }, -- cssValueTime   xxx links to Number
-  cssValueFrequency                      { Number }, -- cssValueFrequency xxx links to Number
-  VimtexTocNum                           { Number }, -- VimtexTocNum   xxx links to Number
-  VimtexTocIncl                          { Number }, -- VimtexTocIncl  xxx links to Number
-  texLength                              { Number }, -- texLength      xxx links to Number
-  yamlYAMLVersion                        { Number }, -- yamlYAMLVersion xxx links to Number
-  yamlTimestamp                          { Number }, -- yamlTimestamp  xxx links to Number
-  yamlInteger                            { Number }, -- yamlInteger    xxx links to Number
-  rNumber                                { Number }, -- rNumber        xxx links to Number
-  rInteger                               { Number }, -- rInteger       xxx links to Number
-  rComplex                               { Number }, -- rComplex       xxx links to Number
-  pythonNumber                           { Number }, -- pythonNumber   xxx links to Number
-  pythonHexNumber                        { Number }, -- pythonHexNumber xxx links to Number
-  pythonOctNumber                        { Number }, -- pythonOctNumber xxx links to Number
-  pythonBinNumber                        { Number }, -- pythonBinNumber xxx links to Number
-  Boolean                                { fg="#0184bc", }, -- Boolean        xxx guifg=#0184bc
-  sym"@boolean"                          { Boolean }, -- @boolean       xxx links to Boolean
-  javaScriptBoolean                      { Boolean }, -- javaScriptBoolean xxx links to Boolean
-  vbBoolean                              { Boolean }, -- vbBoolean      xxx links to Boolean
-  rBoolean                               { Boolean }, -- rBoolean       xxx links to Boolean
-  pythonSpecial                          { Boolean }, -- pythonSpecial  xxx links to Boolean
-  Float                                  { fg="#ae81ff", }, -- Float          xxx guifg=#ae81ff
-  vbFloat                                { Float }, -- vbFloat        xxx links to Float
-  yamlFloat                              { Float }, -- yamlFloat      xxx links to Float
-  rFloat                                 { Float }, -- rFloat         xxx links to Float
-  pythonFloat                            { Float }, -- pythonFloat    xxx links to Float
-  Conditional                            { fg="#f92672", gui="bold", }, -- Conditional    xxx gui=bold guifg=#f92672
-  javaScriptConditional                  { Conditional }, -- javaScriptConditional xxx links to Conditional
-  javaScriptBranch                       { Conditional }, -- javaScriptBranch xxx links to Conditional
-  vbConditional                          { Conditional }, -- vbConditional  xxx links to Conditional
-  rConditional                           { Conditional }, -- rConditional   xxx links to Conditional
-  pythonConditional                      { Conditional }, -- pythonConditional xxx links to Conditional
-  Statement                              { fg="#f92672", gui="bold", }, -- Statement      xxx cterm=bold gui=bold guifg=#f92672
-  texCmd                                 { Statement }, -- texCmd         xxx links to Statement
-  htmlStatement                          { Statement }, -- htmlStatement  xxx links to Statement
-  cssAtRuleLogical                       { Statement }, -- cssAtRuleLogical xxx links to Statement
-  cssTagName                             { Statement }, -- cssTagName     xxx links to Statement
-  vbKeyword                              { Statement }, -- vbKeyword      xxx links to Statement
-  vbStatement                            { Statement }, -- vbStatement    xxx links to Statement
-  javaScriptStatement                    { Statement }, -- javaScriptStatement xxx links to Statement
-  dtdEntity                              { Statement }, -- dtdEntity      xxx links to Statement
-  dtdTagName                             { Statement }, -- dtdTagName     xxx links to Statement
-  xmlDocTypeKeyword                      { Statement }, -- xmlDocTypeKeyword xxx links to Statement
-  xmlCdataCdata                          { Statement }, -- xmlCdataCdata  xxx links to Statement
-  xmlEntity                              { Statement }, -- xmlEntity      xxx links to Statement
-  rStatement                             { Statement }, -- rStatement     xxx links to Statement
-  rAssign                                { Statement }, -- rAssign        xxx links to Statement
-  pythonStatement                        { Statement }, -- pythonStatement xxx links to Statement
-  pythonRaiseFromStatement               { Statement }, -- pythonRaiseFromStatement xxx links to Statement
-  Repeat                                 { fg="#f92672", gui="bold", }, -- Repeat         xxx gui=bold guifg=#f92672
-  javaScriptRepeat                       { Repeat }, -- javaScriptRepeat xxx links to Repeat
-  vbRepeat                               { Repeat }, -- vbRepeat       xxx links to Repeat
-  rRepeat                                { Repeat }, -- rRepeat        xxx links to Repeat
-  Label                                  { fg="#ffff00", }, -- Label          xxx guifg=#ffff00
-  sym"@label"                            { Label }, -- @label         xxx links to Label
-  LspInfoBorder                          { Label }, -- LspInfoBorder  xxx links to Label
-  javaScriptLabel                        { Label }, -- javaScriptLabel xxx links to Label
-  javaScriptConstant                     { Label }, -- javaScriptConstant xxx links to Label
-  pandocReferenceLabel                   { Label }, -- pandocReferenceLabel xxx links to Label
-  pandocReferenceDefinitionLabel         { Label }, -- pandocReferenceDefinitionLabel xxx links to Label
-  pandocCiteKey                          { Label }, -- pandocCiteKey  xxx links to Label
-  pandocAbbreviation                     { Label }, -- pandocAbbreviation xxx links to Label
-  pandocFootnoteID                       { Label }, -- pandocFootnoteID xxx links to Label
-  yamlBlockCollectionItemStart           { Label }, -- yamlBlockCollectionItemStart xxx links to Label
-  NullLsInfoHeader                       { Label }, -- NullLsInfoHeader xxx links to Label
-  Keyword                                { fg="#65d8ee", gui="bold", }, -- Keyword        xxx gui=bold guifg=#65d8ee
-  sym"@keyword"                          { Keyword }, -- @keyword       xxx links to Keyword
-  yamlDirectiveName                      { Keyword }, -- yamlDirectiveName xxx links to Keyword
-  javaScriptReserved                     { Keyword }, -- javaScriptReserved xxx links to Keyword
-  javaScriptMember                       { Keyword }, -- javaScriptMember xxx links to Keyword
-  javaScriptGlobal                       { Keyword }, -- javaScriptGlobal xxx links to Keyword
-  javaScriptMessage                      { Keyword }, -- javaScriptMessage xxx links to Keyword
-  javaScriptNull                         { Keyword }, -- javaScriptNull xxx links to Keyword
-  Exception                              { fg="#fd971f", gui="bold", }, -- Exception      xxx gui=bold guifg=#fd971f
-  htmlSpecialTagName                     { Exception }, -- htmlSpecialTagName xxx links to Exception
-  javaScriptException                    { Exception }, -- javaScriptException xxx links to Exception
-  javaScriptDeprecated                   { Exception }, -- javaScriptDeprecated xxx links to Exception
-  pythonException                        { Exception }, -- pythonException xxx links to Exception
-  PreProc                                { fg="#d3ff00", }, -- PreProc        xxx guifg=#d3ff00
-  Include                                { PreProc }, -- Include        xxx links to PreProc
-  yamlDocumentEnd                        { PreProc }, -- yamlDocumentEnd xxx links to PreProc
-  yamlDocumentStart                      { PreProc }, -- yamlDocumentStart xxx links to PreProc
-  cssAtKeyword                           { PreProc }, -- cssAtKeyword   xxx links to PreProc
-  cssPseudoClassId                       { PreProc }, -- cssPseudoClassId xxx links to PreProc
-  vbPreProc                              { PreProc }, -- vbPreProc      xxx links to PreProc
-  vbMethods                              { PreProc }, -- vbMethods      xxx links to PreProc
-  htmlHead                               { PreProc }, -- htmlHead       xxx links to PreProc
-  htmlPreProcAttrName                    { PreProc }, -- htmlPreProcAttrName xxx links to PreProc
-  htmlPreProc                            { PreProc }, -- htmlPreProc    xxx links to PreProc
-  htmlPreStmt                            { PreProc }, -- htmlPreStmt    xxx links to PreProc
-  cssPagePseudo                          { PreProc }, -- cssPagePseudo  xxx links to PreProc
-  rPreProc                               { PreProc }, -- rPreProc       xxx links to PreProc
-  rhPreProc                              { PreProc }, -- rhPreProc      xxx links to PreProc
-  pythonImport                           { PreProc }, -- pythonImport   xxx links to PreProc
-  pythonBracketsi                        { PreProc }, -- pythonBracketsi xxx links to PreProc
-  pythonAs                               { PreProc }, -- pythonAs       xxx links to PreProc
-  pythonStringModifier                   { PreProc }, -- pythonStringModifier xxx links to PreProc
-  Define                                 { fg="#ff0080", gui="bold", }, -- Define         xxx gui=bold guifg=#ff0080
-  Macro                                  { fg="#87ff00", gui="bold", }, -- Macro          xxx gui=bold guifg=#87ff00
-  sym"@attribute"                        { Macro }, -- @attribute     xxx links to Macro
-  PreCondit                              { fg="#fd971f", gui="bold", }, -- PreCondit      xxx gui=bold guifg=#fd971f
-  texZone                                { PreCondit }, -- texZone        xxx links to PreCondit
-  rhSection                              { PreCondit }, -- rhSection      xxx links to PreCondit
-  StorageClass                           { fg="#87ff00", gui="italic", }, -- StorageClass   xxx gui=italic guifg=#87ff00
-  cssProp                                { StorageClass }, -- cssProp        xxx links to StorageClass
-  Type                                   { fg="#66d9ef", }, -- Type           xxx guifg=#66d9ef
-  sym"@type"                             { Type }, -- @type          xxx links to Type
-  NvimNumberPrefix                       { Type }, -- NvimNumberPrefix xxx links to Type
-  NvimOptionSigil                        { Type }, -- NvimOptionSigil xxx links to Type
-  texCmdType                             { Type }, -- texCmdType     xxx links to Type
-  yamlAnchor                             { Type }, -- yamlAnchor     xxx links to Type
-  yamlNodeTag                            { Type }, -- yamlNodeTag    xxx links to Type
-  htmlArg                                { Type }, -- htmlArg        xxx links to Type
-  xmlCdataEnd                            { Type }, -- xmlCdataEnd    xxx links to Type
-  xmlCdataStart                          { Type }, -- xmlCdataStart  xxx links to Type
-  xmlProcessing                          { Type }, -- xmlProcessing  xxx links to Type
-  xmlAttrib                              { Type }, -- xmlAttrib      xxx links to Type
-  texMathDelim                           { Type }, -- texMathDelim   xxx links to Type
-  yamlAlias                              { Type }, -- yamlAlias      xxx links to Type
-  dtdType                                { Type }, -- dtdType        xxx links to Type
-  xmlEntityPunct                         { Type }, -- xmlEntityPunct xxx links to Type
-  vbTypes                                { Type }, -- vbTypes        xxx links to Type
-  vbTypeSpecifier                        { Type }, -- vbTypeSpecifier xxx links to Type
-  javaScriptType                         { Type }, -- javaScriptType xxx links to Type
-  StartupTimeSourcingEvent               { Type }, -- StartupTimeSourcingEvent xxx links to Type
-  LspInfoFiletype                        { Type }, -- LspInfoFiletype xxx links to Type
-  pandocAbbreviationHead                 { Type }, -- pandocAbbreviationHead xxx links to Type
-  pandocAbbreviationTail                 { Type }, -- pandocAbbreviationTail xxx links to Type
-  pandocFootnoteDefHead                  { Type }, -- pandocFootnoteDefHead xxx links to Type
-  pandocFootnoteDefTail                  { Type }, -- pandocFootnoteDefTail xxx links to Type
-  pandocFootnoteIDHead                   { Type }, -- pandocFootnoteIDHead xxx links to Type
-  pandocFootnoteIDTail                   { Type }, -- pandocFootnoteIDTail xxx links to Type
-  rType                                  { Type }, -- rType          xxx links to Type
-  pythonDecorator                        { Type }, -- pythonDecorator xxx links to Type
-  Structure                              { fg="#70f0f0", }, -- Structure      xxx guifg=#70f0f0
-  sym"@module"                           { Structure }, -- @module        xxx links to Structure
-  pythonExClass                          { Structure }, -- pythonExClass  xxx links to Structure
-  pythonClass                            { Structure }, -- pythonClass    xxx links to Structure
-  pythonBuiltinType                      { Structure }, -- pythonBuiltinType xxx links to Structure
-  Typedef                                { fg="#007dff", }, -- Typedef        xxx guifg=#007dff
-  Tag                                    { fg="#f92672", gui="italic", }, -- Tag            xxx gui=italic guifg=#f92672
-  sym"@tag"                              { Tag }, -- @tag           xxx links to Tag
-  xmlNamespace                           { Tag }, -- xmlNamespace   xxx links to Tag
-  Special                                { fg="#448aff", gui="bold", }, -- Special        xxx ctermfg=14 gui=bold guifg=#448aff
-  sym"@module.builtin"                   { Special }, -- @module.builtin xxx links to Special
-  sym"@type.builtin"                     { Special }, -- @type.builtin  xxx links to Special
-  sym"@constructor"                      { Special }, -- @constructor   xxx links to Special
-  sym"@punctuation.special"              { Special }, -- @punctuation.special xxx links to Special
-  sym"@markup"                           { Special }, -- @markup        xxx links to Special
-  javaScript                             { Special }, -- javaScript     xxx links to Special
-  htmlCssDefinition                      { Special }, -- htmlCssDefinition xxx links to Special
-  htmlSpecialChar                        { Special }, -- htmlSpecialChar xxx links to Special
-  texParm                                { Special }, -- texParm        xxx links to Special
-  texMathZone                            { Special }, -- texMathZone    xxx links to Special
-  texRefArg                              { Special }, -- texRefArg      xxx links to Special
-  texCmdSpaceCodeChar                    { Special }, -- texCmdSpaceCodeChar xxx links to Special
-  yamlBlockMappingMerge                  { Special }, -- yamlBlockMappingMerge xxx links to Special
-  yamlFlowIndicator                      { Special }, -- yamlFlowIndicator xxx links to Special
-  yamlMappingKeyStart                    { Special }, -- yamlMappingKeyStart xxx links to Special
-  yamlFlowMappingMerge                   { Special }, -- yamlFlowMappingMerge xxx links to Special
-  yamlKeyValueDelimiter                  { Special }, -- yamlKeyValueDelimiter xxx links to Special
-  cssFontDescriptor                      { Special }, -- cssFontDescriptor xxx links to Special
-  cssMediaType                           { Special }, -- cssMediaType   xxx links to Special
-  cssAttrComma                           { Special }, -- cssAttrComma   xxx links to Special
-  cssCustomProp                          { Special }, -- cssCustomProp  xxx links to Special
-  cssImportant                           { Special }, -- cssImportant   xxx links to Special
-  cssUnicodeEscape                       { Special }, -- cssUnicodeEscape xxx links to Special
-  cssSelectorOp2                         { Special }, -- cssSelectorOp2 xxx links to Special
-  cssSelectorOp                          { Special }, -- cssSelectorOp  xxx links to Special
-  vbEvents                               { Special }, -- vbEvents       xxx links to Special
-  javaScriptEmbed                        { Special }, -- javaScriptEmbed xxx links to Special
-  javaScriptSpecial                      { Special }, -- javaScriptSpecial xxx links to Special
-  NotifyLogTitle                         { Special }, -- NotifyLogTitle xxx links to Special
-  StartupTimePercent                     { Special }, -- StartupTimePercent xxx links to Special
-  pandocAmpersandEscape                  { Special }, -- pandocAmpersandEscape xxx links to Special
-  pandocDelimitedCodeBlock               { Special }, -- pandocDelimitedCodeBlock xxx links to Special
-  pythonRun                              { Special }, -- pythonRun      xxx links to Special
-  pythonCoding                           { Special }, -- pythonCoding   xxx links to Special
-  pythonBytesEscape                      { Special }, -- pythonBytesEscape xxx links to Special
-  pythonUniEscape                        { Special }, -- pythonUniEscape xxx links to Special
-  pythonDocTest2                         { Special }, -- pythonDocTest2 xxx links to Special
-  pythonDocTest                          { Special }, -- pythonDocTest  xxx links to Special
-  pythonRawEscape                        { Special }, -- pythonRawEscape xxx links to Special
-  pythonStrFormatting                    { Special }, -- pythonStrFormatting xxx links to Special
-  pythonStrFormat                        { Special }, -- pythonStrFormat xxx links to Special
-  pythonStrTemplate                      { Special }, -- pythonStrTemplate xxx links to Special
-  SpecialChar                            { fg="#f92672", gui="bold", }, -- SpecialChar    xxx gui=bold guifg=#f92672
-  NvimRegister                           { SpecialChar }, -- NvimRegister   xxx links to SpecialChar
-  NvimStringSpecial                      { SpecialChar }, -- NvimStringSpecial xxx links to SpecialChar
-  TelescopeResultsVariable               { SpecialChar }, -- TelescopeResultsVariable xxx links to SpecialChar
-  texSpecialChar                         { SpecialChar }, -- texSpecialChar xxx links to SpecialChar
-  texSymbol                              { SpecialChar }, -- texSymbol      xxx links to SpecialChar
-  yamlEscape                             { SpecialChar }, -- yamlEscape     xxx links to SpecialChar
-  yamlSingleEscape                       { SpecialChar }, -- yamlSingleEscape xxx links to SpecialChar
-  rSpecial                               { SpecialChar }, -- rSpecial       xxx links to SpecialChar
-  rDollar                                { SpecialChar }, -- rDollar        xxx links to SpecialChar
-  SpecialComment                         { fg="#465457", gui="bold,italic", }, -- SpecialComment xxx gui=bold,italic guifg=#465457
-  TelescopeResultsSpecialComment         { SpecialComment }, -- TelescopeResultsSpecialComment xxx links to SpecialComment
-  rTodoInfo                              { SpecialComment }, -- rTodoInfo      xxx links to SpecialComment
-  rOExamples                             { SpecialComment }, -- rOExamples     xxx links to SpecialComment
-  Debug                                  { fg="#bca3a3", gui="bold", }, -- Debug          xxx gui=bold guifg=#bca3a3
-  javaScriptDebug                        { Debug }, -- javaScriptDebug xxx links to Debug
-  Ignore                                 { bg="bg", fg="#808080", }, -- Ignore         xxx guifg=#808080 guibg=bg
-  DiagnosticError                        { fg="nvimlightred", }, -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
-  DiagnosticFloatingError                { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
-  DiagnosticVirtualTextError             { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
-  DiagnosticSignError                    { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
-  sym"@comment.error"                    { DiagnosticError }, -- @comment.error xxx links to DiagnosticError
-  DiagnosticWarn                         { fg="nvimlightyellow", }, -- DiagnosticWarn xxx ctermfg=11 guifg=NvimLightYellow
-  DiagnosticFloatingWarn                 { DiagnosticWarn }, -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
-  DiagnosticVirtualTextWarn              { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
-  DiagnosticSignWarn                     { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
-  sym"@comment.warning"                  { DiagnosticWarn }, -- @comment.warning xxx links to DiagnosticWarn
-  DiagnosticInfo                         { fg="nvimlightcyan", }, -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
-  DiagnosticFloatingInfo                 { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
-  DiagnosticVirtualTextInfo              { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
-  DiagnosticSignInfo                     { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
-  sym"@comment.note"                     { DiagnosticInfo }, -- @comment.note  xxx links to DiagnosticInfo
-  DiagnosticHint                         { fg="#ffff00", }, -- DiagnosticHint xxx ctermfg=12 guifg=#ffff00
-  DiagnosticFloatingHint                 { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
-  DiagnosticVirtualTextHint              { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
-  DiagnosticSignHint                     { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
-  DiagnosticOk                           { fg="nvimlightgreen", }, -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
-  DiagnosticFloatingOk                   { DiagnosticOk }, -- DiagnosticFloatingOk xxx links to DiagnosticOk
-  DiagnosticVirtualTextOk                { DiagnosticOk }, -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
-  DiagnosticSignOk                       { DiagnosticOk }, -- DiagnosticSignOk xxx links to DiagnosticOk
-  Comment                                { fg="#404040", }, -- Comment        xxx guifg=#404040
-  DiagnosticUnnecessary                  { Comment }, -- DiagnosticUnnecessary xxx links to Comment
-  sym"@comment"                          { Comment }, -- @comment       xxx links to Comment
-  UfoFoldedEllipsis                      { Comment }, -- UfoFoldedEllipsis xxx links to Comment
-  texComment                             { Comment }, -- texComment     xxx links to Comment
-  yamlComment                            { Comment }, -- yamlComment    xxx links to Comment
-  cssHacks                               { Comment }, -- cssHacks       xxx links to Comment
-  cssVendor                              { Comment }, -- cssVendor      xxx links to Comment
-  cssComment                             { Comment }, -- cssComment     xxx links to Comment
-  vbLineNumber                           { Comment }, -- vbLineNumber   xxx links to Comment
-  vbLineLabel                            { Comment }, -- vbLineLabel    xxx links to Comment
-  vbComment                              { Comment }, -- vbComment      xxx links to Comment
-  htmlCssStyleComment                    { Comment }, -- htmlCssStyleComment xxx links to Comment
-  javaScriptComment                      { Comment }, -- javaScriptComment xxx links to Comment
-  javaScriptLineComment                  { Comment }, -- javaScriptLineComment xxx links to Comment
-  htmlComment                            { Comment }, -- htmlComment    xxx links to Comment
-  dtdComment                             { Comment }, -- dtdComment     xxx links to Comment
-  xmlProcessingDelim                     { Comment }, -- xmlProcessingDelim xxx links to Comment
-  xmlCommentPart                         { Comment }, -- xmlCommentPart xxx links to Comment
-  xmlComment                             { Comment }, -- xmlComment     xxx links to Comment
-  xmlAttribPunct                         { Comment }, -- xmlAttribPunct xxx links to Comment
-  MarkVirtTextHL                         { Comment }, -- MarkVirtTextHL xxx links to Comment
-  mkdFootnote                            { Comment }, -- mkdFootnote    xxx links to Comment
-  mkdBlockquote                          { Comment }, -- mkdBlockquote  xxx links to Comment
-  NotifyLogTime                          { Comment }, -- NotifyLogTime  xxx links to Comment
-  pandocHTMLComment                      { Comment }, -- pandocHTMLComment xxx links to Comment
-  pandocBlockQuote                       { Comment }, -- pandocBlockQuote xxx links to Comment
-  pandocBlockQuoteMark                   { Comment }, -- pandocBlockQuoteMark xxx links to Comment
-  pandocNoFormattedAttrs                 { Comment }, -- pandocNoFormattedAttrs xxx links to Comment
-  pandocHeaderAttr                       { Comment }, -- pandocHeaderAttr xxx links to Comment
-  pandocDelimitedCodeBlockLanguage       { Comment }, -- pandocDelimitedCodeBlockLanguage xxx links to Comment
-  pandocAbbreviationDefinition           { Comment }, -- pandocAbbreviationDefinition xxx links to Comment
-  pandocFootnoteDef                      { Comment }, -- pandocFootnoteDef xxx links to Comment
-  pandocFootnoteBlock                    { Comment }, -- pandocFootnoteBlock xxx links to Comment
-  rTodoParen                             { Comment }, -- rTodoParen     xxx links to Comment
-  rComment                               { Comment }, -- rComment       xxx links to Comment
-  rOCommentKey                           { Comment }, -- rOCommentKey   xxx links to Comment
-  rOR6Block                              { Comment }, -- rOR6Block      xxx links to Comment
-  rOBlock                                { Comment }, -- rOBlock        xxx links to Comment
-  rOBlockNoTitle                         { Comment }, -- rOBlockNoTitle xxx links to Comment
-  sym"@variable"                         { fg="#b7bfcd", }, -- @variable      xxx guifg=#b7bfcd
-  sym"@variable.builtin"                 { fg="#f39cf4", gui="bold", }, -- @variable.builtin xxx gui=bold guifg=#f39cf4
-  String                                 { fg="#d3ff3b" }, -- String         xxx links to Constant
-  sym"@string"                           { String }, -- @string        xxx links to String
-  NvimString                             { String }, -- NvimString     xxx links to String
-  mkdCode                                { String }, -- mkdCode        xxx links to String
-  TelescopePreviewSize                   { String }, -- TelescopePreviewSize xxx links to String
-  TelescopePreviewExecute                { String }, -- TelescopePreviewExecute xxx links to String
-  xmlString                              { String }, -- xmlString      xxx links to String
-  xmlCdata                               { String }, -- xmlCdata       xxx links to String
-  htmlString                             { String }, -- htmlString     xxx links to String
-  htmlValue                              { String }, -- htmlValue      xxx links to String
-  htmlPreAttr                            { String }, -- htmlPreAttr    xxx links to String
-  javaScriptStringD                      { String }, -- javaScriptStringD xxx links to String
-  javaScriptStringS                      { String }, -- javaScriptStringS xxx links to String
-  javaScriptStringT                      { String }, -- javaScriptStringT xxx links to String
-  javaScriptRegexpString                 { String }, -- javaScriptRegexpString xxx links to String
-  vbString                               { String }, -- vbString       xxx links to String
-  cssStringQ                             { String }, -- cssStringQ     xxx links to String
-  cssStringQQ                            { String }, -- cssStringQQ    xxx links to String
-  cssAttributeSelector                   { String }, -- cssAttributeSelector xxx links to String
-  cssURL                                 { String }, -- cssURL         xxx links to String
-  VimtexTocLabelsTab                     { String }, -- VimtexTocLabelsTab xxx links to String
-  texPartArgTitle                        { String }, -- texPartArgTitle xxx links to String
-  pandocNoFormatted                      { String }, -- pandocNoFormatted xxx links to String
-  pandocCodeBlockInsideIndent            { String }, -- pandocCodeBlockInsideIndent xxx links to String
-  pandocCodePre                          { String }, -- pandocCodePre  xxx links to String
-  yamlTagHandle                          { String }, -- yamlTagHandle  xxx links to String
-  yamlTagPrefix                          { String }, -- yamlTagPrefix  xxx links to String
-  yamlString                             { String }, -- yamlString     xxx links to String
-  rString                                { String }, -- rString        xxx links to String
-  rRawString                             { String }, -- rRawString     xxx links to String
-  pythonString                           { String }, -- pythonString   xxx links to String
-  pythonRawString                        { String }, -- pythonRawString xxx links to String
-  pythonRawFString                       { String }, -- pythonRawFString xxx links to String
-  pythonBytes                            { String }, -- pythonBytes    xxx links to String
-  pythonBytesContent                     { String }, -- pythonBytesContent xxx links to String
-  pythonRawBytes                         { String }, -- pythonRawBytes xxx links to String
-  quartoShortarg                         { String }, -- quartoShortarg xxx links to String
-  TSPlaygroundLang                       { String }, -- TSPlaygroundLang xxx links to String
-  mkdCodeDelimiter                       { String }, -- mkdCodeDelimiter xxx links to String
-  mkdString                              { String }, -- mkdString      xxx links to String
-  mkdCodeStart                           { String }, -- mkdCodeStart   xxx links to String
-  mkdCodeEnd                             { String }, -- mkdCodeEnd     xxx links to String
-  sym"@number"                           { fg="#69f0ae", }, -- @number        xxx guifg=#69f0ae
-  Identifier                             { fg="#ff4081", gui="bold", }, -- Identifier     xxx ctermfg=12 gui=bold guifg=#ff4081
-  sym"@property"                         { Identifier }, -- @property      xxx links to Identifier
-  NvimIdentifier                         { Identifier }, -- NvimIdentifier xxx links to Identifier
-  texOpt                                 { Identifier }, -- texOpt         xxx links to Identifier
-  yamlBlockMappingKey                    { Identifier }, -- yamlBlockMappingKey xxx links to Identifier
-  yamlFlowMappingKey                     { Identifier }, -- yamlFlowMappingKey xxx links to Identifier
-  vbIdentifier                           { Identifier }, -- vbIdentifier   xxx links to Identifier
-  vbFunction                             { Identifier }, -- vbFunction     xxx links to Identifier
-  javaScriptIdentifier                   { Identifier }, -- javaScriptIdentifier xxx links to Identifier
-  htmlEndTag                             { Identifier }, -- htmlEndTag     xxx links to Identifier
-  xmlEndTag                              { Identifier }, -- xmlEndTag      xxx links to Identifier
-  MarkSignHL                             { Identifier }, -- MarkSignHL     xxx links to Identifier
-  mkdRule                                { Identifier }, -- mkdRule        xxx links to Identifier
-  mkdListItem                            { Identifier }, -- mkdListItem    xxx links to Identifier
-  mkdID                                  { Identifier }, -- mkdID          xxx links to Identifier
-  StartupTimeOtherEvent                  { Identifier }, -- StartupTimeOtherEvent xxx links to Identifier
-  pandocLinkTip                          { Identifier }, -- pandocLinkTip  xxx links to Identifier
-  pandocReferenceDefinitionTip           { Identifier }, -- pandocReferenceDefinitionTip xxx links to Identifier
-  pandocHeaderID                         { Identifier }, -- pandocHeaderID xxx links to Identifier
-  pandocAbbreviationSeparator            { Identifier }, -- pandocAbbreviationSeparator xxx links to Identifier
-  pandocListItemBulletId                 { Identifier }, -- pandocListItemBulletId xxx links to Identifier
-  pandocDefinitionBlockTerm              { Identifier }, -- pandocDefinitionBlockTerm xxx links to Identifier
-  rHelpIdent                             { Identifier }, -- rHelpIdent     xxx links to Identifier
-  pythonClassVar                         { Identifier }, -- pythonClassVar xxx links to Identifier
-  mkdListItemCheckbox                    { Identifier }, -- mkdListItemCheckbox xxx links to Identifier
-  Function                               { fg="#63ff51", }, -- Function       xxx ctermfg=14 guifg=#63ff51
-  sym"@function"                         { Function }, -- @function      xxx links to Function
-  LspInfoList                            { Function }, -- LspInfoList    xxx links to Function
-  TelescopeResultsClass                  { Function }, -- TelescopeResultsClass xxx links to Function
-  TelescopeResultsFunction               { Function }, -- TelescopeResultsFunction xxx links to Function
-  TelescopeResultsField                  { Function }, -- TelescopeResultsField xxx links to Function
-  xmlTagName                             { Function }, -- xmlTagName     xxx links to Function
-  xmlTag                                 { Function }, -- xmlTag         xxx links to Function
-  xmlInlineDTD                           { Function }, -- xmlInlineDTD   xxx links to Function
-  xmlDocTypeDecl                         { Function }, -- xmlDocTypeDecl xxx links to Function
-  dtdFunction                            { Function }, -- dtdFunction    xxx links to Function
-  htmlTag                                { Function }, -- htmlTag        xxx links to Function
-  javaScriptFunction                     { Function }, -- javaScriptFunction xxx links to Function
-  javaScriptBraces                       { Function }, -- javaScriptBraces xxx links to Function
-  cssClassNameDot                        { Function }, -- cssClassNameDot xxx links to Function
-  cssClassName                           { Function }, -- cssClassName   xxx links to Function
-  cssIdentifier                          { Function }, -- cssIdentifier  xxx links to Function
-  cssFunctionName                        { Function }, -- cssFunctionName xxx links to Function
-  cssFunctionComma                       { Function }, -- cssFunctionComma xxx links to Function
-  cssBraces                              { Function }, -- cssBraces      xxx links to Function
-  rFunction                              { Function }, -- rFunction      xxx links to Function
-  rSpaceFun                              { Function }, -- rSpaceFun      xxx links to Function
-  pythonBuiltinFunc                      { Function }, -- pythonBuiltinFunc xxx links to Function
-  pythonFunctionCall                     { Function }, -- pythonFunctionCall xxx links to Function
-  AerialFunctionIcon                     { Function }, -- AerialFunctionIcon xxx links to Function
-  AerialMethodIcon                       { Function }, -- AerialMethodIcon xxx links to Function
-  WhichKey                               { Function }, -- WhichKey       xxx links to Function
-  Operator                               { fg="#ff4081", }, -- Operator       xxx guifg=#ff4081
-  sym"@operator"                         { Operator }, -- @operator      xxx links to Operator
-  NvimAssignment                         { Operator }, -- NvimAssignment xxx links to Operator
-  NvimOperator                           { Operator }, -- NvimOperator   xxx links to Operator
-  TelescopeResultsOperator               { Operator }, -- TelescopeResultsOperator xxx links to Operator
-  javaScriptOperator                     { Operator }, -- javaScriptOperator xxx links to Operator
-  vbOperator                             { Operator }, -- vbOperator     xxx links to Operator
-  texMathOper                            { Operator }, -- texMathOper    xxx links to Operator
-  pandocPCite                            { Operator }, -- pandocPCite    xxx links to Operator
-  pandocOperator                         { Operator }, -- pandocOperator xxx links to Operator
-  pandocImageIcon                        { Operator }, -- pandocImageIcon xxx links to Operator
-  pandocReferenceDefinition              { Operator }, -- pandocReferenceDefinition xxx links to Operator
-  pandocICite                            { Operator }, -- pandocICite    xxx links to Operator
-  pandocCiteAnchor                       { Operator }, -- pandocCiteAnchor xxx links to Operator
-  pandocCiteLocator                      { Operator }, -- pandocCiteLocator xxx links to Operator
-  pandocSubscriptMark                    { Operator }, -- pandocSubscriptMark xxx links to Operator
-  pandocSuperscriptMark                  { Operator }, -- pandocSuperscriptMark xxx links to Operator
-  pandocStrikeoutMark                    { Operator }, -- pandocStrikeoutMark xxx links to Operator
-  pandocAtxStart                         { Operator }, -- pandocAtxStart xxx links to Operator
-  pandocFootnoteBlockSeparator           { Operator }, -- pandocFootnoteBlockSeparator xxx links to Operator
-  pandocUListItemBullet                  { Operator }, -- pandocUListItemBullet xxx links to Operator
-  pandocListItemBullet                   { Operator }, -- pandocListItemBullet xxx links to Operator
-  pandocDefinitionBlockMark              { Operator }, -- pandocDefinitionBlockMark xxx links to Operator
-  rOTag                                  { Operator }, -- rOTag          xxx links to Operator
-  rOTitleTag                             { Operator }, -- rOTitleTag     xxx links to Operator
-  rOperator                              { Operator }, -- rOperator      xxx links to Operator
-  pythonDef                              { Operator }, -- pythonDef      xxx links to Operator
-  Delimiter                              { fg="#8f8f8f", }, -- Delimiter      xxx guifg=#8f8f8f
-  sym"@punctuation"                      { Delimiter }, -- @punctuation   xxx links to Delimiter
-  NvimParenthesis                        { Delimiter }, -- NvimParenthesis xxx links to Delimiter
-  NvimColon                              { Delimiter }, -- NvimColon      xxx links to Delimiter
-  NvimComma                              { Delimiter }, -- NvimComma      xxx links to Delimiter
-  NvimArrow                              { Delimiter }, -- NvimArrow      xxx links to Delimiter
-  pandocHTMLCommentStart                 { Delimiter }, -- pandocHTMLCommentStart xxx links to Delimiter
-  pandocHTMLCommentEnd                   { Delimiter }, -- pandocHTMLCommentEnd xxx links to Delimiter
-  texDelim                               { Delimiter }, -- texDelim       xxx links to Delimiter
-  texMathEnvArgName                      { Delimiter }, -- texMathEnvArgName xxx links to Delimiter
-  pandocLineBlockDelimiter               { Delimiter }, -- pandocLineBlockDelimiter xxx links to Delimiter
-  pandocDelimitedCodeBlockStart          { Delimiter }, -- pandocDelimitedCodeBlockStart xxx links to Delimiter
-  pandocSimpleTableDelims                { Delimiter }, -- pandocSimpleTableDelims xxx links to Delimiter
-  pandocTableDelims                      { Delimiter }, -- pandocTableDelims xxx links to Delimiter
-  pandocGridTableDelims                  { Delimiter }, -- pandocGridTableDelims xxx links to Delimiter
-  pandocGridTableHeader                  { Delimiter }, -- pandocGridTableHeader xxx links to Delimiter
-  pandocPipeTableDelims                  { Delimiter }, -- pandocPipeTableDelims xxx links to Delimiter
-  pandocPipeTableHeader                  { Delimiter }, -- pandocPipeTableHeader xxx links to Delimiter
-  pandocDelimitedCodeBlockEnd            { Delimiter }, -- pandocDelimitedCodeBlockEnd xxx links to Delimiter
-  pandocHRule                            { Delimiter }, -- pandocHRule    xxx links to Delimiter
-  rRawStrDelim                           { Delimiter }, -- rRawStrDelim   xxx links to Delimiter
-  rDelimiter                             { Delimiter }, -- rDelimiter     xxx links to Delimiter
-  mkdDelimiter                           { Delimiter }, -- mkdDelimiter   xxx links to Delimiter
-  Todo                                   { bg="bg", fg="#ff005b", gui="bold", }, -- Todo           xxx cterm=bold gui=bold guifg=#ff005b guibg=bg
-  texCommentTodo                         { Todo }, -- texCommentTodo xxx links to Todo
-  yamlTodo                               { Todo }, -- yamlTodo       xxx links to Todo
-  vbTodo                                 { Todo }, -- vbTodo         xxx links to Todo
-  javaScriptCommentTodo                  { Todo }, -- javaScriptCommentTodo xxx links to Todo
-  dtdTodo                                { Todo }, -- dtdTodo        xxx links to Todo
-  xmlTodo                                { Todo }, -- xmlTodo        xxx links to Todo
-  rCommentTodo                           { Todo }, -- rCommentTodo   xxx links to Todo
-  rTodoKeyw                              { Todo }, -- rTodoKeyw      xxx links to Todo
-  pythonTodo                             { Todo }, -- pythonTodo     xxx links to Todo
-  sym"@markup.heading1"                  { fg="#00CCFF", bg="#002933", gui="bold" },
-  sym"@markup.heading2"                  { fg="#D3FF3B", bg="#2A330C" },
-  sym"@markup.heading3"                  { fg="#B388FF", bg="#241B33" },
-  sym"@markup.heading4"                  { fg="#FF69BF", bg="#331526" },
-  sym"@markup.strong"                    { gui="bold", }, -- @markup.strong xxx cterm=bold gui=bold
-  sym"@markup.italic"                    { gui="italic", }, -- @markup.italic xxx cterm=italic gui=italic
-  sym"@markup.strikethrough"             { gui="strikethrough", }, -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
-  sym"@markup.underline"                 { gui="underline", }, -- @markup.underline xxx cterm=underline gui=underline
-  Added                                  { fg="nvimlightgreen", }, -- Added          xxx ctermfg=10 guifg=NvimLightGreen
-  sym"@diff.plus"                        { Added }, -- @diff.plus     xxx links to Added
-  GitSignsAdd                            { Added }, -- GitSignsAdd    xxx links to Added
-  Removed                                { fg="nvimlightred", }, -- Removed        xxx ctermfg=9 guifg=NvimLightRed
-  sym"@diff.minus"                       { Removed }, -- @diff.minus    xxx links to Removed
-  GitSignsDelete                         { Removed }, -- GitSignsDelete xxx links to Removed
-  Changed                                { fg="nvimlightcyan", }, -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
-  sym"@diff.delta"                       { Changed }, -- @diff.delta    xxx links to Changed
-  GitSignsChange                         { Changed }, -- GitSignsChange xxx links to Changed
-  FloatShadow                            { bg="nvimdarkgrey4", blend=80, }, -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
-  FloatShadowThrough                     { bg="nvimdarkgrey4", blend=100, }, -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
-  MatchParen                             { bg="#202020", fg="#f92672", gui="bold", }, -- MatchParen     xxx cterm=bold,underline gui=bold guifg=#f92672 guibg=#202020
-  MatchWord                              { MatchParen }, -- MatchWord      xxx links to MatchParen
-  MatchParenCur                          { MatchParen }, -- MatchParenCur  xxx links to MatchParen
-  RedrawDebugClear                       { bg="nvimdarkyellow", }, -- RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
-  RedrawDebugComposed                    { bg="nvimdarkgreen", }, -- RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
-  RedrawDebugRecompose                   { bg="nvimdarkred", }, -- RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
-  Error                                  { fg="#f20052", gui="bold", }, -- Error          xxx ctermfg=0 ctermbg=9 gui=bold guifg=#f20052
-  NvimInvalid                            { Error }, -- NvimInvalid    xxx links to Error
-  yamlReservedDirective                  { Error }, -- yamlReservedDirective xxx links to Error
-  cssDeprecated                          { Error }, -- cssDeprecated  xxx links to Error
-  cssBraceError                          { Error }, -- cssBraceError  xxx links to Error
-  cssError                               { Error }, -- cssError       xxx links to Error
-  vbError                                { Error }, -- vbError        xxx links to Error
-  javaScriptError                        { Error }, -- javaScriptError xxx links to Error
-  htmlPreProcAttrError                   { Error }, -- htmlPreProcAttrError xxx links to Error
-  htmlPreError                           { Error }, -- htmlPreError   xxx links to Error
-  htmlError                              { Error }, -- htmlError      xxx links to Error
-  dtdError                               { Error }, -- dtdError       xxx links to Error
-  xmlCommentError                        { Error }, -- xmlCommentError xxx links to Error
-  xmlError                               { Error }, -- xmlError       xxx links to Error
-  pandocNewLine                          { Error }, -- pandocNewLine  xxx links to Error
-  rError                                 { Error }, -- rError         xxx links to Error
-  rBraceError                            { Error }, -- rBraceError    xxx links to Error
-  rCurlyError                            { Error }, -- rCurlyError    xxx links to Error
-  rStrError                              { Error }, -- rStrError      xxx links to Error
-  rOpError                               { Error }, -- rOpError       xxx links to Error
-  rParenError                            { Error }, -- rParenError    xxx links to Error
-  pythonError                            { Error }, -- pythonError    xxx links to Error
-  pythonBytesEscapeError                 { Error }, -- pythonBytesEscapeError xxx links to Error
-  pythonUniEscapeError                   { Error }, -- pythonUniEscapeError xxx links to Error
-  pythonSpaceError                       { Error }, -- pythonSpaceError xxx links to Error
-  pythonBytesError                       { Error }, -- pythonBytesError xxx links to Error
-  pythonOctError                         { Error }, -- pythonOctError xxx links to Error
-  pythonHexError                         { Error }, -- pythonHexError xxx links to Error
-  pythonBinError                         { Error }, -- pythonBinError xxx links to Error
-  pythonNumberError                      { Error }, -- pythonNumberError xxx links to Error
-  pythonIndentError                      { Error }, -- pythonIndentError xxx links to Error
-  TSQueryLinterError                     { Error }, -- TSQueryLinterError xxx links to Error
-  DiagnosticUnderlineError               { sp="nvimlightred", gui="underline", }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
-  DiagnosticUnderlineWarn                { sp="nvimlightyellow", gui="underline", }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
-  DiagnosticUnderlineInfo                { sp="nvimlightcyan", gui="underline", }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
-  DiagnosticUnderlineHint                { sp="nvimlightblue", gui="underline", }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
-  DiagnosticUnderlineOk                  { sp="nvimlightgreen", gui="underline", }, -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
-  DiagnosticDeprecated                   { sp="nvimlightred", gui="strikethrough", }, -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
-  NvimInternalError                      { bg="red", fg="red", }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
-  NvimFigureBrace                        { NvimInternalError }, -- NvimFigureBrace xxx links to NvimInternalError
-  NvimSingleQuotedUnknownEscape          { NvimInternalError }, -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
-  NvimInvalidSingleQuotedUnknownEscape   { NvimInternalError }, -- NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
-  DevIconJson5                           { fg="#cbcb41", }, -- DevIconJson5   xxx ctermfg=185 guifg=#cbcb41
-  DevIconJsonc                           { fg="#cbcb41", }, -- DevIconJsonc   xxx ctermfg=185 guifg=#cbcb41
-  DevIconSml                             { fg="#e37933", }, -- DevIconSml     xxx ctermfg=166 guifg=#e37933
-  DevIconEpp                             { fg="#ffa61a", }, -- DevIconEpp     xxx ctermfg=214 guifg=#ffa61a
-  DevIconZst                             { fg="#eca517", }, -- DevIconZst     xxx ctermfg=214 guifg=#eca517
-  DevIconXresources                      { fg="#e54d18", }, -- DevIconXresources xxx ctermfg=196 guifg=#e54d18
-  DevIconErl                             { fg="#b83998", }, -- DevIconErl     xxx ctermfg=163 guifg=#b83998
-  DevIconGCode                           { fg="#1471ad", }, -- DevIconGCode   xxx ctermfg=32 guifg=#1471ad
-  DevIconHrl                             { fg="#b83998", }, -- DevIconHrl     xxx ctermfg=163 guifg=#b83998
-  DevIconPdf                             { fg="#b30b00", }, -- DevIconPdf     xxx ctermfg=124 guifg=#b30b00
-  DevIconErb                             { fg="#701516", }, -- DevIconErb     xxx ctermfg=52 guifg=#701516
-  DevIconAlmalinux                       { fg="#ff4649", }, -- DevIconAlmalinux xxx ctermfg=203 guifg=#ff4649
-  DevIconAstro                           { fg="#e23f67", }, -- DevIconAstro   xxx ctermfg=197 guifg=#e23f67
-  DevIconNix                             { fg="#7ebae4", }, -- DevIconNix     xxx ctermfg=110 guifg=#7ebae4
-  DevIconTerraform                       { fg="#5f43e9", }, -- DevIconTerraform xxx ctermfg=93 guifg=#5f43e9
-  DevIconAwk                             { fg="#4d5a5e", }, -- DevIconAwk     xxx ctermfg=240 guifg=#4d5a5e
-  DevIconBlueprint                       { fg="#5796e2", }, -- DevIconBlueprint xxx ctermfg=68 guifg=#5796e2
-  DevIconGz                              { fg="#eca517", }, -- DevIconGz      xxx ctermfg=214 guifg=#eca517
-  DevIconSrt                             { fg="#ffb713", }, -- DevIconSrt     xxx ctermfg=214 guifg=#ffb713
-  DevIconSsa                             { fg="#ffb713", }, -- DevIconSsa     xxx ctermfg=214 guifg=#ffb713
-  semshiLocal                            { fg="#ff875f", }, -- semshiLocal    xxx guifg=#ff875f
-  DevIconM3u                             { fg="#ed95ae", }, -- DevIconM3u     xxx ctermfg=211 guifg=#ed95ae
-  DevIconNswag                           { fg="#85ea2d", }, -- DevIconNswag   xxx ctermfg=112 guifg=#85ea2d
-  DevIconStp                             { fg="#839463", }, -- DevIconStp     xxx ctermfg=101 guifg=#839463
-  DevIconLuaurc                          { fg="#00a2ff", }, -- DevIconLuaurc  xxx ctermfg=75 guifg=#00a2ff
-  DevIconHaml                            { fg="#eaeae1", }, -- DevIconHaml    xxx ctermfg=255 guifg=#eaeae1
-  DevIconXpi                             { fg="#ff1b01", }, -- DevIconXpi     xxx ctermfg=196 guifg=#ff1b01
-  DevIconSystemVerilog                   { fg="#019833", }, -- DevIconSystemVerilog xxx ctermfg=28 guifg=#019833
-  DevIconMailmap                         { fg="#41535b", }, -- DevIconMailmap xxx ctermfg=239 guifg=#41535b
-  DevIconHuff                            { fg="#4242c7", }, -- DevIconHuff    xxx ctermfg=56 guifg=#4242c7
-  DevIconPsManifestfile                  { fg="#6975c4", }, -- DevIconPsManifestfile xxx ctermfg=68 guifg=#6975c4
-  DevIconWebmanifest                     { fg="#f1e05a", }, -- DevIconWebmanifest xxx ctermfg=185 guifg=#f1e05a
-  DevIconIxx                             { fg="#519aba", }, -- DevIconIxx     xxx ctermfg=74 guifg=#519aba
-  DevIconIfc                             { fg="#839463", }, -- DevIconIfc     xxx ctermfg=101 guifg=#839463
-  DevIconIge                             { fg="#839463", }, -- DevIconIge     xxx ctermfg=101 guifg=#839463
-  DevIconXorgConf                        { fg="#e54d18", }, -- DevIconXorgConf xxx ctermfg=196 guifg=#e54d18
-  DevIconHurl                            { fg="#ff0288", }, -- DevIconHurl    xxx ctermfg=198 guifg=#ff0288
-  DevIconIgs                             { fg="#839463", }, -- DevIconIgs     xxx ctermfg=101 guifg=#839463
-  DevIconCSharpProject                   { fg="#512bd4", }, -- DevIconCSharpProject xxx ctermfg=56 guifg=#512bd4
-  DevIconIni                             { fg="#6d8086", }, -- DevIconIni     xxx ctermfg=66 guifg=#6d8086
-  DevIconRss                             { fg="#fb9d3b", }, -- DevIconRss     xxx ctermfg=215 guifg=#fb9d3b
-  DevIconXul                             { fg="#e37933", }, -- DevIconXul     xxx ctermfg=166 guifg=#e37933
-  DevIconBzl                             { fg="#89e051", }, -- DevIconBzl     xxx ctermfg=113 guifg=#89e051
-  DevIconIso                             { fg="#d0bec8", }, -- DevIconIso     xxx ctermfg=181 guifg=#d0bec8
-  DevIconThunderbird                     { fg="#137be1", }, -- DevIconThunderbird xxx ctermfg=33 guifg=#137be1
-  DevIconNPMrc                           { fg="#e8274b", }, -- DevIconNPMrc   xxx ctermfg=197 guifg=#e8274b
-  DevIconDesktopEntry                    { fg="#563d7c", }, -- DevIconDesktopEntry xxx ctermfg=54 guifg=#563d7c
-  DevIconMpv                             { fg="#3b1342", }, -- DevIconMpv     xxx ctermfg=53 guifg=#3b1342
-  DevIconXsession                        { fg="#e54d18", }, -- DevIconXsession xxx ctermfg=196 guifg=#e54d18
-  DevIconLock                            { fg="#bbbbbb", }, -- DevIconLock    xxx ctermfg=250 guifg=#bbbbbb
-  DevIconAsciinema                       { fg="#fd971f", }, -- DevIconAsciinema xxx ctermfg=208 guifg=#fd971f
-  DevIconNushell                         { fg="#3aa675", }, -- DevIconNushell xxx ctermfg=36 guifg=#3aa675
-  DevIconEditorConfig                    { fg="#fff2f2", }, -- DevIconEditorConfig xxx ctermfg=255 guifg=#fff2f2
-  DevIconNotebook                        { fg="#51a0cf", }, -- DevIconNotebook xxx ctermfg=74 guifg=#51a0cf
-  DevIconPy                              { fg="#ffbc03", }, -- DevIconPy      xxx ctermfg=214 guifg=#ffbc03
-  DevIconSvelte                          { fg="#ff3e00", }, -- DevIconSvelte  xxx ctermfg=196 guifg=#ff3e00
-  DevIconSwift                           { fg="#e37933", }, -- DevIconSwift   xxx ctermfg=166 guifg=#e37933
-  DevIconHexadecimal                     { fg="#2e63ff", }, -- DevIconHexadecimal xxx ctermfg=27 guifg=#2e63ff
-  DevIconPls                             { fg="#ed95ae", }, -- DevIconPls     xxx ctermfg=211 guifg=#ed95ae
-  DevIconCMakeLists                      { fg="#6d8086", }, -- DevIconCMakeLists xxx ctermfg=66 guifg=#6d8086
-  DevIconDoc                             { fg="#185abd", }, -- DevIconDoc     xxx ctermfg=26 guifg=#185abd
-  DevIconXls                             { fg="#207245", }, -- DevIconXls     xxx ctermfg=29 guifg=#207245
-  DevIconTypoScriptSetup                 { fg="#ff8700", }, -- DevIconTypoScriptSetup xxx ctermfg=208 guifg=#ff8700
-  DevIconEmbeddedOpenTypeFont            { fg="#ececec", }, -- DevIconEmbeddedOpenTypeFont xxx ctermfg=255 guifg=#ececec
-  DevIconFavicon                         { fg="#cbcb41", }, -- DevIconFavicon xxx ctermfg=185 guifg=#cbcb41
-  DevIconPyi                             { fg="#ffbc03", }, -- DevIconPyi     xxx ctermfg=214 guifg=#ffbc03
-  DevIconKiCadCache                      { fg="#ffffff", }, -- DevIconKiCadCache xxx ctermfg=231 guifg=#ffffff
-  DevIconKiCadFootprintTable             { fg="#ffffff", }, -- DevIconKiCadFootprintTable xxx ctermfg=231 guifg=#ffffff
-  DevIconEnv                             { fg="#faf743", }, -- DevIconEnv     xxx ctermfg=227 guifg=#faf743
-  DevIconFreeCADConfig                   { fg="#cb0d0d", }, -- DevIconFreeCADConfig xxx ctermfg=160 guifg=#cb0d0d
-  DevIconUI                              { fg="#0c306e", }, -- DevIconUI      xxx ctermfg=17 guifg=#0c306e
-  DevIconSolidity                        { fg="#519aba", }, -- DevIconSolidity xxx ctermfg=74 guifg=#519aba
-  DevIconZshrc                           { fg="#89e051", }, -- DevIconZshrc   xxx ctermfg=113 guifg=#89e051
-  DevIconGradleProperties                { fg="#005f87", }, -- DevIconGradleProperties xxx ctermfg=24 guifg=#005f87
-  DevIconXSettingsdConf                  { fg="#e54d18", }, -- DevIconXSettingsdConf xxx ctermfg=196 guifg=#e54d18
-  DevIconZsh                             { fg="#89e051", }, -- DevIconZsh     xxx ctermfg=113 guifg=#89e051
-  DevIconGradleWrapperProperties         { fg="#005f87", }, -- DevIconGradleWrapperProperties xxx ctermfg=24 guifg=#005f87
-  DevIconSha256                          { fg="#8c86af", }, -- DevIconSha256  xxx ctermfg=103 guifg=#8c86af
-  DevIconPKGBUILD                        { fg="#0f94d2", }, -- DevIconPKGBUILD xxx ctermfg=67 guifg=#0f94d2
-  DevIconFsscript                        { fg="#519aba", }, -- DevIconFsscript xxx ctermfg=74 guifg=#519aba
-  DevIconConfiguration                   { fg="#6d8086", }, -- DevIconConfiguration xxx ctermfg=66 guifg=#6d8086
-  DevIconCantorrc                        { fg="#1c99f3", }, -- DevIconCantorrc xxx ctermfg=32 guifg=#1c99f3
-  DevIconKalgebrarc                      { fg="#1c99f3", }, -- DevIconKalgebrarc xxx ctermfg=32 guifg=#1c99f3
-  DevIconPxd                             { fg="#5aa7e4", }, -- DevIconPxd     xxx ctermfg=39 guifg=#5aa7e4
-  DevIconTsx                             { fg="#1354bf", }, -- DevIconTsx     xxx ctermfg=26 guifg=#1354bf
-  DevIconTwig                            { fg="#8dc149", }, -- DevIconTwig    xxx ctermfg=113 guifg=#8dc149
-  DevIconKritadisplayrc                  { fg="#f245fb", }, -- DevIconKritadisplayrc xxx ctermfg=201 guifg=#f245fb
-  DevIconArchcraft                       { fg="#86bba3", }, -- DevIconArchcraft xxx ctermfg=108 guifg=#86bba3
-  DevIconMarkdown                        { fg="#dddddd", }, -- DevIconMarkdown xxx ctermfg=253 guifg=#dddddd
-  DevIconArtix                           { fg="#41b4d7", }, -- DevIconArtix   xxx ctermfg=38 guifg=#41b4d7
-  DevIconBigLinux                        { fg="#189fc8", }, -- DevIconBigLinux xxx ctermfg=38 guifg=#189fc8
-  DevIconDebian                          { fg="#a80030", }, -- DevIconDebian  xxx ctermfg=88 guifg=#a80030
-  DevIconIges                            { fg="#839463", }, -- DevIconIges    xxx ctermfg=101 guifg=#839463
-  DevIconDeepin                          { fg="#2ca7f8", }, -- DevIconDeepin  xxx ctermfg=39 guifg=#2ca7f8
-  DevIconDevuan                          { fg="#404a52", }, -- DevIconDevuan  xxx ctermfg=238 guifg=#404a52
-  DevIconMli                             { fg="#e37933", }, -- DevIconMli     xxx ctermfg=166 guifg=#e37933
-  DevIconLiquid                          { fg="#95bf47", }, -- DevIconLiquid  xxx ctermfg=106 guifg=#95bf47
-  DevIconKDEglobals                      { fg="#1c99f3", }, -- DevIconKDEglobals xxx ctermfg=32 guifg=#1c99f3
-  DevIconElementary                      { fg="#5890c2", }, -- DevIconElementary xxx ctermfg=67 guifg=#5890c2
-  DevIconPackageLockJson                 { fg="#7a0d21", }, -- DevIconPackageLockJson xxx ctermfg=52 guifg=#7a0d21
-  DevIconOpenSCAD                        { fg="#f9d72c", }, -- DevIconOpenSCAD xxx ctermfg=220 guifg=#f9d72c
-  DevIconBlade                           { fg="#f05340", }, -- DevIconBlade   xxx ctermfg=203 guifg=#f05340
-  DevIconEndeavour                       { fg="#7b3db9", }, -- DevIconEndeavour xxx ctermfg=91 guifg=#7b3db9
-  DevIconPackageJson                     { fg="#e8274b", }, -- DevIconPackageJson xxx ctermfg=197 guifg=#e8274b
-  DevIconGo                              { fg="#519aba", }, -- DevIconGo      xxx ctermfg=74 guifg=#519aba
-  DevIconFedora                          { fg="#072a5e", }, -- DevIconFedora  xxx ctermfg=17 guifg=#072a5e
-  DevIconLuau                            { fg="#00a2ff", }, -- DevIconLuau    xxx ctermfg=75 guifg=#00a2ff
-  DevIconHxx                             { fg="#a074c4", }, -- DevIconHxx     xxx ctermfg=140 guifg=#a074c4
-  DevIconFreeBSD                         { fg="#c90f02", }, -- DevIconFreeBSD xxx ctermfg=160 guifg=#c90f02
-  DevIconPlatformio                      { fg="#f6822b", }, -- DevIconPlatformio xxx ctermfg=208 guifg=#f6822b
-  DevIconGarudaLinux                     { fg="#2974e1", }, -- DevIconGarudaLinux xxx ctermfg=33 guifg=#2974e1
-  DevIconVala                            { fg="#7239b3", }, -- DevIconVala    xxx ctermfg=91 guifg=#7239b3
-  DevIconGentoo                          { fg="#b1abce", }, -- DevIconGentoo  xxx ctermfg=146 guifg=#b1abce
-  DevIconArduino                         { fg="#56b6c2", }, -- DevIconArduino xxx ctermfg=73 guifg=#56b6c2
-  DevIconGroovy                          { fg="#4a687c", }, -- DevIconGroovy  xxx ctermfg=24 guifg=#4a687c
-  DevIconMaven                           { fg="#7a0d21", }, -- DevIconMaven   xxx ctermfg=52 guifg=#7a0d21
-  DevIconGuix                            { fg="#ffcc00", }, -- DevIconGuix    xxx ctermfg=220 guifg=#ffcc00
-  DevIconFsi                             { fg="#519aba", }, -- DevIconFsi     xxx ctermfg=74 guifg=#519aba
-  DevIconHyperbolaGNULinuxLibre          { fg="#c0c0c0", }, -- DevIconHyperbolaGNULinuxLibre xxx ctermfg=250 guifg=#c0c0c0
-  DevIconBz3                             { fg="#eca517", }, -- DevIconBz3     xxx ctermfg=214 guifg=#eca517
-  DevIconIllumos                         { fg="#ff430f", }, -- DevIconIllumos xxx ctermfg=196 guifg=#ff430f
-  DevIconCxx                             { fg="#519aba", }, -- DevIconCxx     xxx ctermfg=74 guifg=#519aba
-  DevIconGradleWrapperScript             { fg="#005f87", }, -- DevIconGradleWrapperScript xxx ctermfg=24 guifg=#005f87
-  DevIconKali                            { fg="#2777ff", }, -- DevIconKali    xxx ctermfg=69 guifg=#2777ff
-  DevIconHeex                            { fg="#a074c4", }, -- DevIconHeex    xxx ctermfg=140 guifg=#a074c4
-  DevIconLXLE                            { fg="#474747", }, -- DevIconLXLE    xxx ctermfg=238 guifg=#474747
-  DevIconBazel                           { fg="#89e051", }, -- DevIconBazel   xxx ctermfg=113 guifg=#89e051
-  DevIconManjaro                         { fg="#33b959", }, -- DevIconManjaro xxx ctermfg=35 guifg=#33b959
-  DevIconTex                             { fg="#3d6117", }, -- DevIconTex     xxx ctermfg=22 guifg=#3d6117
-  DevIconopenSUSE                        { fg="#6fb424", }, -- DevIconopenSUSE xxx ctermfg=70 guifg=#6fb424
-  DevIconParabolaGNULinuxLibre           { fg="#797dac", }, -- DevIconParabolaGNULinuxLibre xxx ctermfg=103 guifg=#797dac
-  DevIconPop_OS                          { fg="#48b9c7", }, -- DevIconPop_OS  xxx ctermfg=73 guifg=#48b9c7
-  DevIconpostmarketOS                    { fg="#009900", }, -- DevIconpostmarketOS xxx ctermfg=28 guifg=#009900
-  DevIconPuppyLinux                      { fg="#a2aeb9", }, -- DevIconPuppyLinux xxx ctermfg=145 guifg=#a2aeb9
-  DevIconRaspberryPiOS                   { fg="#be1848", }, -- DevIconRaspberryPiOS xxx ctermfg=161 guifg=#be1848
-  DevIconCjs                             { fg="#cbcb41", }, -- DevIconCjs     xxx ctermfg=185 guifg=#cbcb41
-  DevIconYml                             { fg="#6d8086", }, -- DevIconYml     xxx ctermfg=66 guifg=#6d8086
-  DevIconMaterial                        { fg="#b83998", }, -- DevIconMaterial xxx ctermfg=163 guifg=#b83998
-  DevIconLess                            { fg="#563d7c", }, -- DevIconLess    xxx ctermfg=54 guifg=#563d7c
-  DevIconEslintrc                        { fg="#4b32c3", }, -- DevIconEslintrc xxx ctermfg=56 guifg=#4b32c3
-  DevIconMd5                             { fg="#8c86af", }, -- DevIconMd5     xxx ctermfg=103 guifg=#8c86af
-  DevIconCentos                          { fg="#a2518d", }, -- DevIconCentos  xxx ctermfg=132 guifg=#a2518d
-  DevIconUbuntu                          { fg="#dd4814", }, -- DevIconUbuntu  xxx ctermfg=196 guifg=#dd4814
-  DevIconToml                            { fg="#9c4221", }, -- DevIconToml    xxx ctermfg=124 guifg=#9c4221
-  DevIconGradleBuildScript               { fg="#005f87", }, -- DevIconGradleBuildScript xxx ctermfg=24 guifg=#005f87
-  DevIconGradleSettings                  { fg="#005f87", }, -- DevIconGradleSettings xxx ctermfg=24 guifg=#005f87
-  DevIconBashProfile                     { fg="#89e051", }, -- DevIconBashProfile xxx ctermfg=113 guifg=#89e051
-  DevIconDockerfile                      { fg="#458ee6", }, -- DevIconDockerfile xxx ctermfg=68 guifg=#458ee6
-  DevIconMobi                            { fg="#eab16d", }, -- DevIconMobi    xxx ctermfg=215 guifg=#eab16d
-  DevIconDsStore                         { fg="#41535b", }, -- DevIconDsStore xxx ctermfg=239 guifg=#41535b
-  DevIconMpp                             { fg="#519aba", }, -- DevIconMpp     xxx ctermfg=74 guifg=#519aba
-  DevIconR                               { fg="#2266ba", }, -- DevIconR       xxx ctermfg=25 guifg=#2266ba
-  DevIconHtml                            { fg="#e44d26", }, -- DevIconHtml    xxx ctermfg=196 guifg=#e44d26
-  DevIconEslintIgnore                    { fg="#4b32c3", }, -- DevIconEslintIgnore xxx ctermfg=56 guifg=#4b32c3
-  DevIconNfo                             { fg="#ffffcd", }, -- DevIconNfo     xxx ctermfg=230 guifg=#ffffcd
-  DevIconGitlabCI                        { fg="#e24329", }, -- DevIconGitlabCI xxx ctermfg=196 guifg=#e24329
-  CmpItemKindDefault                     { fg="#448aff", }, -- CmpItemKindDefault xxx guifg=#448aff
-  CmpItemAbbrDeprecatedDefault           { fg="#404040", }, -- CmpItemAbbrDeprecatedDefault xxx guifg=#404040
-  CmpItemAbbrDeprecated                  { CmpItemAbbrDeprecatedDefault }, -- CmpItemAbbrDeprecated xxx links to CmpItemAbbrDeprecatedDefault
-  DapUIStepOutNC                         { bg="#07080d", fg="#00f1f5", }, -- DapUIStepOutNC xxx guifg=#00f1f5 guibg=#07080d
-  DapUIStepBackNC                        { bg="#07080d", fg="#00f1f5", }, -- DapUIStepBackNC xxx guifg=#00f1f5 guibg=#07080d
-  DapUIStepIntoNC                        { bg="#07080d", fg="#00f1f5", }, -- DapUIStepIntoNC xxx guifg=#00f1f5 guibg=#07080d
-  DapUIStepOverNC                        { bg="#07080d", fg="#00f1f5", }, -- DapUIStepOverNC xxx guifg=#00f1f5 guibg=#07080d
-  DapUIUnavailableNC                     { bg="#07080d", fg="#424242", }, -- DapUIUnavailableNC xxx guifg=#424242 guibg=#07080d
-  DapUIStopNC                            { bg="#07080d", fg="#f70067", }, -- DapUIStopNC    xxx guifg=#f70067 guibg=#07080d
-  DapUIRestartNC                         { bg="#07080d", fg="#a9ff68", }, -- DapUIRestartNC xxx guifg=#a9ff68 guibg=#07080d
-  DapUIPlayPauseNC                       { bg="#07080d", fg="#a9ff68", }, -- DapUIPlayPauseNC xxx guifg=#a9ff68 guibg=#07080d
-  DapUIWinSelect                         { fg="#00f1f5", gui="bold", }, -- DapUIWinSelect xxx ctermfg=14 gui=bold guifg=#00f1f5
-  DapUIUnavailable                       { fg="#424242", }, -- DapUIUnavailable xxx guifg=#424242
-  DapUIRestart                           { fg="#a9ff68", }, -- DapUIRestart   xxx guifg=#a9ff68
-  DapUIPlayPause                         { fg="#a9ff68", }, -- DapUIPlayPause xxx guifg=#a9ff68
-  DapUIStop                              { fg="#f70067", }, -- DapUIStop      xxx guifg=#f70067
-  DapUIStepOut                           { fg="#00f1f5", }, -- DapUIStepOut   xxx guifg=#00f1f5
-  DapUIStepBack                          { fg="#00f1f5", }, -- DapUIStepBack  xxx guifg=#00f1f5
-  DapUIStepInto                          { fg="#00f1f5", }, -- DapUIStepInto  xxx guifg=#00f1f5
-  DapUIStepOver                          { fg="#00f1f5", }, -- DapUIStepOver  xxx guifg=#00f1f5
-  DapUIBreakpointsDisabledLine           { fg="#424242", }, -- DapUIBreakpointsDisabledLine xxx guifg=#424242
-  DapUIBreakpointsCurrentLine            { fg="#a9ff68", gui="bold", }, -- DapUIBreakpointsCurrentLine xxx gui=bold guifg=#a9ff68
-  DapUICurrentFrameName                  { DapUIBreakpointsCurrentLine }, -- DapUICurrentFrameName xxx links to DapUIBreakpointsCurrentLine
-  DapUIBreakpointsInfo                   { fg="#a9ff68", }, -- DapUIBreakpointsInfo xxx guifg=#a9ff68
-  DapUIBreakpointsPath                   { fg="#00f1f5", }, -- DapUIBreakpointsPath xxx guifg=#00f1f5
-  DapUIWatchesError                      { fg="#f70067", }, -- DapUIWatchesError xxx guifg=#f70067
-  DapUIWatchesValue                      { fg="#a9ff68", }, -- DapUIWatchesValue xxx guifg=#a9ff68
-  DapUIWatchesEmpty                      { fg="#f70067", }, -- DapUIWatchesEmpty xxx guifg=#f70067
-  IlluminatedWordWrite                   { gui="underline", }, -- IlluminatedWordWrite xxx gui=underline
-  IlluminatedWordRead                    { gui="underline", }, -- IlluminatedWordRead xxx gui=underline
-  IlluminatedWordText                    { gui="underline", }, -- IlluminatedWordText xxx gui=underline
-  CodeiumSuggestion                      { fg="#808080", }, -- CodeiumSuggestion xxx ctermfg=244 guifg=#808080
-  DapUIFloatBorder                       { fg="#00f1f5", }, -- DapUIFloatBorder xxx guifg=#00f1f5
-  DapUILineNumber                        { fg="#00f1f5", }, -- DapUILineNumber xxx guifg=#00f1f5
-  DapUIBreakpointsLine                   { DapUILineNumber }, -- DapUIBreakpointsLine xxx links to DapUILineNumber
-  DapUISource                            { fg="#d484ff", }, -- DapUISource    xxx guifg=#d484ff
-  DapUIStoppedThread                     { fg="#00f1f5", }, -- DapUIStoppedThread xxx guifg=#00f1f5
-  DapUIThread                            { fg="#a9ff68", }, -- DapUIThread    xxx guifg=#a9ff68
-  DapUIDecoration                        { fg="#00f1f5", }, -- DapUIDecoration xxx guifg=#00f1f5
-  DapUIModifiedValue                     { fg="#00f1f5", gui="bold", }, -- DapUIModifiedValue xxx gui=bold guifg=#00f1f5
-  DapUIType                              { fg="#d484ff", }, -- DapUIType      xxx guifg=#d484ff
-  DapUIScope                             { fg="#00f1f5", }, -- DapUIScope     xxx guifg=#00f1f5
-  semshiImported                         { fg="#d1bcf9", gui="bold", }, -- semshiImported xxx cterm=bold gui=bold guifg=#d1bcf9
-  semshiGlobal                           { fg="#63ff51", gui="italic", }, -- semshiGlobal   xxx gui=italic guifg=#63ff51
-  semshiBuiltin                          { fg="#ff5fff", }, -- semshiBuiltin  xxx guifg=#ff5fff
-  sym"@field"                            { fg="#d1bcf9", }, -- @field         xxx guifg=#d1bcf9
-  DevIconScala                           { fg="#cc3e44", }, -- DevIconScala   xxx ctermfg=167 guifg=#cc3e44
-  UfoFoldedFg                            { fg="#ffffff", }, -- UfoFoldedFg    xxx guifg=#ffffff
-  UfoFoldedBg                            { bg="#1e1e1e", }, -- UfoFoldedBg    xxx guibg=#1e1e1e
-  UfoPreviewWinBar                       { UfoFoldedBg }, -- UfoPreviewWinBar xxx links to UfoFoldedBg
-  TodoSignWARN                           { fg="#fce094", }, -- TodoSignWARN   xxx guifg=#fce094
-  TodoFgWARN                             { fg="#fce094", }, -- TodoFgWARN     xxx guifg=#fce094
-  TodoBgWARN                             { bg="#fce094", fg="#1c1c1c", gui="bold", }, -- TodoBgWARN     xxx gui=bold guifg=#1c1c1c guibg=#fce094
-  TodoSignTODO                           { fg="#8cf8f7", }, -- TodoSignTODO   xxx guifg=#8cf8f7
-  TodoFgTODO                             { fg="#8cf8f7", }, -- TodoFgTODO     xxx guifg=#8cf8f7
-  TodoBgTODO                             { bg="#8cf8f7", fg="#1c1c1c", gui="bold", }, -- TodoBgTODO     xxx gui=bold guifg=#1c1c1c guibg=#8cf8f7
-  DevIconKbx                             { fg="#737672", }, -- DevIconKbx     xxx ctermfg=243 guifg=#737672
-  TodoSignTEST                           { fg="#ff4081", }, -- TodoSignTEST   xxx guifg=#ff4081
-  TodoFgTEST                             { fg="#ff4081", }, -- TodoFgTEST     xxx guifg=#ff4081
-  TodoBgTEST                             { bg="#ff4081", fg="#1c1c1c", gui="bold", }, -- TodoBgTEST     xxx gui=bold guifg=#1c1c1c guibg=#ff4081
-  TodoSignHACK                           { fg="#fce094", }, -- TodoSignHACK   xxx guifg=#fce094
-  TodoFgHACK                             { fg="#fce094", }, -- TodoFgHACK     xxx guifg=#fce094
-  TodoBgHACK                             { bg="#fce094", fg="#1c1c1c", gui="bold", }, -- TodoBgHACK     xxx gui=bold guifg=#1c1c1c guibg=#fce094
-  TodoSignPERF                           { fg="#ff4081", }, -- TodoSignPERF   xxx guifg=#ff4081
-  TodoFgPERF                             { fg="#ff4081", }, -- TodoFgPERF     xxx guifg=#ff4081
-  TodoBgPERF                             { bg="#ff4081", fg="#1c1c1c", gui="bold", }, -- TodoBgPERF     xxx gui=bold guifg=#1c1c1c guibg=#ff4081
-  TodoSignNOTE                           { fg="#ffff00", }, -- TodoSignNOTE   xxx guifg=#ffff00
-  TodoFgNOTE                             { fg="#ffff00", }, -- TodoFgNOTE     xxx guifg=#ffff00
-  TodoBgNOTE                             { bg="#ffff00", fg="#1c1c1c", gui="bold", }, -- TodoBgNOTE     xxx gui=bold guifg=#1c1c1c guibg=#ffff00
-  TodoSignFIX                            { fg="#ffc0b9", }, -- TodoSignFIX    xxx guifg=#ffc0b9
-  TodoFgFIX                              { fg="#ffc0b9", }, -- TodoFgFIX      xxx guifg=#ffc0b9
-  TodoBgFIX                              { bg="#ffc0b9", fg="#1c1c1c", gui="bold", }, -- TodoBgFIX      xxx gui=bold guifg=#1c1c1c guibg=#ffc0b9
-  DevIconM3u8                            { fg="#ed95ae", }, -- DevIconM3u8    xxx ctermfg=211 guifg=#ed95ae
-  DevIconAss                             { fg="#ffb713", }, -- DevIconAss     xxx ctermfg=214 guifg=#ffb713
-  DevIconDot                             { fg="#30638e", }, -- DevIconDot     xxx ctermfg=24 guifg=#30638e
-  DevIconElm                             { fg="#519aba", }, -- DevIconElm     xxx ctermfg=74 guifg=#519aba
-  DevIconSRCINFO                         { fg="#0f94d2", }, -- DevIconSRCINFO xxx ctermfg=67 guifg=#0f94d2
-  DevIconExe                             { fg="#9f0500", }, -- DevIconExe     xxx ctermfg=124 guifg=#9f0500
-  DevIconLXDEConfigFile                  { fg="#909090", }, -- DevIconLXDEConfigFile xxx ctermfg=246 guifg=#909090
-  DevIconKDEneon                         { fg="#20a6a4", }, -- DevIconKDEneon xxx ctermfg=37 guifg=#20a6a4
-  DevIconKotlin                          { fg="#7f52ff", }, -- DevIconKotlin  xxx ctermfg=99 guifg=#7f52ff
-  BufferVisibleSign                      { bg="#252525", fg="#505050", gui="bold", }, -- BufferVisibleSign xxx gui=bold guifg=#505050 guibg=#252525
-  DevIconFish                            { fg="#4d5a5e", }, -- DevIconFish    xxx ctermfg=240 guifg=#4d5a5e
-  BufferVisibleMod                       { bg="#252525", fg="#404040", }, -- BufferVisibleMod xxx guifg=#404040 guibg=#252525
-  BufferVisibleIndex                     { bg="#252525", fg="#404040", gui="bold", }, -- BufferVisibleIndex xxx gui=bold guifg=#404040 guibg=#252525
-  BufferVisible                          { bg="#252525", fg="#505050", gui="bold", }, -- BufferVisible  xxx gui=bold guifg=#505050 guibg=#252525
-  DevIconZshprofile                      { fg="#89e051", }, -- DevIconZshprofile xxx ctermfg=113 guifg=#89e051
-  BufferInactiveSign                     { bg="#1d1d1d", fg="#404040", }, -- BufferInactiveSign xxx guifg=#404040 guibg=#1d1d1d
-  DevIconTcl                             { fg="#1e5cb3", }, -- DevIconTcl     xxx ctermfg=25 guifg=#1e5cb3
-  DevIconBz2                             { fg="#eca517", }, -- DevIconBz2     xxx ctermfg=214 guifg=#eca517
-  DevIconXInitrc                         { fg="#e54d18", }, -- DevIconXInitrc xxx ctermfg=196 guifg=#e54d18
-  DevIconMOV                             { fg="#fd971f", }, -- DevIconMOV     xxx ctermfg=208 guifg=#fd971f
-  DevIconObjectiveC                      { fg="#599eff", }, -- DevIconObjectiveC xxx ctermfg=111 guifg=#599eff
-  DevIconGitAttributes                   { fg="#f54d27", }, -- DevIconGitAttributes xxx ctermfg=196 guifg=#f54d27
-  DevIconGitModules                      { fg="#f54d27", }, -- DevIconGitModules xxx ctermfg=196 guifg=#f54d27
-  BufferCurrent                          { bg="#f0f0f0", fg="#1c1c1c", gui="bold,undercurl", }, -- BufferCurrent  xxx gui=bold,undercurl guifg=#1c1c1c guibg=#f0f0f0
-  DevIconDart                            { fg="#03589c", }, -- DevIconDart    xxx ctermfg=25 guifg=#03589c
-  DevIconKritarc                         { fg="#f245fb", }, -- DevIconKritarc xxx ctermfg=201 guifg=#f245fb
-  DevIconAppleScript                     { fg="#6d8085", }, -- DevIconAppleScript xxx ctermfg=66 guifg=#6d8085
-  sym"DevIconPy.typed"                   { fg="#ffbc03", }, -- DevIconPy.typed xxx ctermfg=214 guifg=#ffbc03
-  DevIconHtm                             { fg="#e34c26", }, -- DevIconHtm     xxx ctermfg=196 guifg=#e34c26
-  DevIconClojure                         { fg="#8dc149", }, -- DevIconClojure xxx ctermfg=113 guifg=#8dc149
-  DevIconClojureJS                       { fg="#519aba", }, -- DevIconClojureJS xxx ctermfg=74 guifg=#519aba
-  DevIconJl                              { fg="#a270ba", }, -- DevIconJl      xxx ctermfg=133 guifg=#a270ba
-  DevIconTails                           { fg="#56347c", }, -- DevIconTails   xxx ctermfg=54 guifg=#56347c
-  DevIconEbook                           { fg="#eab16d", }, -- DevIconEbook   xxx ctermfg=215 guifg=#eab16d
-  DevIconZigObjectNotation               { fg="#f69a1b", }, -- DevIconZigObjectNotation xxx ctermfg=172 guifg=#f69a1b
-  DevIconAutoCADDxf                      { fg="#839463", }, -- DevIconAutoCADDxf xxx ctermfg=101 guifg=#839463
-  DevIcon3gp                             { fg="#fd971f", }, -- DevIcon3gp     xxx ctermfg=208 guifg=#fd971f
-  DevIconKiCadSymbolTable                { fg="#ffffff", }, -- DevIconKiCadSymbolTable xxx ctermfg=231 guifg=#ffffff
-  DevIconProcfile                        { fg="#a074c4", }, -- DevIconProcfile xxx ctermfg=140 guifg=#a074c4
-  DevIconGvimrc                          { fg="#019833", }, -- DevIconGvimrc  xxx ctermfg=28 guifg=#019833
-  DevIconVimrc                           { fg="#019833", }, -- DevIconVimrc   xxx ctermfg=28 guifg=#019833
-  DevIconRs                              { fg="#dea584", }, -- DevIconRs      xxx ctermfg=216 guifg=#dea584
-  DevIconLocalization                    { fg="#2596be", }, -- DevIconLocalization xxx ctermfg=31 guifg=#2596be
-  DevIconMdx                             { fg="#519aba", }, -- DevIconMdx     xxx ctermfg=74 guifg=#519aba
-  DevIconTor                             { fg="#519aba", }, -- DevIconTor     xxx ctermfg=74 guifg=#519aba
-  DevIconPrisma                          { fg="#5a67d8", }, -- DevIconPrisma  xxx ctermfg=62 guifg=#5a67d8
-  DevIconC                               { fg="#599eff", }, -- DevIconC       xxx ctermfg=111 guifg=#599eff
-  DevIconMts                             { fg="#519aba", }, -- DevIconMts     xxx ctermfg=74 guifg=#519aba
-  DevIconCheckhealth                     { fg="#75b4fb", }, -- DevIconCheckhealth xxx ctermfg=75 guifg=#75b4fb
-  DevIconSolidWorksAsm                   { fg="#839463", }, -- DevIconSolidWorksAsm xxx ctermfg=101 guifg=#839463
-  DevIconPsScriptModulefile              { fg="#6975c4", }, -- DevIconPsScriptModulefile xxx ctermfg=68 guifg=#6975c4
-  DevIconBackup                          { fg="#6d8086", }, -- DevIconBackup  xxx ctermfg=66 guifg=#6d8086
-  DevIconBibTeX                          { fg="#cbcb41", }, -- DevIconBibTeX  xxx ctermfg=185 guifg=#cbcb41
-  DevIconVlang                           { fg="#5d87bf", }, -- DevIconVlang   xxx ctermfg=67 guifg=#5d87bf
-  DevIconSha224                          { fg="#8c86af", }, -- DevIconSha224  xxx ctermfg=103 guifg=#8c86af
-  DevIconBazelBuild                      { fg="#89e051", }, -- DevIconBazelBuild xxx ctermfg=113 guifg=#89e051
-  DevIconScheme                          { fg="#eeeeee", }, -- DevIconScheme  xxx ctermfg=255 guifg=#eeeeee
-  DevIconPm                              { fg="#519aba", }, -- DevIconPm      xxx ctermfg=74 guifg=#519aba
-  DevIconPsScriptfile                    { fg="#4273ca", }, -- DevIconPsScriptfile xxx ctermfg=68 guifg=#4273ca
-  DevIconLrc                             { fg="#ffb713", }, -- DevIconLrc     xxx ctermfg=214 guifg=#ffb713
-  DevIconMint                            { fg="#87c095", }, -- DevIconMint    xxx ctermfg=108 guifg=#87c095
-  DevIconBat                             { fg="#c1f12e", }, -- DevIconBat     xxx ctermfg=191 guifg=#c1f12e
-  DevIconJs                              { fg="#cbcb41", }, -- DevIconJs      xxx ctermfg=185 guifg=#cbcb41
-  DevIconGitIgnore                       { fg="#f54d27", }, -- DevIconGitIgnore xxx ctermfg=196 guifg=#f54d27
-  DevIconTempl                           { fg="#dbbd30", }, -- DevIconTempl   xxx ctermfg=178 guifg=#dbbd30
-  DevIconHbs                             { fg="#f0772b", }, -- DevIconHbs     xxx ctermfg=202 guifg=#f0772b
-  DevIconVanillaOS                       { fg="#fabd4d", }, -- DevIconVanillaOS xxx ctermfg=214 guifg=#fabd4d
-  DevIconQuery                           { fg="#90a850", }, -- DevIconQuery   xxx ctermfg=107 guifg=#90a850
-  DevIconSolus                           { fg="#4b5163", }, -- DevIconSolus   xxx ctermfg=239 guifg=#4b5163
-  DevIconPhp                             { fg="#a074c4", }, -- DevIconPhp     xxx ctermfg=140 guifg=#a074c4
-  DevIconTxt                             { fg="#89e051", }, -- DevIconTxt     xxx ctermfg=113 guifg=#89e051
-  DevIconScalaScript                     { fg="#cc3e44", }, -- DevIconScalaScript xxx ctermfg=167 guifg=#cc3e44
-  DevIconDconf                           { fg="#ffffff", }, -- DevIconDconf   xxx ctermfg=231 guifg=#ffffff
-  DevIconWeston                          { fg="#ffbb01", }, -- DevIconWeston  xxx ctermfg=214 guifg=#ffbb01
-  DevIconMjs                             { fg="#f1e05a", }, -- DevIconMjs     xxx ctermfg=185 guifg=#f1e05a
-  DevIconNixOS                           { fg="#7ab1db", }, -- DevIconNixOS   xxx ctermfg=110 guifg=#7ab1db
-  DevIconGraphQL                         { fg="#e535ab", }, -- DevIconGraphQL xxx ctermfg=199 guifg=#e535ab
-  DevIconMXLinux                         { fg="#ffffff", }, -- DevIconMXLinux xxx ctermfg=231 guifg=#ffffff
-  DevIconVLC                             { fg="#ee7a00", }, -- DevIconVLC     xxx ctermfg=208 guifg=#ee7a00
-  DevIconMageia                          { fg="#2397d4", }, -- DevIconMageia  xxx ctermfg=67 guifg=#2397d4
-  DevIconGv                              { fg="#30638e", }, -- DevIconGv      xxx ctermfg=24 guifg=#30638e
-  DevIconMakefile                        { fg="#6d8086", }, -- DevIconMakefile xxx ctermfg=66 guifg=#6d8086
-  DevIconSln                             { fg="#854cc7", }, -- DevIconSln     xxx ctermfg=98 guifg=#854cc7
-  DevIconCts                             { fg="#519aba", }, -- DevIconCts     xxx ctermfg=74 guifg=#519aba
-  DevIconConfigRu                        { fg="#701516", }, -- DevIconConfigRu xxx ctermfg=52 guifg=#701516
-  DevIconMustache                        { fg="#e37933", }, -- DevIconMustache xxx ctermfg=166 guifg=#e37933
-  DevIconVsix                            { fg="#854cc7", }, -- DevIconVsix    xxx ctermfg=98 guifg=#854cc7
-  DevIcon3DObjectFile                    { fg="#888888", }, -- DevIcon3DObjectFile xxx ctermfg=102 guifg=#888888
-  DevIconCrystalLinux                    { fg="#a900ff", }, -- DevIconCrystalLinux xxx ctermfg=129 guifg=#a900ff
-  DevIconM4V                             { fg="#fd971f", }, -- DevIconM4V     xxx ctermfg=208 guifg=#fd971f
-  DevIconArchlabs                        { fg="#503f42", }, -- DevIconArchlabs xxx ctermfg=238 guifg=#503f42
-  DevIconCsv                             { fg="#89e051", }, -- DevIconCsv     xxx ctermfg=113 guifg=#89e051
-  DevIconEpub                            { fg="#eab16d", }, -- DevIconEpub    xxx ctermfg=215 guifg=#eab16d
-  DevIconKdenliverc                      { fg="#83b8f2", }, -- DevIconKdenliverc xxx ctermfg=110 guifg=#83b8f2
-  DevIconLicense                         { fg="#cbcb41", }, -- DevIconLicense xxx ctermfg=185 guifg=#cbcb41
-  DevIconCrystal                         { fg="#c8c8c8", }, -- DevIconCrystal xxx ctermfg=251 guifg=#c8c8c8
-  semshiFree                             { fg="#ffafd7", }, -- semshiFree     xxx guifg=#ffafd7
-  DevIconIco                             { fg="#cbcb41", }, -- DevIconIco     xxx ctermfg=185 guifg=#cbcb41
-  semshiSelected                         { bg="#ff5252", fg="#ffcccc", }, -- semshiSelected xxx guifg=#ffcccc guibg=#ff5252
-  DevIconFennel                          { fg="#fff3d7", }, -- DevIconFennel  xxx ctermfg=230 guifg=#fff3d7
-  semshiErrorSign                        { bg="#ff5252", fg="#ffcccc", }, -- semshiErrorSign xxx guifg=#ffcccc guibg=#ff5252
-  DevIconGruntfile                       { fg="#e37933", }, -- DevIconGruntfile xxx ctermfg=166 guifg=#e37933
-  DevIconYaml                            { fg="#6d8086", }, -- DevIconYaml    xxx ctermfg=66 guifg=#6d8086
-  DevIconBinaryGLTF                      { fg="#ffb13b", }, -- DevIconBinaryGLTF xxx ctermfg=214 guifg=#ffb13b
-  DevIconGitCommit                       { fg="#f54d27", }, -- DevIconGitCommit xxx ctermfg=196 guifg=#f54d27
-  DevIconSql                             { fg="#dad8d8", }, -- DevIconSql     xxx ctermfg=188 guifg=#dad8d8
-  NotifyERRORTitle                       { fg="#f70067", }, -- NotifyERRORTitle xxx guifg=#f70067
-  DevIconTxz                             { fg="#eca517", }, -- DevIconTxz     xxx ctermfg=214 guifg=#eca517
-  DevIconCMake                           { fg="#6d8086", }, -- DevIconCMake   xxx ctermfg=66 guifg=#6d8086
-  DevIconFsharp                          { fg="#519aba", }, -- DevIconFsharp  xxx ctermfg=74 guifg=#519aba
-  DevIconNodeModules                     { fg="#e8274b", }, -- DevIconNodeModules xxx ctermfg=197 guifg=#e8274b
-  DevIconStyl                            { fg="#8dc149", }, -- DevIconStyl    xxx ctermfg=113 guifg=#8dc149
-  DevIconSuo                             { fg="#854cc7", }, -- DevIconSuo     xxx ctermfg=98 guifg=#854cc7
-  DevIconWasm                            { fg="#5c4cdb", }, -- DevIconWasm    xxx ctermfg=62 guifg=#5c4cdb
-  DevIconHs                              { fg="#a074c4", }, -- DevIconHs      xxx ctermfg=140 guifg=#a074c4
-  DevIconLinux                           { fg="#fdfdfb", }, -- DevIconLinux   xxx ctermfg=231 guifg=#fdfdfb
-  DevIconJavaScriptReactSpec             { fg="#20c2e3", }, -- DevIconJavaScriptReactSpec xxx ctermfg=45 guifg=#20c2e3
-  DevIconSpecTs                          { fg="#519aba", }, -- DevIconSpecTs  xxx ctermfg=74 guifg=#519aba
-  DevIconTypeScriptReactSpec             { fg="#1354bf", }, -- DevIconTypeScriptReactSpec xxx ctermfg=26 guifg=#1354bf
-  DevIconWebp                            { fg="#a074c4", }, -- DevIconWebp    xxx ctermfg=140 guifg=#a074c4
-  DevIconXcPlayground                    { fg="#e37933", }, -- DevIconXcPlayground xxx ctermfg=166 guifg=#e37933
-  DevIconPrusaSlicer                     { fg="#ec6b23", }, -- DevIconPrusaSlicer xxx ctermfg=202 guifg=#ec6b23
-  DevIconXlsx                            { fg="#207245", }, -- DevIconXlsx    xxx ctermfg=29 guifg=#207245
-  DevIconDropbox                         { fg="#0061fe", }, -- DevIconDropbox xxx ctermfg=27 guifg=#0061fe
-  DevIconDrools                          { fg="#ffafaf", }, -- DevIconDrools  xxx ctermfg=217 guifg=#ffafaf
-  DevIconDocx                            { fg="#185abd", }, -- DevIconDocx    xxx ctermfg=26 guifg=#185abd
-  DevIconTgz                             { fg="#eca517", }, -- DevIconTgz     xxx ctermfg=214 guifg=#eca517
-  DevIconWebpack                         { fg="#519aba", }, -- DevIconWebpack xxx ctermfg=74 guifg=#519aba
-  DevIconCson                            { fg="#cbcb41", }, -- DevIconCson    xxx ctermfg=185 guifg=#cbcb41
-  DevIconCp                              { fg="#519aba", }, -- DevIconCp      xxx ctermfg=74 guifg=#519aba
-  DevIconCoffee                          { fg="#cbcb41", }, -- DevIconCoffee  xxx ctermfg=185 guifg=#cbcb41
-  DevIconBmp                             { fg="#a074c4", }, -- DevIconBmp     xxx ctermfg=140 guifg=#a074c4
-  DevIconGemfile                         { fg="#701516", }, -- DevIconGemfile xxx ctermfg=52 guifg=#701516
-  DevIconTypeScriptReactTest             { fg="#1354bf", }, -- DevIconTypeScriptReactTest xxx ctermfg=26 guifg=#1354bf
-  DevIconSublime                         { fg="#e37933", }, -- DevIconSublime xxx ctermfg=166 guifg=#e37933
-  DevIconBrewfile                        { fg="#701516", }, -- DevIconBrewfile xxx ctermfg=52 guifg=#701516
-  DevIconTestTs                          { fg="#519aba", }, -- DevIconTestTs  xxx ctermfg=74 guifg=#519aba
-  DevIconJava                            { fg="#cc3e44", }, -- DevIconJava    xxx ctermfg=167 guifg=#cc3e44
-  DevIconJavaScriptReactTest             { fg="#20c2e3", }, -- DevIconJavaScriptReactTest xxx ctermfg=45 guifg=#20c2e3
-  DevIconxmonad                          { fg="#fd4d5d", }, -- DevIconxmonad  xxx ctermfg=203 guifg=#fd4d5d
-  DevIconSway                            { fg="#68751c", }, -- DevIconSway    xxx ctermfg=64 guifg=#68751c
-  DevIconTSConfig                        { fg="#519aba", }, -- DevIconTSConfig xxx ctermfg=74 guifg=#519aba
-  DevIconQtile                           { fg="#ffffff", }, -- DevIconQtile   xxx ctermfg=231 guifg=#ffffff
-  DevIconGitLogo                         { fg="#f14c28", }, -- DevIconGitLogo xxx ctermfg=196 guifg=#f14c28
-  DevIconBz                              { fg="#eca517", }, -- DevIconBz      xxx ctermfg=214 guifg=#eca517
-  DevIconImportConfiguration             { fg="#ececec", }, -- DevIconImportConfiguration xxx ctermfg=255 guifg=#ececec
-  DevIconQubesOS                         { fg="#3774d8", }, -- DevIconQubesOS xxx ctermfg=33 guifg=#3774d8
-  DevIconRmd                             { fg="#519aba", }, -- DevIconRmd     xxx ctermfg=74 guifg=#519aba
-  DevIconi3                              { fg="#e8ebee", }, -- DevIconi3      xxx ctermfg=255 guifg=#e8ebee
-  DevIconNPMIgnore                       { fg="#e8274b", }, -- DevIconNPMIgnore xxx ctermfg=197 guifg=#e8274b
-  DevIconHyprland                        { fg="#00aaae", }, -- DevIconHyprland xxx ctermfg=37 guifg=#00aaae
-  DevIconFluxbox                         { fg="#555555", }, -- DevIconFluxbox xxx ctermfg=240 guifg=#555555
-  DevIconElf                             { fg="#9f0500", }, -- DevIconElf     xxx ctermfg=124 guifg=#9f0500
-  DevIconLeex                            { fg="#a074c4", }, -- DevIconLeex    xxx ctermfg=140 guifg=#a074c4
-  DevIconEnlightenment                   { fg="#ffffff", }, -- DevIconEnlightenment xxx ctermfg=231 guifg=#ffffff
-  DevIcondwm                             { fg="#1177aa", }, -- DevIcondwm     xxx ctermfg=31 guifg=#1177aa
-  DevIconBSPWM                           { fg="#2f2f2f", }, -- DevIconBSPWM   xxx ctermfg=236 guifg=#2f2f2f
-  GitSignsStagedChangedeleteLn           { fg="#70207d", }, -- GitSignsStagedChangedeleteLn xxx guifg=#70207d
-  DevIconFsx                             { fg="#519aba", }, -- DevIconFsx     xxx ctermfg=74 guifg=#519aba
-  DevIconawesome                         { fg="#535d6c", }, -- DevIconawesome xxx ctermfg=59 guifg=#535d6c
-  DevIconSha1                            { fg="#8c86af", }, -- DevIconSha1    xxx ctermfg=103 guifg=#8c86af
-  DevIconSha384                          { fg="#8c86af", }, -- DevIconSha384  xxx ctermfg=103 guifg=#8c86af
-  DevIconXeroLinux                       { fg="#888fe2", }, -- DevIconXeroLinux xxx ctermfg=104 guifg=#888fe2
-  DevIconSketchUp                        { fg="#839463", }, -- DevIconSketchUp xxx ctermfg=101 guifg=#839463
-  DevIconAi                              { fg="#cbcb41", }, -- DevIconAi      xxx ctermfg=185 guifg=#cbcb41
-  DevIconGTK                             { fg="#ffffff", }, -- DevIconGTK     xxx ctermfg=231 guifg=#ffffff
-  DevIconGodotTextScene                  { fg="#6d8086", }, -- DevIconGodotTextScene xxx ctermfg=66 guifg=#6d8086
-  DevIconSolveSpace                      { fg="#839463", }, -- DevIconSolveSpace xxx ctermfg=101 guifg=#839463
-  DevIconSpecJs                          { fg="#cbcb41", }, -- DevIconSpecJs  xxx ctermfg=185 guifg=#cbcb41
-  DevIconBash                            { fg="#89e051", }, -- DevIconBash    xxx ctermfg=113 guifg=#89e051
-  DevIconSte                             { fg="#839463", }, -- DevIconSte     xxx ctermfg=101 guifg=#839463
-  DevIconObjectiveCPlusPlus              { fg="#519aba", }, -- DevIconObjectiveCPlusPlus xxx ctermfg=74 guifg=#519aba
-  DevIconClojureC                        { fg="#8dc149", }, -- DevIconClojureC xxx ctermfg=113 guifg=#8dc149
-  DevIconVHDL                            { fg="#019833", }, -- DevIconVHDL    xxx ctermfg=28 guifg=#019833
-  DevIconCobol                           { fg="#005ca5", }, -- DevIconCobol   xxx ctermfg=25 guifg=#005ca5
-  DevIconSass                            { fg="#f55385", }, -- DevIconSass    xxx ctermfg=204 guifg=#f55385
-  DevIconVim                             { fg="#019833", }, -- DevIconVim     xxx ctermfg=28 guifg=#019833
-  DevIconJson                            { fg="#cbcb41", }, -- DevIconJson    xxx ctermfg=185 guifg=#cbcb41
-  DevIconDiff                            { fg="#41535b", }, -- DevIconDiff    xxx ctermfg=239 guifg=#41535b
-  DevIconHh                              { fg="#a074c4", }, -- DevIconHh      xxx ctermfg=140 guifg=#a074c4
-  DevIconZig                             { fg="#f69a1b", }, -- DevIconZig     xxx ctermfg=172 guifg=#f69a1b
-  DevIconEjs                             { fg="#cbcb41", }, -- DevIconEjs     xxx ctermfg=185 guifg=#cbcb41
-  DevIconCPlusPlus                       { fg="#f34b7d", }, -- DevIconCPlusPlus xxx ctermfg=204 guifg=#f34b7d
-  DevIconConf                            { fg="#6d8086", }, -- DevIconConf    xxx ctermfg=66 guifg=#6d8086
-  DevIconZorin                           { fg="#14a1e8", }, -- DevIconZorin   xxx ctermfg=39 guifg=#14a1e8
-  DevIconBudgie                          { fg="#4e5361", }, -- DevIconBudgie  xxx ctermfg=240 guifg=#4e5361
-  DevIconSvelteConfig                    { fg="#ff3e00", }, -- DevIconSvelteConfig xxx ctermfg=196 guifg=#ff3e00
-  DevIconSh                              { fg="#4d5a5e", }, -- DevIconSh      xxx ctermfg=240 guifg=#4d5a5e
-  DevIconSolidWorksPrt                   { fg="#839463", }, -- DevIconSolidWorksPrt xxx ctermfg=101 guifg=#839463
-  DevIconGodotTextResource               { fg="#6d8086", }, -- DevIconGodotTextResource xxx ctermfg=66 guifg=#6d8086
-  DevIconVue                             { fg="#8dc149", }, -- DevIconVue     xxx ctermfg=113 guifg=#8dc149
-  DevIconKotlinScript                    { fg="#7f52ff", }, -- DevIconKotlinScript xxx ctermfg=99 guifg=#7f52ff
-  DevIconSlackware                       { fg="#475fa9", }, -- DevIconSlackware xxx ctermfg=61 guifg=#475fa9
-  DevIconRakefile                        { fg="#701516", }, -- DevIconRakefile xxx ctermfg=52 guifg=#701516
-  DevIconGif                             { fg="#a074c4", }, -- DevIconGif     xxx ctermfg=140 guifg=#a074c4
-  DevIconKdenliveLayoutsrc               { fg="#83b8f2", }, -- DevIconKdenliveLayoutsrc xxx ctermfg=110 guifg=#83b8f2
-  BufferCurrentMod                       { fg="#ffff00", gui="bold", }, -- BufferCurrentMod xxx gui=bold guifg=#ffff00
-  DevIconImage                           { fg="#d0bec8", }, -- DevIconImage   xxx ctermfg=181 guifg=#d0bec8
-  DevIconTrisquelGNULinux                { fg="#0f58b6", }, -- DevIconTrisquelGNULinux xxx ctermfg=25 guifg=#0f58b6
-  DevIconImg                             { fg="#d0bec8", }, -- DevIconImg     xxx ctermfg=181 guifg=#d0bec8
-  DapUINormalNC                          { bg="#07080d", }, -- DapUINormalNC  xxx guibg=#07080d
-  DevIconRlib                            { fg="#dea584", }, -- DevIconRlib    xxx ctermfg=216 guifg=#dea584
-  DevIconExs                             { fg="#a074c4", }, -- DevIconExs     xxx ctermfg=140 guifg=#a074c4
-  DevIconPyx                             { fg="#5aa7e4", }, -- DevIconPyx     xxx ctermfg=39 guifg=#5aa7e4
-  DevIconFs                              { fg="#519aba", }, -- DevIconFs      xxx ctermfg=74 guifg=#519aba
-  DevIconBlender                         { fg="#ea7600", }, -- DevIconBlender xxx ctermfg=208 guifg=#ea7600
-  DevIconSha512                          { fg="#8c86af", }, -- DevIconSha512  xxx ctermfg=103 guifg=#8c86af
-  DevIconSabayon                         { fg="#c6c6c6", }, -- DevIconSabayon xxx ctermfg=251 guifg=#c6c6c6
-  DevIconLhs                             { fg="#a074c4", }, -- DevIconLhs     xxx ctermfg=140 guifg=#a074c4
-  DevIconParrot                          { fg="#54deff", }, -- DevIconParrot  xxx ctermfg=45 guifg=#54deff
-  DevIconLocOS                           { fg="#fab402", }, -- DevIconLocOS   xxx ctermfg=214 guifg=#fab402
-  DevIconKubuntu                         { fg="#007ac2", }, -- DevIconKubuntu xxx ctermfg=32 guifg=#007ac2
-  DevIconMotoko                          { fg="#9772fb", }, -- DevIconMotoko  xxx ctermfg=135 guifg=#9772fb
-  DevIconNim                             { fg="#f3d400", }, -- DevIconNim     xxx ctermfg=220 guifg=#f3d400
-  DevIconMl                              { fg="#e37933", }, -- DevIconMl      xxx ctermfg=166 guifg=#e37933
-  DevIconArcoLinux                       { fg="#6690eb", }, -- DevIconArcoLinux xxx ctermfg=68 guifg=#6690eb
-  DevIconSettingsJson                    { fg="#854cc7", }, -- DevIconSettingsJson xxx ctermfg=98 guifg=#854cc7
-  DevIconMkv                             { fg="#fd971f", }, -- DevIconMkv     xxx ctermfg=208 guifg=#fd971f
-  NotifyWARNBorder                       { fg="#79491d", }, -- NotifyWARNBorder xxx guifg=#79491d
-  DevIconRedhat                          { fg="#ee0000", }, -- DevIconRedhat  xxx ctermfg=196 guifg=#ee0000
-  DevIconArch                            { fg="#0f94d2", }, -- DevIconArch    xxx ctermfg=67 guifg=#0f94d2
-  NotifyDEBUGBorder                      { fg="#8b8b8b", }, -- NotifyDEBUGBorder xxx guifg=#8b8b8b
-  semshiErrorChar                        { bg="#ff5252", fg="#ffcccc", }, -- semshiErrorChar xxx guifg=#ffcccc guibg=#ff5252
-  GitSignsStagedAdd                      { fg="#597b60", }, -- GitSignsStagedAdd xxx guifg=#597b60
-  GitSignsStagedChange                   { fg="#467c7b", }, -- GitSignsStagedChange xxx guifg=#467c7b
-  DevIconCsh                             { fg="#4d5a5e", }, -- DevIconCsh     xxx ctermfg=240 guifg=#4d5a5e
-  DevIconPub                             { fg="#e3c58e", }, -- DevIconPub     xxx ctermfg=222 guifg=#e3c58e
-  GitSignsStagedTopdelete                { fg="#7f605c", }, -- GitSignsStagedTopdelete xxx guifg=#7f605c
-  GitSignsStagedAddNr                    { fg="#597b60", }, -- GitSignsStagedAddNr xxx guifg=#597b60
-  GitSignsStagedChangeNr                 { fg="#467c7b", }, -- GitSignsStagedChangeNr xxx guifg=#467c7b
-  DevIconH                               { fg="#a074c4", }, -- DevIconH       xxx ctermfg=140 guifg=#a074c4
-  GitSignsStagedChangedeleteNr           { fg="#467c7b", }, -- GitSignsStagedChangedeleteNr xxx guifg=#467c7b
-  GitSignsStagedTopdeleteNr              { fg="#7f605c", }, -- GitSignsStagedTopdeleteNr xxx guifg=#7f605c
-  DevIconPxi                             { fg="#5aa7e4", }, -- DevIconPxi     xxx ctermfg=39 guifg=#5aa7e4
-  GitSignsStagedAddLn                    { fg="#597f2c", }, -- GitSignsStagedAddLn xxx guifg=#597f2c
-  DevIconCpp                             { fg="#519aba", }, -- DevIconCpp     xxx ctermfg=74 guifg=#519aba
-  DevIconSig                             { fg="#e37933", }, -- DevIconSig     xxx ctermfg=166 guifg=#e37933
-  DevIconClojureDart                     { fg="#519aba", }, -- DevIconClojureDart xxx ctermfg=74 guifg=#519aba
-  DevIconTailwindConfig                  { fg="#20c2e3", }, -- DevIconTailwindConfig xxx ctermfg=45 guifg=#20c2e3
-  DevIconRockyLinux                      { fg="#0fb37d", }, -- DevIconRockyLinux xxx ctermfg=36 guifg=#0fb37d
-  DevIconCinnamon                        { fg="#dc682e", }, -- DevIconCinnamon xxx ctermfg=166 guifg=#dc682e
-  DevIconGNOME                           { fg="#ffffff", }, -- DevIconGNOME   xxx ctermfg=231 guifg=#ffffff
-  DevIconLXDE                            { fg="#a4a4a4", }, -- DevIconLXDE    xxx ctermfg=248 guifg=#a4a4a4
-  DevIconFortran                         { fg="#734f96", }, -- DevIconFortran xxx ctermfg=97 guifg=#734f96
-  DevIconLXQt                            { fg="#0191d2", }, -- DevIconLXQt    xxx ctermfg=32 guifg=#0191d2
-  DevIconMATE                            { fg="#9bda5c", }, -- DevIconMATE    xxx ctermfg=113 guifg=#9bda5c
-  DevIconKDEPlasma                       { fg="#1b89f4", }, -- DevIconKDEPlasma xxx ctermfg=33 guifg=#1b89f4
-  DevIconTerminal                        { fg="#31b53e", }, -- DevIconTerminal xxx ctermfg=34 guifg=#31b53e
-  DevIconXfce                            { fg="#00aadf", }, -- DevIconXfce    xxx ctermfg=74 guifg=#00aadf
-  DevIconKsh                             { fg="#4d5a5e", }, -- DevIconKsh     xxx ctermfg=240 guifg=#4d5a5e
-  BufferInactiveMod                      { bg="#1d1d1d", fg="#353535", }, -- BufferInactiveMod xxx guifg=#353535 guibg=#1d1d1d
-  BufferInactiveIndex                    { bg="#1d1d1d", fg="#353535", }, -- BufferInactiveIndex xxx guifg=#353535 guibg=#1d1d1d
-  DevIconWindows                         { fg="#00a4ef", }, -- DevIconWindows xxx ctermfg=39 guifg=#00a4ef
-  BufferInactive                         { bg="#1d1d1d", fg="#505050", }, -- BufferInactive xxx guifg=#505050 guibg=#1d1d1d
-  BufferCurrentSign                      { bg="#1c1c1c", fg="#dfdfdf", }, -- BufferCurrentSign xxx guifg=#dfdfdf guibg=#1c1c1c
-  BufferCurrentIndex                     { bg="#1c1c1c", fg="#f0f0f0", }, -- BufferCurrentIndex xxx guifg=#f0f0f0 guibg=#1c1c1c
-  DevIconCs                              { fg="#596706", }, -- DevIconCs      xxx ctermfg=58 guifg=#596706
-  GitSignsStagedChangeLn                 { fg="#70207d", }, -- GitSignsStagedChangeLn xxx guifg=#70207d
-  DevIconWebm                            { fg="#fd971f", }, -- DevIconWebm    xxx ctermfg=208 guifg=#fd971f
-  NotifyTRACETitle                       { fg="#d484ff", }, -- NotifyTRACETitle xxx guifg=#d484ff
-  DevIconBoundaryRepresentation          { fg="#839463", }, -- DevIconBoundaryRepresentation xxx ctermfg=101 guifg=#839463
-  NotifyTRACEIcon                        { fg="#d484ff", }, -- NotifyTRACEIcon xxx guifg=#d484ff
-  NotifyTRACEBorder                      { fg="#4f3552", }, -- NotifyTRACEBorder xxx guifg=#4f3552
-  NotifyINFOTitle                        { fg="#a9ff68", }, -- NotifyINFOTitle xxx guifg=#a9ff68
-  GitSignsStagedDeleteNr                 { fg="#7f605c", }, -- GitSignsStagedDeleteNr xxx guifg=#7f605c
-  NotifyINFOIcon                         { fg="#a9ff68", }, -- NotifyINFOIcon xxx guifg=#a9ff68
-  NotifyINFOBorder                       { fg="#4f6752", }, -- NotifyINFOBorder xxx guifg=#4f6752
-  NotifyERRORIcon                        { fg="#f70067", }, -- NotifyERRORIcon xxx guifg=#f70067
-  GitSignsStagedChangedelete             { fg="#467c7b", }, -- GitSignsStagedChangedelete xxx guifg=#467c7b
-  GitSignsStagedDelete                   { fg="#7f605c", }, -- GitSignsStagedDelete xxx guifg=#7f605c
-  NotifyERRORBorder                      { fg="#8a1f1f", }, -- NotifyERRORBorder xxx guifg=#8a1f1f
-  NotifyDEBUGTitle                       { fg="#8b8b8b", }, -- NotifyDEBUGTitle xxx guifg=#8b8b8b
-  DevIconGodotProject                    { fg="#6d8086", }, -- DevIconGodotProject xxx ctermfg=66 guifg=#6d8086
-  NotifyDEBUGIcon                        { fg="#8b8b8b", }, -- NotifyDEBUGIcon xxx guifg=#8b8b8b
-  DevIconGulpfile                        { fg="#cc3e44", }, -- DevIconGulpfile xxx ctermfg=167 guifg=#cc3e44
-  NotifyWARNTitle                        { fg="#f79000", }, -- NotifyWARNTitle xxx guifg=#f79000
-  DevIconHaxe                            { fg="#ea8220", }, -- DevIconHaxe    xxx ctermfg=208 guifg=#ea8220
-  NotifyWARNIcon                         { fg="#f79000", }, -- NotifyWARNIcon xxx guifg=#f79000
-  DevIconJpeg                            { fg="#a074c4", }, -- DevIconJpeg    xxx ctermfg=140 guifg=#a074c4
-  DevIconJpg                             { fg="#a074c4", }, -- DevIconJpg     xxx ctermfg=140 guifg=#a074c4
-  DevIconVagrantfile                     { fg="#1563ff", }, -- DevIconVagrantfile xxx ctermfg=27 guifg=#1563ff
-  DevIconCue                             { fg="#ed95ae", }, -- DevIconCue     xxx ctermfg=211 guifg=#ed95ae
-  DevIconPyo                             { fg="#ffe291", }, -- DevIconPyo     xxx ctermfg=222 guifg=#ffe291
-  DevIconApp                             { fg="#9f0500", }, -- DevIconApp     xxx ctermfg=124 guifg=#9f0500
-  BufferLineBufferSelected               { bg="#1c1c1c", fg="#ffffff", gui="bold,italic", }, -- BufferLineBufferSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
-  DevIconPp                              { fg="#ffa61a", }, -- DevIconPp      xxx ctermfg=214 guifg=#ffa61a
-  DevIconRproj                           { fg="#358a5b", }, -- DevIconRproj   xxx ctermfg=29 guifg=#358a5b
-  DevIconVerilog                         { fg="#019833", }, -- DevIconVerilog xxx ctermfg=28 guifg=#019833
-  DevIconOpenTypeFont                    { fg="#ececec", }, -- DevIconOpenTypeFont xxx ctermfg=255 guifg=#ececec
-  DevIconPackedResource                  { fg="#6d8086", }, -- DevIconPackedResource xxx ctermfg=66 guifg=#6d8086
-  DevIconPng                             { fg="#a074c4", }, -- DevIconPng     xxx ctermfg=140 guifg=#a074c4
-  DevIconXml                             { fg="#e37933", }, -- DevIconXml     xxx ctermfg=166 guifg=#e37933
-  DevIconPpt                             { fg="#cb4a32", }, -- DevIconPpt     xxx ctermfg=160 guifg=#cb4a32
-  DevIconProlog                          { fg="#e4b854", }, -- DevIconProlog  xxx ctermfg=179 guifg=#e4b854
-  DevIconAsc                             { fg="#576d7f", }, -- DevIconAsc     xxx ctermfg=242 guifg=#576d7f
-  DevIconPsb                             { fg="#519aba", }, -- DevIconPsb     xxx ctermfg=74 guifg=#519aba
-  DevIconPyc                             { fg="#ffe291", }, -- DevIconPyc     xxx ctermfg=222 guifg=#ffe291
-  DevIconPyd                             { fg="#ffe291", }, -- DevIconPyd     xxx ctermfg=222 guifg=#ffe291
-  DevIconLog                             { fg="#dddddd", }, -- DevIconLog     xxx ctermfg=253 guifg=#dddddd
-  DevIconPsd                             { fg="#519aba", }, -- DevIconPsd     xxx ctermfg=74 guifg=#519aba
-  DevIconSlim                            { fg="#e34c26", }, -- DevIconSlim    xxx ctermfg=196 guifg=#e34c26
-  DevIconAvif                            { fg="#a074c4", }, -- DevIconAvif    xxx ctermfg=140 guifg=#a074c4
-  DevIconTypoScript                      { fg="#ff8700", }, -- DevIconTypoScript xxx ctermfg=208 guifg=#ff8700
-  DevIconAzureCli                        { fg="#0078d4", }, -- DevIconAzureCli xxx ctermfg=32 guifg=#0078d4
-  DevIconVRML                            { fg="#888888", }, -- DevIconVRML    xxx ctermfg=102 guifg=#888888
-  DevIconLogos                           { fg="#519aba", }, -- DevIconLogos   xxx ctermfg=74 guifg=#519aba
-  DevIconEex                             { fg="#a074c4", }, -- DevIconEex     xxx ctermfg=140 guifg=#a074c4
-  DevIconXaml                            { fg="#512bd4", }, -- DevIconXaml    xxx ctermfg=56 guifg=#512bd4
-  DevIconDump                            { fg="#dad8d8", }, -- DevIconDump    xxx ctermfg=188 guifg=#dad8d8
-  DevIconTFVars                          { fg="#5f43e9", }, -- DevIconTFVars  xxx ctermfg=93 guifg=#5f43e9
-  DevIconGIMP                            { fg="#635b46", }, -- DevIconGIMP    xxx ctermfg=240 guifg=#635b46
-  DevIconCss                             { fg="#42a5f5", }, -- DevIconCss     xxx ctermfg=75 guifg=#42a5f5
-  DevIconJWM                             { fg="#0078cd", }, -- DevIconJWM     xxx ctermfg=32 guifg=#0078cd
-  DevIconSub                             { fg="#ffb713", }, -- DevIconSub     xxx ctermfg=214 guifg=#ffb713
-  DevIconcuda                            { fg="#89e051", }, -- DevIconcuda    xxx ctermfg=113 guifg=#89e051
-  DevIconcudah                           { fg="#a074c4", }, -- DevIconcudah   xxx ctermfg=140 guifg=#a074c4
-  DevIconXcLocalization                  { fg="#2596be", }, -- DevIconXcLocalization xxx ctermfg=31 guifg=#2596be
-  DevIconRazorPage                       { fg="#512bd4", }, -- DevIconRazorPage xxx ctermfg=56 guifg=#512bd4
-  DevIconJpegXl                          { fg="#a074c4", }, -- DevIconJpegXl  xxx ctermfg=140 guifg=#a074c4
-  DevIconMixLock                         { fg="#a074c4", }, -- DevIconMixLock xxx ctermfg=140 guifg=#a074c4
-  DevIconVoid                            { fg="#295340", }, -- DevIconVoid    xxx ctermfg=23 guifg=#295340
-  DevIconCxxm                            { fg="#519aba", }, -- DevIconCxxm    xxx ctermfg=74 guifg=#519aba
-  DevIconCppm                            { fg="#519aba", }, -- DevIconCppm    xxx ctermfg=74 guifg=#519aba
-  DevIconCPlusPlusModule                 { fg="#f34b7d", }, -- DevIconCPlusPlusModule xxx ctermfg=204 guifg=#f34b7d
-  DevIconHpp                             { fg="#a074c4", }, -- DevIconHpp     xxx ctermfg=140 guifg=#a074c4
-  DevIconGemspec                         { fg="#701516", }, -- DevIconGemspec xxx ctermfg=52 guifg=#701516
-  DevIconKdb                             { fg="#529b34", }, -- DevIconKdb     xxx ctermfg=71 guifg=#529b34
-  DevIconRake                            { fg="#701516", }, -- DevIconRake    xxx ctermfg=52 guifg=#701516
-  DevIconD                               { fg="#427819", }, -- DevIconD       xxx ctermfg=28 guifg=#427819
-  DevIconKdbx                            { fg="#529b34", }, -- DevIconKdbx    xxx ctermfg=71 guifg=#529b34
-  DevIconDb                              { fg="#dad8d8", }, -- DevIconDb      xxx ctermfg=188 guifg=#dad8d8
-  DevIconKdenlive                        { fg="#83b8f2", }, -- DevIconKdenlive xxx ctermfg=110 guifg=#83b8f2
-  DevIconAutoCADDwg                      { fg="#839463", }, -- DevIconAutoCADDwg xxx ctermfg=101 guifg=#839463
-  DevIconApple                           { fg="#a2aaad", }, -- DevIconApple   xxx ctermfg=248 guifg=#a2aaad
-  DevIconEdn                             { fg="#519aba", }, -- DevIconEdn     xxx ctermfg=74 guifg=#519aba
-  DevIconKiCad                           { fg="#ffffff", }, -- DevIconKiCad   xxx ctermfg=231 guifg=#ffffff
-  DevIconZshenv                          { fg="#89e051", }, -- DevIconZshenv  xxx ctermfg=113 guifg=#89e051
-  DevIconKrita                           { fg="#f245fb", }, -- DevIconKrita   xxx ctermfg=201 guifg=#f245fb
-  DevIconStep                            { fg="#839463", }, -- DevIconStep    xxx ctermfg=101 guifg=#839463
-  DevIconAlpine                          { fg="#0d597f", }, -- DevIconAlpine  xxx ctermfg=24 guifg=#0d597f
-  DevIconConfig                          { fg="#6d8086", }, -- DevIconConfig  xxx ctermfg=66 guifg=#6d8086
-  DevIconLXQtConfigFile                  { fg="#0192d3", }, -- DevIconLXQtConfigFile xxx ctermfg=32 guifg=#0192d3
-  DevIconAOSC                            { fg="#c00000", }, -- DevIconAOSC    xxx ctermfg=124 guifg=#c00000
-  DevIconLibrecadFontFile                { fg="#ececec", }, -- DevIconLibrecadFontFile xxx ctermfg=255 guifg=#ececec
-  DevIconBazelWorkspace                  { fg="#89e051", }, -- DevIconBazelWorkspace xxx ctermfg=113 guifg=#89e051
-  DevIconGitConfig                       { fg="#f54d27", }, -- DevIconGitConfig xxx ctermfg=196 guifg=#f54d27
-  DevIconOrgMode                         { fg="#77aa99", }, -- DevIconOrgMode xxx ctermfg=73 guifg=#77aa99
-  DevIconMd                              { fg="#dddddd", }, -- DevIconMd      xxx ctermfg=253 guifg=#dddddd
-  DevIconCache                           { fg="#ffffff", }, -- DevIconCache   xxx ctermfg=231 guifg=#ffffff
-  DevIconTs                              { fg="#519aba", }, -- DevIconTs      xxx ctermfg=74 guifg=#519aba
-  DevIconLua                             { fg="#51a0cf", }, -- DevIconLua     xxx ctermfg=74 guifg=#51a0cf
-  DevIconBashrc                          { fg="#89e051", }, -- DevIconBashrc  xxx ctermfg=113 guifg=#89e051
-  DevIconOpenBSD                         { fg="#f2ca30", }, -- DevIconOpenBSD xxx ctermfg=220 guifg=#f2ca30
-  DevIconPl                              { fg="#519aba", }, -- DevIconPl      xxx ctermfg=74 guifg=#519aba
-  DevIconEx                              { fg="#a074c4", }, -- DevIconEx      xxx ctermfg=140 guifg=#a074c4
-  DevIconXauthority                      { fg="#e54d18", }, -- DevIconXauthority xxx ctermfg=196 guifg=#e54d18
-  DevIconPrettierConfig                  { fg="#4285f4", }, -- DevIconPrettierConfig xxx ctermfg=33 guifg=#4285f4
-  DevIconScss                            { fg="#f55385", }, -- DevIconScss    xxx ctermfg=204 guifg=#f55385
-  DevIconMagnet                          { fg="#a51b16", }, -- DevIconMagnet  xxx ctermfg=124 guifg=#a51b16
-  DevIconBabelrc                         { fg="#cbcb41", }, -- DevIconBabelrc xxx ctermfg=185 guifg=#cbcb41
-  DevIconTypoScriptConfig                { fg="#ff8700", }, -- DevIconTypoScriptConfig xxx ctermfg=208 guifg=#ff8700
-  DevIconQt                              { fg="#40cd52", }, -- DevIconQt      xxx ctermfg=77 guifg=#40cd52
-  DevIconFusion360                       { fg="#839463", }, -- DevIconFusion360 xxx ctermfg=101 guifg=#839463
-  DevIconBin                             { fg="#9f0500", }, -- DevIconBin     xxx ctermfg=124 guifg=#9f0500
-  DevIconReScript                        { fg="#cc3e44", }, -- DevIconReScript xxx ctermfg=167 guifg=#cc3e44
-  DevIconTestJs                          { fg="#cbcb41", }, -- DevIconTestJs  xxx ctermfg=185 guifg=#cbcb41
-  DevIconReScriptInterface               { fg="#f55385", }, -- DevIconReScriptInterface xxx ctermfg=204 guifg=#f55385
-  DevIconRb                              { fg="#701516", }, -- DevIconRb      xxx ctermfg=52 guifg=#701516
-  DevIcon7z                              { fg="#eca517", }, -- DevIcon7z      xxx ctermfg=214 guifg=#eca517
-  DevIconFreeCAD                         { fg="#cb0d0d", }, -- DevIconFreeCAD xxx ctermfg=160 guifg=#cb0d0d
-  DevIconGDScript                        { fg="#6d8086", }, -- DevIconGDScript xxx ctermfg=66 guifg=#6d8086
-  DevIconRar                             { fg="#eca517", }, -- DevIconRar     xxx ctermfg=214 guifg=#eca517
-  DevIconFIGletFontControl               { fg="#ececec", }, -- DevIconFIGletFontControl xxx ctermfg=255 guifg=#ececec
-  DevIconJsx                             { fg="#20c2e3", }, -- DevIconJsx     xxx ctermfg=45 guifg=#20c2e3
-  DevIconFIGletFontFormat                { fg="#ececec", }, -- DevIconFIGletFontFormat xxx ctermfg=255 guifg=#ececec
-  DevIconsbt                             { fg="#cc3e44", }, -- DevIconsbt     xxx ctermfg=167 guifg=#cc3e44
-  DevIconInfo                            { fg="#ffffcd", }, -- DevIconInfo    xxx ctermfg=230 guifg=#ffffcd
-  DevIconSvg                             { fg="#ffb13b", }, -- DevIconSvg     xxx ctermfg=214 guifg=#ffb13b
-  semshiParameter                        { fg="#5fafff", }, -- semshiParameter xxx guifg=#5fafff
-  semshiParameterUnused                  { fg="#87d7ff", gui="underline", }, -- semshiParameterUnused xxx cterm=underline gui=underline guifg=#87d7ff
-  semshiAttribute                        { fg="#ae81ff", }, -- semshiAttribute xxx guifg=#ae81ff
-  semshiSelf                             { fg="#9d9d9d", }, -- semshiSelf     xxx guifg=#9d9d9d
-  semshiUnresolved                       { fg="#ffff00", gui="underline", }, -- semshiUnresolved xxx cterm=underline gui=underline guifg=#ffff00
-  CmpItemAbbrDefault                     { fg="#efefef", }, -- CmpItemAbbrDefault xxx guifg=#efefef
-  CmpItemAbbr                            { CmpItemAbbrDefault }, -- CmpItemAbbr    xxx links to CmpItemAbbrDefault
-  CmpItemAbbrMatchDefault                { fg="#efefef", }, -- CmpItemAbbrMatchDefault xxx guifg=#efefef
-  CmpItemAbbrMatch                       { CmpItemAbbrMatchDefault }, -- CmpItemAbbrMatch xxx links to CmpItemAbbrMatchDefault
-  CmpItemAbbrMatchFuzzyDefault           { fg="#efefef", }, -- CmpItemAbbrMatchFuzzyDefault xxx guifg=#efefef
-  CmpItemAbbrMatchFuzzy                  { CmpItemAbbrMatchFuzzyDefault }, -- CmpItemAbbrMatchFuzzy xxx links to CmpItemAbbrMatchFuzzyDefault
-  CmpItemMenuDefault                     { fg="#efefef", }, -- CmpItemMenuDefault xxx guifg=#efefef
-  CmpItemMenu                            { CmpItemMenuDefault }, -- CmpItemMenu    xxx links to CmpItemMenuDefault
-  pythonDottedName                       { fg="#ee4eb8", gui="bold", }, -- pythonDottedName xxx gui=bold guifg=#ee4eb8
-  TSRainbowRed                           { fg="#cc241d", }, -- TSRainbowRed   xxx ctermfg=9 guifg=#cc241d
-  TSRainbowOrange                        { fg="#d65d0e", }, -- TSRainbowOrange xxx ctermfg=15 guifg=#d65d0e
-  TSRainbowYellow                        { fg="#d79921", }, -- TSRainbowYellow xxx ctermfg=11 guifg=#d79921
-  TSRainbowGreen                         { fg="#689d6a", }, -- TSRainbowGreen xxx ctermfg=10 guifg=#689d6a
-  TSRainbowCyan                          { fg="#a89984", }, -- TSRainbowCyan  xxx ctermfg=14 guifg=#a89984
-  TSRainbowBlue                          { fg="#458588", }, -- TSRainbowBlue  xxx ctermfg=12 guifg=#458588
-  TSRainbowViolet                        { fg="#b16286", }, -- TSRainbowViolet xxx ctermfg=13 guifg=#b16286
-  HighlightURL                           { gui="underline", }, -- HighlightURL   xxx cterm=underline gui=underline
-  htmlStrike                             { gui="strikethrough", }, -- htmlStrike     xxx cterm=strikethrough gui=strikethrough
-  htmlBoldUnderline                      { gui="bold,underline", }, -- htmlBoldUnderline xxx cterm=bold,underline gui=bold,underline
-  htmlUnderlineBold                      { htmlBoldUnderline }, -- htmlUnderlineBold xxx links to htmlBoldUnderline
-  htmlBoldItalic                         { gui="bold,italic", }, -- htmlBoldItalic xxx cterm=bold,italic gui=bold,italic
-  htmlItalicBold                         { htmlBoldItalic }, -- htmlItalicBold xxx links to htmlBoldItalic
-  htmlBold                               { gui="bold", }, -- htmlBold       xxx cterm=bold gui=bold
-  htmlBoldUnderlineItalic                { gui="bold,underline,italic", }, -- htmlBoldUnderlineItalic xxx cterm=bold,underline,italic gui=bold,underline,italic
-  htmlBoldItalicUnderline                { htmlBoldUnderlineItalic }, -- htmlBoldItalicUnderline xxx links to htmlBoldUnderlineItalic
-  htmlUnderlineBoldItalic                { htmlBoldUnderlineItalic }, -- htmlUnderlineBoldItalic xxx links to htmlBoldUnderlineItalic
-  htmlUnderlineItalicBold                { htmlBoldUnderlineItalic }, -- htmlUnderlineItalicBold xxx links to htmlBoldUnderlineItalic
-  htmlItalicBoldUnderline                { htmlBoldUnderlineItalic }, -- htmlItalicBoldUnderline xxx links to htmlBoldUnderlineItalic
-  htmlItalicUnderlineBold                { htmlBoldUnderlineItalic }, -- htmlItalicUnderlineBold xxx links to htmlBoldUnderlineItalic
-  htmlUnderlineItalic                    { gui="underline,italic", }, -- htmlUnderlineItalic xxx cterm=underline,italic gui=underline,italic
-  htmlItalicUnderline                    { htmlUnderlineItalic }, -- htmlItalicUnderline xxx links to htmlUnderlineItalic
-  htmlUnderline                          { gui="underline", }, -- htmlUnderline  xxx cterm=underline gui=underline
-  htmlItalic                             { gui="italic", }, -- htmlItalic     xxx cterm=italic gui=italic
-  texStyleBoth                           { gui="bold,italic", }, -- texStyleBoth   xxx cterm=bold,italic gui=bold,italic
-  texStyleBold                           { gui="bold", }, -- texStyleBold   xxx cterm=bold gui=bold
-  texStyleItal                           { gui="italic", }, -- texStyleItal   xxx cterm=italic gui=italic
-  texEnvArgName                          { fg="#63ff51", }, -- texEnvArgName  xxx guifg=#63ff51
-  texNewenvArgName                       { texEnvArgName }, -- texNewenvArgName xxx links to texEnvArgName
-  texEnvMArgName                         { texEnvArgName }, -- texEnvMArgName xxx links to texEnvArgName
-  texCmdEnv                              { fg="#00ccff", }, -- texCmdEnv      xxx guifg=#00ccff
-  texCmdEnvM                             { texCmdEnv }, -- texCmdEnvM     xxx links to texCmdEnv
-  texCmdItem                             { texCmdEnv }, -- texCmdItem     xxx links to texCmdEnv
-  texCmdMathEnv                          { texCmdEnv }, -- texCmdMathEnv  xxx links to texCmdEnv
-  texMathStyleBold                       { gui="bold", }, -- texMathStyleBold xxx cterm=bold gui=bold
-  texMathStyleItal                       { gui="italic", }, -- texMathStyleItal xxx cterm=italic gui=italic
-  texStyleUnder                          { gui="underline", }, -- texStyleUnder  xxx cterm=underline gui=underline
-  texStyleBoldUnder                      { gui="bold,underline", }, -- texStyleBoldUnder xxx cterm=bold,underline gui=bold,underline
-  texStyleItalUnder                      { gui="underline,italic", }, -- texStyleItalUnder xxx cterm=underline,italic gui=underline,italic
-  texStyleBoldItalUnder                  { gui="bold,underline,italic", }, -- texStyleBoldItalUnder xxx cterm=bold,underline,italic gui=bold,underline,italic
-  pandocTitleBlock                       { gui="italic", }, -- pandocTitleBlock xxx gui=italic
-  pandocEmphasis                         { gui="italic", }, -- pandocEmphasis xxx cterm=italic gui=italic
-  pandocStrong                           { gui="bold", }, -- pandocStrong   xxx cterm=bold gui=bold
-  pandocSimpleTableHeader                { pandocStrong }, -- pandocSimpleTableHeader xxx links to pandocStrong
-  pandocTableMultilineHeader             { pandocStrong }, -- pandocTableMultilineHeader xxx links to pandocStrong
-  pandocTableHeaderWord                  { pandocStrong }, -- pandocTableHeaderWord xxx links to pandocStrong
-  pandocSuperscript                      { gui="underline", }, -- pandocSuperscript xxx cterm=underline gui=underline
-  pandocSubscript                        { gui="underline", }, -- pandocSubscript xxx cterm=underline gui=underline
-  pandocStrikeout                        { gui="underline", }, -- pandocStrikeout xxx cterm=underline gui=underline
-  pandocNoFormattedInEmphasis            { fg="#ffa0a0", gui="italic", }, -- pandocNoFormattedInEmphasis xxx cterm=italic gui=italic guifg=#ffa0a0
-  pandocNoFormattedInStrong              { fg="#ffa0a0", gui="bold", }, -- pandocNoFormattedInStrong xxx cterm=bold gui=bold guifg=#ffa0a0
-  pandocStrongEmphasis                   { gui="bold,italic", }, -- pandocStrongEmphasis xxx cterm=bold,italic gui=bold,italic
-  pandocStrongInEmphasis                 { gui="bold,italic", }, -- pandocStrongInEmphasis xxx cterm=bold,italic gui=bold,italic
-  pandocEmphasisInStrong                 { gui="bold,italic", }, -- pandocEmphasisInStrong xxx cterm=bold,italic gui=bold,italic
-  pythonFunction                         { fg="#87ff00", gui="bold", }, -- pythonFunction xxx gui=bold guifg=#87ff00
-  pythonRepeat                           { fg="#d3ff00", }, -- pythonRepeat   xxx guifg=#d3ff00
-  pythonOperator                         { fg="#f92672", gui="bold", }, -- pythonOperator xxx gui=bold guifg=#f92672
-  pythonBoolean                          { fg="#66d9ef", gui="bold", }, -- pythonBoolean  xxx gui=bold guifg=#66d9ef
-  pythonNone                             { fg="#d3ff00", gui="bold", }, -- pythonNone     xxx gui=bold guifg=#d3ff00
-  pythonBuiltinObj                       { fg="#d3ff00", gui="bold", }, -- pythonBuiltinObj xxx gui=bold guifg=#d3ff00
-  pythonComment                          { fg="#494949", gui="italic", }, -- pythonComment  xxx gui=italic guifg=#494949
-  DevIconObjectFile                      { fg="#9f0500", }, -- DevIconObjectFile xxx ctermfg=124 guifg=#9f0500
-  DevIconSharedObject                    { fg="#dcddd6", }, -- DevIconSharedObject xxx ctermfg=253 guifg=#dcddd6
-  DevIconPart                            { fg="#44cda8", }, -- DevIconPart    xxx ctermfg=43 guifg=#44cda8
-  DevIconOggVorbis                       { fg="#0075aa", }, -- DevIconOggVorbis xxx ctermfg=24 guifg=#0075aa
-  DevIconapk                             { fg="#34a853", }, -- DevIconapk     xxx ctermfg=35 guifg=#34a853
-  DevIconAndroid                         { fg="#34a853", }, -- DevIconAndroid xxx ctermfg=35 guifg=#34a853
-  DevIconAudioInterchangeFileFormat      { fg="#00afff", }, -- DevIconAudioInterchangeFileFormat xxx ctermfg=39 guifg=#00afff
-  DevIconStaticLibraryArchive            { fg="#dcddd6", }, -- DevIconStaticLibraryArchive xxx ctermfg=253 guifg=#dcddd6
-  DevIconWindowsMediaAudio               { fg="#00afff", }, -- DevIconWindowsMediaAudio xxx ctermfg=39 guifg=#00afff
-  DevIconTorrent                         { fg="#44cda8", }, -- DevIconTorrent xxx ctermfg=43 guifg=#44cda8
-  DevIconPatch                           { fg="#41535b", }, -- DevIconPatch   xxx ctermfg=239 guifg=#41535b
-  DevIconMPEG4                           { fg="#00afff", }, -- DevIconMPEG4   xxx ctermfg=39 guifg=#00afff
-  DevIconTmux                            { fg="#14ba19", }, -- DevIconTmux    xxx ctermfg=34 guifg=#14ba19
-  DevIconLinuxKernelObject               { fg="#dcddd6", }, -- DevIconLinuxKernelObject xxx ctermfg=253 guifg=#dcddd6
-  DevIconDll                             { fg="#4d2c0b", }, -- DevIconDll     xxx ctermfg=52 guifg=#4d2c0b
-  DevIconCrdownload                      { fg="#44cda8", }, -- DevIconCrdownload xxx ctermfg=43 guifg=#44cda8
-  DevIconDownload                        { fg="#44cda8", }, -- DevIconDownload xxx ctermfg=43 guifg=#44cda8
-  DevIconIfb                             { fg="#2b2e83", }, -- DevIconIfb     xxx ctermfg=18 guifg=#2b2e83
-  DevIconIcs                             { fg="#2b2e83", }, -- DevIconIcs     xxx ctermfg=18 guifg=#2b2e83
-  DevIconIcalendar                       { fg="#2b2e83", }, -- DevIconIcalendar xxx ctermfg=18 guifg=#2b2e83
-  DevIconIcal                            { fg="#2b2e83", }, -- DevIconIcal    xxx ctermfg=18 guifg=#2b2e83
-  DevIconElisp                           { fg="#8172be", }, -- DevIconElisp   xxx ctermfg=97 guifg=#8172be
-  DevIconOpusAudioFile                   { fg="#0075aa", }, -- DevIconOpusAudioFile xxx ctermfg=24 guifg=#0075aa
-  DevIconLib                             { fg="#4d2c0b", }, -- DevIconLib     xxx ctermfg=52 guifg=#4d2c0b
-  DevIconAdvancedAudioCoding             { fg="#00afff", }, -- DevIconAdvancedAudioCoding xxx ctermfg=39 guifg=#00afff
-  DevIconSignature                       { fg="#e37933", }, -- DevIconSignature xxx ctermfg=166 guifg=#e37933
-  DevIconWaveformAudioFile               { fg="#00afff", }, -- DevIconWaveformAudioFile xxx ctermfg=39 guifg=#00afff
-  DevIconMonkeysAudio                    { fg="#00afff", }, -- DevIconMonkeysAudio xxx ctermfg=39 guifg=#00afff
-  DevIconFdmdownload                     { fg="#44cda8", }, -- DevIconFdmdownload xxx ctermfg=43 guifg=#44cda8
-  DevIconFreeLosslessAudioCodec          { fg="#0075aa", }, -- DevIconFreeLosslessAudioCodec xxx ctermfg=24 guifg=#0075aa
-  Stlffffff_1c1c1c_bolditalic_           { bg="#1c1c1c", fg="#ffffff", gui="bold,italic", }, -- Stlffffff_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
-  colorizer_mb_1ed760                    { bg="#1ed760", fg="black", }, -- colorizer_mb_1ed760 xxx guifg=Black guibg=#1ed760
-  rainbowcol1                            { fg="#00e676", }, -- rainbowcol1    xxx guifg=#00e676
-  rainbowcol2                            { fg="#f92672", }, -- rainbowcol2    xxx guifg=#f92672
-  rainbowcol3                            { fg="#42a5f5", }, -- rainbowcol3    xxx guifg=#42a5f5
-  rainbowcol4                            { fg="#26a69a", }, -- rainbowcol4    xxx guifg=#26a69a
-  rainbowcol5                            { fg="#9ccc65", }, -- rainbowcol5    xxx guifg=#9ccc65
-  rainbowcol6                            { fg="#ffee58", }, -- rainbowcol6    xxx guifg=#ffee58
-  rainbowcol7                            { fg="#ffa726", }, -- rainbowcol7    xxx guifg=#ffa726
-  iCursor                                { bg="#222222", fg="#000000", }, -- iCursor        xxx guifg=#000000 guibg=#222222
-  IndentGuidesOdd                        { fg="#494949", }, -- IndentGuidesOdd xxx guifg=#494949
-  IndentGuidesEven                       { fg="#3e3d32", }, -- IndentGuidesEven xxx guifg=#3e3d32
-  pythonTripleQuotes                     { fg="#404040", gui="italic", }, -- pythonTripleQuotes xxx gui=italic guifg=#404040
-  qfLineNr                               { fg="#bcbcbc", }, -- qfLineNr       xxx guifg=#bcbcbc
-  pythonMethod                           { fg="#00ebdb", gui="bold", }, -- pythonMethod   xxx gui=bold guifg=#00ebdb
-  ALEWarningSign                         { fg="#87ff00", }, -- ALEWarningSign xxx guifg=#87ff00
-  ALEErrorSign                           { fg="#f92672", gui="bold", }, -- ALEErrorSign   xxx gui=bold guifg=#f92672
-  GitGutterAdd                           { fg="#00ccff", }, -- GitGutterAdd   xxx guifg=#00ccff
-  GitGutterAddLine                       { fg="#007dff", }, -- GitGutterAddLine xxx guifg=#007dff
-  GitGutterChange                        { fg="#f553bf", }, -- GitGutterChange xxx guifg=#f553bf
-  GitGutterDelete                        { fg="#ff2600", }, -- GitGutterDelete xxx guifg=#ff2600
-  GitGutterChangeDelete                  { fg="#ae81ff", }, -- GitGutterChangeDelete xxx guifg=#ae81ff
-  ActiveWindow                           { bg="#1c1c1c", }, -- ActiveWindow   xxx guibg=#1c1c1c
-  InactiveWindow                         { bg="#303030", }, -- InactiveWindow xxx guibg=#303030
-  NERDTreeExecFile                       { fg="#87ff00", gui="bold", }, -- NERDTreeExecFile xxx gui=bold guifg=#87ff00
-  NERDTreeDirSlash                       { fg="#f02e6e", gui="bold", }, -- NERDTreeDirSlash xxx gui=bold guifg=#f02e6e
-  NERDTreeCWD                            { fg="#f02e6e", }, -- NERDTreeCWD    xxx guifg=#f02e6e
-  pythonParam                            { fg="#87ff00", gui="bold", }, -- pythonParam    xxx gui=bold guifg=#87ff00
-  GalaxyBufferIcon                       { bg="#303030", fg="#ffff00", }, -- GalaxyBufferIcon xxx guifg=#ffff00 guibg=#303030
-  GalaxyGitIcon                          { bg="#303030", fg="#f92672", }, -- GalaxyGitIcon  xxx guifg=#f92672 guibg=#303030
-  pythonDocstring                        { fg="#606060", gui="italic", }, -- pythonDocstring xxx gui=italic guifg=#606060
-  pythonFString                          { pythonDocstring }, -- pythonFString  xxx links to pythonDocstring
-  pythonfDocstring                       { pythonDocstring }, -- pythonfDocstring xxx links to pythonDocstring
-  Warning                                { fg="#ffaf00", }, -- Warning        xxx guifg=#ffaf00
-  TSWarning                              { fg="#ffaf00", }, -- TSWarning      xxx guifg=#ffaf00
-  TSRepeat                               { fg="#e040fb", gui="bold", }, -- TSRepeat       xxx gui=bold guifg=#e040fb
-  TSMethod                               { fg="#63ff5b", gui="bold", }, -- TSMethod       xxx gui=bold guifg=#63ff5b
-  TSConstant                             { fg="#15aabf", gui="bold", }, -- TSConstant     xxx gui=bold guifg=#15aabf
-  TSKeywordSelf                          { fg="#465457", }, -- TSKeywordSelf  xxx guifg=#465457
-  TSParameter                            { fg="#97f5d3", }, -- TSParameter    xxx guifg=#97f5d3
-  TSBoolean                              { fg="#2cc36e", }, -- TSBoolean      xxx guifg=#2cc36e
-  TSConstructor                          { fg="#03ceff", gui="bold", }, -- TSConstructor  xxx gui=bold guifg=#03ceff
-  TSFloat                                { fg="#fd971f", }, -- TSFloat        xxx guifg=#fd971f
-  TSType                                 { fg="#00ccff", }, -- TSType         xxx guifg=#00ccff
-  TSInclude                              { fg="#ae81ff", }, -- TSInclude      xxx guifg=#ae81ff
-  TSOperator                             { fg="#d3ff00", }, -- TSOperator     xxx guifg=#d3ff00
-  TSKeywordReturn                        { fg="#f92672", gui="bold", }, -- TSKeywordReturn xxx gui=bold guifg=#f92672
-  TSPunctBracket                         { fg="#9e9e9e", gui="bold", }, -- TSPunctBracket xxx gui=bold guifg=#9e9e9e
-  TSConditional                          { fg="#f20052", gui="bold", }, -- TSConditional  xxx gui=bold guifg=#f20052
-  TSString                               { fg="#ffff00", }, -- TSString       xxx guifg=#ffff00
-  TSNote                                 { fg="#ff4081", gui="bold", }, -- TSNote         xxx gui=bold guifg=#ff4081
-  pythonConstant                         { fg="#ff9944", gui="bold", }, -- pythonConstant xxx gui=bold guifg=#ff9944
-  pythonMagic                            { fg="#8e44ad", }, -- pythonMagic    xxx guifg=#8e44ad
-  pythonWordOperator                     { fg="#d3ff00", }, -- pythonWordOperator xxx guifg=#d3ff00
-  pythonExtraOperatori                   { fg="#87ff00", gui="bold", }, -- pythonExtraOperatori xxx gui=bold guifg=#87ff00
-  pythonExtraPseudoOperator              { fg="#87ff00", gui="bold", }, -- pythonExtraPseudoOperator xxx gui=bold guifg=#87ff00
-  pythonParameters                       { fg="#656565", gui="bold", }, -- pythonParameters xxx gui=bold guifg=#656565
-  pythonClassParameters                  { fg="#87ff00", gui="bold,underline", }, -- pythonClassParameters xxx gui=bold,underline guifg=#87ff00
-  pythonArg                              { fg="#87ff00", gui="bold", }, -- pythonArg      xxx gui=bold guifg=#87ff00
-  pythonLibraries                        { fg="#ff79ff", }, -- pythonLibraries xxx guifg=#ff79ff
-  pythonVars                             { fg="#fd971f", }, -- pythonVars     xxx guifg=#fd971f
-  pythonClassVars                        { fg="#f553bf", gui="bold", }, -- pythonClassVars xxx gui=bold guifg=#f553bf
-  pythonNote                             { fg="#d3ff00", gui="bold,italic", }, -- pythonNote     xxx gui=bold,italic guifg=#d3ff00
-  pythonArgs                             { fg="#007dff", }, -- pythonArgs     xxx guifg=#007dff
-  pythonKwargs                           { fg="#fd971f", gui="bold,italic", }, -- pythonKwargs   xxx gui=bold,italic guifg=#fd971f
-  pythonReturns                          { fg="#ffffff", gui="bold,italic", }, -- pythonReturns  xxx gui=bold,italic guifg=#ffffff
-  pythonBrackets                         { fg="#f92672", gui="bold", }, -- pythonBrackets xxx gui=bold guifg=#f92672
-  pythonBracket                          { fg="#03ceff", gui="bold", }, -- pythonBracket  xxx gui=bold guifg=#03ceff
-  TSField                                { fg="#ff03ce", }, -- TSField        xxx guifg=#ff03ce
-  TSKeyword                              { fg="#40c057", gui="bold", }, -- TSKeyword      xxx gui=bold guifg=#40c057
-  TSKeywordFunction                      { fg="#ff79ff", gui="bold", }, -- TSKeywordFunction xxx gui=bold guifg=#ff79ff
-  pythonTSField                          { fg="#40c4ff", }, -- pythonTSField  xxx guifg=#40c4ff
-  pythonTSConstructor                    { fg="#448aff", }, -- pythonTSConstructor xxx guifg=#448aff
-  pythonTSType                           { fg="#16db93", }, -- pythonTSType   xxx guifg=#16db93
-  pythonTSVariableBuiltin                { fg="#8b949e", }, -- pythonTSVariableBuiltin xxx guifg=#8b949e
-  pythonTSBoolean                        { fg="#ff4081", }, -- pythonTSBoolean xxx guifg=#ff4081
-  rainbowcol8                            { fg="#ef5350", }, -- rainbowcol8    xxx guifg=#ef5350
-  markdownTSTitle                        { bg="#1c1c1c", fg="#ff4081", gui="bold", }, -- markdownTSTitle xxx gui=bold guifg=#ff4081 guibg=#1c1c1c
-  markdownTSLiteral                      { bg="#202020", fg="#b2ff59", }, -- markdownTSLiteral xxx guifg=#b2ff59 guibg=#202020
-  BufferLineBackground                   { bg="#1d1d1d", }, -- BufferLineBackground xxx guibg=#1d1d1d
-  BufferLineCloseButton                  { bg="#1d1d1d", }, -- BufferLineCloseButton xxx guibg=#1d1d1d
-  BufferLineSeparator                    { bg="#1d1d1d", }, -- BufferLineSeparator xxx guibg=#1d1d1d
-  BufferLineFill                         { bg="#1d1d1d", }, -- BufferLineFill xxx guibg=#1d1d1d
-  BufferLineIndicatorSelected            { bg="#1c1c1c", fg="#66d9ef", }, -- BufferLineIndicatorSelected xxx guifg=#66d9ef guibg=#1c1c1c
-  IndentBlanklineContextChar             { fg="#ffff00", gui="nocombine", }, -- IndentBlanklineContextChar xxx cterm=nocombine gui=nocombine guifg=#ffff00
-  IndentBlanklineContextStart            { sp="#ffff00", gui="underline", }, -- IndentBlanklineContextStart xxx cterm=underline gui=underline guisp=#ffff00
-  IndentBlanklineChar                    { fg="#465457", gui="nocombine", }, -- IndentBlanklineChar xxx cterm=nocombine ctermfg=12 gui=nocombine guifg=#465457
-  BufferLineDevIconSh                    { bg="#1d1d1d", fg="#666666", }, -- BufferLineDevIconSh xxx guifg=#666666 guibg=#1d1d1d
-  BufferLineDevIconVim                   { bg="#1d1d1d", }, -- BufferLineDevIconVim xxx guibg=#1d1d1d
-  BufferLineDevIconVimInactive           { bg="#1d1d1d", fg="#248546", }, -- BufferLineDevIconVimInactive xxx guifg=#248546 guibg=#1d1d1d
-  BufferLineHintSelected                 { bg="#1c1c1c", fg="#ffff00", gui="bold,italic", sp="#ffff00", }, -- BufferLineHintSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffff00 guibg=#1c1c1c guisp=#ffff00
-  BufferLineBuffer                       { bg="#1d1d1d", fg="#404040", }, -- BufferLineBuffer xxx guifg=#404040 guibg=#1d1d1d
-  BufferLineInfoDiagnosticSelected       { bg="#1c1c1c", fg="#81a2ac", gui="bold,italic", sp="#81a2ac", }, -- BufferLineInfoDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#81a2ac guibg=#1c1c1c guisp=#81a2ac
-  BufferLineHintDiagnostic               { bg="#1d1d1d", fg="#303030", sp="#bfbf00", }, -- BufferLineHintDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bfbf00
-  BufferLineCloseButtonSelected          { bg="#1c1c1c", fg="#ffffff", }, -- BufferLineCloseButtonSelected xxx guifg=#ffffff guibg=#1c1c1c
-  BufferLineError                        { bg="#1d1d1d", fg="#404040", sp="#ff0000", }, -- BufferLineError xxx guifg=#404040 guibg=#1d1d1d guisp=#ff0000
-  BufferLineHint                         { bg="#1d1d1d", fg="#404040", sp="#ffff00", }, -- BufferLineHint xxx guifg=#404040 guibg=#1d1d1d guisp=#ffff00
-  BufferLineOffsetSeparator              { bg="#0f0f0f", fg="#303030", }, -- BufferLineOffsetSeparator xxx guifg=#303030 guibg=#0f0f0f
-  BufferLinePickVisible                  { bg="#191919", fg="#ff0000", gui="bold,italic", }, -- BufferLinePickVisible xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#191919
-  BufferLinePickSelected                 { bg="#1c1c1c", fg="#ff0000", gui="bold,italic", }, -- BufferLinePickSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1c1c1c
-  BufferLineModified                     { bg="#1d1d1d", fg="#ffff00", }, -- BufferLineModified xxx guifg=#ffff00 guibg=#1d1d1d
-  BufferLineTabSeparatorSelected         { bg="#1c1c1c", fg="#0f0f0f", }, -- BufferLineTabSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
-  BufferLineTabSeparator                 { bg="#1d1d1d", fg="#0f0f0f", }, -- BufferLineTabSeparator xxx guifg=#0f0f0f guibg=#1d1d1d
-  BufferLineSeparatorVisible             { bg="#191919", fg="#0f0f0f", }, -- BufferLineSeparatorVisible xxx guifg=#0f0f0f guibg=#191919
-  BufferLineSeparatorSelected            { bg="#1c1c1c", fg="#0f0f0f", }, -- BufferLineSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
-  BufferLineDuplicate                    { bg="#1d1d1d", fg="#3c3c3c", gui="italic", }, -- BufferLineDuplicate xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#1d1d1d
-  BufferLineDuplicateVisible             { bg="#191919", fg="#3c3c3c", gui="italic", }, -- BufferLineDuplicateVisible xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#191919
-  BufferLineDuplicateSelected            { bg="#1c1c1c", fg="#3c3c3c", gui="italic", }, -- BufferLineDuplicateSelected xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#1c1c1c
-  BufferLineModifiedSelected             { bg="#1c1c1c", fg="#ffff00", }, -- BufferLineModifiedSelected xxx guifg=#ffff00 guibg=#1c1c1c
-  BufferLineModifiedVisible              { bg="#191919", fg="#ffff00", }, -- BufferLineModifiedVisible xxx guifg=#ffff00 guibg=#191919
-  BufferLineErrorDiagnosticSelected      { bg="#1c1c1c", fg="#bf0000", gui="bold,italic", sp="#bf0000", }, -- BufferLineErrorDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bf0000 guibg=#1c1c1c guisp=#bf0000
-  BufferLineErrorDiagnosticVisible       { bg="#191919", fg="#303030", }, -- BufferLineErrorDiagnosticVisible xxx guifg=#303030 guibg=#191919
-  BufferLineTab                          { bg="#1d1d1d", fg="#404040", }, -- BufferLineTab  xxx guifg=#404040 guibg=#1d1d1d
-  BufferLineErrorSelected                { bg="#1c1c1c", fg="#ff0000", gui="bold,italic", sp="#ff0000", }, -- BufferLineErrorSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1c1c1c guisp=#ff0000
-  BufferLineErrorVisible                 { bg="#191919", fg="#404040", }, -- BufferLineErrorVisible xxx guifg=#404040 guibg=#191919
-  BufferLineWarningDiagnosticSelected    { bg="#1c1c1c", fg="#bf7b00", gui="bold,italic", sp="#bf7b00", }, -- BufferLineWarningDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bf7b00 guibg=#1c1c1c guisp=#bf7b00
-  BufferLineWarningDiagnosticVisible     { bg="#191919", fg="#303030", }, -- BufferLineWarningDiagnosticVisible xxx guifg=#303030 guibg=#191919
-  BufferLineWarningDiagnostic            { bg="#1d1d1d", fg="#303030", sp="#bf7b00", }, -- BufferLineWarningDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf7b00
-  BufferLineWarningSelected              { bg="#1c1c1c", fg="#ffa500", gui="bold,italic", sp="#ffa500", }, -- BufferLineWarningSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffa500 guibg=#1c1c1c guisp=#ffa500
-  BufferLineWarningVisible               { bg="#191919", fg="#404040", }, -- BufferLineWarningVisible xxx guifg=#404040 guibg=#191919
-  BufferLineDiagnostic                   { bg="#1d1d1d", fg="#303030", }, -- BufferLineDiagnostic xxx guifg=#303030 guibg=#1d1d1d
-  BufferLineInfoDiagnosticVisible        { bg="#191919", fg="#303030", }, -- BufferLineInfoDiagnosticVisible xxx guifg=#303030 guibg=#191919
-  BufferLineInfoDiagnostic               { bg="#1d1d1d", fg="#303030", sp="#81a2ac", }, -- BufferLineInfoDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#81a2ac
-  BufferLineInfoSelected                 { bg="#1c1c1c", fg="#add8e6", gui="bold,italic", sp="#add8e6", }, -- BufferLineInfoSelected xxx cterm=bold,italic gui=bold,italic guifg=#add8e6 guibg=#1c1c1c guisp=#add8e6
-  BufferLineInfoVisible                  { bg="#191919", fg="#404040", }, -- BufferLineInfoVisible xxx guifg=#404040 guibg=#191919
-  BufferLineHintDiagnosticSelected       { bg="#1c1c1c", fg="#bfbf00", gui="bold,italic", sp="#bfbf00", }, -- BufferLineHintDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bfbf00 guibg=#1c1c1c guisp=#bfbf00
-  BufferLineHintDiagnosticVisible        { bg="#191919", fg="#303030", }, -- BufferLineHintDiagnosticVisible xxx guifg=#303030 guibg=#191919
-  BufferLinePick                         { bg="#1d1d1d", fg="#ff0000", gui="bold,italic", }, -- BufferLinePick xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1d1d1d
-  BufferLineInfo                         { bg="#1d1d1d", fg="#404040", sp="#add8e6", }, -- BufferLineInfo xxx guifg=#404040 guibg=#1d1d1d guisp=#add8e6
-  BufferLineHintVisible                  { bg="#191919", fg="#404040", }, -- BufferLineHintVisible xxx guifg=#404040 guibg=#191919
-  BufferLineDiagnosticSelected           { bg="#1c1c1c", fg="#bfbfbf", gui="bold,italic", }, -- BufferLineDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bfbfbf guibg=#1c1c1c
-  BufferLineDiagnosticVisible            { bg="#191919", fg="#303030", }, -- BufferLineDiagnosticVisible xxx guifg=#303030 guibg=#191919
-  BufferLineNumbersVisible               { bg="#191919", fg="#404040", }, -- BufferLineNumbersVisible xxx guifg=#404040 guibg=#191919
-  BufferLineNumbersSelected              { bg="#1c1c1c", fg="#ffffff", gui="bold,italic", }, -- BufferLineNumbersSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
-  BufferLineBufferVisible                { bg="#1d1d1d", fg="#404040", }, -- BufferLineBufferVisible xxx guifg=#404040 guibg=#1d1d1d
-  BufferLineCloseButtonVisible           { bg="#191919", fg="#404040", }, -- BufferLineCloseButtonVisible xxx guifg=#404040 guibg=#191919
-  BufferLineWarning                      { bg="#1d1d1d", fg="#404040", sp="#ffa500", }, -- BufferLineWarning xxx guifg=#404040 guibg=#1d1d1d guisp=#ffa500
-  BufferLineTabClose                     { bg="#1d1d1d", fg="#404040", }, -- BufferLineTabClose xxx guifg=#404040 guibg=#1d1d1d
-  BufferLineTabSelected                  { bg="#1c1c1c", fg="#66d9ef", }, -- BufferLineTabSelected xxx guifg=#66d9ef guibg=#1c1c1c
-  BufferLineGroupLabel                   { bg="#404040", fg="#0f0f0f", }, -- BufferLineGroupLabel xxx guifg=#0f0f0f guibg=#404040
-  BufferLineGroupSeparator               { bg="#0f0f0f", fg="#404040", }, -- BufferLineGroupSeparator xxx guifg=#404040 guibg=#0f0f0f
-  BufferLineErrorDiagnostic              { bg="#1d1d1d", fg="#303030", sp="#bf0000", }, -- BufferLineErrorDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf0000
-  BufferLineIndicatorVisible             { bg="#191919", fg="#191919", }, -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
-  BufferLineNumbers                      { bg="#1d1d1d", fg="#404040", }, -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
-  Stl2c2e33_222222__                     { fg="#838383", },
-}
+	local sym = injected_functions.sym
+	return {
+		Normal({ bg = "#1c1c1c", fg = "#cccccc" }), -- Normal         xxx guifg=#ffffff guibg=#1c1c1c
+		SpecialKey({ fg = "#465457", gui = "bold" }), -- SpecialKey     xxx gui=bold guifg=#465457
+		TermCursor({ gui = "reverse" }), -- TermCursor     xxx cterm=reverse gui=reverse
+		GitSignsChangeInline({ TermCursor }), -- GitSignsChangeInline xxx links to TermCursor
+		GitSignsDeleteInline({ TermCursor }), -- GitSignsDeleteInline xxx links to TermCursor
+		GitSignsAddInline({ TermCursor }), -- GitSignsAddInline xxx links to TermCursor
+		NonText({ fg = "#465457" }), -- NonText        xxx guifg=#465457
+		EndOfBuffer({ NonText }), -- EndOfBuffer    xxx links to NonText
+		Whitespace({ NonText }), -- Whitespace     xxx links to NonText
+		LspInlayHint({ NonText }), -- LspInlayHint   xxx links to NonText
+		GitSignsCurrentLineBlame({ NonText }), -- GitSignsCurrentLineBlame xxx links to NonText
+		TelescopePromptCounter({ NonText }), -- TelescopePromptCounter xxx links to NonText
+		Directory({ fg = "#b2b2b2" }), -- Directory      xxx ctermfg=14 guifg=#b2b2b2
+		StartupTimeTime({ Directory }), -- StartupTimeTime xxx links to Directory
+		pandocTitleBlockTitle({ Directory }), -- pandocTitleBlockTitle xxx links to Directory
+		ErrorMsg({ fg = "nvimlightred" }), -- ErrorMsg       xxx ctermfg=9 guifg=NvimLightRed
+		NvimInvalidSpacing({ ErrorMsg }), -- NvimInvalidSpacing xxx links to ErrorMsg
+		IncSearch({ bg = "#fed7e5", fg = "#f92672", gui = "bold" }), -- IncSearch      xxx gui=bold guifg=#f92672 guibg=#fed7e5
+		Search({ bg = "#ff2600", fg = "#ffffff", gui = "bold" }), -- Search         xxx ctermfg=0 ctermbg=11 gui=bold guifg=#ffffff guibg=#ff2600
+		Substitute({ Search }), -- Substitute     xxx links to Search
+		LspSignatureActiveParameter({ Search }), -- LspSignatureActiveParameter xxx links to Search
+		CurSearch({ bg = "nvimlightyellow", fg = "nvimdarkgrey1" }), -- CurSearch      xxx ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow
+		MoreMsg({ fg = "#e6db74" }), -- MoreMsg        xxx ctermfg=14 guifg=#e6db74
+		ModeMsg({ fg = "#e6db74" }), -- ModeMsg        xxx ctermfg=10 guifg=#e6db74
+		StartupTimeHeader({ ModeMsg }), -- StartupTimeHeader xxx links to ModeMsg
+		LineNr({ fg = "#303030" }), -- LineNr         xxx guifg=#303030
+		LineNrAbove({ LineNr }), -- LineNrAbove    xxx links to LineNr
+		LineNrBelow({ LineNr }), -- LineNrBelow    xxx links to LineNr
+		Quote({ LineNr }), -- Quote          xxx links to LineNr
+		Dash({ LineNr }), -- Dash           xxx links to LineNr
+		DoubleDash({ LineNr }), -- DoubleDash     xxx links to LineNr
+		CursorLineNr({ fg = "#00ccff", gui = "bold" }), -- CursorLineNr   xxx cterm=bold gui=bold guifg=#00ccff
+		MarkSignNumHL({ CursorLineNr }), -- MarkSignNumHL  xxx links to CursorLineNr
+		Question({ fg = "#66d9ef" }), -- Question       xxx ctermfg=14 guifg=#66d9ef
+		StatusLine({ bg = "#222222", fg = "#666666" }), -- StatusLine     xxx cterm=reverse guifg=NvimDarkGrey3 guibg=NvimLightGrey3
+		MsgSeparator({ StatusLine }), -- MsgSeparator   xxx links to StatusLine
+		StatusLineNC({ bg = "nvimdarkgrey3", fg = "nvimlightgrey3" }), -- StatusLineNC   xxx cterm=bold guifg=NvimLightGrey3 guibg=NvimDarkGrey3
+		VertSplit({ fg = "#303030", gui = "bold" }), -- VertSplit      xxx gui=bold guifg=#303030
+		Title({ fg = "#00cfff", gui = "bold" }), -- Title          xxx cterm=bold gui=bold guifg=#00cfff
+		FloatTitle({ Title }), -- FloatTitle     xxx links to Title
+		htmlTitle({ Title }), -- htmlTitle      xxx links to Title
+		htmlH1({ Title }), -- htmlH1         xxx links to Title
+		StartupTimeStartupValue({ Title }), -- StartupTimeStartupValue xxx links to Title
+		LspInfoTitle({ Title }), -- LspInfoTitle   xxx links to Title
+		pandocAtxHeader({ Title }), -- pandocAtxHeader xxx links to Title
+		pandocSetexHeader({ Title }), -- pandocSetexHeader xxx links to Title
+		rOTitleBlock({ Title }), -- rOTitleBlock   xxx links to Title
+		rOTitle({ Title }), -- rOTitle        xxx links to Title
+		Visual({ bg = "#303030", fg = "#007dff", gui = "bold" }), -- Visual         xxx ctermfg=0 ctermbg=15 gui=bold guifg=#007dff guibg=#303030
+		SnippetTabstop({ Visual }), -- SnippetTabstop xxx links to Visual
+		UfoPreviewCursorLine({ Visual }), -- UfoPreviewCursorLine xxx links to Visual
+		TSPlaygroundFocus({ Visual }), -- TSPlaygroundFocus xxx links to Visual
+		mkdLineBreak({ Visual }), -- mkdLineBreak   xxx links to Visual
+		WarningMsg({ bg = "#ffff00", fg = "#303030", gui = "bold" }), -- WarningMsg     xxx ctermfg=11 gui=bold guifg=#303030 guibg=#ffff00
+		WildMenu({ bg = "#000000", fg = "#66d9ef" }), -- WildMenu       xxx guifg=#66d9ef guibg=#000000
+		Folded({ bg = "#1e1e1e", fg = "#465457", gui = "bold,italic" }), -- Folded         xxx gui=bold,italic guifg=#465457 guibg=#1e1e1e
+		FoldColumn({ bg = "#1e1e1e", fg = "#465457", gui = "bold,italic" }), -- FoldColumn     xxx gui=bold,italic guifg=#465457 guibg=#1e1e1e
+		CursorLineFold({ FoldColumn }), -- CursorLineFold xxx links to FoldColumn
+		DiffAdd({ fg = "#b2ff59" }), -- DiffAdd        xxx ctermfg=0 ctermbg=10 guifg=#b2ff59
+		GitSignsAddPreview({ DiffAdd }), -- GitSignsAddPreview xxx links to DiffAdd
+		GitSignsAddLn({ DiffAdd }), -- GitSignsAddLn  xxx links to DiffAdd
+		DiffChange({ fg = "#e040fb" }), -- DiffChange     xxx guifg=#e040fb
+		GitSignsChangeLn({ DiffChange }), -- GitSignsChangeLn xxx links to DiffChange
+		DiffDelete({ fg = "#ff2600", gui = "bold" }), -- DiffDelete     xxx cterm=bold ctermfg=9 gui=bold guifg=#ff2600
+		GitSignsDeleteVirtLn({ DiffDelete }), -- GitSignsDeleteVirtLn xxx links to DiffDelete
+		GitSignsDeletePreview({ DiffDelete }), -- GitSignsDeletePreview xxx links to DiffDelete
+		DiffText({ bg = "nvimdarkcyan", fg = "nvimlightgrey1" }), -- DiffText       xxx ctermfg=0 ctermbg=14 guifg=NvimLightGrey1 guibg=NvimDarkCyan
+		Conceal({ fg = "#cfcfc2" }), -- Conceal        xxx guifg=#cfcfc2
+		SpellBad({ bg = "#f8f8f0", fg = "#171717", gui = "bold,undercurl", sp = "#ff0000" }), -- SpellBad       xxx cterm=undercurl gui=bold,undercurl guifg=#171717 guibg=#f8f8f0 guisp=#ff0000
+		SpellCap({ sp = "#7070f0", gui = "undercurl" }), -- SpellCap       xxx cterm=undercurl gui=undercurl guisp=#7070f0
+		SpellRare({ sp = "#ffffff", gui = "undercurl" }), -- SpellRare      xxx cterm=undercurl gui=undercurl guisp=#ffffff
+		SpellLocal({ sp = "#70f0f0", gui = "undercurl" }), -- SpellLocal     xxx cterm=undercurl gui=undercurl guisp=#70f0f0
+		Pmenu({ bg = "#303030", fg = "#efefef" }), -- Pmenu          xxx cterm=reverse guifg=#efefef guibg=#303030
+		PmenuKind({ Pmenu }), -- PmenuKind      xxx links to Pmenu
+		PmenuExtra({ Pmenu }), -- PmenuExtra     xxx links to Pmenu
+		PmenuSel({ bg = "#404040", blend = 0, fg = "#00ccff", gui = "bold" }), -- PmenuSel       xxx cterm=underline,reverse gui=bold guifg=#00ccff guibg=#404040 blend=0
+		PmenuKindSel({ PmenuSel }), -- PmenuKindSel   xxx links to PmenuSel
+		PmenuExtraSel({ PmenuSel }), -- PmenuExtraSel  xxx links to PmenuSel
+		TablineActive({ PmenuSel }), -- TablineActive  xxx links to PmenuSel
+		PmenuSbar({ bg = "#303030", fg = "#b2ff59" }), -- PmenuSbar      xxx guifg=#b2ff59 guibg=#303030
+		UfoPreviewSbar({ PmenuSbar }), -- UfoPreviewSbar xxx links to PmenuSbar
+		PmenuThumb({ bg = "#303030", fg = "#66d9ef" }), -- PmenuThumb     xxx guifg=#66d9ef guibg=#303030
+		UfoPreviewThumb({ PmenuThumb }), -- UfoPreviewThumb xxx links to PmenuThumb
+		TabLine({ bg = "#202020", fg = "#303030" }), -- TabLine        xxx guifg=#303030 guibg=#202020
+		TablineHidden({ TabLine }), -- TablineHidden  xxx links to TabLine
+		TabLineSel({ gui = "bold" }), -- TabLineSel     xxx cterm=bold gui=bold
+		TablineCurrent({ TabLineSel }), -- TablineCurrent xxx links to TabLineSel
+		TabLineFill({ bg = "#202020", fg = "#252525" }), -- TabLineFill    xxx guifg=#252525 guibg=#202020
+		CursorColumn({ bg = "#202020" }), -- CursorColumn   xxx guibg=#202020
+		CursorLine({ bg = "#202020" }), -- CursorLine     xxx guibg=#202020
+		UfoCursorFoldedLine({ CursorLine }), -- UfoCursorFoldedLine xxx links to CursorLine
+		LspReferenceText({ CursorLine }), -- LspReferenceText xxx links to CursorLine
+		ColorColumn({ bg = "#262626" }), -- ColorColumn    xxx cterm=reverse guibg=#262626
+		CodeBlock({ ColorColumn }), -- CodeBlock      xxx links to ColorColumn
+		MatchBackground({ ColorColumn }), -- MatchBackground xxx links to ColorColumn
+		Headline1({ fg = "#00CEFF", bg = "#002933", gui = "bold" }),
+		Headline2({ fg = "#6DD283", bg = "#023008", gui = "bold" }),
+		Headline3({ fg = "#fb967d", bg = "#6c0202", gui = "bold" }),
+		Headline({ ColorColumn }), -- Headline       xxx links to ColorColumn
+		QuickFixLine({ fg = "nvimlightcyan" }), -- QuickFixLine   xxx ctermfg=14 guifg=NvimLightCyan
+		AerialLine({ QuickFixLine }), -- AerialLine     xxx links to QuickFixLine
+		NormalFloat({ bg = "nvimdarkgrey1" }), -- NormalFloat    xxx guibg=NvimDarkGrey1
+		FloatBorder({ NormalFloat }), -- FloatBorder    xxx links to NormalFloat
+		DapUIFloatNormal({ NormalFloat }), -- DapUIFloatNormal xxx links to NormalFloat
+		WinBar({ bg = "nvimdarkgrey1", fg = "nvimlightgrey4", gui = "bold" }), -- WinBar         xxx cterm=bold gui=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+		WinBarNC({ bg = "nvimdarkgrey1", fg = "nvimlightgrey4" }), -- WinBarNC       xxx cterm=bold guifg=NvimLightGrey4 guibg=NvimDarkGrey1
+		Cursor({ bg = "fg", fg = "bg" }), -- Cursor         xxx guifg=bg guibg=fg
+		CursorIM({ Cursor }), -- CursorIM       xxx links to Cursor
+		RedrawDebugNormal({ gui = "reverse" }), -- RedrawDebugNormal xxx cterm=reverse gui=reverse
+		Underlined({ gui = "underline" }), -- Underlined     xxx cterm=underline gui=underline
+		sym("@string.special.url")({ Underlined }), -- @string.special.url xxx links to Underlined
+		texTitleArg({ Underlined }), -- texTitleArg    xxx links to Underlined
+		htmlLink({ Underlined }), -- htmlLink       xxx links to Underlined
+		pandocReferenceURL({ Underlined }), -- pandocReferenceURL xxx links to Underlined
+		pandocReferenceDefinitionAddress({ Underlined }), -- pandocReferenceDefinitionAddress xxx links to Underlined
+		pandocAutomaticLink({ Underlined }), -- pandocAutomaticLink xxx links to Underlined
+		lCursor({ bg = "fg", fg = "bg" }), -- lCursor        xxx guifg=bg guibg=fg
+		VisualNOS({ fg = "#007dff", gui = "bold" }), -- VisualNOS      xxx gui=bold guifg=#007dff
+		WinSeparator({ Normal }), -- WinSeparator   xxx links to Normal
+		NvimSpacing({ Normal }), -- NvimSpacing    xxx links to Normal
+		cssMediaComma({ Normal }), -- cssMediaComma  xxx links to Normal
+		dtdTag({ Normal }), -- dtdTag         xxx links to Normal
+		DapUIFrameName({ Normal }), -- DapUIFrameName xxx links to Normal
+		DapUIValue({ Normal }), -- DapUIValue     xxx links to Normal
+		DapUIVariable({ Normal }), -- DapUIVariable  xxx links to Normal
+		DapUINormal({ Normal }), -- DapUINormal    xxx links to Normal
+		CodeiumAnnotation({ Normal }), -- CodeiumAnnotation xxx links to Normal
+		NotifyBackground({ Normal }), -- NotifyBackground xxx links to Normal
+		NotifyTRACEBody({ Normal }), -- NotifyTRACEBody xxx links to Normal
+		NotifyDEBUGBody({ Normal }), -- NotifyDEBUGBody xxx links to Normal
+		NotifyINFOBody({ Normal }), -- NotifyINFOBody xxx links to Normal
+		NotifyWARNBody({ Normal }), -- NotifyWARNBody xxx links to Normal
+		NotifyERRORBody({ Normal }), -- NotifyERRORBody xxx links to Normal
+		StartupTimeStartupKey({ Normal }), -- StartupTimeStartupKey xxx links to Normal
+		StartupTimePlot({ Normal }), -- StartupTimePlot xxx links to Normal
+		TelescopeNormal({ Normal }), -- TelescopeNormal xxx links to Normal
+		rLstElmt({ Normal }), -- rLstElmt       xxx links to Normal
+		rNameWSpace({ Normal }), -- rNameWSpace    xxx links to Normal
+		Character({ fg = "#ffff00" }), -- Character      xxx guifg=#ffff00
+		sym("@character")({ Character }), -- @character     xxx links to Character
+		javaScriptCharacter({ Character }), -- javaScriptCharacter xxx links to Character
+		Constant({ fg = "#ae81ff", gui = "bold" }), -- Constant       xxx gui=bold guifg=#ae81ff
+		sym("@constant")({ Constant }), -- @constant      xxx links to Constant
+		yamlConstant({ Constant }), -- yamlConstant   xxx links to Constant
+		cssUnicodeRange({ Constant }), -- cssUnicodeRange xxx links to Constant
+		cssPseudoClassLang({ Constant }), -- cssPseudoClassLang xxx links to Constant
+		cssAttr({ Constant }), -- cssAttr        xxx links to Constant
+		cssKeyFrameProp({ Constant }), -- cssKeyFrameProp xxx links to Constant
+		cssFunction({ Constant }), -- cssFunction    xxx links to Constant
+		cssColor({ Constant }), -- cssColor       xxx links to Constant
+		vbDefine({ Constant }), -- vbDefine       xxx links to Constant
+		vbConst({ Constant }), -- vbConst        xxx links to Constant
+		dtdConstant({ Constant }), -- dtdConstant    xxx links to Constant
+		rConstant({ Constant }), -- rConstant      xxx links to Constant
+		pythonSingleton({ Constant }), -- pythonSingleton xxx links to Constant
+		Number({ fg = "#ff0080" }), -- Number         xxx guifg=#ff0080
+		NvimNumber({ Number }), -- NvimNumber     xxx links to Number
+		TelescopeResultsNumber({ Number }), -- TelescopeResultsNumber xxx links to Number
+		javaScriptNumber({ Number }), -- javaScriptNumber xxx links to Number
+		vbNumber({ Number }), -- vbNumber       xxx links to Number
+		cssUnitDecorators({ Number }), -- cssUnitDecorators xxx links to Number
+		cssValueInteger({ Number }), -- cssValueInteger xxx links to Number
+		cssValueNumber({ Number }), -- cssValueNumber xxx links to Number
+		cssValueLength({ Number }), -- cssValueLength xxx links to Number
+		cssValueAngle({ Number }), -- cssValueAngle  xxx links to Number
+		cssValueTime({ Number }), -- cssValueTime   xxx links to Number
+		cssValueFrequency({ Number }), -- cssValueFrequency xxx links to Number
+		VimtexTocNum({ Number }), -- VimtexTocNum   xxx links to Number
+		VimtexTocIncl({ Number }), -- VimtexTocIncl  xxx links to Number
+		texLength({ Number }), -- texLength      xxx links to Number
+		yamlYAMLVersion({ Number }), -- yamlYAMLVersion xxx links to Number
+		yamlTimestamp({ Number }), -- yamlTimestamp  xxx links to Number
+		yamlInteger({ Number }), -- yamlInteger    xxx links to Number
+		rNumber({ Number }), -- rNumber        xxx links to Number
+		rInteger({ Number }), -- rInteger       xxx links to Number
+		rComplex({ Number }), -- rComplex       xxx links to Number
+		pythonNumber({ Number }), -- pythonNumber   xxx links to Number
+		pythonHexNumber({ Number }), -- pythonHexNumber xxx links to Number
+		pythonOctNumber({ Number }), -- pythonOctNumber xxx links to Number
+		pythonBinNumber({ Number }), -- pythonBinNumber xxx links to Number
+		Boolean({ fg = "#0184bc" }), -- Boolean        xxx guifg=#0184bc
+		sym("@boolean")({ Boolean }), -- @boolean       xxx links to Boolean
+		javaScriptBoolean({ Boolean }), -- javaScriptBoolean xxx links to Boolean
+		vbBoolean({ Boolean }), -- vbBoolean      xxx links to Boolean
+		rBoolean({ Boolean }), -- rBoolean       xxx links to Boolean
+		pythonSpecial({ Boolean }), -- pythonSpecial  xxx links to Boolean
+		Float({ fg = "#ae81ff" }), -- Float          xxx guifg=#ae81ff
+		vbFloat({ Float }), -- vbFloat        xxx links to Float
+		yamlFloat({ Float }), -- yamlFloat      xxx links to Float
+		rFloat({ Float }), -- rFloat         xxx links to Float
+		pythonFloat({ Float }), -- pythonFloat    xxx links to Float
+		Conditional({ fg = "#f92672", gui = "bold" }), -- Conditional    xxx gui=bold guifg=#f92672
+		javaScriptConditional({ Conditional }), -- javaScriptConditional xxx links to Conditional
+		javaScriptBranch({ Conditional }), -- javaScriptBranch xxx links to Conditional
+		vbConditional({ Conditional }), -- vbConditional  xxx links to Conditional
+		rConditional({ Conditional }), -- rConditional   xxx links to Conditional
+		pythonConditional({ Conditional }), -- pythonConditional xxx links to Conditional
+		Statement({ fg = "#f92672", gui = "bold" }), -- Statement      xxx cterm=bold gui=bold guifg=#f92672
+		texCmd({ Statement }), -- texCmd         xxx links to Statement
+		htmlStatement({ Statement }), -- htmlStatement  xxx links to Statement
+		cssAtRuleLogical({ Statement }), -- cssAtRuleLogical xxx links to Statement
+		cssTagName({ Statement }), -- cssTagName     xxx links to Statement
+		vbKeyword({ Statement }), -- vbKeyword      xxx links to Statement
+		vbStatement({ Statement }), -- vbStatement    xxx links to Statement
+		javaScriptStatement({ Statement }), -- javaScriptStatement xxx links to Statement
+		dtdEntity({ Statement }), -- dtdEntity      xxx links to Statement
+		dtdTagName({ Statement }), -- dtdTagName     xxx links to Statement
+		xmlDocTypeKeyword({ Statement }), -- xmlDocTypeKeyword xxx links to Statement
+		xmlCdataCdata({ Statement }), -- xmlCdataCdata  xxx links to Statement
+		xmlEntity({ Statement }), -- xmlEntity      xxx links to Statement
+		rStatement({ Statement }), -- rStatement     xxx links to Statement
+		rAssign({ Statement }), -- rAssign        xxx links to Statement
+		pythonStatement({ Statement }), -- pythonStatement xxx links to Statement
+		pythonRaiseFromStatement({ Statement }), -- pythonRaiseFromStatement xxx links to Statement
+		Repeat({ fg = "#f92672", gui = "bold" }), -- Repeat         xxx gui=bold guifg=#f92672
+		javaScriptRepeat({ Repeat }), -- javaScriptRepeat xxx links to Repeat
+		vbRepeat({ Repeat }), -- vbRepeat       xxx links to Repeat
+		rRepeat({ Repeat }), -- rRepeat        xxx links to Repeat
+		Label({ fg = "#ffff00" }), -- Label          xxx guifg=#ffff00
+		sym("@label")({ Label }), -- @label         xxx links to Label
+		LspInfoBorder({ Label }), -- LspInfoBorder  xxx links to Label
+		javaScriptLabel({ Label }), -- javaScriptLabel xxx links to Label
+		javaScriptConstant({ Label }), -- javaScriptConstant xxx links to Label
+		pandocReferenceLabel({ Label }), -- pandocReferenceLabel xxx links to Label
+		pandocReferenceDefinitionLabel({ Label }), -- pandocReferenceDefinitionLabel xxx links to Label
+		pandocCiteKey({ Label }), -- pandocCiteKey  xxx links to Label
+		pandocAbbreviation({ Label }), -- pandocAbbreviation xxx links to Label
+		pandocFootnoteID({ Label }), -- pandocFootnoteID xxx links to Label
+		yamlBlockCollectionItemStart({ Label }), -- yamlBlockCollectionItemStart xxx links to Label
+		NullLsInfoHeader({ Label }), -- NullLsInfoHeader xxx links to Label
+		Keyword({ fg = "#65d8ee", gui = "bold" }), -- Keyword        xxx gui=bold guifg=#65d8ee
+		sym("@keyword")({ Keyword }), -- @keyword       xxx links to Keyword
+		yamlDirectiveName({ Keyword }), -- yamlDirectiveName xxx links to Keyword
+		javaScriptReserved({ Keyword }), -- javaScriptReserved xxx links to Keyword
+		javaScriptMember({ Keyword }), -- javaScriptMember xxx links to Keyword
+		javaScriptGlobal({ Keyword }), -- javaScriptGlobal xxx links to Keyword
+		javaScriptMessage({ Keyword }), -- javaScriptMessage xxx links to Keyword
+		javaScriptNull({ Keyword }), -- javaScriptNull xxx links to Keyword
+		Exception({ fg = "#fd971f", gui = "bold" }), -- Exception      xxx gui=bold guifg=#fd971f
+		htmlSpecialTagName({ Exception }), -- htmlSpecialTagName xxx links to Exception
+		javaScriptException({ Exception }), -- javaScriptException xxx links to Exception
+		javaScriptDeprecated({ Exception }), -- javaScriptDeprecated xxx links to Exception
+		pythonException({ Exception }), -- pythonException xxx links to Exception
+		PreProc({ fg = "#d3ff00" }), -- PreProc        xxx guifg=#d3ff00
+		Include({ PreProc }), -- Include        xxx links to PreProc
+		yamlDocumentEnd({ PreProc }), -- yamlDocumentEnd xxx links to PreProc
+		yamlDocumentStart({ PreProc }), -- yamlDocumentStart xxx links to PreProc
+		cssAtKeyword({ PreProc }), -- cssAtKeyword   xxx links to PreProc
+		cssPseudoClassId({ PreProc }), -- cssPseudoClassId xxx links to PreProc
+		vbPreProc({ PreProc }), -- vbPreProc      xxx links to PreProc
+		vbMethods({ PreProc }), -- vbMethods      xxx links to PreProc
+		htmlHead({ PreProc }), -- htmlHead       xxx links to PreProc
+		htmlPreProcAttrName({ PreProc }), -- htmlPreProcAttrName xxx links to PreProc
+		htmlPreProc({ PreProc }), -- htmlPreProc    xxx links to PreProc
+		htmlPreStmt({ PreProc }), -- htmlPreStmt    xxx links to PreProc
+		cssPagePseudo({ PreProc }), -- cssPagePseudo  xxx links to PreProc
+		rPreProc({ PreProc }), -- rPreProc       xxx links to PreProc
+		rhPreProc({ PreProc }), -- rhPreProc      xxx links to PreProc
+		pythonImport({ PreProc }), -- pythonImport   xxx links to PreProc
+		pythonBracketsi({ PreProc }), -- pythonBracketsi xxx links to PreProc
+		pythonAs({ PreProc }), -- pythonAs       xxx links to PreProc
+		pythonStringModifier({ PreProc }), -- pythonStringModifier xxx links to PreProc
+		Define({ fg = "#ff0080", gui = "bold" }), -- Define         xxx gui=bold guifg=#ff0080
+		Macro({ fg = "#87ff00", gui = "bold" }), -- Macro          xxx gui=bold guifg=#87ff00
+		sym("@attribute")({ Macro }), -- @attribute     xxx links to Macro
+		PreCondit({ fg = "#fd971f", gui = "bold" }), -- PreCondit      xxx gui=bold guifg=#fd971f
+		texZone({ PreCondit }), -- texZone        xxx links to PreCondit
+		rhSection({ PreCondit }), -- rhSection      xxx links to PreCondit
+		StorageClass({ fg = "#87ff00", gui = "italic" }), -- StorageClass   xxx gui=italic guifg=#87ff00
+		cssProp({ StorageClass }), -- cssProp        xxx links to StorageClass
+		Type({ fg = "#66d9ef" }), -- Type           xxx guifg=#66d9ef
+		sym("@type")({ Type }), -- @type          xxx links to Type
+		NvimNumberPrefix({ Type }), -- NvimNumberPrefix xxx links to Type
+		NvimOptionSigil({ Type }), -- NvimOptionSigil xxx links to Type
+		texCmdType({ Type }), -- texCmdType     xxx links to Type
+		yamlAnchor({ Type }), -- yamlAnchor     xxx links to Type
+		yamlNodeTag({ Type }), -- yamlNodeTag    xxx links to Type
+		htmlArg({ Type }), -- htmlArg        xxx links to Type
+		xmlCdataEnd({ Type }), -- xmlCdataEnd    xxx links to Type
+		xmlCdataStart({ Type }), -- xmlCdataStart  xxx links to Type
+		xmlProcessing({ Type }), -- xmlProcessing  xxx links to Type
+		xmlAttrib({ Type }), -- xmlAttrib      xxx links to Type
+		texMathDelim({ Type }), -- texMathDelim   xxx links to Type
+		yamlAlias({ Type }), -- yamlAlias      xxx links to Type
+		dtdType({ Type }), -- dtdType        xxx links to Type
+		xmlEntityPunct({ Type }), -- xmlEntityPunct xxx links to Type
+		vbTypes({ Type }), -- vbTypes        xxx links to Type
+		vbTypeSpecifier({ Type }), -- vbTypeSpecifier xxx links to Type
+		javaScriptType({ Type }), -- javaScriptType xxx links to Type
+		StartupTimeSourcingEvent({ Type }), -- StartupTimeSourcingEvent xxx links to Type
+		LspInfoFiletype({ Type }), -- LspInfoFiletype xxx links to Type
+		pandocAbbreviationHead({ Type }), -- pandocAbbreviationHead xxx links to Type
+		pandocAbbreviationTail({ Type }), -- pandocAbbreviationTail xxx links to Type
+		pandocFootnoteDefHead({ Type }), -- pandocFootnoteDefHead xxx links to Type
+		pandocFootnoteDefTail({ Type }), -- pandocFootnoteDefTail xxx links to Type
+		pandocFootnoteIDHead({ Type }), -- pandocFootnoteIDHead xxx links to Type
+		pandocFootnoteIDTail({ Type }), -- pandocFootnoteIDTail xxx links to Type
+		rType({ Type }), -- rType          xxx links to Type
+		pythonDecorator({ Type }), -- pythonDecorator xxx links to Type
+		Structure({ fg = "#70f0f0" }), -- Structure      xxx guifg=#70f0f0
+		sym("@module")({ Structure }), -- @module        xxx links to Structure
+		pythonExClass({ Structure }), -- pythonExClass  xxx links to Structure
+		pythonClass({ Structure }), -- pythonClass    xxx links to Structure
+		pythonBuiltinType({ Structure }), -- pythonBuiltinType xxx links to Structure
+		Typedef({ fg = "#007dff" }), -- Typedef        xxx guifg=#007dff
+		Tag({ fg = "#f92672", gui = "italic" }), -- Tag            xxx gui=italic guifg=#f92672
+		sym("@tag")({ Tag }), -- @tag           xxx links to Tag
+		xmlNamespace({ Tag }), -- xmlNamespace   xxx links to Tag
+		Special({ fg = "#448aff", gui = "bold" }), -- Special        xxx ctermfg=14 gui=bold guifg=#448aff
+		sym("@module.builtin")({ Special }), -- @module.builtin xxx links to Special
+		sym("@type.builtin")({ Special }), -- @type.builtin  xxx links to Special
+		sym("@constructor")({ Special }), -- @constructor   xxx links to Special
+		sym("@punctuation.special")({ Special }), -- @punctuation.special xxx links to Special
+		sym("@markup")({ Special }), -- @markup        xxx links to Special
+		javaScript({ Special }), -- javaScript     xxx links to Special
+		htmlCssDefinition({ Special }), -- htmlCssDefinition xxx links to Special
+		htmlSpecialChar({ Special }), -- htmlSpecialChar xxx links to Special
+		texParm({ Special }), -- texParm        xxx links to Special
+		texMathZone({ Special }), -- texMathZone    xxx links to Special
+		texRefArg({ Special }), -- texRefArg      xxx links to Special
+		texCmdSpaceCodeChar({ Special }), -- texCmdSpaceCodeChar xxx links to Special
+		yamlBlockMappingMerge({ Special }), -- yamlBlockMappingMerge xxx links to Special
+		yamlFlowIndicator({ Special }), -- yamlFlowIndicator xxx links to Special
+		yamlMappingKeyStart({ Special }), -- yamlMappingKeyStart xxx links to Special
+		yamlFlowMappingMerge({ Special }), -- yamlFlowMappingMerge xxx links to Special
+		yamlKeyValueDelimiter({ Special }), -- yamlKeyValueDelimiter xxx links to Special
+		cssFontDescriptor({ Special }), -- cssFontDescriptor xxx links to Special
+		cssMediaType({ Special }), -- cssMediaType   xxx links to Special
+		cssAttrComma({ Special }), -- cssAttrComma   xxx links to Special
+		cssCustomProp({ Special }), -- cssCustomProp  xxx links to Special
+		cssImportant({ Special }), -- cssImportant   xxx links to Special
+		cssUnicodeEscape({ Special }), -- cssUnicodeEscape xxx links to Special
+		cssSelectorOp2({ Special }), -- cssSelectorOp2 xxx links to Special
+		cssSelectorOp({ Special }), -- cssSelectorOp  xxx links to Special
+		vbEvents({ Special }), -- vbEvents       xxx links to Special
+		javaScriptEmbed({ Special }), -- javaScriptEmbed xxx links to Special
+		javaScriptSpecial({ Special }), -- javaScriptSpecial xxx links to Special
+		NotifyLogTitle({ Special }), -- NotifyLogTitle xxx links to Special
+		StartupTimePercent({ Special }), -- StartupTimePercent xxx links to Special
+		pandocAmpersandEscape({ Special }), -- pandocAmpersandEscape xxx links to Special
+		pandocDelimitedCodeBlock({ Special }), -- pandocDelimitedCodeBlock xxx links to Special
+		pythonRun({ Special }), -- pythonRun      xxx links to Special
+		pythonCoding({ Special }), -- pythonCoding   xxx links to Special
+		pythonBytesEscape({ Special }), -- pythonBytesEscape xxx links to Special
+		pythonUniEscape({ Special }), -- pythonUniEscape xxx links to Special
+		pythonDocTest2({ Special }), -- pythonDocTest2 xxx links to Special
+		pythonDocTest({ Special }), -- pythonDocTest  xxx links to Special
+		pythonRawEscape({ Special }), -- pythonRawEscape xxx links to Special
+		pythonStrFormatting({ Special }), -- pythonStrFormatting xxx links to Special
+		pythonStrFormat({ Special }), -- pythonStrFormat xxx links to Special
+		pythonStrTemplate({ Special }), -- pythonStrTemplate xxx links to Special
+		SpecialChar({ fg = "#f92672", gui = "bold" }), -- SpecialChar    xxx gui=bold guifg=#f92672
+		NvimRegister({ SpecialChar }), -- NvimRegister   xxx links to SpecialChar
+		NvimStringSpecial({ SpecialChar }), -- NvimStringSpecial xxx links to SpecialChar
+		TelescopeResultsVariable({ SpecialChar }), -- TelescopeResultsVariable xxx links to SpecialChar
+		texSpecialChar({ SpecialChar }), -- texSpecialChar xxx links to SpecialChar
+		texSymbol({ SpecialChar }), -- texSymbol      xxx links to SpecialChar
+		yamlEscape({ SpecialChar }), -- yamlEscape     xxx links to SpecialChar
+		yamlSingleEscape({ SpecialChar }), -- yamlSingleEscape xxx links to SpecialChar
+		rSpecial({ SpecialChar }), -- rSpecial       xxx links to SpecialChar
+		rDollar({ SpecialChar }), -- rDollar        xxx links to SpecialChar
+		SpecialComment({ fg = "#465457", gui = "bold,italic" }), -- SpecialComment xxx gui=bold,italic guifg=#465457
+		TelescopeResultsSpecialComment({ SpecialComment }), -- TelescopeResultsSpecialComment xxx links to SpecialComment
+		rTodoInfo({ SpecialComment }), -- rTodoInfo      xxx links to SpecialComment
+		rOExamples({ SpecialComment }), -- rOExamples     xxx links to SpecialComment
+		Debug({ fg = "#bca3a3", gui = "bold" }), -- Debug          xxx gui=bold guifg=#bca3a3
+		javaScriptDebug({ Debug }), -- javaScriptDebug xxx links to Debug
+		Ignore({ bg = "bg", fg = "#808080" }), -- Ignore         xxx guifg=#808080 guibg=bg
+		DiagnosticError({ fg = "nvimlightred" }), -- DiagnosticError xxx ctermfg=9 guifg=NvimLightRed
+		DiagnosticFloatingError({ DiagnosticError }), -- DiagnosticFloatingError xxx links to DiagnosticError
+		DiagnosticVirtualTextError({ DiagnosticError }), -- DiagnosticVirtualTextError xxx links to DiagnosticError
+		DiagnosticSignError({ DiagnosticError }), -- DiagnosticSignError xxx links to DiagnosticError
+		sym("@comment.error")({ DiagnosticError }), -- @comment.error xxx links to DiagnosticError
+		DiagnosticWarn({ fg = "nvimlightyellow" }), -- DiagnosticWarn xxx ctermfg=11 guifg=NvimLightYellow
+		DiagnosticFloatingWarn({ DiagnosticWarn }), -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
+		DiagnosticVirtualTextWarn({ DiagnosticWarn }), -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
+		DiagnosticSignWarn({ DiagnosticWarn }), -- DiagnosticSignWarn xxx links to DiagnosticWarn
+		sym("@comment.warning")({ DiagnosticWarn }), -- @comment.warning xxx links to DiagnosticWarn
+		DiagnosticInfo({ fg = "nvimlightcyan" }), -- DiagnosticInfo xxx ctermfg=14 guifg=NvimLightCyan
+		DiagnosticFloatingInfo({ DiagnosticInfo }), -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
+		DiagnosticVirtualTextInfo({ DiagnosticInfo }), -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
+		DiagnosticSignInfo({ DiagnosticInfo }), -- DiagnosticSignInfo xxx links to DiagnosticInfo
+		sym("@comment.note")({ DiagnosticInfo }), -- @comment.note  xxx links to DiagnosticInfo
+		DiagnosticHint({ fg = "#ffff00" }), -- DiagnosticHint xxx ctermfg=12 guifg=#ffff00
+		DiagnosticFloatingHint({ DiagnosticHint }), -- DiagnosticFloatingHint xxx links to DiagnosticHint
+		DiagnosticVirtualTextHint({ DiagnosticHint }), -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
+		DiagnosticSignHint({ DiagnosticHint }), -- DiagnosticSignHint xxx links to DiagnosticHint
+		DiagnosticOk({ fg = "nvimlightgreen" }), -- DiagnosticOk   xxx ctermfg=10 guifg=NvimLightGreen
+		DiagnosticFloatingOk({ DiagnosticOk }), -- DiagnosticFloatingOk xxx links to DiagnosticOk
+		DiagnosticVirtualTextOk({ DiagnosticOk }), -- DiagnosticVirtualTextOk xxx links to DiagnosticOk
+		DiagnosticSignOk({ DiagnosticOk }), -- DiagnosticSignOk xxx links to DiagnosticOk
+		Comment({ fg = "#404040" }), -- Comment        xxx guifg=#404040
+		DiagnosticUnnecessary({ Comment }), -- DiagnosticUnnecessary xxx links to Comment
+		sym("@comment")({ Comment }), -- @comment       xxx links to Comment
+		UfoFoldedEllipsis({ Comment }), -- UfoFoldedEllipsis xxx links to Comment
+		texComment({ Comment }), -- texComment     xxx links to Comment
+		yamlComment({ Comment }), -- yamlComment    xxx links to Comment
+		cssHacks({ Comment }), -- cssHacks       xxx links to Comment
+		cssVendor({ Comment }), -- cssVendor      xxx links to Comment
+		cssComment({ Comment }), -- cssComment     xxx links to Comment
+		vbLineNumber({ Comment }), -- vbLineNumber   xxx links to Comment
+		vbLineLabel({ Comment }), -- vbLineLabel    xxx links to Comment
+		vbComment({ Comment }), -- vbComment      xxx links to Comment
+		htmlCssStyleComment({ Comment }), -- htmlCssStyleComment xxx links to Comment
+		javaScriptComment({ Comment }), -- javaScriptComment xxx links to Comment
+		javaScriptLineComment({ Comment }), -- javaScriptLineComment xxx links to Comment
+		htmlComment({ Comment }), -- htmlComment    xxx links to Comment
+		dtdComment({ Comment }), -- dtdComment     xxx links to Comment
+		xmlProcessingDelim({ Comment }), -- xmlProcessingDelim xxx links to Comment
+		xmlCommentPart({ Comment }), -- xmlCommentPart xxx links to Comment
+		xmlComment({ Comment }), -- xmlComment     xxx links to Comment
+		xmlAttribPunct({ Comment }), -- xmlAttribPunct xxx links to Comment
+		MarkVirtTextHL({ Comment }), -- MarkVirtTextHL xxx links to Comment
+		mkdFootnote({ Comment }), -- mkdFootnote    xxx links to Comment
+		mkdBlockquote({ Comment }), -- mkdBlockquote  xxx links to Comment
+		NotifyLogTime({ Comment }), -- NotifyLogTime  xxx links to Comment
+		pandocHTMLComment({ Comment }), -- pandocHTMLComment xxx links to Comment
+		pandocBlockQuote({ Comment }), -- pandocBlockQuote xxx links to Comment
+		pandocBlockQuoteMark({ Comment }), -- pandocBlockQuoteMark xxx links to Comment
+		pandocNoFormattedAttrs({ Comment }), -- pandocNoFormattedAttrs xxx links to Comment
+		pandocHeaderAttr({ Comment }), -- pandocHeaderAttr xxx links to Comment
+		pandocDelimitedCodeBlockLanguage({ Comment }), -- pandocDelimitedCodeBlockLanguage xxx links to Comment
+		pandocAbbreviationDefinition({ Comment }), -- pandocAbbreviationDefinition xxx links to Comment
+		pandocFootnoteDef({ Comment }), -- pandocFootnoteDef xxx links to Comment
+		pandocFootnoteBlock({ Comment }), -- pandocFootnoteBlock xxx links to Comment
+		rTodoParen({ Comment }), -- rTodoParen     xxx links to Comment
+		rComment({ Comment }), -- rComment       xxx links to Comment
+		rOCommentKey({ Comment }), -- rOCommentKey   xxx links to Comment
+		rOR6Block({ Comment }), -- rOR6Block      xxx links to Comment
+		rOBlock({ Comment }), -- rOBlock        xxx links to Comment
+		rOBlockNoTitle({ Comment }), -- rOBlockNoTitle xxx links to Comment
+		sym("@variable")({ fg = "#b7bfcd" }), -- @variable      xxx guifg=#b7bfcd
+		sym("@variable.builtin")({ fg = "#f39cf4", gui = "bold" }), -- @variable.builtin xxx gui=bold guifg=#f39cf4
+		String({ fg = "#d3ff3b" }), -- String         xxx links to Constant
+		sym("@string")({ String }), -- @string        xxx links to String
+		NvimString({ String }), -- NvimString     xxx links to String
+		mkdCode({ String }), -- mkdCode        xxx links to String
+		TelescopePreviewSize({ String }), -- TelescopePreviewSize xxx links to String
+		TelescopePreviewExecute({ String }), -- TelescopePreviewExecute xxx links to String
+		xmlString({ String }), -- xmlString      xxx links to String
+		xmlCdata({ String }), -- xmlCdata       xxx links to String
+		htmlString({ String }), -- htmlString     xxx links to String
+		htmlValue({ String }), -- htmlValue      xxx links to String
+		htmlPreAttr({ String }), -- htmlPreAttr    xxx links to String
+		javaScriptStringD({ String }), -- javaScriptStringD xxx links to String
+		javaScriptStringS({ String }), -- javaScriptStringS xxx links to String
+		javaScriptStringT({ String }), -- javaScriptStringT xxx links to String
+		javaScriptRegexpString({ String }), -- javaScriptRegexpString xxx links to String
+		vbString({ String }), -- vbString       xxx links to String
+		cssStringQ({ String }), -- cssStringQ     xxx links to String
+		cssStringQQ({ String }), -- cssStringQQ    xxx links to String
+		cssAttributeSelector({ String }), -- cssAttributeSelector xxx links to String
+		cssURL({ String }), -- cssURL         xxx links to String
+		VimtexTocLabelsTab({ String }), -- VimtexTocLabelsTab xxx links to String
+		texPartArgTitle({ String }), -- texPartArgTitle xxx links to String
+		pandocNoFormatted({ String }), -- pandocNoFormatted xxx links to String
+		pandocCodeBlockInsideIndent({ String }), -- pandocCodeBlockInsideIndent xxx links to String
+		pandocCodePre({ String }), -- pandocCodePre  xxx links to String
+		yamlTagHandle({ String }), -- yamlTagHandle  xxx links to String
+		yamlTagPrefix({ String }), -- yamlTagPrefix  xxx links to String
+		yamlString({ String }), -- yamlString     xxx links to String
+		rString({ String }), -- rString        xxx links to String
+		rRawString({ String }), -- rRawString     xxx links to String
+		pythonString({ String }), -- pythonString   xxx links to String
+		pythonRawString({ String }), -- pythonRawString xxx links to String
+		pythonRawFString({ String }), -- pythonRawFString xxx links to String
+		pythonBytes({ String }), -- pythonBytes    xxx links to String
+		pythonBytesContent({ String }), -- pythonBytesContent xxx links to String
+		pythonRawBytes({ String }), -- pythonRawBytes xxx links to String
+		quartoShortarg({ String }), -- quartoShortarg xxx links to String
+		TSPlaygroundLang({ String }), -- TSPlaygroundLang xxx links to String
+		mkdCodeDelimiter({ String }), -- mkdCodeDelimiter xxx links to String
+		mkdString({ String }), -- mkdString      xxx links to String
+		mkdCodeStart({ String }), -- mkdCodeStart   xxx links to String
+		mkdCodeEnd({ String }), -- mkdCodeEnd     xxx links to String
+		sym("@number")({ fg = "#69f0ae" }), -- @number        xxx guifg=#69f0ae
+		Identifier({ fg = "#ff4081", gui = "bold" }), -- Identifier     xxx ctermfg=12 gui=bold guifg=#ff4081
+		sym("@property")({ Identifier }), -- @property      xxx links to Identifier
+		NvimIdentifier({ Identifier }), -- NvimIdentifier xxx links to Identifier
+		texOpt({ Identifier }), -- texOpt         xxx links to Identifier
+		yamlBlockMappingKey({ Identifier }), -- yamlBlockMappingKey xxx links to Identifier
+		yamlFlowMappingKey({ Identifier }), -- yamlFlowMappingKey xxx links to Identifier
+		vbIdentifier({ Identifier }), -- vbIdentifier   xxx links to Identifier
+		vbFunction({ Identifier }), -- vbFunction     xxx links to Identifier
+		javaScriptIdentifier({ Identifier }), -- javaScriptIdentifier xxx links to Identifier
+		htmlEndTag({ Identifier }), -- htmlEndTag     xxx links to Identifier
+		xmlEndTag({ Identifier }), -- xmlEndTag      xxx links to Identifier
+		MarkSignHL({ Identifier }), -- MarkSignHL     xxx links to Identifier
+		mkdRule({ Identifier }), -- mkdRule        xxx links to Identifier
+		mkdListItem({ Identifier }), -- mkdListItem    xxx links to Identifier
+		mkdID({ Identifier }), -- mkdID          xxx links to Identifier
+		StartupTimeOtherEvent({ Identifier }), -- StartupTimeOtherEvent xxx links to Identifier
+		pandocLinkTip({ Identifier }), -- pandocLinkTip  xxx links to Identifier
+		pandocReferenceDefinitionTip({ Identifier }), -- pandocReferenceDefinitionTip xxx links to Identifier
+		pandocHeaderID({ Identifier }), -- pandocHeaderID xxx links to Identifier
+		pandocAbbreviationSeparator({ Identifier }), -- pandocAbbreviationSeparator xxx links to Identifier
+		pandocListItemBulletId({ Identifier }), -- pandocListItemBulletId xxx links to Identifier
+		pandocDefinitionBlockTerm({ Identifier }), -- pandocDefinitionBlockTerm xxx links to Identifier
+		rHelpIdent({ Identifier }), -- rHelpIdent     xxx links to Identifier
+		pythonClassVar({ Identifier }), -- pythonClassVar xxx links to Identifier
+		mkdListItemCheckbox({ Identifier }), -- mkdListItemCheckbox xxx links to Identifier
+		Function({ fg = "#63ff51" }), -- Function       xxx ctermfg=14 guifg=#63ff51
+		sym("@function")({ Function }), -- @function      xxx links to Function
+		LspInfoList({ Function }), -- LspInfoList    xxx links to Function
+		TelescopeResultsClass({ Function }), -- TelescopeResultsClass xxx links to Function
+		TelescopeResultsFunction({ Function }), -- TelescopeResultsFunction xxx links to Function
+		TelescopeResultsField({ Function }), -- TelescopeResultsField xxx links to Function
+		xmlTagName({ Function }), -- xmlTagName     xxx links to Function
+		xmlTag({ Function }), -- xmlTag         xxx links to Function
+		xmlInlineDTD({ Function }), -- xmlInlineDTD   xxx links to Function
+		xmlDocTypeDecl({ Function }), -- xmlDocTypeDecl xxx links to Function
+		dtdFunction({ Function }), -- dtdFunction    xxx links to Function
+		htmlTag({ Function }), -- htmlTag        xxx links to Function
+		javaScriptFunction({ Function }), -- javaScriptFunction xxx links to Function
+		javaScriptBraces({ Function }), -- javaScriptBraces xxx links to Function
+		cssClassNameDot({ Function }), -- cssClassNameDot xxx links to Function
+		cssClassName({ Function }), -- cssClassName   xxx links to Function
+		cssIdentifier({ Function }), -- cssIdentifier  xxx links to Function
+		cssFunctionName({ Function }), -- cssFunctionName xxx links to Function
+		cssFunctionComma({ Function }), -- cssFunctionComma xxx links to Function
+		cssBraces({ Function }), -- cssBraces      xxx links to Function
+		rFunction({ Function }), -- rFunction      xxx links to Function
+		rSpaceFun({ Function }), -- rSpaceFun      xxx links to Function
+		pythonBuiltinFunc({ Function }), -- pythonBuiltinFunc xxx links to Function
+		pythonFunctionCall({ Function }), -- pythonFunctionCall xxx links to Function
+		AerialFunctionIcon({ Function }), -- AerialFunctionIcon xxx links to Function
+		AerialMethodIcon({ Function }), -- AerialMethodIcon xxx links to Function
+		WhichKey({ Function }), -- WhichKey       xxx links to Function
+		Operator({ fg = "#ff4081" }), -- Operator       xxx guifg=#ff4081
+		sym("@operator")({ Operator }), -- @operator      xxx links to Operator
+		NvimAssignment({ Operator }), -- NvimAssignment xxx links to Operator
+		NvimOperator({ Operator }), -- NvimOperator   xxx links to Operator
+		TelescopeResultsOperator({ Operator }), -- TelescopeResultsOperator xxx links to Operator
+		javaScriptOperator({ Operator }), -- javaScriptOperator xxx links to Operator
+		vbOperator({ Operator }), -- vbOperator     xxx links to Operator
+		texMathOper({ Operator }), -- texMathOper    xxx links to Operator
+		pandocPCite({ Operator }), -- pandocPCite    xxx links to Operator
+		pandocOperator({ Operator }), -- pandocOperator xxx links to Operator
+		pandocImageIcon({ Operator }), -- pandocImageIcon xxx links to Operator
+		pandocReferenceDefinition({ Operator }), -- pandocReferenceDefinition xxx links to Operator
+		pandocICite({ Operator }), -- pandocICite    xxx links to Operator
+		pandocCiteAnchor({ Operator }), -- pandocCiteAnchor xxx links to Operator
+		pandocCiteLocator({ Operator }), -- pandocCiteLocator xxx links to Operator
+		pandocSubscriptMark({ Operator }), -- pandocSubscriptMark xxx links to Operator
+		pandocSuperscriptMark({ Operator }), -- pandocSuperscriptMark xxx links to Operator
+		pandocStrikeoutMark({ Operator }), -- pandocStrikeoutMark xxx links to Operator
+		pandocAtxStart({ Operator }), -- pandocAtxStart xxx links to Operator
+		pandocFootnoteBlockSeparator({ Operator }), -- pandocFootnoteBlockSeparator xxx links to Operator
+		pandocUListItemBullet({ Operator }), -- pandocUListItemBullet xxx links to Operator
+		pandocListItemBullet({ Operator }), -- pandocListItemBullet xxx links to Operator
+		pandocDefinitionBlockMark({ Operator }), -- pandocDefinitionBlockMark xxx links to Operator
+		rOTag({ Operator }), -- rOTag          xxx links to Operator
+		rOTitleTag({ Operator }), -- rOTitleTag     xxx links to Operator
+		rOperator({ Operator }), -- rOperator      xxx links to Operator
+		pythonDef({ Operator }), -- pythonDef      xxx links to Operator
+		Delimiter({ fg = "#8f8f8f" }), -- Delimiter      xxx guifg=#8f8f8f
+		sym("@punctuation")({ Delimiter }), -- @punctuation   xxx links to Delimiter
+		NvimParenthesis({ Delimiter }), -- NvimParenthesis xxx links to Delimiter
+		NvimColon({ Delimiter }), -- NvimColon      xxx links to Delimiter
+		NvimComma({ Delimiter }), -- NvimComma      xxx links to Delimiter
+		NvimArrow({ Delimiter }), -- NvimArrow      xxx links to Delimiter
+		pandocHTMLCommentStart({ Delimiter }), -- pandocHTMLCommentStart xxx links to Delimiter
+		pandocHTMLCommentEnd({ Delimiter }), -- pandocHTMLCommentEnd xxx links to Delimiter
+		texDelim({ Delimiter }), -- texDelim       xxx links to Delimiter
+		texMathEnvArgName({ Delimiter }), -- texMathEnvArgName xxx links to Delimiter
+		pandocLineBlockDelimiter({ Delimiter }), -- pandocLineBlockDelimiter xxx links to Delimiter
+		pandocDelimitedCodeBlockStart({ Delimiter }), -- pandocDelimitedCodeBlockStart xxx links to Delimiter
+		pandocSimpleTableDelims({ Delimiter }), -- pandocSimpleTableDelims xxx links to Delimiter
+		pandocTableDelims({ Delimiter }), -- pandocTableDelims xxx links to Delimiter
+		pandocGridTableDelims({ Delimiter }), -- pandocGridTableDelims xxx links to Delimiter
+		pandocGridTableHeader({ Delimiter }), -- pandocGridTableHeader xxx links to Delimiter
+		pandocPipeTableDelims({ Delimiter }), -- pandocPipeTableDelims xxx links to Delimiter
+		pandocPipeTableHeader({ Delimiter }), -- pandocPipeTableHeader xxx links to Delimiter
+		pandocDelimitedCodeBlockEnd({ Delimiter }), -- pandocDelimitedCodeBlockEnd xxx links to Delimiter
+		pandocHRule({ Delimiter }), -- pandocHRule    xxx links to Delimiter
+		rRawStrDelim({ Delimiter }), -- rRawStrDelim   xxx links to Delimiter
+		rDelimiter({ Delimiter }), -- rDelimiter     xxx links to Delimiter
+		mkdDelimiter({ Delimiter }), -- mkdDelimiter   xxx links to Delimiter
+		Todo({ bg = "bg", fg = "#ff005b", gui = "bold" }), -- Todo           xxx cterm=bold gui=bold guifg=#ff005b guibg=bg
+		texCommentTodo({ Todo }), -- texCommentTodo xxx links to Todo
+		yamlTodo({ Todo }), -- yamlTodo       xxx links to Todo
+		vbTodo({ Todo }), -- vbTodo         xxx links to Todo
+		javaScriptCommentTodo({ Todo }), -- javaScriptCommentTodo xxx links to Todo
+		dtdTodo({ Todo }), -- dtdTodo        xxx links to Todo
+		xmlTodo({ Todo }), -- xmlTodo        xxx links to Todo
+		rCommentTodo({ Todo }), -- rCommentTodo   xxx links to Todo
+		rTodoKeyw({ Todo }), -- rTodoKeyw      xxx links to Todo
+		pythonTodo({ Todo }), -- pythonTodo     xxx links to Todo
+		sym("@markup.heading1")({ fg = "#00CCFF", bg = "#002933", gui = "bold" }),
+		sym("@markup.heading2")({ fg = "#D3FF3B", bg = "#2A330C" }),
+		sym("@markup.heading3")({ fg = "#B388FF", bg = "#241B33" }),
+		sym("@markup.heading4")({ fg = "#FF69BF", bg = "#331526" }),
+		sym("@markup.strong")({ gui = "bold" }), -- @markup.strong xxx cterm=bold gui=bold
+		sym("@markup.italic")({ gui = "italic" }), -- @markup.italic xxx cterm=italic gui=italic
+		sym("@markup.strikethrough")({ gui = "strikethrough" }), -- @markup.strikethrough xxx cterm=strikethrough gui=strikethrough
+		sym("@markup.underline")({ gui = "underline" }), -- @markup.underline xxx cterm=underline gui=underline
+		Added({ fg = "nvimlightgreen" }), -- Added          xxx ctermfg=10 guifg=NvimLightGreen
+		sym("@diff.plus")({ Added }), -- @diff.plus     xxx links to Added
+		GitSignsAdd({ Added }), -- GitSignsAdd    xxx links to Added
+		Removed({ fg = "nvimlightred" }), -- Removed        xxx ctermfg=9 guifg=NvimLightRed
+		sym("@diff.minus")({ Removed }), -- @diff.minus    xxx links to Removed
+		GitSignsDelete({ Removed }), -- GitSignsDelete xxx links to Removed
+		Changed({ fg = "nvimlightcyan" }), -- Changed        xxx ctermfg=14 guifg=NvimLightCyan
+		sym("@diff.delta")({ Changed }), -- @diff.delta    xxx links to Changed
+		GitSignsChange({ Changed }), -- GitSignsChange xxx links to Changed
+		FloatShadow({ bg = "nvimdarkgrey4", blend = 80 }), -- FloatShadow    xxx ctermbg=0 guibg=NvimDarkGrey4 blend=80
+		FloatShadowThrough({ bg = "nvimdarkgrey4", blend = 100 }), -- FloatShadowThrough xxx ctermbg=0 guibg=NvimDarkGrey4 blend=100
+		MatchParen({ bg = "#202020", fg = "#f92672", gui = "bold" }), -- MatchParen     xxx cterm=bold,underline gui=bold guifg=#f92672 guibg=#202020
+		MatchWord({ MatchParen }), -- MatchWord      xxx links to MatchParen
+		MatchParenCur({ MatchParen }), -- MatchParenCur  xxx links to MatchParen
+		RedrawDebugClear({ bg = "nvimdarkyellow" }), -- RedrawDebugClear xxx ctermfg=0 ctermbg=11 guibg=NvimDarkYellow
+		RedrawDebugComposed({ bg = "nvimdarkgreen" }), -- RedrawDebugComposed xxx ctermfg=0 ctermbg=10 guibg=NvimDarkGreen
+		RedrawDebugRecompose({ bg = "nvimdarkred" }), -- RedrawDebugRecompose xxx ctermfg=0 ctermbg=9 guibg=NvimDarkRed
+		Error({ fg = "#f20052", gui = "bold" }), -- Error          xxx ctermfg=0 ctermbg=9 gui=bold guifg=#f20052
+		NvimInvalid({ Error }), -- NvimInvalid    xxx links to Error
+		yamlReservedDirective({ Error }), -- yamlReservedDirective xxx links to Error
+		cssDeprecated({ Error }), -- cssDeprecated  xxx links to Error
+		cssBraceError({ Error }), -- cssBraceError  xxx links to Error
+		cssError({ Error }), -- cssError       xxx links to Error
+		vbError({ Error }), -- vbError        xxx links to Error
+		javaScriptError({ Error }), -- javaScriptError xxx links to Error
+		htmlPreProcAttrError({ Error }), -- htmlPreProcAttrError xxx links to Error
+		htmlPreError({ Error }), -- htmlPreError   xxx links to Error
+		htmlError({ Error }), -- htmlError      xxx links to Error
+		dtdError({ Error }), -- dtdError       xxx links to Error
+		xmlCommentError({ Error }), -- xmlCommentError xxx links to Error
+		xmlError({ Error }), -- xmlError       xxx links to Error
+		pandocNewLine({ Error }), -- pandocNewLine  xxx links to Error
+		rError({ Error }), -- rError         xxx links to Error
+		rBraceError({ Error }), -- rBraceError    xxx links to Error
+		rCurlyError({ Error }), -- rCurlyError    xxx links to Error
+		rStrError({ Error }), -- rStrError      xxx links to Error
+		rOpError({ Error }), -- rOpError       xxx links to Error
+		rParenError({ Error }), -- rParenError    xxx links to Error
+		pythonError({ Error }), -- pythonError    xxx links to Error
+		pythonBytesEscapeError({ Error }), -- pythonBytesEscapeError xxx links to Error
+		pythonUniEscapeError({ Error }), -- pythonUniEscapeError xxx links to Error
+		pythonSpaceError({ Error }), -- pythonSpaceError xxx links to Error
+		pythonBytesError({ Error }), -- pythonBytesError xxx links to Error
+		pythonOctError({ Error }), -- pythonOctError xxx links to Error
+		pythonHexError({ Error }), -- pythonHexError xxx links to Error
+		pythonBinError({ Error }), -- pythonBinError xxx links to Error
+		pythonNumberError({ Error }), -- pythonNumberError xxx links to Error
+		pythonIndentError({ Error }), -- pythonIndentError xxx links to Error
+		TSQueryLinterError({ Error }), -- TSQueryLinterError xxx links to Error
+		DiagnosticUnderlineError({ sp = "nvimlightred", gui = "underline" }), -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=NvimLightRed
+		DiagnosticUnderlineWarn({ sp = "nvimlightyellow", gui = "underline" }), -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=NvimLightYellow
+		DiagnosticUnderlineInfo({ sp = "nvimlightcyan", gui = "underline" }), -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=NvimLightCyan
+		DiagnosticUnderlineHint({ sp = "nvimlightblue", gui = "underline" }), -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=NvimLightBlue
+		DiagnosticUnderlineOk({ sp = "nvimlightgreen", gui = "underline" }), -- DiagnosticUnderlineOk xxx cterm=underline gui=underline guisp=NvimLightGreen
+		DiagnosticDeprecated({ sp = "nvimlightred", gui = "strikethrough" }), -- DiagnosticDeprecated xxx cterm=strikethrough gui=strikethrough guisp=NvimLightRed
+		NvimInternalError({ bg = "red", fg = "red" }), -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
+		NvimFigureBrace({ NvimInternalError }), -- NvimFigureBrace xxx links to NvimInternalError
+		NvimSingleQuotedUnknownEscape({ NvimInternalError }), -- NvimSingleQuotedUnknownEscape xxx links to NvimInternalError
+		NvimInvalidSingleQuotedUnknownEscape({ NvimInternalError }), -- NvimInvalidSingleQuotedUnknownEscape xxx links to NvimInternalError
+		DevIconJson5({ fg = "#cbcb41" }), -- DevIconJson5   xxx ctermfg=185 guifg=#cbcb41
+		DevIconJsonc({ fg = "#cbcb41" }), -- DevIconJsonc   xxx ctermfg=185 guifg=#cbcb41
+		DevIconSml({ fg = "#e37933" }), -- DevIconSml     xxx ctermfg=166 guifg=#e37933
+		DevIconEpp({ fg = "#ffa61a" }), -- DevIconEpp     xxx ctermfg=214 guifg=#ffa61a
+		DevIconZst({ fg = "#eca517" }), -- DevIconZst     xxx ctermfg=214 guifg=#eca517
+		DevIconXresources({ fg = "#e54d18" }), -- DevIconXresources xxx ctermfg=196 guifg=#e54d18
+		DevIconErl({ fg = "#b83998" }), -- DevIconErl     xxx ctermfg=163 guifg=#b83998
+		DevIconGCode({ fg = "#1471ad" }), -- DevIconGCode   xxx ctermfg=32 guifg=#1471ad
+		DevIconHrl({ fg = "#b83998" }), -- DevIconHrl     xxx ctermfg=163 guifg=#b83998
+		DevIconPdf({ fg = "#b30b00" }), -- DevIconPdf     xxx ctermfg=124 guifg=#b30b00
+		DevIconErb({ fg = "#701516" }), -- DevIconErb     xxx ctermfg=52 guifg=#701516
+		DevIconAlmalinux({ fg = "#ff4649" }), -- DevIconAlmalinux xxx ctermfg=203 guifg=#ff4649
+		DevIconAstro({ fg = "#e23f67" }), -- DevIconAstro   xxx ctermfg=197 guifg=#e23f67
+		DevIconNix({ fg = "#7ebae4" }), -- DevIconNix     xxx ctermfg=110 guifg=#7ebae4
+		DevIconTerraform({ fg = "#5f43e9" }), -- DevIconTerraform xxx ctermfg=93 guifg=#5f43e9
+		DevIconAwk({ fg = "#4d5a5e" }), -- DevIconAwk     xxx ctermfg=240 guifg=#4d5a5e
+		DevIconBlueprint({ fg = "#5796e2" }), -- DevIconBlueprint xxx ctermfg=68 guifg=#5796e2
+		DevIconGz({ fg = "#eca517" }), -- DevIconGz      xxx ctermfg=214 guifg=#eca517
+		DevIconSrt({ fg = "#ffb713" }), -- DevIconSrt     xxx ctermfg=214 guifg=#ffb713
+		DevIconSsa({ fg = "#ffb713" }), -- DevIconSsa     xxx ctermfg=214 guifg=#ffb713
+		semshiLocal({ fg = "#ff875f" }), -- semshiLocal    xxx guifg=#ff875f
+		DevIconM3u({ fg = "#ed95ae" }), -- DevIconM3u     xxx ctermfg=211 guifg=#ed95ae
+		DevIconNswag({ fg = "#85ea2d" }), -- DevIconNswag   xxx ctermfg=112 guifg=#85ea2d
+		DevIconStp({ fg = "#839463" }), -- DevIconStp     xxx ctermfg=101 guifg=#839463
+		DevIconLuaurc({ fg = "#00a2ff" }), -- DevIconLuaurc  xxx ctermfg=75 guifg=#00a2ff
+		DevIconHaml({ fg = "#eaeae1" }), -- DevIconHaml    xxx ctermfg=255 guifg=#eaeae1
+		DevIconXpi({ fg = "#ff1b01" }), -- DevIconXpi     xxx ctermfg=196 guifg=#ff1b01
+		DevIconSystemVerilog({ fg = "#019833" }), -- DevIconSystemVerilog xxx ctermfg=28 guifg=#019833
+		DevIconMailmap({ fg = "#41535b" }), -- DevIconMailmap xxx ctermfg=239 guifg=#41535b
+		DevIconHuff({ fg = "#4242c7" }), -- DevIconHuff    xxx ctermfg=56 guifg=#4242c7
+		DevIconPsManifestfile({ fg = "#6975c4" }), -- DevIconPsManifestfile xxx ctermfg=68 guifg=#6975c4
+		DevIconWebmanifest({ fg = "#f1e05a" }), -- DevIconWebmanifest xxx ctermfg=185 guifg=#f1e05a
+		DevIconIxx({ fg = "#519aba" }), -- DevIconIxx     xxx ctermfg=74 guifg=#519aba
+		DevIconIfc({ fg = "#839463" }), -- DevIconIfc     xxx ctermfg=101 guifg=#839463
+		DevIconIge({ fg = "#839463" }), -- DevIconIge     xxx ctermfg=101 guifg=#839463
+		DevIconXorgConf({ fg = "#e54d18" }), -- DevIconXorgConf xxx ctermfg=196 guifg=#e54d18
+		DevIconHurl({ fg = "#ff0288" }), -- DevIconHurl    xxx ctermfg=198 guifg=#ff0288
+		DevIconIgs({ fg = "#839463" }), -- DevIconIgs     xxx ctermfg=101 guifg=#839463
+		DevIconCSharpProject({ fg = "#512bd4" }), -- DevIconCSharpProject xxx ctermfg=56 guifg=#512bd4
+		DevIconIni({ fg = "#6d8086" }), -- DevIconIni     xxx ctermfg=66 guifg=#6d8086
+		DevIconRss({ fg = "#fb9d3b" }), -- DevIconRss     xxx ctermfg=215 guifg=#fb9d3b
+		DevIconXul({ fg = "#e37933" }), -- DevIconXul     xxx ctermfg=166 guifg=#e37933
+		DevIconBzl({ fg = "#89e051" }), -- DevIconBzl     xxx ctermfg=113 guifg=#89e051
+		DevIconIso({ fg = "#d0bec8" }), -- DevIconIso     xxx ctermfg=181 guifg=#d0bec8
+		DevIconThunderbird({ fg = "#137be1" }), -- DevIconThunderbird xxx ctermfg=33 guifg=#137be1
+		DevIconNPMrc({ fg = "#e8274b" }), -- DevIconNPMrc   xxx ctermfg=197 guifg=#e8274b
+		DevIconDesktopEntry({ fg = "#563d7c" }), -- DevIconDesktopEntry xxx ctermfg=54 guifg=#563d7c
+		DevIconMpv({ fg = "#3b1342" }), -- DevIconMpv     xxx ctermfg=53 guifg=#3b1342
+		DevIconXsession({ fg = "#e54d18" }), -- DevIconXsession xxx ctermfg=196 guifg=#e54d18
+		DevIconLock({ fg = "#bbbbbb" }), -- DevIconLock    xxx ctermfg=250 guifg=#bbbbbb
+		DevIconAsciinema({ fg = "#fd971f" }), -- DevIconAsciinema xxx ctermfg=208 guifg=#fd971f
+		DevIconNushell({ fg = "#3aa675" }), -- DevIconNushell xxx ctermfg=36 guifg=#3aa675
+		DevIconEditorConfig({ fg = "#fff2f2" }), -- DevIconEditorConfig xxx ctermfg=255 guifg=#fff2f2
+		DevIconNotebook({ fg = "#51a0cf" }), -- DevIconNotebook xxx ctermfg=74 guifg=#51a0cf
+		DevIconPy({ fg = "#ffbc03" }), -- DevIconPy      xxx ctermfg=214 guifg=#ffbc03
+		DevIconSvelte({ fg = "#ff3e00" }), -- DevIconSvelte  xxx ctermfg=196 guifg=#ff3e00
+		DevIconSwift({ fg = "#e37933" }), -- DevIconSwift   xxx ctermfg=166 guifg=#e37933
+		DevIconHexadecimal({ fg = "#2e63ff" }), -- DevIconHexadecimal xxx ctermfg=27 guifg=#2e63ff
+		DevIconPls({ fg = "#ed95ae" }), -- DevIconPls     xxx ctermfg=211 guifg=#ed95ae
+		DevIconCMakeLists({ fg = "#6d8086" }), -- DevIconCMakeLists xxx ctermfg=66 guifg=#6d8086
+		DevIconDoc({ fg = "#185abd" }), -- DevIconDoc     xxx ctermfg=26 guifg=#185abd
+		DevIconXls({ fg = "#207245" }), -- DevIconXls     xxx ctermfg=29 guifg=#207245
+		DevIconTypoScriptSetup({ fg = "#ff8700" }), -- DevIconTypoScriptSetup xxx ctermfg=208 guifg=#ff8700
+		DevIconEmbeddedOpenTypeFont({ fg = "#ececec" }), -- DevIconEmbeddedOpenTypeFont xxx ctermfg=255 guifg=#ececec
+		DevIconFavicon({ fg = "#cbcb41" }), -- DevIconFavicon xxx ctermfg=185 guifg=#cbcb41
+		DevIconPyi({ fg = "#ffbc03" }), -- DevIconPyi     xxx ctermfg=214 guifg=#ffbc03
+		DevIconKiCadCache({ fg = "#ffffff" }), -- DevIconKiCadCache xxx ctermfg=231 guifg=#ffffff
+		DevIconKiCadFootprintTable({ fg = "#ffffff" }), -- DevIconKiCadFootprintTable xxx ctermfg=231 guifg=#ffffff
+		DevIconEnv({ fg = "#faf743" }), -- DevIconEnv     xxx ctermfg=227 guifg=#faf743
+		DevIconFreeCADConfig({ fg = "#cb0d0d" }), -- DevIconFreeCADConfig xxx ctermfg=160 guifg=#cb0d0d
+		DevIconUI({ fg = "#0c306e" }), -- DevIconUI      xxx ctermfg=17 guifg=#0c306e
+		DevIconSolidity({ fg = "#519aba" }), -- DevIconSolidity xxx ctermfg=74 guifg=#519aba
+		DevIconZshrc({ fg = "#89e051" }), -- DevIconZshrc   xxx ctermfg=113 guifg=#89e051
+		DevIconGradleProperties({ fg = "#005f87" }), -- DevIconGradleProperties xxx ctermfg=24 guifg=#005f87
+		DevIconXSettingsdConf({ fg = "#e54d18" }), -- DevIconXSettingsdConf xxx ctermfg=196 guifg=#e54d18
+		DevIconZsh({ fg = "#89e051" }), -- DevIconZsh     xxx ctermfg=113 guifg=#89e051
+		DevIconGradleWrapperProperties({ fg = "#005f87" }), -- DevIconGradleWrapperProperties xxx ctermfg=24 guifg=#005f87
+		DevIconSha256({ fg = "#8c86af" }), -- DevIconSha256  xxx ctermfg=103 guifg=#8c86af
+		DevIconPKGBUILD({ fg = "#0f94d2" }), -- DevIconPKGBUILD xxx ctermfg=67 guifg=#0f94d2
+		DevIconFsscript({ fg = "#519aba" }), -- DevIconFsscript xxx ctermfg=74 guifg=#519aba
+		DevIconConfiguration({ fg = "#6d8086" }), -- DevIconConfiguration xxx ctermfg=66 guifg=#6d8086
+		DevIconCantorrc({ fg = "#1c99f3" }), -- DevIconCantorrc xxx ctermfg=32 guifg=#1c99f3
+		DevIconKalgebrarc({ fg = "#1c99f3" }), -- DevIconKalgebrarc xxx ctermfg=32 guifg=#1c99f3
+		DevIconPxd({ fg = "#5aa7e4" }), -- DevIconPxd     xxx ctermfg=39 guifg=#5aa7e4
+		DevIconTsx({ fg = "#1354bf" }), -- DevIconTsx     xxx ctermfg=26 guifg=#1354bf
+		DevIconTwig({ fg = "#8dc149" }), -- DevIconTwig    xxx ctermfg=113 guifg=#8dc149
+		DevIconKritadisplayrc({ fg = "#f245fb" }), -- DevIconKritadisplayrc xxx ctermfg=201 guifg=#f245fb
+		DevIconArchcraft({ fg = "#86bba3" }), -- DevIconArchcraft xxx ctermfg=108 guifg=#86bba3
+		DevIconMarkdown({ fg = "#dddddd" }), -- DevIconMarkdown xxx ctermfg=253 guifg=#dddddd
+		DevIconArtix({ fg = "#41b4d7" }), -- DevIconArtix   xxx ctermfg=38 guifg=#41b4d7
+		DevIconBigLinux({ fg = "#189fc8" }), -- DevIconBigLinux xxx ctermfg=38 guifg=#189fc8
+		DevIconDebian({ fg = "#a80030" }), -- DevIconDebian  xxx ctermfg=88 guifg=#a80030
+		DevIconIges({ fg = "#839463" }), -- DevIconIges    xxx ctermfg=101 guifg=#839463
+		DevIconDeepin({ fg = "#2ca7f8" }), -- DevIconDeepin  xxx ctermfg=39 guifg=#2ca7f8
+		DevIconDevuan({ fg = "#404a52" }), -- DevIconDevuan  xxx ctermfg=238 guifg=#404a52
+		DevIconMli({ fg = "#e37933" }), -- DevIconMli     xxx ctermfg=166 guifg=#e37933
+		DevIconLiquid({ fg = "#95bf47" }), -- DevIconLiquid  xxx ctermfg=106 guifg=#95bf47
+		DevIconKDEglobals({ fg = "#1c99f3" }), -- DevIconKDEglobals xxx ctermfg=32 guifg=#1c99f3
+		DevIconElementary({ fg = "#5890c2" }), -- DevIconElementary xxx ctermfg=67 guifg=#5890c2
+		DevIconPackageLockJson({ fg = "#7a0d21" }), -- DevIconPackageLockJson xxx ctermfg=52 guifg=#7a0d21
+		DevIconOpenSCAD({ fg = "#f9d72c" }), -- DevIconOpenSCAD xxx ctermfg=220 guifg=#f9d72c
+		DevIconBlade({ fg = "#f05340" }), -- DevIconBlade   xxx ctermfg=203 guifg=#f05340
+		DevIconEndeavour({ fg = "#7b3db9" }), -- DevIconEndeavour xxx ctermfg=91 guifg=#7b3db9
+		DevIconPackageJson({ fg = "#e8274b" }), -- DevIconPackageJson xxx ctermfg=197 guifg=#e8274b
+		DevIconGo({ fg = "#519aba" }), -- DevIconGo      xxx ctermfg=74 guifg=#519aba
+		DevIconFedora({ fg = "#072a5e" }), -- DevIconFedora  xxx ctermfg=17 guifg=#072a5e
+		DevIconLuau({ fg = "#00a2ff" }), -- DevIconLuau    xxx ctermfg=75 guifg=#00a2ff
+		DevIconHxx({ fg = "#a074c4" }), -- DevIconHxx     xxx ctermfg=140 guifg=#a074c4
+		DevIconFreeBSD({ fg = "#c90f02" }), -- DevIconFreeBSD xxx ctermfg=160 guifg=#c90f02
+		DevIconPlatformio({ fg = "#f6822b" }), -- DevIconPlatformio xxx ctermfg=208 guifg=#f6822b
+		DevIconGarudaLinux({ fg = "#2974e1" }), -- DevIconGarudaLinux xxx ctermfg=33 guifg=#2974e1
+		DevIconVala({ fg = "#7239b3" }), -- DevIconVala    xxx ctermfg=91 guifg=#7239b3
+		DevIconGentoo({ fg = "#b1abce" }), -- DevIconGentoo  xxx ctermfg=146 guifg=#b1abce
+		DevIconArduino({ fg = "#56b6c2" }), -- DevIconArduino xxx ctermfg=73 guifg=#56b6c2
+		DevIconGroovy({ fg = "#4a687c" }), -- DevIconGroovy  xxx ctermfg=24 guifg=#4a687c
+		DevIconMaven({ fg = "#7a0d21" }), -- DevIconMaven   xxx ctermfg=52 guifg=#7a0d21
+		DevIconGuix({ fg = "#ffcc00" }), -- DevIconGuix    xxx ctermfg=220 guifg=#ffcc00
+		DevIconFsi({ fg = "#519aba" }), -- DevIconFsi     xxx ctermfg=74 guifg=#519aba
+		DevIconHyperbolaGNULinuxLibre({ fg = "#c0c0c0" }), -- DevIconHyperbolaGNULinuxLibre xxx ctermfg=250 guifg=#c0c0c0
+		DevIconBz3({ fg = "#eca517" }), -- DevIconBz3     xxx ctermfg=214 guifg=#eca517
+		DevIconIllumos({ fg = "#ff430f" }), -- DevIconIllumos xxx ctermfg=196 guifg=#ff430f
+		DevIconCxx({ fg = "#519aba" }), -- DevIconCxx     xxx ctermfg=74 guifg=#519aba
+		DevIconGradleWrapperScript({ fg = "#005f87" }), -- DevIconGradleWrapperScript xxx ctermfg=24 guifg=#005f87
+		DevIconKali({ fg = "#2777ff" }), -- DevIconKali    xxx ctermfg=69 guifg=#2777ff
+		DevIconHeex({ fg = "#a074c4" }), -- DevIconHeex    xxx ctermfg=140 guifg=#a074c4
+		DevIconLXLE({ fg = "#474747" }), -- DevIconLXLE    xxx ctermfg=238 guifg=#474747
+		DevIconBazel({ fg = "#89e051" }), -- DevIconBazel   xxx ctermfg=113 guifg=#89e051
+		DevIconManjaro({ fg = "#33b959" }), -- DevIconManjaro xxx ctermfg=35 guifg=#33b959
+		DevIconTex({ fg = "#3d6117" }), -- DevIconTex     xxx ctermfg=22 guifg=#3d6117
+		DevIconopenSUSE({ fg = "#6fb424" }), -- DevIconopenSUSE xxx ctermfg=70 guifg=#6fb424
+		DevIconParabolaGNULinuxLibre({ fg = "#797dac" }), -- DevIconParabolaGNULinuxLibre xxx ctermfg=103 guifg=#797dac
+		DevIconPop_OS({ fg = "#48b9c7" }), -- DevIconPop_OS  xxx ctermfg=73 guifg=#48b9c7
+		DevIconpostmarketOS({ fg = "#009900" }), -- DevIconpostmarketOS xxx ctermfg=28 guifg=#009900
+		DevIconPuppyLinux({ fg = "#a2aeb9" }), -- DevIconPuppyLinux xxx ctermfg=145 guifg=#a2aeb9
+		DevIconRaspberryPiOS({ fg = "#be1848" }), -- DevIconRaspberryPiOS xxx ctermfg=161 guifg=#be1848
+		DevIconCjs({ fg = "#cbcb41" }), -- DevIconCjs     xxx ctermfg=185 guifg=#cbcb41
+		DevIconYml({ fg = "#6d8086" }), -- DevIconYml     xxx ctermfg=66 guifg=#6d8086
+		DevIconMaterial({ fg = "#b83998" }), -- DevIconMaterial xxx ctermfg=163 guifg=#b83998
+		DevIconLess({ fg = "#563d7c" }), -- DevIconLess    xxx ctermfg=54 guifg=#563d7c
+		DevIconEslintrc({ fg = "#4b32c3" }), -- DevIconEslintrc xxx ctermfg=56 guifg=#4b32c3
+		DevIconMd5({ fg = "#8c86af" }), -- DevIconMd5     xxx ctermfg=103 guifg=#8c86af
+		DevIconCentos({ fg = "#a2518d" }), -- DevIconCentos  xxx ctermfg=132 guifg=#a2518d
+		DevIconUbuntu({ fg = "#dd4814" }), -- DevIconUbuntu  xxx ctermfg=196 guifg=#dd4814
+		DevIconToml({ fg = "#9c4221" }), -- DevIconToml    xxx ctermfg=124 guifg=#9c4221
+		DevIconGradleBuildScript({ fg = "#005f87" }), -- DevIconGradleBuildScript xxx ctermfg=24 guifg=#005f87
+		DevIconGradleSettings({ fg = "#005f87" }), -- DevIconGradleSettings xxx ctermfg=24 guifg=#005f87
+		DevIconBashProfile({ fg = "#89e051" }), -- DevIconBashProfile xxx ctermfg=113 guifg=#89e051
+		DevIconDockerfile({ fg = "#458ee6" }), -- DevIconDockerfile xxx ctermfg=68 guifg=#458ee6
+		DevIconMobi({ fg = "#eab16d" }), -- DevIconMobi    xxx ctermfg=215 guifg=#eab16d
+		DevIconDsStore({ fg = "#41535b" }), -- DevIconDsStore xxx ctermfg=239 guifg=#41535b
+		DevIconMpp({ fg = "#519aba" }), -- DevIconMpp     xxx ctermfg=74 guifg=#519aba
+		DevIconR({ fg = "#2266ba" }), -- DevIconR       xxx ctermfg=25 guifg=#2266ba
+		DevIconHtml({ fg = "#e44d26" }), -- DevIconHtml    xxx ctermfg=196 guifg=#e44d26
+		DevIconEslintIgnore({ fg = "#4b32c3" }), -- DevIconEslintIgnore xxx ctermfg=56 guifg=#4b32c3
+		DevIconNfo({ fg = "#ffffcd" }), -- DevIconNfo     xxx ctermfg=230 guifg=#ffffcd
+		DevIconGitlabCI({ fg = "#e24329" }), -- DevIconGitlabCI xxx ctermfg=196 guifg=#e24329
+		CmpItemKindDefault({ fg = "#448aff" }), -- CmpItemKindDefault xxx guifg=#448aff
+		CmpItemAbbrDeprecatedDefault({ fg = "#404040" }), -- CmpItemAbbrDeprecatedDefault xxx guifg=#404040
+		CmpItemAbbrDeprecated({ CmpItemAbbrDeprecatedDefault }), -- CmpItemAbbrDeprecated xxx links to CmpItemAbbrDeprecatedDefault
+		DapUIStepOutNC({ bg = "#07080d", fg = "#00f1f5" }), -- DapUIStepOutNC xxx guifg=#00f1f5 guibg=#07080d
+		DapUIStepBackNC({ bg = "#07080d", fg = "#00f1f5" }), -- DapUIStepBackNC xxx guifg=#00f1f5 guibg=#07080d
+		DapUIStepIntoNC({ bg = "#07080d", fg = "#00f1f5" }), -- DapUIStepIntoNC xxx guifg=#00f1f5 guibg=#07080d
+		DapUIStepOverNC({ bg = "#07080d", fg = "#00f1f5" }), -- DapUIStepOverNC xxx guifg=#00f1f5 guibg=#07080d
+		DapUIUnavailableNC({ bg = "#07080d", fg = "#424242" }), -- DapUIUnavailableNC xxx guifg=#424242 guibg=#07080d
+		DapUIStopNC({ bg = "#07080d", fg = "#f70067" }), -- DapUIStopNC    xxx guifg=#f70067 guibg=#07080d
+		DapUIRestartNC({ bg = "#07080d", fg = "#a9ff68" }), -- DapUIRestartNC xxx guifg=#a9ff68 guibg=#07080d
+		DapUIPlayPauseNC({ bg = "#07080d", fg = "#a9ff68" }), -- DapUIPlayPauseNC xxx guifg=#a9ff68 guibg=#07080d
+		DapUIWinSelect({ fg = "#00f1f5", gui = "bold" }), -- DapUIWinSelect xxx ctermfg=14 gui=bold guifg=#00f1f5
+		DapUIUnavailable({ fg = "#424242" }), -- DapUIUnavailable xxx guifg=#424242
+		DapUIRestart({ fg = "#a9ff68" }), -- DapUIRestart   xxx guifg=#a9ff68
+		DapUIPlayPause({ fg = "#a9ff68" }), -- DapUIPlayPause xxx guifg=#a9ff68
+		DapUIStop({ fg = "#f70067" }), -- DapUIStop      xxx guifg=#f70067
+		DapUIStepOut({ fg = "#00f1f5" }), -- DapUIStepOut   xxx guifg=#00f1f5
+		DapUIStepBack({ fg = "#00f1f5" }), -- DapUIStepBack  xxx guifg=#00f1f5
+		DapUIStepInto({ fg = "#00f1f5" }), -- DapUIStepInto  xxx guifg=#00f1f5
+		DapUIStepOver({ fg = "#00f1f5" }), -- DapUIStepOver  xxx guifg=#00f1f5
+		DapUIBreakpointsDisabledLine({ fg = "#424242" }), -- DapUIBreakpointsDisabledLine xxx guifg=#424242
+		DapUIBreakpointsCurrentLine({ fg = "#a9ff68", gui = "bold" }), -- DapUIBreakpointsCurrentLine xxx gui=bold guifg=#a9ff68
+		DapUICurrentFrameName({ DapUIBreakpointsCurrentLine }), -- DapUICurrentFrameName xxx links to DapUIBreakpointsCurrentLine
+		DapUIBreakpointsInfo({ fg = "#a9ff68" }), -- DapUIBreakpointsInfo xxx guifg=#a9ff68
+		DapUIBreakpointsPath({ fg = "#00f1f5" }), -- DapUIBreakpointsPath xxx guifg=#00f1f5
+		DapUIWatchesError({ fg = "#f70067" }), -- DapUIWatchesError xxx guifg=#f70067
+		DapUIWatchesValue({ fg = "#a9ff68" }), -- DapUIWatchesValue xxx guifg=#a9ff68
+		DapUIWatchesEmpty({ fg = "#f70067" }), -- DapUIWatchesEmpty xxx guifg=#f70067
+		IlluminatedWordWrite({ gui = "underline" }), -- IlluminatedWordWrite xxx gui=underline
+		IlluminatedWordRead({ gui = "underline" }), -- IlluminatedWordRead xxx gui=underline
+		IlluminatedWordText({ gui = "underline" }), -- IlluminatedWordText xxx gui=underline
+		CodeiumSuggestion({ fg = "#808080" }), -- CodeiumSuggestion xxx ctermfg=244 guifg=#808080
+		DapUIFloatBorder({ fg = "#00f1f5" }), -- DapUIFloatBorder xxx guifg=#00f1f5
+		DapUILineNumber({ fg = "#00f1f5" }), -- DapUILineNumber xxx guifg=#00f1f5
+		DapUIBreakpointsLine({ DapUILineNumber }), -- DapUIBreakpointsLine xxx links to DapUILineNumber
+		DapUISource({ fg = "#d484ff" }), -- DapUISource    xxx guifg=#d484ff
+		DapUIStoppedThread({ fg = "#00f1f5" }), -- DapUIStoppedThread xxx guifg=#00f1f5
+		DapUIThread({ fg = "#a9ff68" }), -- DapUIThread    xxx guifg=#a9ff68
+		DapUIDecoration({ fg = "#00f1f5" }), -- DapUIDecoration xxx guifg=#00f1f5
+		DapUIModifiedValue({ fg = "#00f1f5", gui = "bold" }), -- DapUIModifiedValue xxx gui=bold guifg=#00f1f5
+		DapUIType({ fg = "#d484ff" }), -- DapUIType      xxx guifg=#d484ff
+		DapUIScope({ fg = "#00f1f5" }), -- DapUIScope     xxx guifg=#00f1f5
+		semshiImported({ fg = "#d1bcf9", gui = "bold" }), -- semshiImported xxx cterm=bold gui=bold guifg=#d1bcf9
+		semshiGlobal({ fg = "#63ff51", gui = "italic" }), -- semshiGlobal   xxx gui=italic guifg=#63ff51
+		semshiBuiltin({ fg = "#ff5fff" }), -- semshiBuiltin  xxx guifg=#ff5fff
+		sym("@field")({ fg = "#d1bcf9" }), -- @field         xxx guifg=#d1bcf9
+		DevIconScala({ fg = "#cc3e44" }), -- DevIconScala   xxx ctermfg=167 guifg=#cc3e44
+		UfoFoldedFg({ fg = "#ffffff" }), -- UfoFoldedFg    xxx guifg=#ffffff
+		UfoFoldedBg({ bg = "#1e1e1e" }), -- UfoFoldedBg    xxx guibg=#1e1e1e
+		UfoPreviewWinBar({ UfoFoldedBg }), -- UfoPreviewWinBar xxx links to UfoFoldedBg
+		TodoSignWARN({ fg = "#fce094" }), -- TodoSignWARN   xxx guifg=#fce094
+		TodoFgWARN({ fg = "#fce094" }), -- TodoFgWARN     xxx guifg=#fce094
+		TodoBgWARN({ bg = "#fce094", fg = "#1c1c1c", gui = "bold" }), -- TodoBgWARN     xxx gui=bold guifg=#1c1c1c guibg=#fce094
+		TodoSignTODO({ fg = "#8cf8f7" }), -- TodoSignTODO   xxx guifg=#8cf8f7
+		TodoFgTODO({ fg = "#8cf8f7" }), -- TodoFgTODO     xxx guifg=#8cf8f7
+		TodoBgTODO({ bg = "#8cf8f7", fg = "#1c1c1c", gui = "bold" }), -- TodoBgTODO     xxx gui=bold guifg=#1c1c1c guibg=#8cf8f7
+		DevIconKbx({ fg = "#737672" }), -- DevIconKbx     xxx ctermfg=243 guifg=#737672
+		TodoSignTEST({ fg = "#ff4081" }), -- TodoSignTEST   xxx guifg=#ff4081
+		TodoFgTEST({ fg = "#ff4081" }), -- TodoFgTEST     xxx guifg=#ff4081
+		TodoBgTEST({ bg = "#ff4081", fg = "#1c1c1c", gui = "bold" }), -- TodoBgTEST     xxx gui=bold guifg=#1c1c1c guibg=#ff4081
+		TodoSignHACK({ fg = "#fce094" }), -- TodoSignHACK   xxx guifg=#fce094
+		TodoFgHACK({ fg = "#fce094" }), -- TodoFgHACK     xxx guifg=#fce094
+		TodoBgHACK({ bg = "#fce094", fg = "#1c1c1c", gui = "bold" }), -- TodoBgHACK     xxx gui=bold guifg=#1c1c1c guibg=#fce094
+		TodoSignPERF({ fg = "#ff4081" }), -- TodoSignPERF   xxx guifg=#ff4081
+		TodoFgPERF({ fg = "#ff4081" }), -- TodoFgPERF     xxx guifg=#ff4081
+		TodoBgPERF({ bg = "#ff4081", fg = "#1c1c1c", gui = "bold" }), -- TodoBgPERF     xxx gui=bold guifg=#1c1c1c guibg=#ff4081
+		TodoSignNOTE({ fg = "#ffff00" }), -- TodoSignNOTE   xxx guifg=#ffff00
+		TodoFgNOTE({ fg = "#ffff00" }), -- TodoFgNOTE     xxx guifg=#ffff00
+		TodoBgNOTE({ bg = "#ffff00", fg = "#1c1c1c", gui = "bold" }), -- TodoBgNOTE     xxx gui=bold guifg=#1c1c1c guibg=#ffff00
+		TodoSignFIX({ fg = "#ffc0b9" }), -- TodoSignFIX    xxx guifg=#ffc0b9
+		TodoFgFIX({ fg = "#ffc0b9" }), -- TodoFgFIX      xxx guifg=#ffc0b9
+		TodoBgFIX({ bg = "#ffc0b9", fg = "#1c1c1c", gui = "bold" }), -- TodoBgFIX      xxx gui=bold guifg=#1c1c1c guibg=#ffc0b9
+		DevIconM3u8({ fg = "#ed95ae" }), -- DevIconM3u8    xxx ctermfg=211 guifg=#ed95ae
+		DevIconAss({ fg = "#ffb713" }), -- DevIconAss     xxx ctermfg=214 guifg=#ffb713
+		DevIconDot({ fg = "#30638e" }), -- DevIconDot     xxx ctermfg=24 guifg=#30638e
+		DevIconElm({ fg = "#519aba" }), -- DevIconElm     xxx ctermfg=74 guifg=#519aba
+		DevIconSRCINFO({ fg = "#0f94d2" }), -- DevIconSRCINFO xxx ctermfg=67 guifg=#0f94d2
+		DevIconExe({ fg = "#9f0500" }), -- DevIconExe     xxx ctermfg=124 guifg=#9f0500
+		DevIconLXDEConfigFile({ fg = "#909090" }), -- DevIconLXDEConfigFile xxx ctermfg=246 guifg=#909090
+		DevIconKDEneon({ fg = "#20a6a4" }), -- DevIconKDEneon xxx ctermfg=37 guifg=#20a6a4
+		DevIconKotlin({ fg = "#7f52ff" }), -- DevIconKotlin  xxx ctermfg=99 guifg=#7f52ff
+		BufferVisibleSign({ bg = "#252525", fg = "#505050", gui = "bold" }), -- BufferVisibleSign xxx gui=bold guifg=#505050 guibg=#252525
+		DevIconFish({ fg = "#4d5a5e" }), -- DevIconFish    xxx ctermfg=240 guifg=#4d5a5e
+		BufferVisibleMod({ bg = "#252525", fg = "#404040" }), -- BufferVisibleMod xxx guifg=#404040 guibg=#252525
+		BufferVisibleIndex({ bg = "#252525", fg = "#404040", gui = "bold" }), -- BufferVisibleIndex xxx gui=bold guifg=#404040 guibg=#252525
+		BufferVisible({ bg = "#252525", fg = "#505050", gui = "bold" }), -- BufferVisible  xxx gui=bold guifg=#505050 guibg=#252525
+		DevIconZshprofile({ fg = "#89e051" }), -- DevIconZshprofile xxx ctermfg=113 guifg=#89e051
+		BufferInactiveSign({ bg = "#1d1d1d", fg = "#404040" }), -- BufferInactiveSign xxx guifg=#404040 guibg=#1d1d1d
+		DevIconTcl({ fg = "#1e5cb3" }), -- DevIconTcl     xxx ctermfg=25 guifg=#1e5cb3
+		DevIconBz2({ fg = "#eca517" }), -- DevIconBz2     xxx ctermfg=214 guifg=#eca517
+		DevIconXInitrc({ fg = "#e54d18" }), -- DevIconXInitrc xxx ctermfg=196 guifg=#e54d18
+		DevIconMOV({ fg = "#fd971f" }), -- DevIconMOV     xxx ctermfg=208 guifg=#fd971f
+		DevIconObjectiveC({ fg = "#599eff" }), -- DevIconObjectiveC xxx ctermfg=111 guifg=#599eff
+		DevIconGitAttributes({ fg = "#f54d27" }), -- DevIconGitAttributes xxx ctermfg=196 guifg=#f54d27
+		DevIconGitModules({ fg = "#f54d27" }), -- DevIconGitModules xxx ctermfg=196 guifg=#f54d27
+		BufferCurrent({ bg = "#f0f0f0", fg = "#1c1c1c", gui = "bold,undercurl" }), -- BufferCurrent  xxx gui=bold,undercurl guifg=#1c1c1c guibg=#f0f0f0
+		DevIconDart({ fg = "#03589c" }), -- DevIconDart    xxx ctermfg=25 guifg=#03589c
+		DevIconKritarc({ fg = "#f245fb" }), -- DevIconKritarc xxx ctermfg=201 guifg=#f245fb
+		DevIconAppleScript({ fg = "#6d8085" }), -- DevIconAppleScript xxx ctermfg=66 guifg=#6d8085
+		sym("DevIconPy.typed")({ fg = "#ffbc03" }), -- DevIconPy.typed xxx ctermfg=214 guifg=#ffbc03
+		DevIconHtm({ fg = "#e34c26" }), -- DevIconHtm     xxx ctermfg=196 guifg=#e34c26
+		DevIconClojure({ fg = "#8dc149" }), -- DevIconClojure xxx ctermfg=113 guifg=#8dc149
+		DevIconClojureJS({ fg = "#519aba" }), -- DevIconClojureJS xxx ctermfg=74 guifg=#519aba
+		DevIconJl({ fg = "#a270ba" }), -- DevIconJl      xxx ctermfg=133 guifg=#a270ba
+		DevIconTails({ fg = "#56347c" }), -- DevIconTails   xxx ctermfg=54 guifg=#56347c
+		DevIconEbook({ fg = "#eab16d" }), -- DevIconEbook   xxx ctermfg=215 guifg=#eab16d
+		DevIconZigObjectNotation({ fg = "#f69a1b" }), -- DevIconZigObjectNotation xxx ctermfg=172 guifg=#f69a1b
+		DevIconAutoCADDxf({ fg = "#839463" }), -- DevIconAutoCADDxf xxx ctermfg=101 guifg=#839463
+		DevIcon3gp({ fg = "#fd971f" }), -- DevIcon3gp     xxx ctermfg=208 guifg=#fd971f
+		DevIconKiCadSymbolTable({ fg = "#ffffff" }), -- DevIconKiCadSymbolTable xxx ctermfg=231 guifg=#ffffff
+		DevIconProcfile({ fg = "#a074c4" }), -- DevIconProcfile xxx ctermfg=140 guifg=#a074c4
+		DevIconGvimrc({ fg = "#019833" }), -- DevIconGvimrc  xxx ctermfg=28 guifg=#019833
+		DevIconVimrc({ fg = "#019833" }), -- DevIconVimrc   xxx ctermfg=28 guifg=#019833
+		DevIconRs({ fg = "#dea584" }), -- DevIconRs      xxx ctermfg=216 guifg=#dea584
+		DevIconLocalization({ fg = "#2596be" }), -- DevIconLocalization xxx ctermfg=31 guifg=#2596be
+		DevIconMdx({ fg = "#519aba" }), -- DevIconMdx     xxx ctermfg=74 guifg=#519aba
+		DevIconTor({ fg = "#519aba" }), -- DevIconTor     xxx ctermfg=74 guifg=#519aba
+		DevIconPrisma({ fg = "#5a67d8" }), -- DevIconPrisma  xxx ctermfg=62 guifg=#5a67d8
+		DevIconC({ fg = "#599eff" }), -- DevIconC       xxx ctermfg=111 guifg=#599eff
+		DevIconMts({ fg = "#519aba" }), -- DevIconMts     xxx ctermfg=74 guifg=#519aba
+		DevIconCheckhealth({ fg = "#75b4fb" }), -- DevIconCheckhealth xxx ctermfg=75 guifg=#75b4fb
+		DevIconSolidWorksAsm({ fg = "#839463" }), -- DevIconSolidWorksAsm xxx ctermfg=101 guifg=#839463
+		DevIconPsScriptModulefile({ fg = "#6975c4" }), -- DevIconPsScriptModulefile xxx ctermfg=68 guifg=#6975c4
+		DevIconBackup({ fg = "#6d8086" }), -- DevIconBackup  xxx ctermfg=66 guifg=#6d8086
+		DevIconBibTeX({ fg = "#cbcb41" }), -- DevIconBibTeX  xxx ctermfg=185 guifg=#cbcb41
+		DevIconVlang({ fg = "#5d87bf" }), -- DevIconVlang   xxx ctermfg=67 guifg=#5d87bf
+		DevIconSha224({ fg = "#8c86af" }), -- DevIconSha224  xxx ctermfg=103 guifg=#8c86af
+		DevIconBazelBuild({ fg = "#89e051" }), -- DevIconBazelBuild xxx ctermfg=113 guifg=#89e051
+		DevIconScheme({ fg = "#eeeeee" }), -- DevIconScheme  xxx ctermfg=255 guifg=#eeeeee
+		DevIconPm({ fg = "#519aba" }), -- DevIconPm      xxx ctermfg=74 guifg=#519aba
+		DevIconPsScriptfile({ fg = "#4273ca" }), -- DevIconPsScriptfile xxx ctermfg=68 guifg=#4273ca
+		DevIconLrc({ fg = "#ffb713" }), -- DevIconLrc     xxx ctermfg=214 guifg=#ffb713
+		DevIconMint({ fg = "#87c095" }), -- DevIconMint    xxx ctermfg=108 guifg=#87c095
+		DevIconBat({ fg = "#c1f12e" }), -- DevIconBat     xxx ctermfg=191 guifg=#c1f12e
+		DevIconJs({ fg = "#cbcb41" }), -- DevIconJs      xxx ctermfg=185 guifg=#cbcb41
+		DevIconGitIgnore({ fg = "#f54d27" }), -- DevIconGitIgnore xxx ctermfg=196 guifg=#f54d27
+		DevIconTempl({ fg = "#dbbd30" }), -- DevIconTempl   xxx ctermfg=178 guifg=#dbbd30
+		DevIconHbs({ fg = "#f0772b" }), -- DevIconHbs     xxx ctermfg=202 guifg=#f0772b
+		DevIconVanillaOS({ fg = "#fabd4d" }), -- DevIconVanillaOS xxx ctermfg=214 guifg=#fabd4d
+		DevIconQuery({ fg = "#90a850" }), -- DevIconQuery   xxx ctermfg=107 guifg=#90a850
+		DevIconSolus({ fg = "#4b5163" }), -- DevIconSolus   xxx ctermfg=239 guifg=#4b5163
+		DevIconPhp({ fg = "#a074c4" }), -- DevIconPhp     xxx ctermfg=140 guifg=#a074c4
+		DevIconTxt({ fg = "#89e051" }), -- DevIconTxt     xxx ctermfg=113 guifg=#89e051
+		DevIconScalaScript({ fg = "#cc3e44" }), -- DevIconScalaScript xxx ctermfg=167 guifg=#cc3e44
+		DevIconDconf({ fg = "#ffffff" }), -- DevIconDconf   xxx ctermfg=231 guifg=#ffffff
+		DevIconWeston({ fg = "#ffbb01" }), -- DevIconWeston  xxx ctermfg=214 guifg=#ffbb01
+		DevIconMjs({ fg = "#f1e05a" }), -- DevIconMjs     xxx ctermfg=185 guifg=#f1e05a
+		DevIconNixOS({ fg = "#7ab1db" }), -- DevIconNixOS   xxx ctermfg=110 guifg=#7ab1db
+		DevIconGraphQL({ fg = "#e535ab" }), -- DevIconGraphQL xxx ctermfg=199 guifg=#e535ab
+		DevIconMXLinux({ fg = "#ffffff" }), -- DevIconMXLinux xxx ctermfg=231 guifg=#ffffff
+		DevIconVLC({ fg = "#ee7a00" }), -- DevIconVLC     xxx ctermfg=208 guifg=#ee7a00
+		DevIconMageia({ fg = "#2397d4" }), -- DevIconMageia  xxx ctermfg=67 guifg=#2397d4
+		DevIconGv({ fg = "#30638e" }), -- DevIconGv      xxx ctermfg=24 guifg=#30638e
+		DevIconMakefile({ fg = "#6d8086" }), -- DevIconMakefile xxx ctermfg=66 guifg=#6d8086
+		DevIconSln({ fg = "#854cc7" }), -- DevIconSln     xxx ctermfg=98 guifg=#854cc7
+		DevIconCts({ fg = "#519aba" }), -- DevIconCts     xxx ctermfg=74 guifg=#519aba
+		DevIconConfigRu({ fg = "#701516" }), -- DevIconConfigRu xxx ctermfg=52 guifg=#701516
+		DevIconMustache({ fg = "#e37933" }), -- DevIconMustache xxx ctermfg=166 guifg=#e37933
+		DevIconVsix({ fg = "#854cc7" }), -- DevIconVsix    xxx ctermfg=98 guifg=#854cc7
+		DevIcon3DObjectFile({ fg = "#888888" }), -- DevIcon3DObjectFile xxx ctermfg=102 guifg=#888888
+		DevIconCrystalLinux({ fg = "#a900ff" }), -- DevIconCrystalLinux xxx ctermfg=129 guifg=#a900ff
+		DevIconM4V({ fg = "#fd971f" }), -- DevIconM4V     xxx ctermfg=208 guifg=#fd971f
+		DevIconArchlabs({ fg = "#503f42" }), -- DevIconArchlabs xxx ctermfg=238 guifg=#503f42
+		DevIconCsv({ fg = "#89e051" }), -- DevIconCsv     xxx ctermfg=113 guifg=#89e051
+		DevIconEpub({ fg = "#eab16d" }), -- DevIconEpub    xxx ctermfg=215 guifg=#eab16d
+		DevIconKdenliverc({ fg = "#83b8f2" }), -- DevIconKdenliverc xxx ctermfg=110 guifg=#83b8f2
+		DevIconLicense({ fg = "#cbcb41" }), -- DevIconLicense xxx ctermfg=185 guifg=#cbcb41
+		DevIconCrystal({ fg = "#c8c8c8" }), -- DevIconCrystal xxx ctermfg=251 guifg=#c8c8c8
+		semshiFree({ fg = "#ffafd7" }), -- semshiFree     xxx guifg=#ffafd7
+		DevIconIco({ fg = "#cbcb41" }), -- DevIconIco     xxx ctermfg=185 guifg=#cbcb41
+		semshiSelected({ bg = "#ff5252", fg = "#ffcccc" }), -- semshiSelected xxx guifg=#ffcccc guibg=#ff5252
+		DevIconFennel({ fg = "#fff3d7" }), -- DevIconFennel  xxx ctermfg=230 guifg=#fff3d7
+		semshiErrorSign({ bg = "#ff5252", fg = "#ffcccc" }), -- semshiErrorSign xxx guifg=#ffcccc guibg=#ff5252
+		DevIconGruntfile({ fg = "#e37933" }), -- DevIconGruntfile xxx ctermfg=166 guifg=#e37933
+		DevIconYaml({ fg = "#6d8086" }), -- DevIconYaml    xxx ctermfg=66 guifg=#6d8086
+		DevIconBinaryGLTF({ fg = "#ffb13b" }), -- DevIconBinaryGLTF xxx ctermfg=214 guifg=#ffb13b
+		DevIconGitCommit({ fg = "#f54d27" }), -- DevIconGitCommit xxx ctermfg=196 guifg=#f54d27
+		DevIconSql({ fg = "#dad8d8" }), -- DevIconSql     xxx ctermfg=188 guifg=#dad8d8
+		NotifyERRORTitle({ fg = "#f70067" }), -- NotifyERRORTitle xxx guifg=#f70067
+		DevIconTxz({ fg = "#eca517" }), -- DevIconTxz     xxx ctermfg=214 guifg=#eca517
+		DevIconCMake({ fg = "#6d8086" }), -- DevIconCMake   xxx ctermfg=66 guifg=#6d8086
+		DevIconFsharp({ fg = "#519aba" }), -- DevIconFsharp  xxx ctermfg=74 guifg=#519aba
+		DevIconNodeModules({ fg = "#e8274b" }), -- DevIconNodeModules xxx ctermfg=197 guifg=#e8274b
+		DevIconStyl({ fg = "#8dc149" }), -- DevIconStyl    xxx ctermfg=113 guifg=#8dc149
+		DevIconSuo({ fg = "#854cc7" }), -- DevIconSuo     xxx ctermfg=98 guifg=#854cc7
+		DevIconWasm({ fg = "#5c4cdb" }), -- DevIconWasm    xxx ctermfg=62 guifg=#5c4cdb
+		DevIconHs({ fg = "#a074c4" }), -- DevIconHs      xxx ctermfg=140 guifg=#a074c4
+		DevIconLinux({ fg = "#fdfdfb" }), -- DevIconLinux   xxx ctermfg=231 guifg=#fdfdfb
+		DevIconJavaScriptReactSpec({ fg = "#20c2e3" }), -- DevIconJavaScriptReactSpec xxx ctermfg=45 guifg=#20c2e3
+		DevIconSpecTs({ fg = "#519aba" }), -- DevIconSpecTs  xxx ctermfg=74 guifg=#519aba
+		DevIconTypeScriptReactSpec({ fg = "#1354bf" }), -- DevIconTypeScriptReactSpec xxx ctermfg=26 guifg=#1354bf
+		DevIconWebp({ fg = "#a074c4" }), -- DevIconWebp    xxx ctermfg=140 guifg=#a074c4
+		DevIconXcPlayground({ fg = "#e37933" }), -- DevIconXcPlayground xxx ctermfg=166 guifg=#e37933
+		DevIconPrusaSlicer({ fg = "#ec6b23" }), -- DevIconPrusaSlicer xxx ctermfg=202 guifg=#ec6b23
+		DevIconXlsx({ fg = "#207245" }), -- DevIconXlsx    xxx ctermfg=29 guifg=#207245
+		DevIconDropbox({ fg = "#0061fe" }), -- DevIconDropbox xxx ctermfg=27 guifg=#0061fe
+		DevIconDrools({ fg = "#ffafaf" }), -- DevIconDrools  xxx ctermfg=217 guifg=#ffafaf
+		DevIconDocx({ fg = "#185abd" }), -- DevIconDocx    xxx ctermfg=26 guifg=#185abd
+		DevIconTgz({ fg = "#eca517" }), -- DevIconTgz     xxx ctermfg=214 guifg=#eca517
+		DevIconWebpack({ fg = "#519aba" }), -- DevIconWebpack xxx ctermfg=74 guifg=#519aba
+		DevIconCson({ fg = "#cbcb41" }), -- DevIconCson    xxx ctermfg=185 guifg=#cbcb41
+		DevIconCp({ fg = "#519aba" }), -- DevIconCp      xxx ctermfg=74 guifg=#519aba
+		DevIconCoffee({ fg = "#cbcb41" }), -- DevIconCoffee  xxx ctermfg=185 guifg=#cbcb41
+		DevIconBmp({ fg = "#a074c4" }), -- DevIconBmp     xxx ctermfg=140 guifg=#a074c4
+		DevIconGemfile({ fg = "#701516" }), -- DevIconGemfile xxx ctermfg=52 guifg=#701516
+		DevIconTypeScriptReactTest({ fg = "#1354bf" }), -- DevIconTypeScriptReactTest xxx ctermfg=26 guifg=#1354bf
+		DevIconSublime({ fg = "#e37933" }), -- DevIconSublime xxx ctermfg=166 guifg=#e37933
+		DevIconBrewfile({ fg = "#701516" }), -- DevIconBrewfile xxx ctermfg=52 guifg=#701516
+		DevIconTestTs({ fg = "#519aba" }), -- DevIconTestTs  xxx ctermfg=74 guifg=#519aba
+		DevIconJava({ fg = "#cc3e44" }), -- DevIconJava    xxx ctermfg=167 guifg=#cc3e44
+		DevIconJavaScriptReactTest({ fg = "#20c2e3" }), -- DevIconJavaScriptReactTest xxx ctermfg=45 guifg=#20c2e3
+		DevIconxmonad({ fg = "#fd4d5d" }), -- DevIconxmonad  xxx ctermfg=203 guifg=#fd4d5d
+		DevIconSway({ fg = "#68751c" }), -- DevIconSway    xxx ctermfg=64 guifg=#68751c
+		DevIconTSConfig({ fg = "#519aba" }), -- DevIconTSConfig xxx ctermfg=74 guifg=#519aba
+		DevIconQtile({ fg = "#ffffff" }), -- DevIconQtile   xxx ctermfg=231 guifg=#ffffff
+		DevIconGitLogo({ fg = "#f14c28" }), -- DevIconGitLogo xxx ctermfg=196 guifg=#f14c28
+		DevIconBz({ fg = "#eca517" }), -- DevIconBz      xxx ctermfg=214 guifg=#eca517
+		DevIconImportConfiguration({ fg = "#ececec" }), -- DevIconImportConfiguration xxx ctermfg=255 guifg=#ececec
+		DevIconQubesOS({ fg = "#3774d8" }), -- DevIconQubesOS xxx ctermfg=33 guifg=#3774d8
+		DevIconRmd({ fg = "#519aba" }), -- DevIconRmd     xxx ctermfg=74 guifg=#519aba
+		DevIconi3({ fg = "#e8ebee" }), -- DevIconi3      xxx ctermfg=255 guifg=#e8ebee
+		DevIconNPMIgnore({ fg = "#e8274b" }), -- DevIconNPMIgnore xxx ctermfg=197 guifg=#e8274b
+		DevIconHyprland({ fg = "#00aaae" }), -- DevIconHyprland xxx ctermfg=37 guifg=#00aaae
+		DevIconFluxbox({ fg = "#555555" }), -- DevIconFluxbox xxx ctermfg=240 guifg=#555555
+		DevIconElf({ fg = "#9f0500" }), -- DevIconElf     xxx ctermfg=124 guifg=#9f0500
+		DevIconLeex({ fg = "#a074c4" }), -- DevIconLeex    xxx ctermfg=140 guifg=#a074c4
+		DevIconEnlightenment({ fg = "#ffffff" }), -- DevIconEnlightenment xxx ctermfg=231 guifg=#ffffff
+		DevIcondwm({ fg = "#1177aa" }), -- DevIcondwm     xxx ctermfg=31 guifg=#1177aa
+		DevIconBSPWM({ fg = "#2f2f2f" }), -- DevIconBSPWM   xxx ctermfg=236 guifg=#2f2f2f
+		GitSignsStagedChangedeleteLn({ fg = "#70207d" }), -- GitSignsStagedChangedeleteLn xxx guifg=#70207d
+		DevIconFsx({ fg = "#519aba" }), -- DevIconFsx     xxx ctermfg=74 guifg=#519aba
+		DevIconawesome({ fg = "#535d6c" }), -- DevIconawesome xxx ctermfg=59 guifg=#535d6c
+		DevIconSha1({ fg = "#8c86af" }), -- DevIconSha1    xxx ctermfg=103 guifg=#8c86af
+		DevIconSha384({ fg = "#8c86af" }), -- DevIconSha384  xxx ctermfg=103 guifg=#8c86af
+		DevIconXeroLinux({ fg = "#888fe2" }), -- DevIconXeroLinux xxx ctermfg=104 guifg=#888fe2
+		DevIconSketchUp({ fg = "#839463" }), -- DevIconSketchUp xxx ctermfg=101 guifg=#839463
+		DevIconAi({ fg = "#cbcb41" }), -- DevIconAi      xxx ctermfg=185 guifg=#cbcb41
+		DevIconGTK({ fg = "#ffffff" }), -- DevIconGTK     xxx ctermfg=231 guifg=#ffffff
+		DevIconGodotTextScene({ fg = "#6d8086" }), -- DevIconGodotTextScene xxx ctermfg=66 guifg=#6d8086
+		DevIconSolveSpace({ fg = "#839463" }), -- DevIconSolveSpace xxx ctermfg=101 guifg=#839463
+		DevIconSpecJs({ fg = "#cbcb41" }), -- DevIconSpecJs  xxx ctermfg=185 guifg=#cbcb41
+		DevIconBash({ fg = "#89e051" }), -- DevIconBash    xxx ctermfg=113 guifg=#89e051
+		DevIconSte({ fg = "#839463" }), -- DevIconSte     xxx ctermfg=101 guifg=#839463
+		DevIconObjectiveCPlusPlus({ fg = "#519aba" }), -- DevIconObjectiveCPlusPlus xxx ctermfg=74 guifg=#519aba
+		DevIconClojureC({ fg = "#8dc149" }), -- DevIconClojureC xxx ctermfg=113 guifg=#8dc149
+		DevIconVHDL({ fg = "#019833" }), -- DevIconVHDL    xxx ctermfg=28 guifg=#019833
+		DevIconCobol({ fg = "#005ca5" }), -- DevIconCobol   xxx ctermfg=25 guifg=#005ca5
+		DevIconSass({ fg = "#f55385" }), -- DevIconSass    xxx ctermfg=204 guifg=#f55385
+		DevIconVim({ fg = "#019833" }), -- DevIconVim     xxx ctermfg=28 guifg=#019833
+		DevIconJson({ fg = "#cbcb41" }), -- DevIconJson    xxx ctermfg=185 guifg=#cbcb41
+		DevIconDiff({ fg = "#41535b" }), -- DevIconDiff    xxx ctermfg=239 guifg=#41535b
+		DevIconHh({ fg = "#a074c4" }), -- DevIconHh      xxx ctermfg=140 guifg=#a074c4
+		DevIconZig({ fg = "#f69a1b" }), -- DevIconZig     xxx ctermfg=172 guifg=#f69a1b
+		DevIconEjs({ fg = "#cbcb41" }), -- DevIconEjs     xxx ctermfg=185 guifg=#cbcb41
+		DevIconCPlusPlus({ fg = "#f34b7d" }), -- DevIconCPlusPlus xxx ctermfg=204 guifg=#f34b7d
+		DevIconConf({ fg = "#6d8086" }), -- DevIconConf    xxx ctermfg=66 guifg=#6d8086
+		DevIconZorin({ fg = "#14a1e8" }), -- DevIconZorin   xxx ctermfg=39 guifg=#14a1e8
+		DevIconBudgie({ fg = "#4e5361" }), -- DevIconBudgie  xxx ctermfg=240 guifg=#4e5361
+		DevIconSvelteConfig({ fg = "#ff3e00" }), -- DevIconSvelteConfig xxx ctermfg=196 guifg=#ff3e00
+		DevIconSh({ fg = "#4d5a5e" }), -- DevIconSh      xxx ctermfg=240 guifg=#4d5a5e
+		DevIconSolidWorksPrt({ fg = "#839463" }), -- DevIconSolidWorksPrt xxx ctermfg=101 guifg=#839463
+		DevIconGodotTextResource({ fg = "#6d8086" }), -- DevIconGodotTextResource xxx ctermfg=66 guifg=#6d8086
+		DevIconVue({ fg = "#8dc149" }), -- DevIconVue     xxx ctermfg=113 guifg=#8dc149
+		DevIconKotlinScript({ fg = "#7f52ff" }), -- DevIconKotlinScript xxx ctermfg=99 guifg=#7f52ff
+		DevIconSlackware({ fg = "#475fa9" }), -- DevIconSlackware xxx ctermfg=61 guifg=#475fa9
+		DevIconRakefile({ fg = "#701516" }), -- DevIconRakefile xxx ctermfg=52 guifg=#701516
+		DevIconGif({ fg = "#a074c4" }), -- DevIconGif     xxx ctermfg=140 guifg=#a074c4
+		DevIconKdenliveLayoutsrc({ fg = "#83b8f2" }), -- DevIconKdenliveLayoutsrc xxx ctermfg=110 guifg=#83b8f2
+		BufferCurrentMod({ fg = "#ffff00", gui = "bold" }), -- BufferCurrentMod xxx gui=bold guifg=#ffff00
+		DevIconImage({ fg = "#d0bec8" }), -- DevIconImage   xxx ctermfg=181 guifg=#d0bec8
+		DevIconTrisquelGNULinux({ fg = "#0f58b6" }), -- DevIconTrisquelGNULinux xxx ctermfg=25 guifg=#0f58b6
+		DevIconImg({ fg = "#d0bec8" }), -- DevIconImg     xxx ctermfg=181 guifg=#d0bec8
+		DapUINormalNC({ bg = "#07080d" }), -- DapUINormalNC  xxx guibg=#07080d
+		DevIconRlib({ fg = "#dea584" }), -- DevIconRlib    xxx ctermfg=216 guifg=#dea584
+		DevIconExs({ fg = "#a074c4" }), -- DevIconExs     xxx ctermfg=140 guifg=#a074c4
+		DevIconPyx({ fg = "#5aa7e4" }), -- DevIconPyx     xxx ctermfg=39 guifg=#5aa7e4
+		DevIconFs({ fg = "#519aba" }), -- DevIconFs      xxx ctermfg=74 guifg=#519aba
+		DevIconBlender({ fg = "#ea7600" }), -- DevIconBlender xxx ctermfg=208 guifg=#ea7600
+		DevIconSha512({ fg = "#8c86af" }), -- DevIconSha512  xxx ctermfg=103 guifg=#8c86af
+		DevIconSabayon({ fg = "#c6c6c6" }), -- DevIconSabayon xxx ctermfg=251 guifg=#c6c6c6
+		DevIconLhs({ fg = "#a074c4" }), -- DevIconLhs     xxx ctermfg=140 guifg=#a074c4
+		DevIconParrot({ fg = "#54deff" }), -- DevIconParrot  xxx ctermfg=45 guifg=#54deff
+		DevIconLocOS({ fg = "#fab402" }), -- DevIconLocOS   xxx ctermfg=214 guifg=#fab402
+		DevIconKubuntu({ fg = "#007ac2" }), -- DevIconKubuntu xxx ctermfg=32 guifg=#007ac2
+		DevIconMotoko({ fg = "#9772fb" }), -- DevIconMotoko  xxx ctermfg=135 guifg=#9772fb
+		DevIconNim({ fg = "#f3d400" }), -- DevIconNim     xxx ctermfg=220 guifg=#f3d400
+		DevIconMl({ fg = "#e37933" }), -- DevIconMl      xxx ctermfg=166 guifg=#e37933
+		DevIconArcoLinux({ fg = "#6690eb" }), -- DevIconArcoLinux xxx ctermfg=68 guifg=#6690eb
+		DevIconSettingsJson({ fg = "#854cc7" }), -- DevIconSettingsJson xxx ctermfg=98 guifg=#854cc7
+		DevIconMkv({ fg = "#fd971f" }), -- DevIconMkv     xxx ctermfg=208 guifg=#fd971f
+		NotifyWARNBorder({ fg = "#79491d" }), -- NotifyWARNBorder xxx guifg=#79491d
+		DevIconRedhat({ fg = "#ee0000" }), -- DevIconRedhat  xxx ctermfg=196 guifg=#ee0000
+		DevIconArch({ fg = "#0f94d2" }), -- DevIconArch    xxx ctermfg=67 guifg=#0f94d2
+		NotifyDEBUGBorder({ fg = "#8b8b8b" }), -- NotifyDEBUGBorder xxx guifg=#8b8b8b
+		semshiErrorChar({ bg = "#ff5252", fg = "#ffcccc" }), -- semshiErrorChar xxx guifg=#ffcccc guibg=#ff5252
+		GitSignsStagedAdd({ fg = "#597b60" }), -- GitSignsStagedAdd xxx guifg=#597b60
+		GitSignsStagedChange({ fg = "#467c7b" }), -- GitSignsStagedChange xxx guifg=#467c7b
+		DevIconCsh({ fg = "#4d5a5e" }), -- DevIconCsh     xxx ctermfg=240 guifg=#4d5a5e
+		DevIconPub({ fg = "#e3c58e" }), -- DevIconPub     xxx ctermfg=222 guifg=#e3c58e
+		GitSignsStagedTopdelete({ fg = "#7f605c" }), -- GitSignsStagedTopdelete xxx guifg=#7f605c
+		GitSignsStagedAddNr({ fg = "#597b60" }), -- GitSignsStagedAddNr xxx guifg=#597b60
+		GitSignsStagedChangeNr({ fg = "#467c7b" }), -- GitSignsStagedChangeNr xxx guifg=#467c7b
+		DevIconH({ fg = "#a074c4" }), -- DevIconH       xxx ctermfg=140 guifg=#a074c4
+		GitSignsStagedChangedeleteNr({ fg = "#467c7b" }), -- GitSignsStagedChangedeleteNr xxx guifg=#467c7b
+		GitSignsStagedTopdeleteNr({ fg = "#7f605c" }), -- GitSignsStagedTopdeleteNr xxx guifg=#7f605c
+		DevIconPxi({ fg = "#5aa7e4" }), -- DevIconPxi     xxx ctermfg=39 guifg=#5aa7e4
+		GitSignsStagedAddLn({ fg = "#597f2c" }), -- GitSignsStagedAddLn xxx guifg=#597f2c
+		DevIconCpp({ fg = "#519aba" }), -- DevIconCpp     xxx ctermfg=74 guifg=#519aba
+		DevIconSig({ fg = "#e37933" }), -- DevIconSig     xxx ctermfg=166 guifg=#e37933
+		DevIconClojureDart({ fg = "#519aba" }), -- DevIconClojureDart xxx ctermfg=74 guifg=#519aba
+		DevIconTailwindConfig({ fg = "#20c2e3" }), -- DevIconTailwindConfig xxx ctermfg=45 guifg=#20c2e3
+		DevIconRockyLinux({ fg = "#0fb37d" }), -- DevIconRockyLinux xxx ctermfg=36 guifg=#0fb37d
+		DevIconCinnamon({ fg = "#dc682e" }), -- DevIconCinnamon xxx ctermfg=166 guifg=#dc682e
+		DevIconGNOME({ fg = "#ffffff" }), -- DevIconGNOME   xxx ctermfg=231 guifg=#ffffff
+		DevIconLXDE({ fg = "#a4a4a4" }), -- DevIconLXDE    xxx ctermfg=248 guifg=#a4a4a4
+		DevIconFortran({ fg = "#734f96" }), -- DevIconFortran xxx ctermfg=97 guifg=#734f96
+		DevIconLXQt({ fg = "#0191d2" }), -- DevIconLXQt    xxx ctermfg=32 guifg=#0191d2
+		DevIconMATE({ fg = "#9bda5c" }), -- DevIconMATE    xxx ctermfg=113 guifg=#9bda5c
+		DevIconKDEPlasma({ fg = "#1b89f4" }), -- DevIconKDEPlasma xxx ctermfg=33 guifg=#1b89f4
+		DevIconTerminal({ fg = "#31b53e" }), -- DevIconTerminal xxx ctermfg=34 guifg=#31b53e
+		DevIconXfce({ fg = "#00aadf" }), -- DevIconXfce    xxx ctermfg=74 guifg=#00aadf
+		DevIconKsh({ fg = "#4d5a5e" }), -- DevIconKsh     xxx ctermfg=240 guifg=#4d5a5e
+		BufferInactiveMod({ bg = "#1d1d1d", fg = "#353535" }), -- BufferInactiveMod xxx guifg=#353535 guibg=#1d1d1d
+		BufferInactiveIndex({ bg = "#1d1d1d", fg = "#353535" }), -- BufferInactiveIndex xxx guifg=#353535 guibg=#1d1d1d
+		DevIconWindows({ fg = "#00a4ef" }), -- DevIconWindows xxx ctermfg=39 guifg=#00a4ef
+		BufferInactive({ bg = "#1d1d1d", fg = "#505050" }), -- BufferInactive xxx guifg=#505050 guibg=#1d1d1d
+		BufferCurrentSign({ bg = "#1c1c1c", fg = "#dfdfdf" }), -- BufferCurrentSign xxx guifg=#dfdfdf guibg=#1c1c1c
+		BufferCurrentIndex({ bg = "#1c1c1c", fg = "#f0f0f0" }), -- BufferCurrentIndex xxx guifg=#f0f0f0 guibg=#1c1c1c
+		DevIconCs({ fg = "#596706" }), -- DevIconCs      xxx ctermfg=58 guifg=#596706
+		GitSignsStagedChangeLn({ fg = "#70207d" }), -- GitSignsStagedChangeLn xxx guifg=#70207d
+		DevIconWebm({ fg = "#fd971f" }), -- DevIconWebm    xxx ctermfg=208 guifg=#fd971f
+		NotifyTRACETitle({ fg = "#d484ff" }), -- NotifyTRACETitle xxx guifg=#d484ff
+		DevIconBoundaryRepresentation({ fg = "#839463" }), -- DevIconBoundaryRepresentation xxx ctermfg=101 guifg=#839463
+		NotifyTRACEIcon({ fg = "#d484ff" }), -- NotifyTRACEIcon xxx guifg=#d484ff
+		NotifyTRACEBorder({ fg = "#4f3552" }), -- NotifyTRACEBorder xxx guifg=#4f3552
+		NotifyINFOTitle({ fg = "#a9ff68" }), -- NotifyINFOTitle xxx guifg=#a9ff68
+		GitSignsStagedDeleteNr({ fg = "#7f605c" }), -- GitSignsStagedDeleteNr xxx guifg=#7f605c
+		NotifyINFOIcon({ fg = "#a9ff68" }), -- NotifyINFOIcon xxx guifg=#a9ff68
+		NotifyINFOBorder({ fg = "#4f6752" }), -- NotifyINFOBorder xxx guifg=#4f6752
+		NotifyERRORIcon({ fg = "#f70067" }), -- NotifyERRORIcon xxx guifg=#f70067
+		GitSignsStagedChangedelete({ fg = "#467c7b" }), -- GitSignsStagedChangedelete xxx guifg=#467c7b
+		GitSignsStagedDelete({ fg = "#7f605c" }), -- GitSignsStagedDelete xxx guifg=#7f605c
+		NotifyERRORBorder({ fg = "#8a1f1f" }), -- NotifyERRORBorder xxx guifg=#8a1f1f
+		NotifyDEBUGTitle({ fg = "#8b8b8b" }), -- NotifyDEBUGTitle xxx guifg=#8b8b8b
+		DevIconGodotProject({ fg = "#6d8086" }), -- DevIconGodotProject xxx ctermfg=66 guifg=#6d8086
+		NotifyDEBUGIcon({ fg = "#8b8b8b" }), -- NotifyDEBUGIcon xxx guifg=#8b8b8b
+		DevIconGulpfile({ fg = "#cc3e44" }), -- DevIconGulpfile xxx ctermfg=167 guifg=#cc3e44
+		NotifyWARNTitle({ fg = "#f79000" }), -- NotifyWARNTitle xxx guifg=#f79000
+		DevIconHaxe({ fg = "#ea8220" }), -- DevIconHaxe    xxx ctermfg=208 guifg=#ea8220
+		NotifyWARNIcon({ fg = "#f79000" }), -- NotifyWARNIcon xxx guifg=#f79000
+		DevIconJpeg({ fg = "#a074c4" }), -- DevIconJpeg    xxx ctermfg=140 guifg=#a074c4
+		DevIconJpg({ fg = "#a074c4" }), -- DevIconJpg     xxx ctermfg=140 guifg=#a074c4
+		DevIconVagrantfile({ fg = "#1563ff" }), -- DevIconVagrantfile xxx ctermfg=27 guifg=#1563ff
+		DevIconCue({ fg = "#ed95ae" }), -- DevIconCue     xxx ctermfg=211 guifg=#ed95ae
+		DevIconPyo({ fg = "#ffe291" }), -- DevIconPyo     xxx ctermfg=222 guifg=#ffe291
+		DevIconApp({ fg = "#9f0500" }), -- DevIconApp     xxx ctermfg=124 guifg=#9f0500
+		BufferLineBufferSelected({ bg = "#1c1c1c", fg = "#ffffff", gui = "bold,italic" }), -- BufferLineBufferSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
+		DevIconPp({ fg = "#ffa61a" }), -- DevIconPp      xxx ctermfg=214 guifg=#ffa61a
+		DevIconRproj({ fg = "#358a5b" }), -- DevIconRproj   xxx ctermfg=29 guifg=#358a5b
+		DevIconVerilog({ fg = "#019833" }), -- DevIconVerilog xxx ctermfg=28 guifg=#019833
+		DevIconOpenTypeFont({ fg = "#ececec" }), -- DevIconOpenTypeFont xxx ctermfg=255 guifg=#ececec
+		DevIconPackedResource({ fg = "#6d8086" }), -- DevIconPackedResource xxx ctermfg=66 guifg=#6d8086
+		DevIconPng({ fg = "#a074c4" }), -- DevIconPng     xxx ctermfg=140 guifg=#a074c4
+		DevIconXml({ fg = "#e37933" }), -- DevIconXml     xxx ctermfg=166 guifg=#e37933
+		DevIconPpt({ fg = "#cb4a32" }), -- DevIconPpt     xxx ctermfg=160 guifg=#cb4a32
+		DevIconProlog({ fg = "#e4b854" }), -- DevIconProlog  xxx ctermfg=179 guifg=#e4b854
+		DevIconAsc({ fg = "#576d7f" }), -- DevIconAsc     xxx ctermfg=242 guifg=#576d7f
+		DevIconPsb({ fg = "#519aba" }), -- DevIconPsb     xxx ctermfg=74 guifg=#519aba
+		DevIconPyc({ fg = "#ffe291" }), -- DevIconPyc     xxx ctermfg=222 guifg=#ffe291
+		DevIconPyd({ fg = "#ffe291" }), -- DevIconPyd     xxx ctermfg=222 guifg=#ffe291
+		DevIconLog({ fg = "#dddddd" }), -- DevIconLog     xxx ctermfg=253 guifg=#dddddd
+		DevIconPsd({ fg = "#519aba" }), -- DevIconPsd     xxx ctermfg=74 guifg=#519aba
+		DevIconSlim({ fg = "#e34c26" }), -- DevIconSlim    xxx ctermfg=196 guifg=#e34c26
+		DevIconAvif({ fg = "#a074c4" }), -- DevIconAvif    xxx ctermfg=140 guifg=#a074c4
+		DevIconTypoScript({ fg = "#ff8700" }), -- DevIconTypoScript xxx ctermfg=208 guifg=#ff8700
+		DevIconAzureCli({ fg = "#0078d4" }), -- DevIconAzureCli xxx ctermfg=32 guifg=#0078d4
+		DevIconVRML({ fg = "#888888" }), -- DevIconVRML    xxx ctermfg=102 guifg=#888888
+		DevIconLogos({ fg = "#519aba" }), -- DevIconLogos   xxx ctermfg=74 guifg=#519aba
+		DevIconEex({ fg = "#a074c4" }), -- DevIconEex     xxx ctermfg=140 guifg=#a074c4
+		DevIconXaml({ fg = "#512bd4" }), -- DevIconXaml    xxx ctermfg=56 guifg=#512bd4
+		DevIconDump({ fg = "#dad8d8" }), -- DevIconDump    xxx ctermfg=188 guifg=#dad8d8
+		DevIconTFVars({ fg = "#5f43e9" }), -- DevIconTFVars  xxx ctermfg=93 guifg=#5f43e9
+		DevIconGIMP({ fg = "#635b46" }), -- DevIconGIMP    xxx ctermfg=240 guifg=#635b46
+		DevIconCss({ fg = "#42a5f5" }), -- DevIconCss     xxx ctermfg=75 guifg=#42a5f5
+		DevIconJWM({ fg = "#0078cd" }), -- DevIconJWM     xxx ctermfg=32 guifg=#0078cd
+		DevIconSub({ fg = "#ffb713" }), -- DevIconSub     xxx ctermfg=214 guifg=#ffb713
+		DevIconcuda({ fg = "#89e051" }), -- DevIconcuda    xxx ctermfg=113 guifg=#89e051
+		DevIconcudah({ fg = "#a074c4" }), -- DevIconcudah   xxx ctermfg=140 guifg=#a074c4
+		DevIconXcLocalization({ fg = "#2596be" }), -- DevIconXcLocalization xxx ctermfg=31 guifg=#2596be
+		DevIconRazorPage({ fg = "#512bd4" }), -- DevIconRazorPage xxx ctermfg=56 guifg=#512bd4
+		DevIconJpegXl({ fg = "#a074c4" }), -- DevIconJpegXl  xxx ctermfg=140 guifg=#a074c4
+		DevIconMixLock({ fg = "#a074c4" }), -- DevIconMixLock xxx ctermfg=140 guifg=#a074c4
+		DevIconVoid({ fg = "#295340" }), -- DevIconVoid    xxx ctermfg=23 guifg=#295340
+		DevIconCxxm({ fg = "#519aba" }), -- DevIconCxxm    xxx ctermfg=74 guifg=#519aba
+		DevIconCppm({ fg = "#519aba" }), -- DevIconCppm    xxx ctermfg=74 guifg=#519aba
+		DevIconCPlusPlusModule({ fg = "#f34b7d" }), -- DevIconCPlusPlusModule xxx ctermfg=204 guifg=#f34b7d
+		DevIconHpp({ fg = "#a074c4" }), -- DevIconHpp     xxx ctermfg=140 guifg=#a074c4
+		DevIconGemspec({ fg = "#701516" }), -- DevIconGemspec xxx ctermfg=52 guifg=#701516
+		DevIconKdb({ fg = "#529b34" }), -- DevIconKdb     xxx ctermfg=71 guifg=#529b34
+		DevIconRake({ fg = "#701516" }), -- DevIconRake    xxx ctermfg=52 guifg=#701516
+		DevIconD({ fg = "#427819" }), -- DevIconD       xxx ctermfg=28 guifg=#427819
+		DevIconKdbx({ fg = "#529b34" }), -- DevIconKdbx    xxx ctermfg=71 guifg=#529b34
+		DevIconDb({ fg = "#dad8d8" }), -- DevIconDb      xxx ctermfg=188 guifg=#dad8d8
+		DevIconKdenlive({ fg = "#83b8f2" }), -- DevIconKdenlive xxx ctermfg=110 guifg=#83b8f2
+		DevIconAutoCADDwg({ fg = "#839463" }), -- DevIconAutoCADDwg xxx ctermfg=101 guifg=#839463
+		DevIconApple({ fg = "#a2aaad" }), -- DevIconApple   xxx ctermfg=248 guifg=#a2aaad
+		DevIconEdn({ fg = "#519aba" }), -- DevIconEdn     xxx ctermfg=74 guifg=#519aba
+		DevIconKiCad({ fg = "#ffffff" }), -- DevIconKiCad   xxx ctermfg=231 guifg=#ffffff
+		DevIconZshenv({ fg = "#89e051" }), -- DevIconZshenv  xxx ctermfg=113 guifg=#89e051
+		DevIconKrita({ fg = "#f245fb" }), -- DevIconKrita   xxx ctermfg=201 guifg=#f245fb
+		DevIconStep({ fg = "#839463" }), -- DevIconStep    xxx ctermfg=101 guifg=#839463
+		DevIconAlpine({ fg = "#0d597f" }), -- DevIconAlpine  xxx ctermfg=24 guifg=#0d597f
+		DevIconConfig({ fg = "#6d8086" }), -- DevIconConfig  xxx ctermfg=66 guifg=#6d8086
+		DevIconLXQtConfigFile({ fg = "#0192d3" }), -- DevIconLXQtConfigFile xxx ctermfg=32 guifg=#0192d3
+		DevIconAOSC({ fg = "#c00000" }), -- DevIconAOSC    xxx ctermfg=124 guifg=#c00000
+		DevIconLibrecadFontFile({ fg = "#ececec" }), -- DevIconLibrecadFontFile xxx ctermfg=255 guifg=#ececec
+		DevIconBazelWorkspace({ fg = "#89e051" }), -- DevIconBazelWorkspace xxx ctermfg=113 guifg=#89e051
+		DevIconGitConfig({ fg = "#f54d27" }), -- DevIconGitConfig xxx ctermfg=196 guifg=#f54d27
+		DevIconOrgMode({ fg = "#77aa99" }), -- DevIconOrgMode xxx ctermfg=73 guifg=#77aa99
+		DevIconMd({ fg = "#dddddd" }), -- DevIconMd      xxx ctermfg=253 guifg=#dddddd
+		DevIconCache({ fg = "#ffffff" }), -- DevIconCache   xxx ctermfg=231 guifg=#ffffff
+		DevIconTs({ fg = "#519aba" }), -- DevIconTs      xxx ctermfg=74 guifg=#519aba
+		DevIconLua({ fg = "#51a0cf" }), -- DevIconLua     xxx ctermfg=74 guifg=#51a0cf
+		DevIconBashrc({ fg = "#89e051" }), -- DevIconBashrc  xxx ctermfg=113 guifg=#89e051
+		DevIconOpenBSD({ fg = "#f2ca30" }), -- DevIconOpenBSD xxx ctermfg=220 guifg=#f2ca30
+		DevIconPl({ fg = "#519aba" }), -- DevIconPl      xxx ctermfg=74 guifg=#519aba
+		DevIconEx({ fg = "#a074c4" }), -- DevIconEx      xxx ctermfg=140 guifg=#a074c4
+		DevIconXauthority({ fg = "#e54d18" }), -- DevIconXauthority xxx ctermfg=196 guifg=#e54d18
+		DevIconPrettierConfig({ fg = "#4285f4" }), -- DevIconPrettierConfig xxx ctermfg=33 guifg=#4285f4
+		DevIconScss({ fg = "#f55385" }), -- DevIconScss    xxx ctermfg=204 guifg=#f55385
+		DevIconMagnet({ fg = "#a51b16" }), -- DevIconMagnet  xxx ctermfg=124 guifg=#a51b16
+		DevIconBabelrc({ fg = "#cbcb41" }), -- DevIconBabelrc xxx ctermfg=185 guifg=#cbcb41
+		DevIconTypoScriptConfig({ fg = "#ff8700" }), -- DevIconTypoScriptConfig xxx ctermfg=208 guifg=#ff8700
+		DevIconQt({ fg = "#40cd52" }), -- DevIconQt      xxx ctermfg=77 guifg=#40cd52
+		DevIconFusion360({ fg = "#839463" }), -- DevIconFusion360 xxx ctermfg=101 guifg=#839463
+		DevIconBin({ fg = "#9f0500" }), -- DevIconBin     xxx ctermfg=124 guifg=#9f0500
+		DevIconReScript({ fg = "#cc3e44" }), -- DevIconReScript xxx ctermfg=167 guifg=#cc3e44
+		DevIconTestJs({ fg = "#cbcb41" }), -- DevIconTestJs  xxx ctermfg=185 guifg=#cbcb41
+		DevIconReScriptInterface({ fg = "#f55385" }), -- DevIconReScriptInterface xxx ctermfg=204 guifg=#f55385
+		DevIconRb({ fg = "#701516" }), -- DevIconRb      xxx ctermfg=52 guifg=#701516
+		DevIcon7z({ fg = "#eca517" }), -- DevIcon7z      xxx ctermfg=214 guifg=#eca517
+		DevIconFreeCAD({ fg = "#cb0d0d" }), -- DevIconFreeCAD xxx ctermfg=160 guifg=#cb0d0d
+		DevIconGDScript({ fg = "#6d8086" }), -- DevIconGDScript xxx ctermfg=66 guifg=#6d8086
+		DevIconRar({ fg = "#eca517" }), -- DevIconRar     xxx ctermfg=214 guifg=#eca517
+		DevIconFIGletFontControl({ fg = "#ececec" }), -- DevIconFIGletFontControl xxx ctermfg=255 guifg=#ececec
+		DevIconJsx({ fg = "#20c2e3" }), -- DevIconJsx     xxx ctermfg=45 guifg=#20c2e3
+		DevIconFIGletFontFormat({ fg = "#ececec" }), -- DevIconFIGletFontFormat xxx ctermfg=255 guifg=#ececec
+		DevIconsbt({ fg = "#cc3e44" }), -- DevIconsbt     xxx ctermfg=167 guifg=#cc3e44
+		DevIconInfo({ fg = "#ffffcd" }), -- DevIconInfo    xxx ctermfg=230 guifg=#ffffcd
+		DevIconSvg({ fg = "#ffb13b" }), -- DevIconSvg     xxx ctermfg=214 guifg=#ffb13b
+		semshiParameter({ fg = "#5fafff" }), -- semshiParameter xxx guifg=#5fafff
+		semshiParameterUnused({ fg = "#87d7ff", gui = "underline" }), -- semshiParameterUnused xxx cterm=underline gui=underline guifg=#87d7ff
+		semshiAttribute({ fg = "#ae81ff" }), -- semshiAttribute xxx guifg=#ae81ff
+		semshiSelf({ fg = "#9d9d9d" }), -- semshiSelf     xxx guifg=#9d9d9d
+		semshiUnresolved({ fg = "#ffff00", gui = "underline" }), -- semshiUnresolved xxx cterm=underline gui=underline guifg=#ffff00
+		CmpItemAbbrDefault({ fg = "#efefef" }), -- CmpItemAbbrDefault xxx guifg=#efefef
+		CmpItemAbbr({ CmpItemAbbrDefault }), -- CmpItemAbbr    xxx links to CmpItemAbbrDefault
+		CmpItemAbbrMatchDefault({ fg = "#efefef" }), -- CmpItemAbbrMatchDefault xxx guifg=#efefef
+		CmpItemAbbrMatch({ CmpItemAbbrMatchDefault }), -- CmpItemAbbrMatch xxx links to CmpItemAbbrMatchDefault
+		CmpItemAbbrMatchFuzzyDefault({ fg = "#efefef" }), -- CmpItemAbbrMatchFuzzyDefault xxx guifg=#efefef
+		CmpItemAbbrMatchFuzzy({ CmpItemAbbrMatchFuzzyDefault }), -- CmpItemAbbrMatchFuzzy xxx links to CmpItemAbbrMatchFuzzyDefault
+		CmpItemMenuDefault({ fg = "#efefef" }), -- CmpItemMenuDefault xxx guifg=#efefef
+		CmpItemMenu({ CmpItemMenuDefault }), -- CmpItemMenu    xxx links to CmpItemMenuDefault
+		pythonDottedName({ fg = "#ee4eb8", gui = "bold" }), -- pythonDottedName xxx gui=bold guifg=#ee4eb8
+		TSRainbowRed({ fg = "#cc241d" }), -- TSRainbowRed   xxx ctermfg=9 guifg=#cc241d
+		TSRainbowOrange({ fg = "#d65d0e" }), -- TSRainbowOrange xxx ctermfg=15 guifg=#d65d0e
+		TSRainbowYellow({ fg = "#d79921" }), -- TSRainbowYellow xxx ctermfg=11 guifg=#d79921
+		TSRainbowGreen({ fg = "#689d6a" }), -- TSRainbowGreen xxx ctermfg=10 guifg=#689d6a
+		TSRainbowCyan({ fg = "#a89984" }), -- TSRainbowCyan  xxx ctermfg=14 guifg=#a89984
+		TSRainbowBlue({ fg = "#458588" }), -- TSRainbowBlue  xxx ctermfg=12 guifg=#458588
+		TSRainbowViolet({ fg = "#b16286" }), -- TSRainbowViolet xxx ctermfg=13 guifg=#b16286
+		HighlightURL({ gui = "underline" }), -- HighlightURL   xxx cterm=underline gui=underline
+		htmlStrike({ gui = "strikethrough" }), -- htmlStrike     xxx cterm=strikethrough gui=strikethrough
+		htmlBoldUnderline({ gui = "bold,underline" }), -- htmlBoldUnderline xxx cterm=bold,underline gui=bold,underline
+		htmlUnderlineBold({ htmlBoldUnderline }), -- htmlUnderlineBold xxx links to htmlBoldUnderline
+		htmlBoldItalic({ gui = "bold,italic" }), -- htmlBoldItalic xxx cterm=bold,italic gui=bold,italic
+		htmlItalicBold({ htmlBoldItalic }), -- htmlItalicBold xxx links to htmlBoldItalic
+		htmlBold({ gui = "bold" }), -- htmlBold       xxx cterm=bold gui=bold
+		htmlBoldUnderlineItalic({ gui = "bold,underline,italic" }), -- htmlBoldUnderlineItalic xxx cterm=bold,underline,italic gui=bold,underline,italic
+		htmlBoldItalicUnderline({ htmlBoldUnderlineItalic }), -- htmlBoldItalicUnderline xxx links to htmlBoldUnderlineItalic
+		htmlUnderlineBoldItalic({ htmlBoldUnderlineItalic }), -- htmlUnderlineBoldItalic xxx links to htmlBoldUnderlineItalic
+		htmlUnderlineItalicBold({ htmlBoldUnderlineItalic }), -- htmlUnderlineItalicBold xxx links to htmlBoldUnderlineItalic
+		htmlItalicBoldUnderline({ htmlBoldUnderlineItalic }), -- htmlItalicBoldUnderline xxx links to htmlBoldUnderlineItalic
+		htmlItalicUnderlineBold({ htmlBoldUnderlineItalic }), -- htmlItalicUnderlineBold xxx links to htmlBoldUnderlineItalic
+		htmlUnderlineItalic({ gui = "underline,italic" }), -- htmlUnderlineItalic xxx cterm=underline,italic gui=underline,italic
+		htmlItalicUnderline({ htmlUnderlineItalic }), -- htmlItalicUnderline xxx links to htmlUnderlineItalic
+		htmlUnderline({ gui = "underline" }), -- htmlUnderline  xxx cterm=underline gui=underline
+		htmlItalic({ gui = "italic" }), -- htmlItalic     xxx cterm=italic gui=italic
+		texStyleBoth({ gui = "bold,italic" }), -- texStyleBoth   xxx cterm=bold,italic gui=bold,italic
+		texStyleBold({ gui = "bold" }), -- texStyleBold   xxx cterm=bold gui=bold
+		texStyleItal({ gui = "italic" }), -- texStyleItal   xxx cterm=italic gui=italic
+		texEnvArgName({ fg = "#63ff51" }), -- texEnvArgName  xxx guifg=#63ff51
+		texNewenvArgName({ texEnvArgName }), -- texNewenvArgName xxx links to texEnvArgName
+		texEnvMArgName({ texEnvArgName }), -- texEnvMArgName xxx links to texEnvArgName
+		texCmdEnv({ fg = "#00ccff" }), -- texCmdEnv      xxx guifg=#00ccff
+		texCmdEnvM({ texCmdEnv }), -- texCmdEnvM     xxx links to texCmdEnv
+		texCmdItem({ texCmdEnv }), -- texCmdItem     xxx links to texCmdEnv
+		texCmdMathEnv({ texCmdEnv }), -- texCmdMathEnv  xxx links to texCmdEnv
+		texMathStyleBold({ gui = "bold" }), -- texMathStyleBold xxx cterm=bold gui=bold
+		texMathStyleItal({ gui = "italic" }), -- texMathStyleItal xxx cterm=italic gui=italic
+		texStyleUnder({ gui = "underline" }), -- texStyleUnder  xxx cterm=underline gui=underline
+		texStyleBoldUnder({ gui = "bold,underline" }), -- texStyleBoldUnder xxx cterm=bold,underline gui=bold,underline
+		texStyleItalUnder({ gui = "underline,italic" }), -- texStyleItalUnder xxx cterm=underline,italic gui=underline,italic
+		texStyleBoldItalUnder({ gui = "bold,underline,italic" }), -- texStyleBoldItalUnder xxx cterm=bold,underline,italic gui=bold,underline,italic
+		pandocTitleBlock({ gui = "italic" }), -- pandocTitleBlock xxx gui=italic
+		pandocEmphasis({ gui = "italic" }), -- pandocEmphasis xxx cterm=italic gui=italic
+		pandocStrong({ gui = "bold" }), -- pandocStrong   xxx cterm=bold gui=bold
+		pandocSimpleTableHeader({ pandocStrong }), -- pandocSimpleTableHeader xxx links to pandocStrong
+		pandocTableMultilineHeader({ pandocStrong }), -- pandocTableMultilineHeader xxx links to pandocStrong
+		pandocTableHeaderWord({ pandocStrong }), -- pandocTableHeaderWord xxx links to pandocStrong
+		pandocSuperscript({ gui = "underline" }), -- pandocSuperscript xxx cterm=underline gui=underline
+		pandocSubscript({ gui = "underline" }), -- pandocSubscript xxx cterm=underline gui=underline
+		pandocStrikeout({ gui = "underline" }), -- pandocStrikeout xxx cterm=underline gui=underline
+		pandocNoFormattedInEmphasis({ fg = "#ffa0a0", gui = "italic" }), -- pandocNoFormattedInEmphasis xxx cterm=italic gui=italic guifg=#ffa0a0
+		pandocNoFormattedInStrong({ fg = "#ffa0a0", gui = "bold" }), -- pandocNoFormattedInStrong xxx cterm=bold gui=bold guifg=#ffa0a0
+		pandocStrongEmphasis({ gui = "bold,italic" }), -- pandocStrongEmphasis xxx cterm=bold,italic gui=bold,italic
+		pandocStrongInEmphasis({ gui = "bold,italic" }), -- pandocStrongInEmphasis xxx cterm=bold,italic gui=bold,italic
+		pandocEmphasisInStrong({ gui = "bold,italic" }), -- pandocEmphasisInStrong xxx cterm=bold,italic gui=bold,italic
+		pythonFunction({ fg = "#87ff00", gui = "bold" }), -- pythonFunction xxx gui=bold guifg=#87ff00
+		pythonRepeat({ fg = "#d3ff00" }), -- pythonRepeat   xxx guifg=#d3ff00
+		pythonOperator({ fg = "#f92672", gui = "bold" }), -- pythonOperator xxx gui=bold guifg=#f92672
+		pythonBoolean({ fg = "#66d9ef", gui = "bold" }), -- pythonBoolean  xxx gui=bold guifg=#66d9ef
+		pythonNone({ fg = "#d3ff00", gui = "bold" }), -- pythonNone     xxx gui=bold guifg=#d3ff00
+		pythonBuiltinObj({ fg = "#d3ff00", gui = "bold" }), -- pythonBuiltinObj xxx gui=bold guifg=#d3ff00
+		pythonComment({ fg = "#494949", gui = "italic" }), -- pythonComment  xxx gui=italic guifg=#494949
+		DevIconObjectFile({ fg = "#9f0500" }), -- DevIconObjectFile xxx ctermfg=124 guifg=#9f0500
+		DevIconSharedObject({ fg = "#dcddd6" }), -- DevIconSharedObject xxx ctermfg=253 guifg=#dcddd6
+		DevIconPart({ fg = "#44cda8" }), -- DevIconPart    xxx ctermfg=43 guifg=#44cda8
+		DevIconOggVorbis({ fg = "#0075aa" }), -- DevIconOggVorbis xxx ctermfg=24 guifg=#0075aa
+		DevIconapk({ fg = "#34a853" }), -- DevIconapk     xxx ctermfg=35 guifg=#34a853
+		DevIconAndroid({ fg = "#34a853" }), -- DevIconAndroid xxx ctermfg=35 guifg=#34a853
+		DevIconAudioInterchangeFileFormat({ fg = "#00afff" }), -- DevIconAudioInterchangeFileFormat xxx ctermfg=39 guifg=#00afff
+		DevIconStaticLibraryArchive({ fg = "#dcddd6" }), -- DevIconStaticLibraryArchive xxx ctermfg=253 guifg=#dcddd6
+		DevIconWindowsMediaAudio({ fg = "#00afff" }), -- DevIconWindowsMediaAudio xxx ctermfg=39 guifg=#00afff
+		DevIconTorrent({ fg = "#44cda8" }), -- DevIconTorrent xxx ctermfg=43 guifg=#44cda8
+		DevIconPatch({ fg = "#41535b" }), -- DevIconPatch   xxx ctermfg=239 guifg=#41535b
+		DevIconMPEG4({ fg = "#00afff" }), -- DevIconMPEG4   xxx ctermfg=39 guifg=#00afff
+		DevIconTmux({ fg = "#14ba19" }), -- DevIconTmux    xxx ctermfg=34 guifg=#14ba19
+		DevIconLinuxKernelObject({ fg = "#dcddd6" }), -- DevIconLinuxKernelObject xxx ctermfg=253 guifg=#dcddd6
+		DevIconDll({ fg = "#4d2c0b" }), -- DevIconDll     xxx ctermfg=52 guifg=#4d2c0b
+		DevIconCrdownload({ fg = "#44cda8" }), -- DevIconCrdownload xxx ctermfg=43 guifg=#44cda8
+		DevIconDownload({ fg = "#44cda8" }), -- DevIconDownload xxx ctermfg=43 guifg=#44cda8
+		DevIconIfb({ fg = "#2b2e83" }), -- DevIconIfb     xxx ctermfg=18 guifg=#2b2e83
+		DevIconIcs({ fg = "#2b2e83" }), -- DevIconIcs     xxx ctermfg=18 guifg=#2b2e83
+		DevIconIcalendar({ fg = "#2b2e83" }), -- DevIconIcalendar xxx ctermfg=18 guifg=#2b2e83
+		DevIconIcal({ fg = "#2b2e83" }), -- DevIconIcal    xxx ctermfg=18 guifg=#2b2e83
+		DevIconElisp({ fg = "#8172be" }), -- DevIconElisp   xxx ctermfg=97 guifg=#8172be
+		DevIconOpusAudioFile({ fg = "#0075aa" }), -- DevIconOpusAudioFile xxx ctermfg=24 guifg=#0075aa
+		DevIconLib({ fg = "#4d2c0b" }), -- DevIconLib     xxx ctermfg=52 guifg=#4d2c0b
+		DevIconAdvancedAudioCoding({ fg = "#00afff" }), -- DevIconAdvancedAudioCoding xxx ctermfg=39 guifg=#00afff
+		DevIconSignature({ fg = "#e37933" }), -- DevIconSignature xxx ctermfg=166 guifg=#e37933
+		DevIconWaveformAudioFile({ fg = "#00afff" }), -- DevIconWaveformAudioFile xxx ctermfg=39 guifg=#00afff
+		DevIconMonkeysAudio({ fg = "#00afff" }), -- DevIconMonkeysAudio xxx ctermfg=39 guifg=#00afff
+		DevIconFdmdownload({ fg = "#44cda8" }), -- DevIconFdmdownload xxx ctermfg=43 guifg=#44cda8
+		DevIconFreeLosslessAudioCodec({ fg = "#0075aa" }), -- DevIconFreeLosslessAudioCodec xxx ctermfg=24 guifg=#0075aa
+		Stlffffff_1c1c1c_bolditalic_({ bg = "#1c1c1c", fg = "#ffffff", gui = "bold,italic" }), -- Stlffffff_1c1c1c_bolditalic_ xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
+		colorizer_mb_1ed760({ bg = "#1ed760", fg = "black" }), -- colorizer_mb_1ed760 xxx guifg=Black guibg=#1ed760
+		rainbowcol1({ fg = "#00e676" }), -- rainbowcol1    xxx guifg=#00e676
+		rainbowcol2({ fg = "#f92672" }), -- rainbowcol2    xxx guifg=#f92672
+		rainbowcol3({ fg = "#42a5f5" }), -- rainbowcol3    xxx guifg=#42a5f5
+		rainbowcol4({ fg = "#26a69a" }), -- rainbowcol4    xxx guifg=#26a69a
+		rainbowcol5({ fg = "#9ccc65" }), -- rainbowcol5    xxx guifg=#9ccc65
+		rainbowcol6({ fg = "#ffee58" }), -- rainbowcol6    xxx guifg=#ffee58
+		rainbowcol7({ fg = "#ffa726" }), -- rainbowcol7    xxx guifg=#ffa726
+		iCursor({ bg = "#222222", fg = "#000000" }), -- iCursor        xxx guifg=#000000 guibg=#222222
+		IndentGuidesOdd({ fg = "#494949" }), -- IndentGuidesOdd xxx guifg=#494949
+		IndentGuidesEven({ fg = "#3e3d32" }), -- IndentGuidesEven xxx guifg=#3e3d32
+		pythonTripleQuotes({ fg = "#404040", gui = "italic" }), -- pythonTripleQuotes xxx gui=italic guifg=#404040
+		qfLineNr({ fg = "#bcbcbc" }), -- qfLineNr       xxx guifg=#bcbcbc
+		pythonMethod({ fg = "#00ebdb", gui = "bold" }), -- pythonMethod   xxx gui=bold guifg=#00ebdb
+		ALEWarningSign({ fg = "#87ff00" }), -- ALEWarningSign xxx guifg=#87ff00
+		ALEErrorSign({ fg = "#f92672", gui = "bold" }), -- ALEErrorSign   xxx gui=bold guifg=#f92672
+		GitGutterAdd({ fg = "#00ccff" }), -- GitGutterAdd   xxx guifg=#00ccff
+		GitGutterAddLine({ fg = "#007dff" }), -- GitGutterAddLine xxx guifg=#007dff
+		GitGutterChange({ fg = "#f553bf" }), -- GitGutterChange xxx guifg=#f553bf
+		GitGutterDelete({ fg = "#ff2600" }), -- GitGutterDelete xxx guifg=#ff2600
+		GitGutterChangeDelete({ fg = "#ae81ff" }), -- GitGutterChangeDelete xxx guifg=#ae81ff
+		ActiveWindow({ bg = "#1c1c1c" }), -- ActiveWindow   xxx guibg=#1c1c1c
+		InactiveWindow({ bg = "#303030" }), -- InactiveWindow xxx guibg=#303030
+		NERDTreeExecFile({ fg = "#87ff00", gui = "bold" }), -- NERDTreeExecFile xxx gui=bold guifg=#87ff00
+		NERDTreeDirSlash({ fg = "#f02e6e", gui = "bold" }), -- NERDTreeDirSlash xxx gui=bold guifg=#f02e6e
+		NERDTreeCWD({ fg = "#f02e6e" }), -- NERDTreeCWD    xxx guifg=#f02e6e
+		pythonParam({ fg = "#87ff00", gui = "bold" }), -- pythonParam    xxx gui=bold guifg=#87ff00
+		GalaxyBufferIcon({ bg = "#303030", fg = "#ffff00" }), -- GalaxyBufferIcon xxx guifg=#ffff00 guibg=#303030
+		GalaxyGitIcon({ bg = "#303030", fg = "#f92672" }), -- GalaxyGitIcon  xxx guifg=#f92672 guibg=#303030
+		pythonDocstring({ fg = "#606060", gui = "italic" }), -- pythonDocstring xxx gui=italic guifg=#606060
+		pythonFString({ pythonDocstring }), -- pythonFString  xxx links to pythonDocstring
+		pythonfDocstring({ pythonDocstring }), -- pythonfDocstring xxx links to pythonDocstring
+		Warning({ fg = "#ffaf00" }), -- Warning        xxx guifg=#ffaf00
+		TSWarning({ fg = "#ffaf00" }), -- TSWarning      xxx guifg=#ffaf00
+		TSRepeat({ fg = "#e040fb", gui = "bold" }), -- TSRepeat       xxx gui=bold guifg=#e040fb
+		TSMethod({ fg = "#63ff5b", gui = "bold" }), -- TSMethod       xxx gui=bold guifg=#63ff5b
+		TSConstant({ fg = "#15aabf", gui = "bold" }), -- TSConstant     xxx gui=bold guifg=#15aabf
+		TSKeywordSelf({ fg = "#465457" }), -- TSKeywordSelf  xxx guifg=#465457
+		TSParameter({ fg = "#97f5d3" }), -- TSParameter    xxx guifg=#97f5d3
+		TSBoolean({ fg = "#2cc36e" }), -- TSBoolean      xxx guifg=#2cc36e
+		TSConstructor({ fg = "#03ceff", gui = "bold" }), -- TSConstructor  xxx gui=bold guifg=#03ceff
+		TSFloat({ fg = "#fd971f" }), -- TSFloat        xxx guifg=#fd971f
+		TSType({ fg = "#00ccff" }), -- TSType         xxx guifg=#00ccff
+		TSInclude({ fg = "#ae81ff" }), -- TSInclude      xxx guifg=#ae81ff
+		TSOperator({ fg = "#d3ff00" }), -- TSOperator     xxx guifg=#d3ff00
+		TSKeywordReturn({ fg = "#f92672", gui = "bold" }), -- TSKeywordReturn xxx gui=bold guifg=#f92672
+		TSPunctBracket({ fg = "#9e9e9e", gui = "bold" }), -- TSPunctBracket xxx gui=bold guifg=#9e9e9e
+		TSConditional({ fg = "#f20052", gui = "bold" }), -- TSConditional  xxx gui=bold guifg=#f20052
+		TSString({ fg = "#ffff00" }), -- TSString       xxx guifg=#ffff00
+		TSNote({ fg = "#ff4081", gui = "bold" }), -- TSNote         xxx gui=bold guifg=#ff4081
+		pythonConstant({ fg = "#ff9944", gui = "bold" }), -- pythonConstant xxx gui=bold guifg=#ff9944
+		pythonMagic({ fg = "#8e44ad" }), -- pythonMagic    xxx guifg=#8e44ad
+		pythonWordOperator({ fg = "#d3ff00" }), -- pythonWordOperator xxx guifg=#d3ff00
+		pythonExtraOperatori({ fg = "#87ff00", gui = "bold" }), -- pythonExtraOperatori xxx gui=bold guifg=#87ff00
+		pythonExtraPseudoOperator({ fg = "#87ff00", gui = "bold" }), -- pythonExtraPseudoOperator xxx gui=bold guifg=#87ff00
+		pythonParameters({ fg = "#656565", gui = "bold" }), -- pythonParameters xxx gui=bold guifg=#656565
+		pythonClassParameters({ fg = "#87ff00", gui = "bold,underline" }), -- pythonClassParameters xxx gui=bold,underline guifg=#87ff00
+		pythonArg({ fg = "#87ff00", gui = "bold" }), -- pythonArg      xxx gui=bold guifg=#87ff00
+		pythonLibraries({ fg = "#ff79ff" }), -- pythonLibraries xxx guifg=#ff79ff
+		pythonVars({ fg = "#fd971f" }), -- pythonVars     xxx guifg=#fd971f
+		pythonClassVars({ fg = "#f553bf", gui = "bold" }), -- pythonClassVars xxx gui=bold guifg=#f553bf
+		pythonNote({ fg = "#d3ff00", gui = "bold,italic" }), -- pythonNote     xxx gui=bold,italic guifg=#d3ff00
+		pythonArgs({ fg = "#007dff" }), -- pythonArgs     xxx guifg=#007dff
+		pythonKwargs({ fg = "#fd971f", gui = "bold,italic" }), -- pythonKwargs   xxx gui=bold,italic guifg=#fd971f
+		pythonReturns({ fg = "#ffffff", gui = "bold,italic" }), -- pythonReturns  xxx gui=bold,italic guifg=#ffffff
+		pythonBrackets({ fg = "#f92672", gui = "bold" }), -- pythonBrackets xxx gui=bold guifg=#f92672
+		pythonBracket({ fg = "#03ceff", gui = "bold" }), -- pythonBracket  xxx gui=bold guifg=#03ceff
+		TSField({ fg = "#ff03ce" }), -- TSField        xxx guifg=#ff03ce
+		TSKeyword({ fg = "#40c057", gui = "bold" }), -- TSKeyword      xxx gui=bold guifg=#40c057
+		TSKeywordFunction({ fg = "#ff79ff", gui = "bold" }), -- TSKeywordFunction xxx gui=bold guifg=#ff79ff
+		pythonTSField({ fg = "#40c4ff" }), -- pythonTSField  xxx guifg=#40c4ff
+		pythonTSConstructor({ fg = "#448aff" }), -- pythonTSConstructor xxx guifg=#448aff
+		pythonTSType({ fg = "#16db93" }), -- pythonTSType   xxx guifg=#16db93
+		pythonTSVariableBuiltin({ fg = "#8b949e" }), -- pythonTSVariableBuiltin xxx guifg=#8b949e
+		pythonTSBoolean({ fg = "#ff4081" }), -- pythonTSBoolean xxx guifg=#ff4081
+		rainbowcol8({ fg = "#ef5350" }), -- rainbowcol8    xxx guifg=#ef5350
+		markdownTSTitle({ bg = "#1c1c1c", fg = "#ff4081", gui = "bold" }), -- markdownTSTitle xxx gui=bold guifg=#ff4081 guibg=#1c1c1c
+		markdownTSLiteral({ bg = "#202020", fg = "#b2ff59" }), -- markdownTSLiteral xxx guifg=#b2ff59 guibg=#202020
+		BufferLineBackground({ bg = "#1d1d1d" }), -- BufferLineBackground xxx guibg=#1d1d1d
+		BufferLineCloseButton({ bg = "#1d1d1d" }), -- BufferLineCloseButton xxx guibg=#1d1d1d
+		BufferLineSeparator({ bg = "#1d1d1d" }), -- BufferLineSeparator xxx guibg=#1d1d1d
+		BufferLineFill({ bg = "#1d1d1d" }), -- BufferLineFill xxx guibg=#1d1d1d
+		BufferLineIndicatorSelected({ bg = "#1c1c1c", fg = "#66d9ef" }), -- BufferLineIndicatorSelected xxx guifg=#66d9ef guibg=#1c1c1c
+		IndentBlanklineContextChar({ fg = "#ffff00", gui = "nocombine" }), -- IndentBlanklineContextChar xxx cterm=nocombine gui=nocombine guifg=#ffff00
+		IndentBlanklineContextStart({ sp = "#ffff00", gui = "underline" }), -- IndentBlanklineContextStart xxx cterm=underline gui=underline guisp=#ffff00
+		IndentBlanklineChar({ fg = "#465457", gui = "nocombine" }), -- IndentBlanklineChar xxx cterm=nocombine ctermfg=12 gui=nocombine guifg=#465457
+		BufferLineDevIconSh({ bg = "#1d1d1d", fg = "#666666" }), -- BufferLineDevIconSh xxx guifg=#666666 guibg=#1d1d1d
+		BufferLineDevIconVim({ bg = "#1d1d1d" }), -- BufferLineDevIconVim xxx guibg=#1d1d1d
+		BufferLineDevIconVimInactive({ bg = "#1d1d1d", fg = "#248546" }), -- BufferLineDevIconVimInactive xxx guifg=#248546 guibg=#1d1d1d
+		BufferLineHintSelected({ bg = "#1c1c1c", fg = "#ffff00", gui = "bold,italic", sp = "#ffff00" }), -- BufferLineHintSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffff00 guibg=#1c1c1c guisp=#ffff00
+		BufferLineBuffer({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineBuffer xxx guifg=#404040 guibg=#1d1d1d
+		BufferLineInfoDiagnosticSelected({ bg = "#1c1c1c", fg = "#81a2ac", gui = "bold,italic", sp = "#81a2ac" }), -- BufferLineInfoDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#81a2ac guibg=#1c1c1c guisp=#81a2ac
+		BufferLineHintDiagnostic({ bg = "#1d1d1d", fg = "#303030", sp = "#bfbf00" }), -- BufferLineHintDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bfbf00
+		BufferLineCloseButtonSelected({ bg = "#1c1c1c", fg = "#ffffff" }), -- BufferLineCloseButtonSelected xxx guifg=#ffffff guibg=#1c1c1c
+		BufferLineError({ bg = "#1d1d1d", fg = "#404040", sp = "#ff0000" }), -- BufferLineError xxx guifg=#404040 guibg=#1d1d1d guisp=#ff0000
+		BufferLineHint({ bg = "#1d1d1d", fg = "#404040", sp = "#ffff00" }), -- BufferLineHint xxx guifg=#404040 guibg=#1d1d1d guisp=#ffff00
+		BufferLineOffsetSeparator({ bg = "#0f0f0f", fg = "#303030" }), -- BufferLineOffsetSeparator xxx guifg=#303030 guibg=#0f0f0f
+		BufferLinePickVisible({ bg = "#191919", fg = "#ff0000", gui = "bold,italic" }), -- BufferLinePickVisible xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#191919
+		BufferLinePickSelected({ bg = "#1c1c1c", fg = "#ff0000", gui = "bold,italic" }), -- BufferLinePickSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1c1c1c
+		BufferLineModified({ bg = "#1d1d1d", fg = "#ffff00" }), -- BufferLineModified xxx guifg=#ffff00 guibg=#1d1d1d
+		BufferLineTabSeparatorSelected({ bg = "#1c1c1c", fg = "#0f0f0f" }), -- BufferLineTabSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
+		BufferLineTabSeparator({ bg = "#1d1d1d", fg = "#0f0f0f" }), -- BufferLineTabSeparator xxx guifg=#0f0f0f guibg=#1d1d1d
+		BufferLineSeparatorVisible({ bg = "#191919", fg = "#0f0f0f" }), -- BufferLineSeparatorVisible xxx guifg=#0f0f0f guibg=#191919
+		BufferLineSeparatorSelected({ bg = "#1c1c1c", fg = "#0f0f0f" }), -- BufferLineSeparatorSelected xxx guifg=#0f0f0f guibg=#1c1c1c
+		BufferLineDuplicate({ bg = "#1d1d1d", fg = "#3c3c3c", gui = "italic" }), -- BufferLineDuplicate xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#1d1d1d
+		BufferLineDuplicateVisible({ bg = "#191919", fg = "#3c3c3c", gui = "italic" }), -- BufferLineDuplicateVisible xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#191919
+		BufferLineDuplicateSelected({ bg = "#1c1c1c", fg = "#3c3c3c", gui = "italic" }), -- BufferLineDuplicateSelected xxx cterm=italic gui=italic guifg=#3c3c3c guibg=#1c1c1c
+		BufferLineModifiedSelected({ bg = "#1c1c1c", fg = "#ffff00" }), -- BufferLineModifiedSelected xxx guifg=#ffff00 guibg=#1c1c1c
+		BufferLineModifiedVisible({ bg = "#191919", fg = "#ffff00" }), -- BufferLineModifiedVisible xxx guifg=#ffff00 guibg=#191919
+		BufferLineErrorDiagnosticSelected({ bg = "#1c1c1c", fg = "#bf0000", gui = "bold,italic", sp = "#bf0000" }), -- BufferLineErrorDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bf0000 guibg=#1c1c1c guisp=#bf0000
+		BufferLineErrorDiagnosticVisible({ bg = "#191919", fg = "#303030" }), -- BufferLineErrorDiagnosticVisible xxx guifg=#303030 guibg=#191919
+		BufferLineTab({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineTab  xxx guifg=#404040 guibg=#1d1d1d
+		BufferLineErrorSelected({ bg = "#1c1c1c", fg = "#ff0000", gui = "bold,italic", sp = "#ff0000" }), -- BufferLineErrorSelected xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1c1c1c guisp=#ff0000
+		BufferLineErrorVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineErrorVisible xxx guifg=#404040 guibg=#191919
+		BufferLineWarningDiagnosticSelected({ bg = "#1c1c1c", fg = "#bf7b00", gui = "bold,italic", sp = "#bf7b00" }), -- BufferLineWarningDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bf7b00 guibg=#1c1c1c guisp=#bf7b00
+		BufferLineWarningDiagnosticVisible({ bg = "#191919", fg = "#303030" }), -- BufferLineWarningDiagnosticVisible xxx guifg=#303030 guibg=#191919
+		BufferLineWarningDiagnostic({ bg = "#1d1d1d", fg = "#303030", sp = "#bf7b00" }), -- BufferLineWarningDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf7b00
+		BufferLineWarningSelected({ bg = "#1c1c1c", fg = "#ffa500", gui = "bold,italic", sp = "#ffa500" }), -- BufferLineWarningSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffa500 guibg=#1c1c1c guisp=#ffa500
+		BufferLineWarningVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineWarningVisible xxx guifg=#404040 guibg=#191919
+		BufferLineDiagnostic({ bg = "#1d1d1d", fg = "#303030" }), -- BufferLineDiagnostic xxx guifg=#303030 guibg=#1d1d1d
+		BufferLineInfoDiagnosticVisible({ bg = "#191919", fg = "#303030" }), -- BufferLineInfoDiagnosticVisible xxx guifg=#303030 guibg=#191919
+		BufferLineInfoDiagnostic({ bg = "#1d1d1d", fg = "#303030", sp = "#81a2ac" }), -- BufferLineInfoDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#81a2ac
+		BufferLineInfoSelected({ bg = "#1c1c1c", fg = "#add8e6", gui = "bold,italic", sp = "#add8e6" }), -- BufferLineInfoSelected xxx cterm=bold,italic gui=bold,italic guifg=#add8e6 guibg=#1c1c1c guisp=#add8e6
+		BufferLineInfoVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineInfoVisible xxx guifg=#404040 guibg=#191919
+		BufferLineHintDiagnosticSelected({ bg = "#1c1c1c", fg = "#bfbf00", gui = "bold,italic", sp = "#bfbf00" }), -- BufferLineHintDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bfbf00 guibg=#1c1c1c guisp=#bfbf00
+		BufferLineHintDiagnosticVisible({ bg = "#191919", fg = "#303030" }), -- BufferLineHintDiagnosticVisible xxx guifg=#303030 guibg=#191919
+		BufferLinePick({ bg = "#1d1d1d", fg = "#ff0000", gui = "bold,italic" }), -- BufferLinePick xxx cterm=bold,italic gui=bold,italic guifg=#ff0000 guibg=#1d1d1d
+		BufferLineInfo({ bg = "#1d1d1d", fg = "#404040", sp = "#add8e6" }), -- BufferLineInfo xxx guifg=#404040 guibg=#1d1d1d guisp=#add8e6
+		BufferLineHintVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineHintVisible xxx guifg=#404040 guibg=#191919
+		BufferLineDiagnosticSelected({ bg = "#1c1c1c", fg = "#bfbfbf", gui = "bold,italic" }), -- BufferLineDiagnosticSelected xxx cterm=bold,italic gui=bold,italic guifg=#bfbfbf guibg=#1c1c1c
+		BufferLineDiagnosticVisible({ bg = "#191919", fg = "#303030" }), -- BufferLineDiagnosticVisible xxx guifg=#303030 guibg=#191919
+		BufferLineNumbersVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineNumbersVisible xxx guifg=#404040 guibg=#191919
+		BufferLineNumbersSelected({ bg = "#1c1c1c", fg = "#ffffff", gui = "bold,italic" }), -- BufferLineNumbersSelected xxx cterm=bold,italic gui=bold,italic guifg=#ffffff guibg=#1c1c1c
+		BufferLineBufferVisible({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineBufferVisible xxx guifg=#404040 guibg=#1d1d1d
+		BufferLineCloseButtonVisible({ bg = "#191919", fg = "#404040" }), -- BufferLineCloseButtonVisible xxx guifg=#404040 guibg=#191919
+		BufferLineWarning({ bg = "#1d1d1d", fg = "#404040", sp = "#ffa500" }), -- BufferLineWarning xxx guifg=#404040 guibg=#1d1d1d guisp=#ffa500
+		BufferLineTabClose({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineTabClose xxx guifg=#404040 guibg=#1d1d1d
+		BufferLineTabSelected({ bg = "#1c1c1c", fg = "#66d9ef" }), -- BufferLineTabSelected xxx guifg=#66d9ef guibg=#1c1c1c
+		BufferLineGroupLabel({ bg = "#404040", fg = "#0f0f0f" }), -- BufferLineGroupLabel xxx guifg=#0f0f0f guibg=#404040
+		BufferLineGroupSeparator({ bg = "#0f0f0f", fg = "#404040" }), -- BufferLineGroupSeparator xxx guifg=#404040 guibg=#0f0f0f
+		BufferLineErrorDiagnostic({ bg = "#1d1d1d", fg = "#303030", sp = "#bf0000" }), -- BufferLineErrorDiagnostic xxx guifg=#303030 guibg=#1d1d1d guisp=#bf0000
+		BufferLineIndicatorVisible({ bg = "#191919", fg = "#191919" }), -- BufferLineIndicatorVisible xxx guifg=#191919 guibg=#191919
+		BufferLineNumbers({ bg = "#1d1d1d", fg = "#404040" }), -- BufferLineNumbers xxx guifg=#404040 guibg=#1d1d1d
+		Stl2c2e33_222222__({ fg = "#838383" }),
+	}
 end)
 return theme
